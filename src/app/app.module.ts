@@ -13,10 +13,7 @@ import { ModalDialogModule } from 'ngx-modal-dialog';
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing/app-routing.module';
 import {AuthModule} from './auth/auth.module';
-
-
-
-
+import {OrganizadorModule} from './organizador/organizador.module';
 
 
 @NgModule({
@@ -30,6 +27,7 @@ import {AuthModule} from './auth/auth.module';
         BrowserAnimationsModule,
         ModalDialogModule.forRoot(),
         AuthModule,
+        OrganizadorModule,
         FormsModule,
         ToastrModule.forRoot({
             timeOut: 10000,
@@ -40,6 +38,7 @@ import {AuthModule} from './auth/auth.module';
         NgxPermissionsModule.forRoot(),
         NgbModule
     ],
+
     bootstrap: [AppComponent],
     providers: [
         {
