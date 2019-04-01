@@ -5,7 +5,7 @@ import {HttpClient} from '@angular/common/http';
 import {Organizador} from './organizador';
 
 const API_URL = "../../assets/";
-const authors = '/authors.json';
+const organizadors = '/organizadors.json';
 
 /**
  * The service provider for everything related to organizadors

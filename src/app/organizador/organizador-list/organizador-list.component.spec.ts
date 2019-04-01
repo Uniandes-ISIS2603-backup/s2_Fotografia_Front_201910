@@ -7,7 +7,7 @@ import {AppModule} from '../../app.module';
 
 import {OrganizadorListComponent} from './organizador-list.component';
 import {Organizador} from '../organizador';
-import OrganizadorService} from '../organizador.service';
+import {OrganizadorService} from '../organizador.service';
 
 describe('OrganizadorComponent', () => {
     let component: OrganizadorListComponent;
@@ -38,7 +38,7 @@ describe('OrganizadorComponent', () => {
         expect(component.organizadors.length).toEqual(organizadors.length);
     });
 
-    it('an author should be an author (first and last)', () => {
+    it('an organizador should be an organizador (first and last)', () => {
         component.organizadors = organizadors;
         expect(component.organizadors[0].name).toEqual(organizadors[0].name);
         expect(component.organizadors[organizadors.length - 1].name).toEqual(organizadors[organizadors.length - 1].name);
