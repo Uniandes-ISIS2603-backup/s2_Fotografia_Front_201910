@@ -1,0 +1,63 @@
+[
+    {
+        "id": 1,
+    
+        "tema": "Blanco y Negro",
+    
+        "reglas": ["Monocromo", "amateur", "Sin vida"],
+    
+        "edadDeLaFoto": 14,
+        
+        "maxFotos": 3,
+        
+        "premioCantidad": 50000,
+        
+        "fecha": "2015-03-25 15:55:23"
+    },
+    {
+        "id": 2,
+    
+        "tema": "Monteria",
+    
+        "reglas": ["Blue", "Muerto", "Americanos"],
+    
+        "edadDeLaFoto": 33,
+        
+        "maxFotos": 1,
+        
+        "premioCantidad": 12000,
+        
+        "fecha": "2018-07-28 14:55:23"
+    },
+    {
+        "id": 3,
+    
+        "tema": "Vientos de la Costa",
+    
+        "reglas": ["Playas", "Sin Personas", "De dia"],
+    
+        "edadDeLaFoto": 121,
+        
+        "maxFotos": 2,
+        
+        "premioCantidad": 80000,
+        
+        "fecha": "2019-03-21 22:55:23"
+    },
+    {
+        "id": 4,
+    
+        "tema": "Frutas",
+    
+        "reglas": ["Solo frutas", "A luz blanca", "Resolucion minima de 1600 x 1900"],
+    
+        "edadDeLaFoto": 80,
+        
+        "maxFotos": 3,
+        
+        "premioCantidad": 0,
+        
+        "fecha": "2020-01-21 10:55:23"
+    }
+    
+]
