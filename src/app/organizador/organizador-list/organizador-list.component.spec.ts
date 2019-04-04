@@ -40,8 +40,8 @@ describe('OrganizadorComponent', () => {
 
     it('an organizador should be an organizador (first and last)', () => {
         component.organizadors = organizadors;
-        expect(component.organizadors[0].name).toEqual(organizadors[0].name);
-        expect(component.organizadors[organizadors.length - 1].name).toEqual(organizadors[organizadors.length - 1].name);
+        expect(component.organizadors[0].nombre).toEqual(organizadors[0].nombre);
+        expect(component.organizadors[organizadors.length - 1].nombre).toEqual(organizadors[organizadors.length - 1].nombre);
     });
 
 });

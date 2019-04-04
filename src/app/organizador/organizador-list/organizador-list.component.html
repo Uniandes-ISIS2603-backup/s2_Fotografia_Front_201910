@@ -1,16 +1,18 @@
 <div class="container-fluid">
-  <div class="col">
-      <table class="table table-striped">
-          <thead>
-              <tr>
-                  <th>Name</th>    
-              </tr>
-          </thead>
-          <tbody>
-              <tr *ngFor = "let organizador of organizadors">
-                  <td><span>{{organizador.name}}</span></td>
-              </tr>
-          </tbody>
-      </table>
-  </div>
+    <div class="col">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Name</th>    
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor = "let organizador of organizadors">
+                    <td style="cursor: pointer;"> 
+                        <dd  routerLink="/organizadors/{{organizador.id}}" >{{organizador.nombre}}</dd>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>

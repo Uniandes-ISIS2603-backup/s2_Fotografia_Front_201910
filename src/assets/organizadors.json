@@ -1,25 +1,33 @@
-[{"id":1,"name":"Constancia","lastname":"Hacquoil","phone":3071961},
-{"id":2,"name":"Mahmoud","lastname":"Esherwood","phone":3759338},
-{"id":3,"name":"Oby","lastname":"Torregiani","phone":3910936},
-{"id":4,"name":"Toddy","lastname":"Grigor","phone":3234358},
-{"id":5,"name":"Lyndell","lastname":"Fairest","phone":3608515},
-{"id":6,"name":"Bar","lastname":"Chainey","phone":3856534},
-{"id":7,"name":"Meryl","lastname":"Rope","phone":3748849},
-{"id":8,"name":"Leanor","lastname":"Daventry","phone":3492610},
-{"id":9,"name":"Clari","lastname":"Grelak","phone":3249775},
-{"id":10,"name":"Reba","lastname":"Ead","phone":3394027},
-{"id":11,"name":"Lesly","lastname":"Halfacree","phone":3077516},
-{"id":12,"name":"Cristian","lastname":"Radloff","phone":3230525},
-{"id":13,"name":"Tammara","lastname":"Clempton","phone":3382448},
-{"id":14,"name":"Claribel","lastname":"Formigli","phone":3809567},
-{"id":15,"name":"Joane","lastname":"Midden","phone":3169347},
-{"id":16,"name":"Gus","lastname":"Sheaber","phone":3700680},
-{"id":17,"name":"Lucius","lastname":"Bailiss","phone":3264497},
-{"id":18,"name":"Alidia","lastname":"Fishwick","phone":3422635},
-{"id":19,"name":"Ottilie","lastname":"Earengey","phone":3861975},
-{"id":20,"name":"Desi","lastname":"Shannon","phone":3679466},
-{"id":21,"name":"Pebrook","lastname":"Hollibone","phone":3578200},
-{"id":22,"name":"Allina","lastname":"Berkley","phone":3985082},
-{"id":23,"name":"Flinn","lastname":"Chettoe","phone":3054484},
-{"id":24,"name":"Shae","lastname":"Cahn","phone":3203801},
-{"id":25,"name":"Rasia","lastname":"Queyeiro","phone":3967085}]
+[
+    {
+        "type": "organizadorDetailDTO",
+        "correo": "j.martinez@gmail.com",
+        "edad": 20,
+        "id": 200,
+        "nombre": "Jose",
+        "pais": "Colombia",
+        "telefono": 31578965,
+        "concursos": [
+            {
+                "fechaDelConcurso": "2015-08-20",
+                "edadDeLaFoto": 36,
+                "id": 1,
+                "maxFotos": 3,
+                "organizador": {
+                    "correo": "j.martinez@gmail.com",
+                    "edad": 20,
+                    "id": 200,
+                    "nombre": "Jose",
+                    "pais": "Colombia",
+                    "telefono": 31578965
+                },
+                "premioCantidad": 10000,
+                "ronda": {
+                    "id": 300,
+                    "numRonda": 1
+                },
+                "tema": "Blanco y negro"
+            }
+        ]
+    }
+]

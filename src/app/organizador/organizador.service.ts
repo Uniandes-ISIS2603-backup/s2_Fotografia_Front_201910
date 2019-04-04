@@ -3,9 +3,15 @@ import {Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 
 import {Organizador} from './organizador';
+import {OrganizadorDetail} from './organizador-detail';
 
-const API_URL = "../../assets/";
-const organizadors = '/organizadors.json';
+//const API_URL = "../../assets/";
+//const organizadors = '/organizadors.json';
+
+
+const API_URL = 'http://localhost:8080/s2_fotografia-api/api';
+const organizadors = '/organizadors';
+
 
 /**
  * The service provider for everything related to organizadors
@@ -26,4 +32,13 @@ export class OrganizadorService {
     getOrganizadors(): Observable<Organizador[]> {
         return this.http.get<Organizador[]>(API_URL + organizadors);
     }
+
+    /**
+    * Returns the Observable object with the details of an Organizador retrieved from the API
+    * @returns The Organizador details
+    */
+   getOrganizadorDetail(organizadorId): Observable<OrganizadorDetail> {
+    return this.http.get<OrganizadorDetail>(API_URL + organizadors + '/' + organizadorId);
+} 
+    
 }

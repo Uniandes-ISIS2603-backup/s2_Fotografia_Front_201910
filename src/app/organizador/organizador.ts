@@ -2,7 +2,7 @@
  * This class represents an Organizador of the ConcursoFotografia. 
  * It contains all the information relevant to the Organizador.
  */
-export interface Organizador {
+export class Organizador {
     /**
     * The organizador's id
     */
@@ -11,15 +11,15 @@ export interface Organizador {
     /**
      * The organizador's name
      */
-    name: string;
+    nombre: string;
 
     /**
      * The organizador's lastname
      */
-    lastname: string;
+    apellido: string;
 
     /**
      * The organizador's phone
      */
-    phone: number;
+    telefono: number;
 }
