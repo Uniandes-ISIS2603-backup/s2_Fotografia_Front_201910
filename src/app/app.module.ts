@@ -13,6 +13,8 @@ import { ModalDialogModule } from 'ngx-modal-dialog';
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing/app-routing.module';
 import {AuthModule} from './auth/auth.module';
+import {CalificacionModule} from './calificacion/calificacion.module';
+import {JuradoModule} from './jurado/jurado.module';
 import {OrganizadorModule} from './organizador/organizador.module';
 
 
@@ -27,6 +29,8 @@ import {OrganizadorModule} from './organizador/organizador.module';
         BrowserAnimationsModule,
         ModalDialogModule.forRoot(),
         AuthModule,
+        CalificacionModule,
+        JuradoModule,
         OrganizadorModule,
         FormsModule,
         ToastrModule.forRoot({

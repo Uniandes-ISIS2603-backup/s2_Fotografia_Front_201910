@@ -1,0 +1,51 @@
+
+<div class="pin-layout">
+    <div class="thumbnail">
+        <br>
+        <div class="row justify-content-center align-self-center" >
+            <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+                (click)="showHideCreate()">Crear Calificación</button>
+        </div>
+        <br>
+        <div style= "justify-content: flex-start;" class="col-md-8">
+            <div *ngIf="showCreate">
+                <app-calificacion-create (cancel)="showHideCreate()" (create)="ngOnInit()" *ngIf="showCreate"></app-calificacion-create>
+            </div>
+        </div>
+        <br>
+      <style>
+        table, th, td{
+          width:100%; 
+          border: 1px solid black;
+          border-collapse: collapse;
+          align-self: center;
+        }
+        th, td {
+          padding: 15px;
+          background-color:rgb(247, 247, 247);
+        }
+      </style>
+      <table >
+          <thead>
+              <tr>
+                  <th style="background-color:rgba(164, 210, 255, 0.877); text-align: center" class="caption">Foto</th>    
+              </tr>
+          </thead>
+        <tbody>
+          <tr *ngFor = "let calificacion of calificaciones">
+              <td style="cursor: pointer;"> 
+                  <dd style="text-align: center;" routerLink="/calificaciones/{{calificacion.id}}" >{{calificacion.nombre}}</dd>
+                </td> 
+                <td>
+                    <button class="btn btn-primary" (click)="showHideEdit(calificacion.id)"><span class="fa fa-pencil"></span></button>
+                </td>  
+          </tr>
+      </tbody>
+      </table>
+      <div class="col-md-8">
+          <div *ngIf="showEdit">
+              <app-calificacion-edit [calificacion_id]="calificacion_edit_id" (cancel)="showHideEdit(calificacion_edit_id)" (update)="updateCalificacion()"></app-calificacion-edit>
+          </div>
+      </div>
+    </div>
+</div>
