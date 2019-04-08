@@ -17,6 +17,7 @@ import { PhotoListComponent } from './photo-list/photo-list.component';
     FormsModule
   ],
   declarations: [PhotoListComponent],
-  providers: [PhotoService]
+  providers: [PhotoService],
+  bootstrap: [PhotoListComponent]
 })
 export class PhotoModule { }
