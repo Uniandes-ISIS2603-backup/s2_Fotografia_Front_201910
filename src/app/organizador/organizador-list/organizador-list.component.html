@@ -1,18 +1,36 @@
 <div class="container-fluid">
-    <div class="col">
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>Name</th>    
+    <div class="row">
+        <div class="col-4">
+            <br>
+            <div class="row justify-content-center align-self-center">
+                <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+                    (click)="showHideCreate()">Create an organizador</button>
+            </div>
+            <br>
+            <br>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th class="h4">Organizador´s Name</th>    
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor = "let organizador of organizadors"
+                        (click)="onSelected(organizador.id)">
+                        <td style="cursor: pointer;"> 
+                <dd>{{organizador.name}}</dd>
+                </td>
                 </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor = "let organizador of organizadors">
-                    <td style="cursor: pointer;"> 
-                        <dd  routerLink="/organizadors/{{organizador.id}}" >{{organizador.nombre}}</dd>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-8">
+            <div *ngIf="selectedOrganizador">
+                <app-organizador-detail [organizadorDetail]="selectedOrganizador"></app-organizador-detail>
+            </div>
+            <div *ngIf="showCreate">
+                <app-organizador-create (cancel)="showHideCreate()" (create)="ngOnInit()"></app-organizador-create>
+            </div>
+        </div>   
     </div>
 </div>

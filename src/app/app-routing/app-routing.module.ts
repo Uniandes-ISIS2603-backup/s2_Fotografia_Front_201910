@@ -5,6 +5,7 @@ import {NgxPermissionsGuard} from 'ngx-permissions';
 
 import {OrganizadorListComponent} from '../organizador/organizador-list/organizador-list.component';
 import {OrganizadorDetailComponent} from '../organizador/organizador-detail/organizador-detail.component';
+import {OrganizadorCreateComponent} from '../organizador/organizador-create/organizador-create.component';
 import { AuthLoginComponent } from '../auth/auth-login/auth-login.component';
 import { AuthSignUpComponent } from '../auth/auth-sign-up/auth-sign-up.component';
 

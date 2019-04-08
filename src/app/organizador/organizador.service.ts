@@ -40,5 +40,14 @@ export class OrganizadorService {
    getOrganizadorDetail(organizadorId): Observable<OrganizadorDetail> {
     return this.http.get<OrganizadorDetail>(API_URL + organizadors + '/' + organizadorId);
 } 
+    /**
+    * Creates an organizador
+    * @param organizador The new organizador
+    * @returns The confirmation that the organizador was created
+    */
+    createOrganizador(organizador): Observable<Organizador> {
+        return this.http.post<Organizador>(API_URL + organizadors, organizador);
+    }
     
 }
+
