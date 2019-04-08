@@ -1,3 +1,17 @@
-<p>
-  photo-list works!
-</p>
+<div class="container-fluid">
+    <div class="col">
+        <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Photo Name</th>    
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor = "let photo of photos">
+                    <td>{{photo.name}}</td>
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
