@@ -16,6 +16,8 @@ import {AuthModule} from './auth/auth.module';
 import {CalificacionModule} from './calificacion/calificacion.module';
 import {JuradoModule} from './jurado/jurado.module';
 import {OrganizadorModule} from './organizador/organizador.module';
+import {PhotoModule} from './photo/photo.module';
+
 
 
 @NgModule({
@@ -32,6 +34,7 @@ import {OrganizadorModule} from './organizador/organizador.module';
         CalificacionModule,
         JuradoModule,
         OrganizadorModule,
+        PhotoModule,
         FormsModule,
         ToastrModule.forRoot({
             timeOut: 10000,
