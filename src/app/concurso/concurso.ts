@@ -2,6 +2,7 @@
  * Clase  del concurso
  */
 export class Concurso {
+    
         id: number;
         
         tema: string;
@@ -14,6 +15,6 @@ export class Concurso {
         
         premioCantidad: number;
         
-        fechaDelConcurso: Date;
+        fechaDelConcurso: any;
             
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Concurso} from '../concurso';
+import { Router } from '@angular/router';
 import {ConcursoService} from '../concurso.service'
 
 @Component({
@@ -9,7 +10,7 @@ import {ConcursoService} from '../concurso.service'
 })
 export class ConcursoListComponent implements OnInit {
 
-  constructor(private concursoService: ConcursoService) { }
+  constructor(private concursoService: ConcursoService, private router: Router) { }
 
   concursos: Concurso[];
   

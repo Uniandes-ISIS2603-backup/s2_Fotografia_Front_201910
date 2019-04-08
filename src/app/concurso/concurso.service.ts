@@ -6,7 +6,7 @@ import { ConcursoDetail}  from './concurso-detail';
 
 import { Observable } from 'rxjs';
 
-const API_URL = "http://localhost:8000/frontstepbystep-api/api";
+const API_URL = "http://localhost:8080/s2_fotografia-api/api";
 const concursos = "/concursos";
 
 @Injectable({
@@ -22,5 +22,9 @@ export class ConcursoService {
     
   getConcursoDetail(concursoId): Observable<ConcursoDetail> {
       return this.http.get<ConcursoDetail>(API_URL + concursos + '/' + concursoId);
+  }
+  
+  createConcurso(concurso): Observable<Concurso>{
+      return this.http.post<Concurso>(API_URL + concursos, concurso);
   }
 }

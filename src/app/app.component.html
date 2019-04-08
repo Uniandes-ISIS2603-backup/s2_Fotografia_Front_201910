@@ -1,6 +1,14 @@
-<ul class="nav nav-tabs">
-    <li class="nav-item">
-        <a id="concursosTag" class="nav-link" routerLink="/concursos/list">Concursos</a>
-    </li>
+<ul class="nav">
+	<li class="nav-item">
+        <a class="nav-link active" 
+       routerLink="concursos/list" 
+       routerLinkActive="active">Concursos</a>
+	</li>
 </ul>
-<router-outlet></router-outlet>
+<div class="container-fluid">
+	<div class=" m-5 row">
+		<div class="col">
+			<router-outlet></router-outlet>
+		</div>	
+	</div>
+</div>

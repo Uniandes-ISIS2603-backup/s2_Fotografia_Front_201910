@@ -1,0 +1,9 @@
+.procedure-details {
+  max-height: 100px;
+  transition: .8s;
+  overflow: hidden;
+}
+
+.procedure-details.hidden {
+    max-height: 0;
+}

@@ -8,8 +8,12 @@
             </thead>
             <tbody>
                 <tr *ngFor = "let concurso of concursos">
-                    <td>{{concurso.tema}}</td>  
+                    <td> <dd class="figure-caption" routerLink="/concursos/{{concurso.id}}"  > {{concurso.tema}}</dd> </td>  
+                </tr>
+                <tr>
+                    <td><app-concurso-create></app-concurso-create></td>
                 </tr>
             </tbody>
         </table>
     </div>
+</div>

@@ -24,8 +24,8 @@ import {ConcursoModule} from './concurso/concurso.module';
         AppComponent
     ],
     imports: [
-        BrowserModule,
         AppRoutingModule,
+        BrowserModule,
         HttpClientModule,
         ConcursoModule,
         BrowserAnimationsModule,
