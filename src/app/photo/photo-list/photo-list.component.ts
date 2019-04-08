@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {Photo} from '../photo';
+import  {PhotoService} from '../photo.service';
+
 
 @Component({
   selector: 'app-photo-list',
@@ -7,9 +10,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PhotoListComponent implements OnInit {
 
-  constructor() { }
+    /**
+     * Constructor for the component
+     * @param photoService The photo's services provider
+     */
+    constructor(private photoService: PhotoService) {}
 
-  ngOnInit() {
-  }
+    /**
+     * The list of photos
+     */
+    photos: Photo[];
 
+    /**
+     * Asks the service to update the list of editorials
+     */
+    getPhotos(): void {
+        this.photoService.getPhotos()
+            .subscribe(photos => this.photos = photos);
+    }
+
+    /**
+     * This will initialize the component by retrieving the list of editorials from the service
+     * This method will be called when the component is created
+     */
+    ngOnInit() {
+        this.getPhotos();
+    }
 }
