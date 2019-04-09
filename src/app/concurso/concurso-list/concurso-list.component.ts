@@ -15,14 +15,20 @@ export class ConcursoListComponent implements OnInit {
   concursos: Concurso[];
   
   showCreate: boolean;
+  showEdit: boolean;
   
   getConcursos(): void{
       this.concursoService.getConcursos().subscribe(concursos => this.concursos = concursos);
   }
+  
+  showHideCreate(): void {
+    this.showEdit = false;
+    this.showCreate = !this.showCreate
+  }
 
   ngOnInit() {
       this.getConcursos();
-      this.showCreate=true;
+      this.showCreate=false;
   }
 
 }

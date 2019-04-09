@@ -9,9 +9,20 @@
             <tbody>
                 <tr *ngFor = "let concurso of concursos">
                     <td> <dd class="figure-caption" routerLink="/concursos/{{concurso.id}}"  > {{concurso.tema}}</dd> </td>  
-                </tr>
+            </tr>
             </tbody>
-                <app-concurso-create></app-concurso-create>
+            <br>
+            <div class="row justify-content-center align-self-center">
+                <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+                    (click)="showHideCreate()">Crear concurso</button>
+            </div>
+            <br>
+            <div class="col-md-8">
+                <div *ngIf="showCreate">
+                    <app-concurso-create (cancel)="showHideCreate()" (create)="ngOnInit()" *ngIf="showCreate"></app-concurso-create>
+                </div>
+            </div>
+            <br>
         </table>
     </div>
 </div>
