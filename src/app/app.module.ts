@@ -18,7 +18,8 @@ import {JuradoModule} from './jurado/jurado.module';
 import {OrganizadorModule} from './organizador/organizador.module';
 import {RondaModule} from './ronda/ronda.module';
 import { Ronda } from './ronda/ronda';
-
+import {PhotoModule} from './photo/photo.module';
+import {ConcursoModule} from './concurso/concurso.module';
 
 @NgModule({
     declarations: [
@@ -26,9 +27,10 @@ import { Ronda } from './ronda/ronda';
         
     ],
     imports: [
-        BrowserModule,
         AppRoutingModule,
+        BrowserModule,
         HttpClientModule,
+        ConcursoModule,
         BrowserAnimationsModule,
         ModalDialogModule.forRoot(),
         AuthModule,
@@ -36,6 +38,7 @@ import { Ronda } from './ronda/ronda';
         JuradoModule,
         OrganizadorModule,
         RondaModule,
+        PhotoModule,
         FormsModule,
         ToastrModule.forRoot({
             timeOut: 10000,

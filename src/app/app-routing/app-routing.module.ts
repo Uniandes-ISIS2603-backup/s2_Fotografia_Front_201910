@@ -13,6 +13,9 @@ import {RondaListComponent} from '../ronda/ronda-list/ronda-list.component';
 import {RondaDetailComponent} from '../ronda/ronda-detail/ronda-detail.component';
 import { AuthLoginComponent } from '../auth/auth-login/auth-login.component';
 import { AuthSignUpComponent } from '../auth/auth-sign-up/auth-sign-up.component';
+import {PhotoListComponent} from '../photo/photo-list/photo-list.component';
+import { ConcursoListComponent } from '../concurso/concurso-list/concurso-list.component';
+import { ConcursoDetailComponent } from '../concurso/concurso-detail/concurso-detail.component';
 
 const routes: Routes = [
     {
@@ -25,6 +28,15 @@ const routes: Routes = [
             {
                 path: ':id',
                 component: CalificacionDetailComponent
+            }
+        ]
+    },
+    {
+        path: 'photos',
+        children:[
+            {
+                path: 'list',
+                component: PhotoListComponent
             }
         ]
     },
@@ -90,6 +102,19 @@ const routes: Routes = [
                         only: ['GUEST']
                     }
                 }
+            }
+        ]
+    },
+    {
+        path: 'concursos',
+        children:[
+            {
+                path:'list',
+                component: ConcursoListComponent
+            },
+            {
+                path:':id',
+                component: ConcursoDetailComponent
             }
         ]
     },
