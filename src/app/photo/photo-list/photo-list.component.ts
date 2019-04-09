@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import 'rxjs/add/operator/filter';
 import {Photo} from '../photo';
 import  {PhotoService} from '../photo.service';
 
@@ -11,29 +13,42 @@ import  {PhotoService} from '../photo.service';
 export class PhotoListComponent implements OnInit {
 
     /**
-     * Constructor for the component
-     * @param photoService The photo's services provider
-     */
-    constructor(private photoService: PhotoService) {}
+    * The list of photos to display
+    */
+   @Input() photos: Photo[];
 
-    /**
-     * The list of photos
-     */
-    photos: Photo[];
+   /**
+   * The component's constructor
+   */
+   constructor(private photoService: PhotoService,  private route: ActivatedRoute) {  }
+   
+   allphotos:string = 'no';
+   /**
+   * This method retrieves all the books in the Bookstore to show them in the list
+   */
+   getPhotos(): void {
+       this.photoService.getPhotos()
+           .subscribe(photos => {
+               this.photos = photos;
+           });
+   }
 
-    /**
-     * Asks the service to update the list of editorials
-     */
-    getPhotos(): void {
-        this.photoService.getPhotos()
-            .subscribe(photos => this.photos = photos);
-    }
+   /**
+   * The method which initializes the component
+   */
+   ngOnInit() {
+    this.route.queryParams
+     .filter(params => params.allphotos)
+     .subscribe(params => {
+       console.log(params); 
 
-    /**
-     * This will initialize the component by retrieving the list of editorials from the service
-     * This method will be called when the component is created
-     */
-    ngOnInit() {
-        this.getPhotos();
-    }
+       this.allphotos = params.allphotos;
+       console.log(this.allphotos); 
+     });
+     if (this.allphotos == 'yes'){
+         console.log("allphotos");
+     
+      this.getPhotos();
+      }
+   }
 }
