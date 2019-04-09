@@ -1,54 +1,97 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import 'rxjs/add/operator/filter';
-import {Photo} from '../photo';
-import  {PhotoService} from '../photo.service';
+import { Component, OnInit, ViewContainerRef } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
+import {ModalDialogService, SimpleModalComponent} from 'ngx-modal-dialog';
 
+import { PhotoService } from '../photo.service';
+import { Photo } from '../photo';
+import { PhotoDetail } from '../photo-detail';
 
 @Component({
-  selector: 'app-photo-list',
+  selector: 'app-photo',
   templateUrl: './photo-list.component.html',
   styleUrls: ['./photo-list.component.css']
 })
 export class PhotoListComponent implements OnInit {
 
-    /**
-    * The list of photos to display
+   /**
+    * Constructor for the component
+    * @param photoService The jurado's services provider
     */
-   @Input() photos: Photo[];
+   constructor(
+    private photoService: PhotoService,
+) { }
+
+/**
+* The list of Jurados which belong to the BookStore
+*/
+photos: Photo[];
+photo_edit_id: number;
+selectedPhoto : Photo;
+
+/**
+    * Shows or hides the create component
+    */
+   showCreate: boolean;
 
    /**
-   * The component's constructor
-   */
-   constructor(private photoService: PhotoService,  private route: ActivatedRoute) {  }
-   
-   allphotos:string = 'yes';
-   /**
-   * This method retrieves all the books in the Bookstore to show them in the list
-   */
-   getPhotos(): void {
-       this.photoService.getPhotos()
-           .subscribe(photos => {
-               this.photos = photos;
-           });
-   }
+    * Shows or hides the edit component.
+    */
+   showEdit: boolean;
 
-   /**
-   * The method which initializes the component
-   */
-   ngOnInit() {
-    this.route.queryParams
-     .filter(params => params.allphotos)
-     .subscribe(params => {
-       console.log(params); 
+onSelected(photo_id: number):void {
+    this.photo_edit_id = photo_id;
+    this.selectedPhoto = new PhotoDetail();
+    this.getPhotoDetail();   
+}
+/**
+* Asks the service to update the list of Jurados
+*/
+getPhotos(): void {
+    this.photoService.getPhotos()
+        .subscribe(photo => {
+            this.photos = photo;
+        });
+}
 
-       this.allphotos = params.allphotos;
-       console.log(this.allphotos); 
-     });
-     if (this.allphotos == 'yes'){
-         console.log("allphotos");
-     
-      this.getPhotos();
-      }
-   }
+getPhotoDetail(): void {
+    this.photoService.getPhotoDetail(this.photo_edit_id)
+        .subscribe(selectedPhoto => {
+            this.selectedPhoto = selectedPhoto
+        });
+}
+
+/**
+    * Shows or hides the create component
+    */
+   showHideCreate(): void {
+    this.showEdit = false;
+    this.showCreate = !this.showCreate!
+}
+
+/**
+* Shows or hides the create component
+*/
+showHideEdit(photo_id: number): void {
+    if (!this.showEdit || (this.showEdit && photo_id != this.photo_edit_id)) {
+        this.showCreate = false;
+        this.showEdit = true;
+        this.photo_edit_id = photo_id;
+    }
+    else {
+        this.showEdit = false;
+    }
+}
+
+updatePhoto(): void {
+    this.showEdit = false;
+}
+
+/**
+* This will initialize the component by retrieving the list of Jurados from the service
+* This method will be called when the component is created
+*/
+ngOnInit() {
+    this.getPhotos();
+}
+
 }
