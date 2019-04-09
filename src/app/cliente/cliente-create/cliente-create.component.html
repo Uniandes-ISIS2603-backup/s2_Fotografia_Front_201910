@@ -1,0 +1,60 @@
+<div class="row">
+  <div class="col-3"></div>
+  <div class="col-6">
+      <br>
+      <h2 class="text-center">Registrarme</h2>
+      <br>
+      <form name="cliente" (ngSubmit)="f.form.valid && createCliente()" #f="ngForm" novalidate>
+        <div class="form-group">
+          <label for="loginCliente">Login</label>
+          <input type="text" name="loginCliente" class="form-control" id="loginCliente"  placeholder="Nombre de usuario" [(ngModel)]="cliente.login"
+                  #loginCliente="ngModel" [ngClass]="{ 'is-invalid': f.submitted && loginCliente.invalid }" required>
+                   <div class="invalid-feedback">
+                  <div>No se ingreso login</div>
+                  </div>
+  
+        </div>
+        <div class="form-group">
+          <label for="correoCliente">Correo Electrónico</label>
+          <input type="email" name="correoCliente" class="form-control" id="correoCliente" placeholder="Correo" [(ngModel)]="cliente.correo"
+                  #correoCliente="ngModel" [ngClass]="{ 'is-invalid': f.submitted && correoCliente.invalid }" required>
+                   <div class="invalid-feedback">
+                  <div>No se ingreso correo electrónico</div>
+                  </div>
+  
+        </div>
+        <div class="form-group">
+          <label for="contrasenaCliente">Contraseña</label>
+           <input type="password" name ="contrasenaCliente" class="form-control" id="contrasenaCliente" placeholder="Contraseña"[(ngModel)]="cliente.contrasena"
+                  #contrasenaCliente="ngModel" [ngClass]="{ 'is-invalid': f.submitted && contrasenaCliente.invalid }" required >
+                  <div class="invalid-feedback">
+                   <div>No se ingreso el la contraseña</div>
+                </div>
+         <small id="passwordHelp" class="form-text text-muted">La contraseña debe tener minimo 8 caracteres con al menos un numero</small>
+        </div>
+        <div class="form-group">
+              <label for="clienteNombre">Nombre</label>
+              <input type="text" name="clienteNombre" class="form-control" id="clienteNombre" [(ngModel)]="cliente.nombre"
+                  #clienteNombre="ngModel" [ngClass]="{ 'is-invalid': f.submitted && clienteNombre.invalid }" required>
+              <div class="invalid-feedback">
+                  <div>No se ingreso el nombre</div>
+              </div>
+        </div>
+        <div class="form-group">
+              <label for="authorImage">Imagen</label>
+              <input type="text" name="clienteImage" class="form-control" id="clienteImage" [(ngModel)]="cliente.image"
+                  #clienteImage="ngModel" [ngClass]="{ 'is-invalid': f.submitted && clienteImage.invalid }" required>
+              <div class="invalid-feedback">
+                  <div>No se ingreso la ruta de la imagen</div>
+              </div>
+              <small id="passwordHelp" class="form-text text-muted">Ruta de la imagen que desea</small>
+          </div>
+          <div class="row form-inline justify-content-center align-self-center">
+              <button type="submit" class="btn btn-success">Create</button>
+              <div class="divider col-1"> </div>
+              <button type="button" class="btn btn-danger" (click)="cancelCreation()">Cancel</button>
+          </div>
+      </form>
+  </div>
+  <div class="col-3"></div>
+</div>
