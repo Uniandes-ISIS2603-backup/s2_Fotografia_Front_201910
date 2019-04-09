@@ -39,7 +39,8 @@ export class PhotoService {
       * @returns The confirmation of the photo's creation
       */
     createPhoto(photo): Observable<Photo> {
-        return this.http.post<Photo>(API_URL + photo, photo);
+        console.log(photo);        
+        return this.http.post<Photo>(API_URL + photos, photo);
     }
     
 }

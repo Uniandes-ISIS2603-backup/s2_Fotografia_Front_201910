@@ -1,3 +1,59 @@
-<p>
-  photo-create works!
-</p>
+<div class="row">
+  <div class="col-3"></div>
+  <div class="col-6">
+    <br>
+    <h2 class="text-center">Crear Foto</h2>
+    <br>
+    <form name="photo" (ngSubmit)="f.form.valid && createPhoto()" #f="ngForm" novalidate>
+      <div class="form-group">
+        <label for="photoNombre"><b>Nombre de la foto</b></label>
+        <input type="text" name="photoNombre" class="form-control" id="photoNombre" [(ngModel)]="photo.nombre" #photoNombre="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && photoNombre.invalid }" required>
+        <div class="invalid-feedback">
+          <div>El nombre de la foto falta</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="photoRutaFoto"><b>Ruta de la foto</b></label>
+        <input type="text" name="photoRutaFoto" class="form-control" id="photoRutaFoto" [(ngModel)]="photo.rutaFoto" #photoRutaFoto="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && photoRutaFoto.invalid }" required>
+        <div class="invalid-feedback">
+          <div>La ruta de la foto falta</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="photoDate"><b>Date</b></label>
+        <div [ngClass]="{ 'is-invalid': f.submitted && photoDate.invalid }">
+          <input class="form-control" id="photoDate" name="photoDate" [(ngModel)]="photo.date" ngbDatepicker #d="ngbDatepicker" (click)="d.toggle()"
+            #photoDate="ngModel" [ngClass]="{'is-invalid': f.submitted && ( photoDate.invalid) }" required>
+          <div class="invalid-feedback">
+            <div>The date is missing</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="photoDescription"><b>Descripción de la foto</b></label>
+        <input type="text" name="photoDescription" class="form-control" id="photoDescription" [(ngModel)]="photo.description" #photoDescription="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && photoDescription.invalid }" required>
+        <div class="invalid-feedback">
+          <div>La Descripción de la foto falta</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="photoPrice"><b>Precio de la foto</b></label>
+        <input type="text" name="photoPrice" class="form-control" id="photoPrice" [(ngModel)]="photo.price" #photoPrice="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && photoPrice.invalid }" required>
+        <div class="invalid-feedback">
+          <div>El Precio de la foto falta</div>
+        </div>
+      </div>
+      <div class="row form-inline justify-content-center align-self-center">
+        <button type="submit" class="btn btn-primary">Create</button>
+        <div class="divider"></div>
+        <button type="button" class="btn btn-danger" (click)="cancelCreation()">Cancel</button>
+      </div>
+    </form>
+  </div>
+  <div class="col-3"></div>
+</div>

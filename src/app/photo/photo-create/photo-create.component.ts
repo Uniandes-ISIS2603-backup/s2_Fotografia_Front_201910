@@ -1,8 +1,8 @@
-import {Component, OnInit, Output, EventEmitter} from '@angular/core';
-import {DatePipe} from '@angular/common';
-import {ToastrService} from 'ngx-toastr';
-import {PhotoService} from '../photo.service';
-import {Photo} from '../photo';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { DatePipe } from '@angular/common';
+import { ToastrService } from 'ngx-toastr';
+import { PhotoService } from '../photo.service';
+import { Photo } from '../photo';
 
 @Component({
     selector: 'app-photo-create',
@@ -22,7 +22,7 @@ export class PhotoCreateComponent implements OnInit {
         private dp: DatePipe,
         private photoService: PhotoService,
         private toastrService: ToastrService
-    ) {}
+    ) { }
 
     /**
     * The new photo
@@ -42,16 +42,17 @@ export class PhotoCreateComponent implements OnInit {
     @Output() create = new EventEmitter();
 
     /**
-    * Creates an calificacion
+    * Creates a Photo
     */
     createPhoto(): Photo {
+        let dateB: Date = new Date(this.photo.date.year, this.photo.date.month, this.photo.date.day);
+        this.photo.date = this.dp.transform(dateB, 'yyyy-MM-dd');
 
         this.photoService.createPhoto(this.photo)
             .subscribe((photo) => {
                 this.photo = photo;
                 this.create.emit();
-                this.toastrService.success("The photo was created", "photo creation");
-
+                this.toastrService.success("The photo was created", "Photo creation");
             });
         return this.photo;
     }
