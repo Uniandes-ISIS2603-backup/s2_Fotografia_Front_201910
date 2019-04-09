@@ -12,6 +12,7 @@ import { AppRoutingModule } from '../app-routing/app-routing.module';
 import { PhotoListComponent } from './photo-list/photo-list.component';
 import { PhotoDetailComponent } from './photo-detail/photo-detail.component';
 import { PhotoCreateComponent } from './photo-create/photo-create.component';
+import { PhotoEditComponent } from './photo-edit/photo-edit.component';
 
 @NgModule({
   imports: [
@@ -23,7 +24,7 @@ import { PhotoCreateComponent } from './photo-create/photo-create.component';
     CommonModule,
     FormsModule
   ],
-  declarations: [PhotoListComponent, PhotoDetailComponent, PhotoCreateComponent],
+  declarations: [PhotoListComponent, PhotoDetailComponent, PhotoCreateComponent, PhotoEditComponent],
   providers: [PhotoService],
   bootstrap: [PhotoListComponent]
 })
