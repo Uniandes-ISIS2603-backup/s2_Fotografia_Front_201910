@@ -13,9 +13,15 @@ import {RondaListComponent} from '../ronda/ronda-list/ronda-list.component';
 import {RondaDetailComponent} from '../ronda/ronda-detail/ronda-detail.component';
 import { AuthLoginComponent } from '../auth/auth-login/auth-login.component';
 import { AuthSignUpComponent } from '../auth/auth-sign-up/auth-sign-up.component';
+
+import {ClienteListComponent} from '../cliente/cliente-list/cliente-list.component';
+import {ClienteDetailComponent} from '../cliente/cliente-detail/cliente-detail.component';
+import {ClienteCreateComponent} from '../cliente/cliente-create/cliente-create.component';
+
 import {PhotoListComponent} from '../photo/photo-list/photo-list.component';
 import { ConcursoListComponent } from '../concurso/concurso-list/concurso-list.component';
 import { ConcursoDetailComponent } from '../concurso/concurso-detail/concurso-detail.component';
+
 
 const routes: Routes = [
     {
@@ -106,6 +112,24 @@ const routes: Routes = [
         ]
     },
     {
+
+        path:'clientes', 
+        children:[
+          {
+          path: 'list', 
+          component:ClienteListComponent
+          },
+          {
+            path:':id', 
+            component: ClienteDetailComponent,
+            outlet: 'detail'
+          },
+          {
+            path:'registro', 
+            component: ClienteCreateComponent
+          }]
+      },
+  {
         path: 'concursos',
         children:[
             {
@@ -116,6 +140,7 @@ const routes: Routes = [
                 path:':id',
                 component: ConcursoDetailComponent
             }
+
         ]
     },
     {

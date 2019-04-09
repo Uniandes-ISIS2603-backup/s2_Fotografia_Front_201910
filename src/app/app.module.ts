@@ -16,10 +16,15 @@ import {AuthModule} from './auth/auth.module';
 import {CalificacionModule} from './calificacion/calificacion.module';
 import {JuradoModule} from './jurado/jurado.module';
 import {OrganizadorModule} from './organizador/organizador.module';
+
+import {ClienteModule} from './cliente/cliente.module';
+
+
 import {RondaModule} from './ronda/ronda.module';
 import { Ronda } from './ronda/ronda';
 import {PhotoModule} from './photo/photo.module';
 import {ConcursoModule} from './concurso/concurso.module';
+
 
 @NgModule({
     declarations: [
@@ -37,8 +42,12 @@ import {ConcursoModule} from './concurso/concurso.module';
         CalificacionModule,
         JuradoModule,
         OrganizadorModule,
+
+        ClienteModule,
+
         RondaModule,
         PhotoModule,
+
         FormsModule,
         ToastrModule.forRoot({
             timeOut: 10000,
