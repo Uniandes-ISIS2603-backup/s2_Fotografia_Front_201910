@@ -1,0 +1,18 @@
+<div class="container-fluid">
+
+    <h1> {{concursoDetail.tema}} </h1>
+    <h5> Cantidad del premio: {{concursoDetail.premioCantidad}}</h5>
+    <!--      -->
+    <div class="row" style="padding-top:50px">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 text-center">
+                <h4 class="list-group-item"><a href="#" ng-click="show = true" ng-init="show = false">Reglas del concurso</a></h4>
+                <div class="wrapper">
+                    <ul ng-show="show">
+                        <li>Maximas fotos por fotografo: {{concursoDetail.maxFotos}}</li>
+                        <li>Edad Maxima de la foto (en meses): {{concursoDetail.edadDeLaFoto}}</li>
+                        <li>Fecha De la premiacion: {{concursoDetail.fechaDelConcurso}}</li>
+                    </ul>
+                </div>
+        </div>
+    </div>
+</div>
