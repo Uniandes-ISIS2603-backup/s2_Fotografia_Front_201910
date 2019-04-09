@@ -13,8 +13,11 @@ import { ModalDialogModule } from 'ngx-modal-dialog';
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing/app-routing.module';
 import {AuthModule} from './auth/auth.module';
+import {CalificacionModule} from './calificacion/calificacion.module';
+import {JuradoModule} from './jurado/jurado.module';
+import {OrganizadorModule} from './organizador/organizador.module';
+import {PhotoModule} from './photo/photo.module';
 import {ConcursoModule} from './concurso/concurso.module';
-
 
 
 
@@ -31,6 +34,10 @@ import {ConcursoModule} from './concurso/concurso.module';
         BrowserAnimationsModule,
         ModalDialogModule.forRoot(),
         AuthModule,
+        CalificacionModule,
+        JuradoModule,
+        OrganizadorModule,
+        PhotoModule,
         FormsModule,
         ToastrModule.forRoot({
             timeOut: 10000,
@@ -41,6 +48,7 @@ import {ConcursoModule} from './concurso/concurso.module';
         NgxPermissionsModule.forRoot(),
         NgbModule
     ],
+
     bootstrap: [AppComponent],
     providers: [
         {

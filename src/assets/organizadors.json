@@ -1,0 +1,33 @@
+[
+    {
+        "type": "organizadorDetailDTO",
+        "correo": "j.martinez@gmail.com",
+        "edad": 20,
+        "id": 200,
+        "nombre": "Jose",
+        "pais": "Colombia",
+        "telefono": 31578965,
+        "concursos": [
+            {
+                "fechaDelConcurso": "2015-08-20",
+                "edadDeLaFoto": 36,
+                "id": 1,
+                "maxFotos": 3,
+                "organizador": {
+                    "correo": "j.martinez@gmail.com",
+                    "edad": 20,
+                    "id": 200,
+                    "nombre": "Jose",
+                    "pais": "Colombia",
+                    "telefono": 31578965
+                },
+                "premioCantidad": 10000,
+                "ronda": {
+                    "id": 300,
+                    "numRonda": 1
+                },
+                "tema": "Blanco y negro"
+            }
+        ]
+    }
+]

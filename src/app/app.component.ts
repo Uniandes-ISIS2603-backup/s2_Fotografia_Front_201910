@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import { AuthService } from './auth/auth.service';
 
 /**
- * The app component. This component is the base of s2_fotografia-Front
+ * The app component. This component is the base of the Fotografia
  */
 @Component({
     selector: 'app-root',
@@ -20,20 +20,18 @@ export class AppComponent implements OnInit {
      * Assigns a title to the web page
      */
     ngOnInit(): void {
-        this.title = "s2_fotografia-Front";
-        this.authService.start();
+        this.title = "Fotografia";
     }
 
-       /**
+    /**
      * @ignore
      */
-    constructor(private authService: AuthService) { }
-
-    logout(): void {
-        this.authService.logout()
-    }
+    constructor() {}
 
 }
+
+
+
 
 
 
