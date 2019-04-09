@@ -7,7 +7,7 @@
       <form name="ronda" (ngSubmit)="f.form.valid && createRonda()" #f="ngForm" novalidate>
           <div class="form-group">
               <label for="rondaNumRonda"><b>Numero de Ronda</b></label>
-              <input type="text" name="rondaNumRonda" class="form-control" id="rondaNumRonda" [(ngModel)]="ronda.numeroRonda"
+              <input type="text" name="rondaNumRonda" class="form-control" id="rondaNumRonda" [(ngModel)]="ronda.numRonda"
                   #rondaNumRonda="ngModel" [ngClass]="{ 'is-invalid': f.submitted && rondaNumRonda.invalid }" required>
               <div class="invalid-feedback">
                   <div>El Numero de Ronda de la ronda falta</div>
