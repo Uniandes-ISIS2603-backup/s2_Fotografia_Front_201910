@@ -9,11 +9,19 @@ import {JuradoListComponent} from '../jurado/jurado-list/jurado-list.component';
 import {JuradoDetailComponent} from '../jurado/jurado-detail/jurado-detail.component';
 import {OrganizadorListComponent} from '../organizador/organizador-list/organizador-list.component';
 import {OrganizadorDetailComponent} from '../organizador/organizador-detail/organizador-detail.component';
+import {RondaListComponent} from '../ronda/ronda-list/ronda-list.component';
+import {RondaDetailComponent} from '../ronda/ronda-detail/ronda-detail.component';
 import { AuthLoginComponent } from '../auth/auth-login/auth-login.component';
 import { AuthSignUpComponent } from '../auth/auth-sign-up/auth-sign-up.component';
+
 import {ClienteListComponent} from '../cliente/cliente-list/cliente-list.component';
 import {ClienteDetailComponent} from '../cliente/cliente-detail/cliente-detail.component';
 import {ClienteCreateComponent} from '../cliente/cliente-create/cliente-create.component';
+
+import {PhotoListComponent} from '../photo/photo-list/photo-list.component';
+import { ConcursoListComponent } from '../concurso/concurso-list/concurso-list.component';
+import { ConcursoDetailComponent } from '../concurso/concurso-detail/concurso-detail.component';
+
 
 const routes: Routes = [
     {
@@ -30,6 +38,15 @@ const routes: Routes = [
         ]
     },
     {
+        path: 'photos',
+        children:[
+            {
+                path: 'list',
+                component: PhotoListComponent
+            }
+        ]
+    },
+    {
         path: 'jurados',
         children:[
             {
@@ -42,6 +59,7 @@ const routes: Routes = [
             }
         ]
     },
+
     {
         path: 'organizadors',
         children: [
@@ -52,6 +70,19 @@ const routes: Routes = [
             {
                 path: ':id',
                 component: OrganizadorDetailComponent
+            }
+        ]
+    },
+    {
+        path: 'rondas',
+        children:[
+            {
+                path: 'list',
+                component: RondaListComponent
+            },
+            {
+                path: ':id',
+                component: RondaDetailComponent
             }
         ]
     },
@@ -81,6 +112,7 @@ const routes: Routes = [
         ]
     },
     {
+
         path:'clientes', 
         children:[
           {
@@ -95,7 +127,20 @@ const routes: Routes = [
           {
             path:'registro', 
             component: ClienteCreateComponent
-          }
+          }]
+      },
+  {
+        path: 'concursos',
+        children:[
+            {
+                path:'list',
+                component: ConcursoListComponent
+            },
+            {
+                path:':id',
+                component: ConcursoDetailComponent
+            }
+
         ]
     },
     {
