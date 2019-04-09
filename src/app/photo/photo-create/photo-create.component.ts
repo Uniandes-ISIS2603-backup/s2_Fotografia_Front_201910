@@ -45,7 +45,7 @@ export class PhotoCreateComponent implements OnInit {
     * Creates a Photo
     */
     createPhoto(): Photo {
-        let dateB: Date = new Date(this.photo.date.year, this.photo.date.month, this.photo.date.day);
+        let dateB: Date = new Date(this.photo.date.year, this.photo.date.month - 1, this.photo.date.day);
         this.photo.date = this.dp.transform(dateB, 'yyyy-MM-dd');
 
         this.photoService.createPhoto(this.photo)

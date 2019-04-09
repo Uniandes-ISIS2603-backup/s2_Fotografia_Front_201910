@@ -39,8 +39,24 @@ export class PhotoService {
       * @returns The confirmation of the photo's creation
       */
     createPhoto(photo): Observable<Photo> {
-        console.log(photo);        
+        console.log(photo);
         return this.http.post<Photo>(API_URL + photos, photo);
     }
-    
+    /**
+    * Updates a photo
+    * @param photo The photo which will be update
+    * @returns The confirmation of the photo's update
+    */
+    updatePhoto(photo): Observable<PhotoDetail> {
+        return this.http.put<PhotoDetail>(API_URL + photos + '/' + photo.id, photo);
+    }
+
+    /**
+    * Deletes a photo
+    * @param photoId The photo which will be deleted
+    * @returns True if the photo was deleted, false otherwise
+    */
+    deleteJurado(photoId): Observable<PhotoDetail> {
+        return this.http.delete<PhotoDetail>(API_URL + photos + '/' + photoId);
+    }
 }
