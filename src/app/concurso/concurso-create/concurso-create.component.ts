@@ -23,11 +23,10 @@ export class ConcursoCreateComponent implements OnInit {
   @Output() create = new EventEmitter();
     
   @Output() cancel = new EventEmitter();
-
   
   concurso: Concurso;
   
-  createConcurso(concurso): Concurso{
+  createConcurso(): Concurso{
         let date: Date = new Date(this.concurso.fechaDelConcurso.year, this.concurso.fechaDelConcurso.month - 1,
         this.concurso.fechaDelConcurso.day);
         
@@ -36,9 +35,11 @@ export class ConcursoCreateComponent implements OnInit {
             this.concurso = concurso;
             this.create.emit();
             this.toastrService.success("El concurso se creo", "Creacion del Concurso");
+            console.log("FF");
         });
         return this.concurso;
   }
+  
   
   ngOnInit() {
       this.concurso = new Concurso();

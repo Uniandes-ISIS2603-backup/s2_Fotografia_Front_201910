@@ -14,12 +14,15 @@ export class ConcursoListComponent implements OnInit {
 
   concursos: Concurso[];
   
+  showCreate: boolean;
+  
   getConcursos(): void{
       this.concursoService.getConcursos().subscribe(concursos => this.concursos = concursos);
   }
 
   ngOnInit() {
       this.getConcursos();
+      this.showCreate=true;
   }
 
 }

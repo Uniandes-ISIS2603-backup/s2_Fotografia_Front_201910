@@ -1,5 +1,5 @@
 <div class="container-fluid">
-    <div class="col-md-2">
+    <div class="col-md-6">
         <table class="table table-striped">
             <thead class="thead-dark">
                 <tr>
@@ -10,10 +10,8 @@
                 <tr *ngFor = "let concurso of concursos">
                     <td> <dd class="figure-caption" routerLink="/concursos/{{concurso.id}}"  > {{concurso.tema}}</dd> </td>  
                 </tr>
-                <tr>
-                    <td><app-concurso-create></app-concurso-create></td>
-                </tr>
             </tbody>
+                <app-concurso-create></app-concurso-create>
         </table>
     </div>
 </div>
