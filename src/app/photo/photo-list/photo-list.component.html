@@ -15,15 +15,18 @@
     </div>
 <div class="pin-layout">
     <div class="thumbnail">
-        <br>
-        <div class="row justify-content-center align-self-center">
-            <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn" (click)="showHideCreate()">Crear
-                Calificación
-            </button>
-        </div>
-        <br>
-
-        <br>
+            <br>
+            <div class="row justify-content-center align-self-center">
+                <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+                    (click)="showHideCreate()">Crear foto</button>
+            </div>
+            <br>
+            <div class="col-md-8">
+                <div *ngIf="showCreate">
+                    <app-photo-create (cancel)="showHideCreate()" (create)="ngOnInit()" *ngIf="showCreate"></app-photo-create>
+                </div>
+            </div>
+            <br>
         <style>
             table,
             th,

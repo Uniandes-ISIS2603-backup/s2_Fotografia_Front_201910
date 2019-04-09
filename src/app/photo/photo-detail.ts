@@ -1,14 +1,8 @@
 import { Calificacion } from '../calificacion/calificacion';
+import {Photo} from './photo';
 
-export class PhotoDetail {
+export class PhotoDetail extends Photo {
     
     calificatons: Calificacion[];
 
-    description: String;
-
-    rutaImagen: String;
-
-    name:String;
-
-    date: Date;
 }

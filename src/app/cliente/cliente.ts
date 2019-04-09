@@ -11,6 +11,5 @@ export class Cliente{
         */
       login: string; 
     
-      img: string;
     }
     
