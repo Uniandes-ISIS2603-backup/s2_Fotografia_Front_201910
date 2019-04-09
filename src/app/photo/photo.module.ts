@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { PhotoService } from './photo.service';
 import { AppRoutingModule } from '../app-routing/app-routing.module';
 import { PhotoListComponent } from './photo-list/photo-list.component';
+import { PhotoDetailComponent } from './photo-detail/photo-detail.component';
 
 @NgModule({
   imports: [
@@ -16,7 +17,7 @@ import { PhotoListComponent } from './photo-list/photo-list.component';
     CommonModule,
     FormsModule
   ],
-  declarations: [PhotoListComponent],
+  declarations: [PhotoListComponent, PhotoDetailComponent],
   providers: [PhotoService],
   bootstrap: [PhotoListComponent]
 })

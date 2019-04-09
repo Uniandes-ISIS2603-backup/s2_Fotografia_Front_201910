@@ -3,14 +3,13 @@ import {Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 
 import {Photo} from './photo';
+import { PhotoDetail } from './photo-detail';
 import { environment } from '../../environments/environment';
 
 const API_URL = environment.apiURL;
 const photos = '/photos';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class PhotoService {
 
    /**
@@ -26,4 +25,12 @@ export class PhotoService {
    getPhotos(): Observable<Photo[]> {
        return this.http.get<Photo[]>(API_URL + photos);
    }
+
+    /**
+    * Returns the Observable object with the details of an author retrieved from the API
+    * @returns The author details
+    */
+   getPhotoDetail(photoId): Observable<PhotoDetail> {
+    return this.http.get<PhotoDetail>(API_URL + photos + '/' + photoId);
+}
 }
