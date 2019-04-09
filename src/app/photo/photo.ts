@@ -7,7 +7,7 @@ export class Photo {
     /*
     * Atributo correspondiente a el nombre de la foto.
     */
-    name: string;
+    nombre: string;
 
     /*
     * Atributo correspondiente a la fecha de la foto.

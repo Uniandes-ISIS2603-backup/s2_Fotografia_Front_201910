@@ -22,7 +22,7 @@ export class PhotoListComponent implements OnInit {
    */
    constructor(private photoService: PhotoService,  private route: ActivatedRoute) {  }
    
-   allphotos:string = 'no';
+   allphotos:string = 'yes';
    /**
    * This method retrieves all the books in the Bookstore to show them in the list
    */
