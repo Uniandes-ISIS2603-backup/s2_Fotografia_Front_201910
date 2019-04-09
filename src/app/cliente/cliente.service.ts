@@ -5,7 +5,7 @@ import{ClienteDetail} from './cliente-detail';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 
-const API_URL = "http://localhost:8080/s2_fotografia-api/api/";
+const API_URL = environment.apiURL;
 const clientes = '/clientes';
 
 @Injectable()
@@ -13,7 +13,7 @@ export class ClienteService {
 
     /**
     * Constructor of the service
-    * @param http The HttpClient - This is necessary in order to perform requests
+    * @param http The HttpClient-This is necessary in order to perform requests
     */
 
   constructor(private http: HttpClient) { }
