@@ -1,0 +1,64 @@
+<tbody>
+    <tr *ngFor="let photo of photos">
+        <td style="cursor: pointer;">
+            <dd style="text-align: center;" routerLink="/photos/{{photo.id}}">{{photo.nombre}}</dd>
+        </td>
+    </tr>
+</tbody>
+<div class="col-md-2" *ngFor = "let photo of photos">
+        <figure class="figure" routerLink="/photos/{{photo.id}}" style="cursor: pointer;"> 
+            <div class="img-thumbnail border-0">                        
+                <img class="img-fluid" src='{{photo.rutaFoto}}' alt="{{photo.nombre}}" />                                     
+            </div>
+            <figcaption class="title-caption text-center">{{photo.name}}</figcaption>
+        </figure>
+    </div>
+<div class="pin-layout">
+    <div class="thumbnail">
+            <br>
+            <div class="row justify-content-center align-self-center">
+                <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+                    (click)="showHideCreate()">Crear foto</button>
+            </div>
+            <br>
+            <div class="col-md-8">
+                <div *ngIf="showCreate">
+                    <app-photo-create (cancel)="showHideCreate()" (create)="ngOnInit()" *ngIf="showCreate"></app-photo-create>
+                </div>
+            </div>
+            <br>
+        <style>
+            table,
+            th,
+            td {
+                width: 100%;
+                border: 1px solid black;
+                border-collapse: collapse;
+                align-self: center;
+            }
+
+            th,
+            td {
+                padding: 15px;
+                background-color: rgb(247, 247, 247);
+            }
+        </style>
+        <table>
+            <thead>
+                <tr>
+                    <th style="background-color:rgba(164, 210, 255, 0.877); text-align: center" class="caption">Foto</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let photo of photos">
+                    <td style="cursor: pointer;">
+                        <dd style="text-align: center;" routerLink="/photos/{{photo.id}}">{{photo.nombre}}</dd>
+                    </td>
+                    <td>
+                        <button class="btn btn-primary" (click)="showHideEdit(photo.id)"><span class="fa fa-pencil"></span></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

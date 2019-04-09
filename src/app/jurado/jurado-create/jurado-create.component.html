@@ -1,0 +1,64 @@
+<div class="row">
+    <div class="col-3"></div>
+    <div class="col-6">
+        <br>
+        <h2 class="text-center">Crear Jurado</h2>
+        <br>
+        <form name="jurado" (ngSubmit)="f.form.valid && createJurado()" #f="ngForm" novalidate>
+            <div class="form-group">
+                <label for="juradoNombre"><b>Nombre</b></label>
+                <input type="text" name="juradoNombre" class="form-control" id="juradoNombre" [(ngModel)]="jurado.nombre"
+                    #juradoNombre="ngModel" [ngClass]="{ 'is-invalid': f.submitted && juradoNombre.invalid }" required>
+                <div class="invalid-feedback">
+                    <div>El nombre del jurado falta</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="juradoApellido"><b>Apellido</b></label>
+                <input type="text" name="juradoApellido" class="form-control" id="juradoApellido" [(ngModel)]="jurado.apellido"
+                    #juradoApellido="ngModel" [ngClass]="{ 'is-invalid': f.submitted && juradoApellido.invalid }" required>
+                <div class="invalid-feedback">
+                    <div>El Apellido del jurado falta</div>
+                </div>
+            </div>
+            <div class="form-group">
+                    <label for="juradoCorreo"><b>Correo</b></label>
+                    <input type="text" name="juradoCorreo" class="form-control" id="juradoCorreo" [(ngModel)]="jurado.correo"
+                        #juradoCorreo="ngModel" [ngClass]="{ 'is-invalid': f.submitted && juradoCorreo.invalid }" required>
+                    <div class="invalid-feedback">
+                        <div>El Correo del jurado falta</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                        <label for="juradoCedula"><b>Cedula</b></label>
+                        <input type="text" name="juradoCedula" class="form-control" id="juradoCedula" [(ngModel)]="jurado.cedula"
+                            #juradoCedula="ngModel" [ngClass]="{ 'is-invalid': f.submitted && juradoCedula.invalid }" required>
+                        <div class="invalid-feedback">
+                            <div>La Cedula del jurado falta</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                            <label for="juradoPais"><b>Pais</b></label>
+                            <input type="text" name="juradoPais" class="form-control" id="juradoPais" [(ngModel)]="jurado.pais"
+                                #juradoPais="ngModel" [ngClass]="{ 'is-invalid': f.submitted && juradoPais.invalid }" required>
+                            <div class="invalid-feedback">
+                                <div>El Pais del jurado falta</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                                <label for="juradoCiudad"><b>Ciudad</b></label>
+                                <input type="text" name="juradoCiudad" class="form-control" id="juradoCiudad" [(ngModel)]="jurado.ciudad"
+                                    #juradoCiudad="ngModel" [ngClass]="{ 'is-invalid': f.submitted && juradoCiudad.invalid }" required>
+                                <div class="invalid-feedback">
+                                    <div>La Ciudad del jurado falta</div>
+                                </div>
+                            </div>
+            <div class="row form-inline justify-content-center align-self-center">
+                <button type="submit" class="btn btn-primary">Create</button>
+                <div class="divider"></div>
+                <button type="button" class="btn btn-danger" (click)="cancelCreation()">Cancel</button>
+            </div>
+        </form>
+    </div>
+    <div class="col-3"></div>
+</div>

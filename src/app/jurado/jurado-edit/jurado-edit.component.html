@@ -1,0 +1,72 @@
+<div class="row">
+    <div class="col-12">
+        <br>
+        <h2 class="text-center">Editar jurado</h2>
+        <br>
+        <form name="jurado" (ngSubmit)="f.form.valid && editJurado()" #f="ngForm" novalidate>
+              <div class="form-group">
+                <label for="juradoNombre"><b>Nombre</b></label>
+                <input type="text" name="juradoNombre" class="form-control" id="juradoNombre" [(ngModel)]="jurado.nombre"
+                       #juradoName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && juradoNombre.invalid }" required>
+                       <div class="invalid-feedback">
+                    <div>The jurado's Nombre is missing</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="juradoApellido"><b>Apellido</b></label>
+                <input type="text" name="juradoApellido" class="form-control" id="juradoApellido" [(ngModel)]="jurado.apellido"
+                       #juradoName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && juradoApellido.invalid }" required>
+                       <div class="invalid-feedback">
+                    <div>The jurado's Apellido is missing</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="juradoCorreo"><b>Correo</b></label>
+                <textarea name="juradoCorreo" class="form-control" id="juradoCorreo" [(ngModel)]="jurado.correo"
+                          #juradoCorreo="ngModel" [ngClass]="{ 'is-invalid': f.submitted && juradoCorreo.invalid }"
+                          required></textarea>
+                <div class="invalid-feedback">
+                    <div>The jurado's Correo is missing</div>
+                </div>
+            </div>
+            <div class="form-group">
+                    <label for="juradoCedula"><b>Cedula</b></label>
+                    <textarea name="juradoCedula" class="form-control" id="juradoCedula" [(ngModel)]="jurado.cedula"
+                              #juradoCedula="ngModel" [ngClass]="{ 'is-invalid': f.submitted && juradoCedula.invalid }"
+                              required></textarea>
+                    <div class="invalid-feedback">
+                        <div>The jurado's Cedula is missing</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                        <label for="juradoPais"><b>Pais</b></label>
+                        <textarea name="juradoPais" class="form-control" id="juradoPais" [(ngModel)]="jurado.pais"
+                                  #juradoPais="ngModel" [ngClass]="{ 'is-invalid': f.submitted && juradoPais.invalid }"
+                                  required></textarea>
+                        <div class="invalid-feedback">
+                            <div>The jurado's Pais is missing</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                            <label for="juradoCiudad"><b>Ciudad</b></label>
+                            <textarea name="juradoCiudad" class="form-control" id="juradoCiudad" [(ngModel)]="jurado.ciudad"
+                                      #juradoCiudad="ngModel" [ngClass]="{ 'is-invalid': f.submitted && juradoCiudad.invalid }"
+                                      required></textarea>
+                            <div class="invalid-feedback">
+                                <div>The jurado's Ciudad is missing</div>
+                            </div>
+                        </div>
+        </form>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <div class="row form-inline justify-content-center align-self-center">
+            <button class="btn btn-primary" style="padding-right: 3em; background: rgb(127, 161, 255)" (click)="editjurado()"> <span class="fa fa-save "></span> &nbsp; Guardar</button>
+            &nbsp;
+            <button  class="btn btn-primary" style="padding-right: 3em; background: rgb(250, 84, 84)" (click)="cancelEdition()"> <span class="fa fa-ban"></span> Cancelar</button>
+        </div>
+    </div>
+</div>
+<br>
+<br>

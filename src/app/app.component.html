@@ -1,19 +1,9 @@
-<ul class="nav nav-tabs">
-        <li class="nav-item">
-            <a id="organizadorsTag" class="nav-link" routerLink="/organizadors/list">Organizadores</a>
-        </li>
-
-            
-    </ul>
-    <div class="list">
-        <router-outlet></router-outlet>
-    </div>
-    
+   
     <div class="container-fluid">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <a class="navbar-brand" href="#">
                     <div class="form-inline">
-                        <h2 class="mainTitle">s2_fotografia-Front</h2>
+                        <h2 class="mainTitle">Fotografia</h2>
                     </div>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -22,7 +12,35 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <div class="navbar-nav mr-auto mt-0">
-                        
+                        <li><a id="calificacion-navbar-item" routerLink="/calificaciones/list"><span class="fa fa-star"></span>Calificaciones</a></li>  
+                        &nbsp;
+                        &nbsp;
+                        <li><a id="jurado-navbar-item" routerLink="/jurados/list"><i class="fa fa-male"></i>Jurados</a></li>
+                        &nbsp;
+                        &nbsp;
+
+                        <li><a id="organizadorsTag" routerLink="/organizadors/list"> Organizadores</a></li>
+                        &nbsp;
+                        &nbsp;
+                        <li><a id="clienteItem" routerLink="/clientes/list">Clientes</a></li>  
+                        &nbsp;
+                        &nbsp;
+                        <li><a id="registroItem" routerLink="/clientes/registro">Registro</a></li>  
+                        &nbsp;
+                        &nbsp;
+
+                        <li><a id="concurso-navbar-item" routerLink="/concursos/list"><i class="">Concursos</i></a></li>
+                        &nbsp;
+                        &nbsp;
+                        <li><a id="organizadorsTag" routerLink="/organizadors/list"><i class="fa fa-male"></i> Organizadores</a></li>
+                        &nbsp;
+                        &nbsp;
+                        <li><a id="rondasTag" routerLink="/rondas/list"><i class="fa fa-male"></i> Rondas</a></li>
+                        &nbsp;
+                        &nbsp;
+                        <li><a id="calificacion-navbar-item" routerLink="/photos/list"> Fotos</a></li>
+
+
                     </div>
                     <div class="navbar-nav ml-auto flex-column">
                         <div class="flex-row" *ngxPermissionsOnly="['GUEST']">
