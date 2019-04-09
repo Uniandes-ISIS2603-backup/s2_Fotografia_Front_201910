@@ -16,11 +16,14 @@ import {AuthModule} from './auth/auth.module';
 import {CalificacionModule} from './calificacion/calificacion.module';
 import {JuradoModule} from './jurado/jurado.module';
 import {OrganizadorModule} from './organizador/organizador.module';
+import {RondaModule} from './ronda/ronda.module';
+import { Ronda } from './ronda/ronda';
 
 
 @NgModule({
     declarations: [
-        AppComponent
+        AppComponent,
+        
     ],
     imports: [
         BrowserModule,
@@ -32,6 +35,7 @@ import {OrganizadorModule} from './organizador/organizador.module';
         CalificacionModule,
         JuradoModule,
         OrganizadorModule,
+        RondaModule,
         FormsModule,
         ToastrModule.forRoot({
             timeOut: 10000,

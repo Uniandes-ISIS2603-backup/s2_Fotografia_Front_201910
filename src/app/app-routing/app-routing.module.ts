@@ -9,6 +9,8 @@ import {JuradoListComponent} from '../jurado/jurado-list/jurado-list.component';
 import {JuradoDetailComponent} from '../jurado/jurado-detail/jurado-detail.component';
 import {OrganizadorListComponent} from '../organizador/organizador-list/organizador-list.component';
 import {OrganizadorDetailComponent} from '../organizador/organizador-detail/organizador-detail.component';
+import {RondaListComponent} from '../ronda/ronda-list/ronda-list.component';
+import {RondaDetailComponent} from '../ronda/ronda-detail/ronda-detail.component';
 import { AuthLoginComponent } from '../auth/auth-login/auth-login.component';
 import { AuthSignUpComponent } from '../auth/auth-sign-up/auth-sign-up.component';
 
@@ -39,6 +41,7 @@ const routes: Routes = [
             }
         ]
     },
+
     {
         path: 'organizadors',
         children: [
@@ -49,6 +52,19 @@ const routes: Routes = [
             {
                 path: ':id',
                 component: OrganizadorDetailComponent
+            }
+        ]
+    },
+    {
+        path: 'rondas',
+        children:[
+            {
+                path: 'list',
+                component: RondaListComponent
+            },
+            {
+                path: ':id',
+                component: RondaDetailComponent
             }
         ]
     },
