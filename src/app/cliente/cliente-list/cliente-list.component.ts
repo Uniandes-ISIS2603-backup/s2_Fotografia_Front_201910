@@ -74,10 +74,6 @@ showHideEdit(clienteId: number): void {
     }
 }
 
-updateEditorial(): void {
-    this.showEdit = false;
-}
-
    ngOnInit() {
     this.getClientes();
   }
