@@ -22,6 +22,10 @@ import {PhotoListComponent} from '../photo/photo-list/photo-list.component';
 import { ConcursoListComponent } from '../concurso/concurso-list/concurso-list.component';
 import { ConcursoDetailComponent } from '../concurso/concurso-detail/concurso-detail.component';
 
+import {FotografoListComponent} from '../fotografo/fotografo-list/fotografo-list.component';
+import {FotografoDetailComponent} from '../fotografo/fotografo-detail/fotografo-detail.component';
+/** import {FotografoCreateComponent} from '../fotografo/fotografo-create/fotografo-create.component';
+**/
 
 const routes: Routes = [
     {
@@ -43,6 +47,19 @@ const routes: Routes = [
             {
                 path: 'list',
                 component: PhotoListComponent
+            }
+        ]
+    },
+    {
+        path: 'fotografos',
+        children:[
+            {
+                path: 'list',
+                component: FotografoListComponent
+            },
+            {
+                path: ':id',
+                component: FotografoDetailComponent
             }
         ]
     },
