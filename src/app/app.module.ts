@@ -16,19 +16,32 @@ import {AuthModule} from './auth/auth.module';
 import {CalificacionModule} from './calificacion/calificacion.module';
 import {JuradoModule} from './jurado/jurado.module';
 import {OrganizadorModule} from './organizador/organizador.module';
+
 import {PhotoModule} from './photo/photo.module';
 import {FacturaModule} from './factura/factura.module';
 
+import {FotografoModule} from './fotografo/fotografo.module';
+
+import {ClienteModule} from './cliente/cliente.module';
+
+
+import {RondaModule} from './ronda/ronda.module';
+import { Ronda } from './ronda/ronda';
+import {PhotoModule} from './photo/photo.module';
+import {ConcursoModule} from './concurso/concurso.module';
+import {FormaDePagoModule} from './forma-de-pago/forma-de-pago.module';
 
 
 @NgModule({
     declarations: [
-        AppComponent
+        AppComponent,
+        
     ],
     imports: [
-        BrowserModule,
         AppRoutingModule,
+        BrowserModule,
         HttpClientModule,
+        ConcursoModule,
         BrowserAnimationsModule,
         ModalDialogModule.forRoot(),
         AuthModule,
@@ -36,7 +49,14 @@ import {FacturaModule} from './factura/factura.module';
         JuradoModule,
         FacturaModule,
         OrganizadorModule,
+        FotografoModule,
+
+        ClienteModule,
+        FormaDePagoModule,
+
+        RondaModule,
         PhotoModule,
+
         FormsModule,
         ToastrModule.forRoot({
             timeOut: 10000,
