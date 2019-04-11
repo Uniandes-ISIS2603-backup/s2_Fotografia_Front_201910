@@ -12,7 +12,10 @@ import {OrganizadorDetailComponent} from '../organizador/organizador-detail/orga
 import { AuthLoginComponent } from '../auth/auth-login/auth-login.component';
 import { AuthSignUpComponent } from '../auth/auth-sign-up/auth-sign-up.component';
 import {PhotoListComponent} from '../photo/photo-list/photo-list.component';
- 
+import {PhotoDetailComponent} from '../photo/photo-detail/photo-detail.component';
+import {PhotoEditComponent} from '../photo/photo-edit/photo-edit.component';
+import {FacturaListComponent} from '../factura/factura-list/factura-list.component';
+import {FacturaDetailComponent} from '../factura/factura-detail/factura-detail.component';
 
 const routes: Routes = [
     {
@@ -34,6 +37,14 @@ const routes: Routes = [
             {
                 path: 'list',
                 component: PhotoListComponent
+            },
+            {
+                path: ':id',
+                component: PhotoDetailComponent
+            },
+            {
+                path: 'edit/id',
+                component: PhotoEditComponent
             }
         ]
     },
@@ -47,6 +58,19 @@ const routes: Routes = [
             {
                 path: ':id',
                 component: JuradoDetailComponent
+            }
+        ]
+    },
+    {
+        path: 'facturas',
+        children:[
+            {
+                path: 'list',
+                component: FacturaListComponent
+            },
+            {
+                path: ':id',
+                component: FacturaDetailComponent
             }
         ]
     },
