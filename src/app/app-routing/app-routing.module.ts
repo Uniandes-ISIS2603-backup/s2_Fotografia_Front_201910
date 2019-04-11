@@ -27,6 +27,12 @@ import {FormaDePagoDetailComponent} from '../forma-de-pago/forma-de-pago-detail/
 import {FormaDePagoCreateComponent} from '../forma-de-pago/forma-de-pago-create/forma-de-pago-create.component';
 
 import {PhotoListComponent} from '../photo/photo-list/photo-list.component';
+
+import {PhotoDetailComponent} from '../photo/photo-detail/photo-detail.component';
+import {PhotoEditComponent} from '../photo/photo-edit/photo-edit.component';
+import {FacturaListComponent} from '../factura/factura-list/factura-list.component';
+import {FacturaDetailComponent} from '../factura/factura-detail/factura-detail.component';
+
 import { ConcursoListComponent } from '../concurso/concurso-list/concurso-list.component';
 import { ConcursoDetailComponent } from '../concurso/concurso-detail/concurso-detail.component';
 
@@ -34,6 +40,7 @@ import {FotografoListComponent} from '../fotografo/fotografo-list/fotografo-list
 import {FotografoDetailComponent} from '../fotografo/fotografo-detail/fotografo-detail.component';
 /** import {FotografoCreateComponent} from '../fotografo/fotografo-create/fotografo-create.component';
 **/
+
 
 const routes: Routes = [
     {
@@ -55,6 +62,14 @@ const routes: Routes = [
             {
                 path: 'list',
                 component: PhotoListComponent
+            },
+            {
+                path: ':id',
+                component: PhotoDetailComponent
+            },
+            {
+                path: 'edit/id',
+                component: PhotoEditComponent
             }
         ]
     },
@@ -81,6 +96,19 @@ const routes: Routes = [
             {
                 path: ':id',
                 component: JuradoDetailComponent
+            }
+        ]
+    },
+    {
+        path: 'facturas',
+        children:[
+            {
+                path: 'list',
+                component: FacturaListComponent
+            },
+            {
+                path: ':id',
+                component: FacturaDetailComponent
             }
         ]
     },
