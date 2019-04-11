@@ -17,7 +17,6 @@ import {CalificacionModule} from './calificacion/calificacion.module';
 import {JuradoModule} from './jurado/jurado.module';
 import {OrganizadorModule} from './organizador/organizador.module';
 
-import {PhotoModule} from './photo/photo.module';
 import {FacturaModule} from './factura/factura.module';
 
 import {FotografoModule} from './fotografo/fotografo.module';
