@@ -10,6 +10,7 @@ import {OrganizadorListComponent} from './organizador-list/organizador-list.comp
 import {AppRoutingModule} from '../app-routing/app-routing.module';
 import {OrganizadorDetailComponent} from './organizador-detail/organizador-detail.component';
 import {OrganizadorCreateComponent} from './organizador-create/organizador-create.component';
+import { OrganizadorEditComponent } from './organizador-edit/organizador-edit.component';
 
 
 @NgModule({
@@ -22,7 +23,7 @@ import {OrganizadorCreateComponent} from './organizador-create/organizador-creat
         NgbModule
     ],
     declarations: [
-        OrganizadorListComponent, OrganizadorDetailComponent, OrganizadorCreateComponent
+        OrganizadorListComponent, OrganizadorDetailComponent, OrganizadorCreateComponent, OrganizadorEditComponent
     ],
     providers: [OrganizadorService]
 })

@@ -32,9 +32,9 @@
             </tr>
         </thead>
       <tbody>
-        <tr *ngFor = "let ronda of rondaes">
+        <tr *ngFor = "let ronda of rondas">
             <td style="cursor: pointer;"> 
-                <dd style="text-align: center;" routerLink="/rondaes/{{ronda.id}}" >{{ronda.numRonda}}</dd>
+                <dd style="text-align: center;" routerLink="/rondas/{{ronda.id}}" >{{ronda.numRonda}}</dd>
               </td> 
               <td>
                   <button class="btn btn-primary" (click)="showHideEdit(ronda.id)"><span class="fa fa-pencil"></span></button>
