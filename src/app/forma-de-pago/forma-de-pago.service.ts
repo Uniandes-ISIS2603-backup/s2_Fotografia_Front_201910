@@ -44,5 +44,4 @@ updateFormaDePago(formaDePago): Observable<FormaDePago> {
       return this.http.post<FormaDePagoDetail>(API_URL + formasDePago, formaDePago);
   }
 
-
 }
