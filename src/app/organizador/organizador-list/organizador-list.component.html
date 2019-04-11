@@ -1,18 +1,50 @@
-<div class="container-fluid">
-    <div class="col">
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>Name</th>    
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor = "let organizador of organizadors">
-                    <td style="cursor: pointer;"> 
-                        <dd  routerLink="/organizadors/{{organizador.id}}" >{{organizador.nombre}}</dd>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+<div class="pin-layout">
+    <div class="thumbnail">
+        <br>
+        <div class="row justify-content-center align-self-center">
+            <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+                (click)="showHideCreate()">Crear organizador</button>
+        </div>
+        <br>
+        <div class="col-md-8">
+            <div *ngIf="showCreate">
+                <app-organizador-create (cancel)="showHideCreate()" (create)="ngOnInit()" *ngIf="showCreate"></app-organizador-create>
+            </div>
+        </div>
+        <br>
+      <style>
+        table, th, td{
+          width:100%; 
+          border: 1px solid black;
+          border-collapse: collapse;
+          align-self: center;
+        }
+        th, td {
+          padding: 15px;
+          background-color:rgb(247, 247, 247);
+        }
+      </style>
+      <table >
+          <thead>
+              <tr>
+                  <th style="background-color:rgba(164, 210, 255, 0.877); text-align: center" class="caption">organizador</th>    
+              </tr>
+          </thead>
+        <tbody>
+          <tr *ngFor = "let organizador of organizadors">
+              <td style="cursor: pointer;"> 
+                  <dd style="text-align: center;" routerLink="/organizadors/{{organizador.id}}" >{{organizador.nombre}}</dd>
+              </td>
+              <td>
+                  <button class="btn btn-primary" (click)="showHideEdit(organizador.id)"><span class="fa fa-pencil"></span></button>
+              </td>
+          </tr>
+      </tbody>
+    </table>
+    <div class="col-md-8">
+        <div *ngIf="showEdit">
+            <app-organizador-edit [organizador_id]="organizador_edit_id" (cancel)="showHideEdit(organizador_edit_id)" (update)="updateOrganizador()"></app-organizador-edit>
+        </div>
+    </div>
     </div>
 </div>
