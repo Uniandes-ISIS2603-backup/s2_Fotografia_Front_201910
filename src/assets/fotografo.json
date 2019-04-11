@@ -1,0 +1,39 @@
+[
+    {
+        "id": 1,
+    
+        "nombre": "Sara",
+
+        "apellido":"Acosta",
+        
+        "fechaNacimiento":"23/12/12",
+        
+        "edad":"23",
+
+        "correo":"sara.acosta@correo.com",
+        
+        "telefono": "319",
+           
+        "pais": "Colombia"
+        
+    },
+    {
+        "id": 2,
+    
+        "nombre": "Juan",
+
+        "apellido":"Acosta",
+        
+        "fechaNacimiento":"23/12/12",
+        
+        "edad":"23",
+
+        "correo":"sara.acosta@correo.com",
+        
+        "telefono": "319",
+           
+        "pais": "Colombia"
+        
+    }
+    
+]

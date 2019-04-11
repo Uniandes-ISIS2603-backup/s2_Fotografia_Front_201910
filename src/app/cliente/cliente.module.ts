@@ -6,13 +6,14 @@ import { ClienteService } from './cliente.service';
 import{AppRoutingModule} from '../app-routing/app-routing.module';
 import { ClienteDetailComponent } from './cliente-detail/cliente-detail.component';
 import { ClienteCreateComponent } from './cliente-create/cliente-create.component';
+import { ClienteEditComponent } from './cliente-edit/cliente-edit.component';
 
 
 @NgModule({
   imports: [
     CommonModule,FormsModule, AppRoutingModule
   ],
-  declarations: [ClienteListComponent, ClienteDetailComponent, ClienteCreateComponent],
+  declarations: [ClienteListComponent, ClienteDetailComponent, ClienteCreateComponent, ClienteEditComponent],
   exports: [ClienteListComponent, ClienteDetailComponent, ClienteCreateComponent],
   providers: [ClienteService]
 })

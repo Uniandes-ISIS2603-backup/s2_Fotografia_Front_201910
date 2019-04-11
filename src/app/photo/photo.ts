@@ -15,7 +15,7 @@ export class Photo {
     /*
     * Atributo correspondiente a la fecha de la foto.
     */
-    date: Date;
+    date: any;
 
     /*
     * Atributo correspondiente a la descripcion de la foto.

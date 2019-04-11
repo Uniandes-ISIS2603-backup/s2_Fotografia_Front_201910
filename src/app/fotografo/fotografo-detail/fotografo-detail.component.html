@@ -1,0 +1,24 @@
+<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">
+<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
+<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="container">
+  <div class="row">
+    <div class="span2">
+      <img src="https://fotonimia.com/wp-content/uploads/2018/01/como-prosperar-como-fotografo.jpg"  alt="" class="img-rounded" width="2000">
+    </div>
+    <div class="span4">
+      <blockquote>
+        <p>{{fotografoDetail.nombre}}</p>
+        <small><cite title="Source Title">{{fotografoDetail.pais}}  <i class="icon-map-marker"></i></cite></small>
+      </blockquote>
+      <p>
+          <i class="icon-envelope"></i> {{fotografoDetail.correo}} <br>
+          <i class="icon-globe"></i> {{fotografoDetail.login}} <br>
+          <i class="icon-gift"></i> {{fotografoDetail.fechaNacimiento}}<br>
+          <i class = "fas fa-calendar"></i>{{fotografoDetail.edad}}<br>
+          <i class = "fas fa-phone"></i>{{fotografoDetail.telefono}}<br>
+      </p>
+    </div>

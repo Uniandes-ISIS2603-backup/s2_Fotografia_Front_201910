@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import {ClienteService} from '../cliente.service';
 import {ClienteDetail} from '../cliente-detail';
+import { ClienteListComponent } from '../cliente-list/cliente-list.component';
 
 @Component({
   selector: 'app-cliente-detail',
@@ -20,6 +21,13 @@ constructor(private clienteService: ClienteService,
 * El id del cliente que viene en el path get .../clientes/clienteId
 */
 clienteId: number;
+
+
+
+  /**
+    * Shows or hides the edit component.
+    */
+   showEdit: boolean;
 
   @Input() id: number;
     loader: any;
@@ -47,5 +55,24 @@ clienteId: number;
   ngOnDestroy() {
     this.loader.unsubscribe();
   }
+
+  
+  /**
+* Shows or hides the create component
+*/
+showHideEdit(clienteId: number): void {
+  if (!this.showEdit || (this.showEdit && clienteId != this.clienteId)) {
+      this.showEdit = true;
+      this.clienteId = clienteId;
+  }
+  else {
+      this.showEdit = false;
+  }
+}
+
+updateCliente(): void {
+  this.showEdit = false;
+}
+
 
 }
