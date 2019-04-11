@@ -19,11 +19,11 @@ import {OrganizadorModule} from './organizador/organizador.module';
 
 import {ClienteModule} from './cliente/cliente.module';
 
-
 import {RondaModule} from './ronda/ronda.module';
 import { Ronda } from './ronda/ronda';
 import {PhotoModule} from './photo/photo.module';
 import {ConcursoModule} from './concurso/concurso.module';
+import {FormaDePagoModule} from './forma-de-pago/forma-de-pago.module';
 
 
 @NgModule({
@@ -44,6 +44,7 @@ import {ConcursoModule} from './concurso/concurso.module';
         OrganizadorModule,
 
         ClienteModule,
+        FormaDePagoModule,
 
         RondaModule,
         PhotoModule,

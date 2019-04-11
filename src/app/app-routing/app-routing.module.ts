@@ -18,6 +18,10 @@ import {ClienteListComponent} from '../cliente/cliente-list/cliente-list.compone
 import {ClienteDetailComponent} from '../cliente/cliente-detail/cliente-detail.component';
 import {ClienteCreateComponent} from '../cliente/cliente-create/cliente-create.component';
 
+import {FormaDePagoListComponent} from '../forma-de-pago/forma-de-pago-list/forma-de-pago-list.component';
+import {FormaDePagoDetailComponent} from '../forma-de-pago/forma-de-pago-detail/forma-de-pago-detail.component';
+import {FormaDePagoCreateComponent} from '../forma-de-pago/forma-de-pago-create/forma-de-pago-create.component';
+
 import {PhotoListComponent} from '../photo/photo-list/photo-list.component';
 import { ConcursoListComponent } from '../concurso/concurso-list/concurso-list.component';
 import { ConcursoDetailComponent } from '../concurso/concurso-detail/concurso-detail.component';
@@ -129,6 +133,23 @@ const routes: Routes = [
             component: ClienteCreateComponent
           }]
       },
+
+      {
+
+        path:'formasDePago', 
+        children:[
+          {
+          path: 'list', 
+          component:FormaDePagoListComponent
+          },
+          {
+            path:':id', 
+            component: FormaDePagoDetailComponent,
+            outlet: 'detail'
+          }]
+      },
+
+     
   {
         path: 'concursos',
         children:[
