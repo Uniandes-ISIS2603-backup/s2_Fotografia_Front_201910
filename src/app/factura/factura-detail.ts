@@ -1,2 +1,4 @@
-export class FacturaDetail {
+import { Factura } from "./factura";
+
+export class FacturaDetail extends Factura{
 }
