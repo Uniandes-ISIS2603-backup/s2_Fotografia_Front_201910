@@ -35,4 +35,13 @@ export class ClienteService {
     createCliente(cliente): Observable<Cliente> {
         return this.http.post<Cliente>(API_URL + clientes, cliente);
     }
+
+    /**
+* Updates a Client
+* @param Cliente The client which will be update
+* @returns The confirmation of the cliente's update
+*/
+updateCliente(cliente): Observable<ClienteDetail> {
+    return this.http.put<ClienteDetail>(API_URL + clientes + '/' + cliente.id, cliente);
+ }
 }

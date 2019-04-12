@@ -1,0 +1,75 @@
+<div class="row">
+  <div class="col-3"></div>
+  <div class="col-6">
+      <br>
+      <h2 class="text-center">Agregar Forma De Pago</h2>
+      <br>
+      <form name="formaDePago" (ngSubmit)="f.form.valid && createFormaDePago()" #f="ngForm" novalidate>
+        <div class="form-group">
+          <label for="numeroTarjeta">Numero Tarjeta</label>
+          <input type="text" name="numeroTarjeta" class="form-control" id="numeroTarjeta"  placeholder="Numero de la tarjeta" [(ngModel)]="formaDePago.numeroTarjeta"
+                  #numeroTarjeta="ngModel" [ngClass]="{ 'is-invalid': f.submitted && numeroTarjeta.invalid }" required>
+                   <div class="invalid-feedback">
+                  <div>No se ingreso numero de la tarjeta</div>
+                  </div>
+  
+        </div>
+
+
+        <div class="form-group">
+          <label for="numeroTarjeta">Numero de verificacion</label>
+          <input type="password" name="numeroVerificacion" class="form-control" id="numeroVerificacion"  placeholder="Numero de verificacion" [(ngModel)]="formaDePago.numeroVerificacion"
+                  #numeroVerificacion="ngModel" [ngClass]="{ 'is-invalid': f.submitted && numeroVerificacion.invalid }" required>
+                   <div class="invalid-feedback">
+                  <div>No se ingreso numero de verificacion</div>
+                  </div>
+  
+        </div>
+
+        <div class="form-group">
+          <label for="fechaVencimiento"><b>Fecha de Vencimiento</b></label>
+          <div [ngClass]="{ 'is-invalid': f.submitted && fechaVencimiento.invalid }">
+              <input class="form-control" id="fechaVencimiento" name="fechaVencimiento" [(ngModel)]="formaDePago.fechaVencimiento"
+                  ngbDatepicker #d="ngbDatepicker" (click)="d.toggle()" #fechaVencimiento="ngModel"
+                  required  placeholder="Fecha de vencimiento"> 
+                  
+              <div class="invalid-feedback">
+                  <div>No se agrego la fecha de vencimiento</div>
+              </div>
+          </div>
+      </div>    
+  
+      <div class="form-group">
+        <label for="tipoTarjeta">Tipo de tarjeta</label>
+        <select name="tipoDeTarjeta" class="form-control" id="tipoDeTarjeta"  placeholder="Tipo de tarjeta" [(ngModel)]="formaDePago.tipoDeTarjeta"
+        #tipoDeTarjeta="ngModel" [ngClass]="{ 'is-invalid': f.submitted && tipoDeTarjeta.invalid }"  (onchange)="yesnoCheck(this);"required>
+          <option value="Tarjeta Debito">Tarjeta Debito</option>
+          <option value="Tarjeta Credito">Tarjeta Credito</option>
+        </select>
+        <div class="invalid-feedback">
+          <div>No se ingreso el tipo de tarjeta</div>
+          </div>
+
+      </div>
+
+      <div class="form-group">
+        <label for="tipoTarjetaDeCredito">Tipo de tarjeta de credito</label>
+        <select name="tipoTarjetaDeCredito" class="form-control" id="tipoTarjetaDeCredito"  placeholder="Tipo de tarjeta de credito" [(ngModel)]="formaDePago.tipoTarjetaDeCredito"
+        #tipoTarjetaDeCredito="ngModel" [ngClass]="{ 'is-invalid': f.submitted && tipoTarjetaDeCredito.invalid }">
+          <option value="VISA">VISA</option>
+          <option value="MASTERCARD">MASTERCARD</option>
+        </select>
+        
+
+      </div>
+
+      <div class="row form-inline justify-content-center align-self-center">
+        <button type="submit" class="btn btn-success" (click)="createFormaDePago()">Create</button>
+        <div class="divider col-1"> </div>
+        <button type="button" class="btn btn-danger" (click)="cancelCreation()">Cancel</button>
+    </div>
+        
+      </form>
+  </div>
+  <div class="col-3"></div>
+</div>
