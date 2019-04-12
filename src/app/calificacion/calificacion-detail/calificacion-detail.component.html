@@ -1,16 +1,41 @@
-<div class="panel-body">
-    <div class="border margin">
-        <p style="background-color:rgba(164, 210, 255, 0.877); text-align: center" class="h3 p-3">{{calificacionDetail.nombre}}<p> 
-        <div class="row">
-            <div class="col">
-                <dl>     
-                    <dt style="background-color:rgb(247, 247, 247); text-align: center">Puntaje</dt>
-                    <dd style="background-color:rgb(247, 247, 247); text-align: center">{{calificacionDetail.puntaje}}</dd>
-                    <dt style="background-color:rgb(247, 247, 247); text-align: center">Comentario</dt>
-                    <dd style="background-color:rgb(247, 247, 247); text-align: center">{{calificacionDetail.comentario}}</dd>
-                </dl>
+<div class="row">
+    <div class="col-3"></div>
+    <div class="col-6">
+        <br>
+        <h2 class="text-center">Crear calificación</h2>
+        <br>
+        <form name="calificacion" (ngSubmit)="f.form.valid && createCalificacion()" #f="ngForm" novalidate>
+            <div class="form-group">
+                <label for="calificacionNombre"><b>Nombre</b></label>
+                <input type="text" name="calificacionNombre" class="form-control" id="calificacionNombre" [(ngModel)]="calificacion.nombre"
+                    #calificacionNombre="ngModel" [ngClass]="{ 'is-invalid': f.submitted && calificacionNombre.invalid }" required>
+                <div class="invalid-feedback">
+                    <div>El nombre de la calificación falta</div>
+                </div>
             </div>
-  
-        </div>
+            <div class="form-group">
+                <label for="calificacionPuntaje"><b>Puntaje</b></label>
+                <input type="text" name="calificacionPuntaje" class="form-control" id="calificacionPuntaje" [(ngModel)]="calificacion.puntaje"
+                    #calificacionPuntaje="ngModel" [ngClass]="{ 'is-invalid': f.submitted && calificacionPuntaje.invalid }" required>
+                <div class="invalid-feedback">
+                    <div>El puntaje de la calificación falta</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="calificacionComentario"><b>Comentario</b></label>
+                <textarea name="calificacionComentario" maxlength=255 class="form-control" id="calificacionComentario" [(ngModel)]="calificacion.comentario"
+                    #calificacionComentario="ngModel" [ngClass]="{ 'is-invalid': f.submitted && calificacionComentario.invalid }"
+                    required></textarea>
+                <div class="invalid-feedback">
+                    <div>Hace falta el comentario de la foto</div>
+                </div>
+            </div>
+            <div class="row form-inline justify-content-center align-self-center">
+                <button type="submit" class="btn btn-primary">Create</button>
+                <div class="divider"></div>
+                <button type="button" class="btn btn-danger" (click)="cancelCreation()">Cancel</button>
+            </div>
+        </form>
     </div>
-  </div>
+    <div class="col-3"></div>
+</div>

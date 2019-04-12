@@ -1,0 +1,53 @@
+<div class="pin-layout">
+  <div class="thumbnail">
+      
+    
+      <br>
+      <div class="row justify-content-center align-self-center">
+          <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+              (click)="showHideCreate()">Crear Fotografo</button>
+      </div>
+      <br>
+      <div class="col-md-8">
+          <div *ngIf="showCreate">
+              <app-fotografo-create (cancel)="showHideCreate()" (create)="ngOnInit()" *ngIf="showCreate"></app-fotografo-create>
+          </div>
+      </div>
+      <div class="row justify-content-center align-self-center">
+          <button [ngClass]="{ 'btn-primary': !act, 'btn-danger': act}" type="button" class="btn"
+              (click)="ngOnInit()">Actualizar</button>
+      </div>
+      <br>
+      <div class="col-md-9">
+          <div *ngIf="act">
+              <app-fotografo (actualizar)="ngOnInit()" ></app-fotografo>
+          </div>
+      </div>
+      
+    <style>
+      
+      table, th, td{
+        width:100%; 
+        border: 1px solid black;
+        border-collapse: collapse;
+        align-self: center;
+      }
+      th
+    </style>
+    <table >
+        <thead>
+            <tr>
+              <th style="background-color :#4da6ff;text-align: center" class="text-center">Fotografos</th> </tr>
+        </thead>
+      <tbody>
+        <tr *ngFor = "let fotografo of fotografos">
+            <td style="cursor: pointer;"> 
+                <dd style="text-align: center;" routerLink="/fotografos/{{fotografo.id}}" >{{fotografo.nombre}}</dd>
+            </td>
+            <td>
+                <button class="btn btn-primary" (click)="showHideEdit(fotografo.id)"><span class="fa fa-pencil"></span></button>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+</div>

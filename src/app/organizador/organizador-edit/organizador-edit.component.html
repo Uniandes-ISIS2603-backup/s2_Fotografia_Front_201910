@@ -1,0 +1,42 @@
+<div class="row">
+    <div class="col-3"></div>
+    <div class="col-6">
+        <br>
+        <h2 class="text-center">Edit an organizador</h2>
+        <br>
+        <form name="organizador" (ngSubmit)="f.form.valid && editOrganizador()" #f="ngForm" novalidate>
+            <div class="form-group">
+                <label for="organizadorNombre"><b>Name</b></label>
+                <input type="text" name="organizadorNombre" class="form-control" id="organizadorNombre" [(ngModel)]="organizador.nombre"
+                    #organizadorNombre="ngModel" [ngClass]="{ 'is-invalid': f.submitted && organizadorNombre.invalid }" required>
+                <div class="invalid-feedback">
+                    <div>The organizador's name is missing</div>
+                </div>
+            </div>
+            <div class="form-group">
+              <label for="organizadorEdad"><b>Edad</b></label>
+              <textarea name="organizadorEdad" class="form-control" id="organizadorEdad" [(ngModel)]="organizador.edad"
+                  #organizadorEdad="ngModel" [ngClass]="{ 'is-invalid': f.submitted && organizadorEdad.invalid }"
+                  required></textarea>
+              <div class="invalid-feedback">
+                  <div>The organizador's edad is missing</div>
+              </div>
+          </div>
+            <div class="form-group">
+                <label for="organizadorPais"><b>Pais</b></label>
+                <textarea name="organizadorPais" class="form-control" id="organizadorPais" [(ngModel)]="organizador.pais"
+                    #organizadorPais="ngModel" [ngClass]="{ 'is-invalid': f.submitted && organizadorPais.invalid }"
+                    required></textarea>
+                <div class="invalid-feedback">
+                    <div>The organizador's pais is missing</div>
+                </div>
+            </div>
+            <div class="row form-inline justify-content-center align-self-center">
+                <button type="submit" onclick="javascript:window.location.reload();" class="btn btn-primary">Edit</button>
+                <div class="divider"></div>
+                <button type="button" class="btn btn-danger" (click)="cancelEdition()">Cancel</button>
+            </div>
+        </form>
+    </div>
+    <div class="col-3"></div>
+</div>
