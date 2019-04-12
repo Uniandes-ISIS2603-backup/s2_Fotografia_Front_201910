@@ -10,13 +10,21 @@ import {FormaDePagoDetail} from '../forma-de-pago-detail';
 })
 export class FormaDePagoDetailComponent implements OnInit {
 
+  /**
+   * Constructor del componente
+   * @param formaDePagoService el proveedor de servicios
+   * @param route la ruta que permite conseguir el id
+   */
   constructor(private formaDePagoService: FormaDePagoService,
     private route: ActivatedRoute) { }
 
+    /**
+     * El detail de la forma de pago seleccionada en la lista
+     */
   @Input() formaDePagoDetail: FormaDePagoDetail;
 
 /**
-* El id del cliente que viene en el path get .../clientes/clienteId
+* El id de la forma de pago que viene en el path get .../clientes/clienteId
 */
 formaDePagoId: number;
 
@@ -26,30 +34,41 @@ formaDePagoId: number;
     */
    showEdit: boolean;
 
-
-  @Input() id: number;
     loader: any;
 
+    /**
+     * Consigue el detalle de una forma de pago
+     */
     getFormaDePagoDetail(): void {
-      console.log(this.id);
-    this.formaDePagoService.getFormaDePagoDetail(this.id)
+      console.log(this.formaDePagoId);
+    this.formaDePagoService.getFormaDePagoDetail(this.formaDePagoId)
       .subscribe(fdp => {
         this.formaDePagoDetail = fdp
       });
   }
 
+  /**
+   * Lo que hace cuando se carga el componente
+   * @param params 
+   */
   onLoad(params) {
-    this.id = +this.route.snapshot.paramMap.get('id');
+    this.formaDePagoId = +this.route.snapshot.paramMap.get('id');
     if(this.formaDePagoId){
-    console.log(" en detail " + this.id);
+    console.log(" en detail " + this.formaDePagoId);
     this.formaDePagoDetail = new FormaDePagoDetail();
     this.getFormaDePagoDetail();}
   }
 
+  /**
+   * Inicializa el componente
+   */
   ngOnInit() {
     this.loader = this.route.params.subscribe((params: Params) => this.onLoad(params));
   }
 
+  /**
+   * Para la subscripcion
+   */
   ngOnDestroy() {
     this.loader.unsubscribe();
   }
@@ -66,6 +85,10 @@ showHideEdit(formaDePagoId: number): void {
         this.showEdit = false;
     }
 }
+
+/**
+ * Actualiza la forma de pago
+ */
 updateFormaDePago(): void {
   this.showEdit = false;
 }

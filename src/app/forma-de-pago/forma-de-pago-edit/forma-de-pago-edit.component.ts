@@ -26,30 +26,30 @@ export class FormaDePagoEditComponent implements OnInit, OnChanges {
     ) {}
 
 /**
-    * The id of the editorial that the user wants to edit
+    * The id of the formaDePago that the user wants to edit
     * This is passed as a parameter by the parent component
     */
    @Input() formaDePagoId: number;
 
     /**
     * The output which tells the parent component
-    * that the user no longer wants to create an editorial
+    * that the user no longer wants to edit a forma de pago
     */
    @Output() cancel = new EventEmitter();
 
    /**
    * The output which tells the parent component
-   * that the user updated a new editorial
+   * that the user updated a forma de pago
    */
    @Output() update = new EventEmitter();
 
     /**
-    * The author id as received from the parent component
+    * The forma de pago detail as received from the parent component
     */
     @Input() formaDePago: FormaDePagoDetail;
 
     /**
-    * Retrieves the information of the calificacion
+    * Retrieves the information of the forma de pago
     */
    getFormaDePago(): void {
     this.formaDePagoService.getFormaDePagoDetail(this.formaDePagoId)
@@ -60,7 +60,7 @@ export class FormaDePagoEditComponent implements OnInit, OnChanges {
 
 
     /**
-    * Updates the information of the author
+    * Updates the information of the formadepago
     */
     editFormaDePago(): void {
 
@@ -77,7 +77,7 @@ export class FormaDePagoEditComponent implements OnInit, OnChanges {
 
     /**
     * Emits the signal to tell the parent component that the
-    * user no longer wants to create an user
+    * user no longer wants to edit a forma de pago
     */
     cancelEdition(): void {
         this.cancel.emit();
@@ -93,7 +93,7 @@ export class FormaDePagoEditComponent implements OnInit, OnChanges {
     }
 
     /**
-    * This function will be called when the user chooses another author to edit
+    * This function will be called when the user chooses another forma de pago to edit
     */
     ngOnChanges() {
         this.ngOnInit();

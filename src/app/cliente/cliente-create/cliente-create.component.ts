@@ -8,32 +8,36 @@ import {ToastrService} from 'ngx-toastr';
   templateUrl: './cliente-create.component.html',
   styleUrls: ['./cliente-create.component.css']
 })
-export class ClienteCreateComponent implements OnInit {
-
+export class ClienteCreateComponent implements OnInit 
+{
+    /**
+     * Constructor del componente
+     * @param clienteService El proveedor de servicios del cliente
+     * @param toastrService El toastr que muestra los mensajes
+     */
   constructor(
         private clienteService: ClienteService, private toastrService: ToastrService
     ) {}
 
     /**
-    * The new client
+    * El cliente nuevo
     */
     cliente: Cliente;
 
 
     /**
-    * The output which tells the parent component
-    * that the user no longer wants to create a client
+    * El output que le dice al componente padre
+    * que ya no se quiere crear un cliente
     */
     @Output() cancel = new EventEmitter();
 
     /**
-    * The output which tells the parent component
-    * that the user created a new cliente
+    * El output que le dice al usuario que ya se creo un cliente
     */
     @Output() create = new EventEmitter();
 
     /**
-    * Creates a client
+    * Crea un clinente
     */
     createCliente(): Cliente {
 
@@ -49,15 +53,14 @@ export class ClienteCreateComponent implements OnInit {
     }
 
     /**
-    * Emits the signal to tell the parent component that the
-    * user no longer wants to create  cliente
+    * Manda la señal al componente padre de que ya no se quiere crear un cliente
     */
     cancelCreation(): void {
         this.cancel.emit();
     }
 
     /**
-    * This function will initialize the component
+    * Inicializa el componente
     */
     ngOnInit() {
         this.cliente = new Cliente();
