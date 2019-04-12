@@ -22,6 +22,7 @@ import {FacturaModule} from './factura/factura.module';
 import {FotografoModule} from './fotografo/fotografo.module';
 
 import {ClienteModule} from './cliente/cliente.module';
+import {InteresFotograficoModule} from './interes-fotografico/interes-fotografico.module';
 
 
 import {RondaModule} from './ronda/ronda.module';
@@ -49,6 +50,7 @@ import {FormaDePagoModule} from './forma-de-pago/forma-de-pago.module';
         FacturaModule,
         OrganizadorModule,
         FotografoModule,
+        InteresFotograficoModule,
 
         ClienteModule,
         FormaDePagoModule,

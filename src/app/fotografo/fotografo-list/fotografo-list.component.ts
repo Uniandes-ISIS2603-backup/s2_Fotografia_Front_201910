@@ -84,7 +84,7 @@ showHideEdit(fotografo_id: number): void {
     }
 }
 
-updateEditorial(): void {
+updateFotografo(): void {
     this.showEdit = false;
 }
 
