@@ -7,7 +7,7 @@
 <div class="container">
   <div class="row">
     <div class="span2">
-      <img src="https://fotonimia.com/wp-content/uploads/2018/01/como-prosperar-como-fotografo.jpg"  alt="" class="img-rounded" width="2000">
+      <img src="{{fotografoDetail.foto}}"  alt="" class="img-rounded" width="2000">
     </div>
     <div class="span4">
       <blockquote>
@@ -18,7 +18,9 @@
           <i class="icon-envelope"></i> {{fotografoDetail.correo}} <br>
           <i class="icon-globe"></i> {{fotografoDetail.login}} <br>
           <i class="icon-gift"></i> {{fotografoDetail.fechaNacimiento}}<br>
-          <i class = "fas fa-calendar"></i>{{fotografoDetail.edad}}<br>
+          <i class = "fas fa-calendar"></i>{{fotografoDetail.edad}} años<br>
           <i class = "fas fa-phone"></i>{{fotografoDetail.telefono}}<br>
       </p>
+      <button class="btn btn-primary" routerLink="/fotografos/list">Regresar</button>
+           
     </div>
