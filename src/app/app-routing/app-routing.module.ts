@@ -30,11 +30,8 @@ import {PhotoListComponent} from '../photo/photo-list/photo-list.component';
 
 import {PhotoDetailComponent} from '../photo/photo-detail/photo-detail.component';
 import {PhotoEditComponent} from '../photo/photo-edit/photo-edit.component';
-
 import {FacturaListComponent} from '../factura/factura-list/factura-list.component';
 import {FacturaDetailComponent} from '../factura/factura-detail/factura-detail.component';
-import {FacturaCreateComponent} from '../factura/factura-create/factura-create.component';
-
 
 import { ConcursoListComponent } from '../concurso/concurso-list/concurso-list.component';
 import { ConcursoDetailComponent } from '../concurso/concurso-detail/concurso-detail.component';
@@ -112,15 +109,7 @@ const routes: Routes = [
             {
                 path: ':id',
                 component: FacturaDetailComponent
-            },
-            {
-                path: 'comprar',
-                children:[
-                    {
-                        path: ':id',
-                        component: FacturaCreateComponent
-                    }
-            
+            }
         ]
     },
     {
