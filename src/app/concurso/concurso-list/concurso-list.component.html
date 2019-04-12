@@ -8,7 +8,8 @@
             </thead>
             <tbody>
                 <tr *ngFor = "let concurso of concursos">
-                    <td> <dd class="figure-caption" routerLink="/concursos/{{concurso.id}}"  > {{concurso.tema}}</dd> </td>  
+                    <td> <dd class="figure-caption" routerLink="/concursos/{{concurso.id}}"  > {{concurso.tema}}</dd> </td>
+                    <td><button class="btn btn-primary" (click)="showHideEdit(concurso.id)"><span class="far fa-edit"></span></button></td>
             </tr>
             </tbody>
             <br>
@@ -24,5 +25,10 @@
             </div>
             <br>
         </table>
+        <div class="col-md-8">
+        <div *ngIf="showEdit">
+            <app-concurso-edit [concurso_id]="concurso_edit_id" (cancel)="showHideEdit(concurso_edit_id)" (update)="updateConcurso()"></app-concurso-edit>
+        </div>
+    </div>
     </div>
 </div>

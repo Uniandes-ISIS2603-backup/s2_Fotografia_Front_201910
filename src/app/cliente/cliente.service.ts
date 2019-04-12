@@ -18,10 +18,17 @@ export class ClienteService {
 
   constructor(private http: HttpClient) { }
 
+  /**
+   * Trae la lista de clientes
+   */
    getClientes() : Observable<Cliente[]> {
         return this.http.get<Cliente[]>(API_URL + clientes);
     }
 
+    /**
+     * Trae el cliente con un id especifico
+     * @param clienteId id del cliente
+     */
     getClientesDetail(clienteId):Observable<ClienteDetail>
     {
       return this.http.get<ClienteDetail>(API_URL + clientes + '/'+ clienteId);

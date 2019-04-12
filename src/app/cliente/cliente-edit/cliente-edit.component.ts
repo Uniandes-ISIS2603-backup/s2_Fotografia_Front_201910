@@ -29,7 +29,7 @@ export class ClienteEditComponent implements OnInit, OnChanges {
 
 /**
 * The output which tells the parent component
-* that the user no longer wants to create an client
+* that the user no longer wants to edit an client
 */
 @Output() cancel = new EventEmitter();
 
@@ -68,7 +68,7 @@ editCliente(): void {
 
 /**
 * Emits the signal to tell the parent component that the
-* user no longer wants to create an user
+* user no longer wants to edit
 */
 cancelEdition(): void {
     this.cancel.emit();
@@ -84,7 +84,7 @@ ngOnInit() {
 }
 
 /**
-* This function will be called when the user chooses another author to edit
+* This function will be called when the user chooses cliente author to edit
 */
 ngOnChanges() {
     this.ngOnInit();

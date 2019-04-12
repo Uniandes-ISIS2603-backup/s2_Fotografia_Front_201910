@@ -1,23 +1,32 @@
-import { Component, OnInit, Input, ViewChild } from '@angular/core';
+import { Component, OnInit, OnChanges, Input, ViewChild } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import {ClienteService} from '../cliente.service';
 import {ClienteDetail} from '../cliente-detail';
 import { ClienteListComponent } from '../cliente-list/cliente-list.component';
-import { FormaDePago } from '../../forma-de-pago/forma-de-pago';
 
-import{ FormaDePagoListComponent } from '../../forma-de-pago/forma-de-pago-list/forma-de-pago-list.component';
+import{FormaDePagoListComponent} from '../../forma-de-pago/forma-de-pago-list/forma-de-pago-list.component';
+import { Cliente } from '../cliente';
 
 @Component({
   selector: 'app-cliente-detail',
   templateUrl: './cliente-detail.component.html',
   styleUrls: ['./cliente-detail.component.css']
 })
-export class ClienteDetailComponent implements OnInit 
+export class ClienteDetailComponent implements OnInit , OnChanges
 {
 
+  /**
+   * Constructor del componente
+   * @param clienteService proveedor de servicios del cliente
+   * @param route la ruta que permite retraer el id
+   */
 constructor(private clienteService: ClienteService,
     private route: ActivatedRoute) { }
 
+    /**
+     * El cliente detail que recibe de listar
+     * Cuando se selecciona un cliente de la lista
+     */
   @Input() clienteDetail: ClienteDetail;
 
 /**
@@ -25,46 +34,63 @@ constructor(private clienteService: ClienteService,
 */
 clienteId: number;
 
-public isCollapsed =true;
-
 
   /**
     * Shows or hides the edit component.
     */
    showEdit: boolean;
 
-  @Input() id: number;
+
     loader: any;
 
-
+/**
+ * Para ver su hijo (forma de pago)
+ */
 @ViewChild (FormaDePagoListComponent)
 formaDePagoComponent: FormaDePagoListComponent;
 
 
-
-    getClienteDetail(): void {
-      console.log(this.id);
-    this.clienteService.getClientesDetail(this.id)
-      .subscribe(cli => {
-        this.clienteDetail = cli
-      });
-  }
-
+/**
+ * Lo que se quiere hacer cuando se cargue el componente
+ * @param params 
+ */
   onLoad(params) {
 
-    this.id = +this.route.snapshot.paramMap.get('id');
-    if(this.clienteId){
-    console.log(" en detail " + this.id);
-    this.clienteDetail = new ClienteDetail();
-    this.getClienteDetail();}
+    this.clienteId = +this.route.snapshot.paramMap.get('id');
+    if(this.clienteId = 0){
+    console.log(" en detail " + this.clienteId);
+    /*this.clienteDetail = new ClienteDetail();*/
+    this.clienteId = this.clienteDetail.id
+   }
   }
 
+  /**
+   * Inicializa el componente
+   */
   ngOnInit() {
+
+    console.log("Id cuando inicia"  +this.clienteDetail.id)
     this.loader = this.route.params.subscribe((params: Params) => this.onLoad(params));
+    
+   console.log("id del cliente" + this.clienteId)
+    
   }
 
+  /**
+   * Permite que se detenga la subscripcion
+   */
   ngOnDestroy() {
     this.loader.unsubscribe();
+  }
+
+  /**
+   * Devuelve el detalle del cliente
+   */
+  getClienteDetail(): void {
+    this.clienteService.getClientesDetail(this.clienteId)
+      .subscribe(clienteDetail => {
+        this.clienteDetail = clienteDetail
+      });
   }
 
   
@@ -81,12 +107,18 @@ showHideEdit(clienteId: number): void {
   }
 }
 
+/**
+ * Actualiza la informacion del cliente
+ */
 updateCliente(): void {
   this.showEdit = false;
 }
 
+/**
+ * Lo que debe hacer cuando reciba un cambio
+ */
 ngOnChanges() {
-   this.formaDePagoComponent.isCollapsed  = true;
+
 }
 
 }
