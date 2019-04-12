@@ -86,7 +86,7 @@ updateCliente(): void {
 }
 
 ngOnChanges() {
-  /**  this.formaDePagoComponent.isCollapsed  = true;**/
+   this.formaDePagoComponent.isCollapsed  = true;
 }
 
 }
