@@ -1,8 +1,31 @@
 <div class="pin-layout">
   <div class="thumbnail">
       
+    
       <br>
+      <div class="row justify-content-center align-self-center">
+          <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+              (click)="showHideCreate()">Crear Fotografo</button>
+      </div>
+      <br>
+      <div class="col-md-8">
+          <div *ngIf="showCreate">
+              <app-fotografo-create (cancel)="showHideCreate()" (create)="ngOnInit()" *ngIf="showCreate"></app-fotografo-create>
+          </div>
+      </div>
+      <div class="row justify-content-center align-self-center">
+          <button [ngClass]="{ 'btn-primary': !act, 'btn-danger': act}" type="button" class="btn"
+              (click)="ngOnInit()">Actualizar</button>
+      </div>
+      <br>
+      <div class="col-md-9">
+          <div *ngIf="act">
+              <app-fotografo (actualizar)="ngOnInit()" ></app-fotografo>
+          </div>
+      </div>
+      
     <style>
+      
       table, th, td{
         width:100%; 
         border: 1px solid black;
