@@ -1,3 +1,4 @@
+import {Photo} from '../photo/photo';
 export class Factura {
     /**
     * factura id
@@ -17,4 +18,9 @@ export class Factura {
     * fecha de la factura
     */
    fechaCompra: any;
+
+   /**
+    * foto que se compro
+    */
+   fotoComprada: Photo; 
 }
