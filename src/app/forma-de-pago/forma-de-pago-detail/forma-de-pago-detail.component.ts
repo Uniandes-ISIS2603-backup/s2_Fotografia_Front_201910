@@ -39,11 +39,11 @@ formaDePagoId: number;
   }
 
   onLoad(params) {
-
-    this.id = parseInt(params['id']);
+    this.id = +this.route.snapshot.paramMap.get('id');
+    if(this.formaDePagoId){
     console.log(" en detail " + this.id);
     this.formaDePagoDetail = new FormaDePagoDetail();
-    this.getFormaDePagoDetail();
+    this.getFormaDePagoDetail();}
   }
 
   ngOnInit() {
@@ -69,5 +69,6 @@ showHideEdit(formaDePagoId: number): void {
 updateFormaDePago(): void {
   this.showEdit = false;
 }
+
 
 }

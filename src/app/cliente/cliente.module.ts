@@ -7,11 +7,11 @@ import{AppRoutingModule} from '../app-routing/app-routing.module';
 import { ClienteDetailComponent } from './cliente-detail/cliente-detail.component';
 import { ClienteCreateComponent } from './cliente-create/cliente-create.component';
 import { ClienteEditComponent } from './cliente-edit/cliente-edit.component';
-
+import{FormaDePagoModule} from '../forma-de-pago/forma-de-pago.module';
 
 @NgModule({
   imports: [
-    CommonModule,FormsModule, AppRoutingModule
+    CommonModule,FormsModule, AppRoutingModule, FormaDePagoModule
   ],
   declarations: [ClienteListComponent, ClienteDetailComponent, ClienteCreateComponent, ClienteEditComponent],
   exports: [ClienteListComponent, ClienteDetailComponent, ClienteCreateComponent],

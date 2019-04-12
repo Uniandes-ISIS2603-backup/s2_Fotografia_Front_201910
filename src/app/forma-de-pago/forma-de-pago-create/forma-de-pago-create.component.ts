@@ -4,7 +4,8 @@ import {FormaDePagoDetail} from '../forma-de-pago-detail';
 import {ToastrService} from 'ngx-toastr';
 import {DatePipe} from '@angular/common';
 import { NgbDate, NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
+import{Cliente} from '../../cliente/cliente';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-forma-de-pago-create',
@@ -13,7 +14,7 @@ import { NgbDate, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 })
 export class FormaDePagoCreateComponent implements OnInit {
 
-  constructor(private dp: DatePipe,
+  constructor(private dp: DatePipe,private router: Router,
     private formaDePagoService: FormaDePagoService, private toastrService: ToastrService
 ) {}
 
@@ -22,8 +23,15 @@ export class FormaDePagoCreateComponent implements OnInit {
 */
 formaDePago: FormaDePagoDetail;
 
+/**
+ * Los clientes de la aplicacion
+ */
+clientes: Cliente[];
 
-
+/**
+ * El cliente de la forma de pago
+ */
+cliente: Cliente;
 /**
 * The output which tells the parent component
 * that the user no longer wants to create a client
@@ -60,8 +68,9 @@ createFormaDePago(): FormaDePagoDetail {
         .subscribe((fdp) => {
             this.formaDePago = fdp;
             this.create.emit();
-            this.toastrService.success("The client was created", "cliente creation");
-        });
+            this.router.navigate(['/formasDePago/'+ fdp.id])
+            this.toastrService.success("The forma de pago was created", "forma de pago creation");
+ });
 
     return this.formaDePago;
 }
