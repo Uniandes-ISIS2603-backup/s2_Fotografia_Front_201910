@@ -49,8 +49,9 @@ selected : Cliente;
 onSelected(clienteId: number):void {
     this.clienteId = clienteId;
     this.selected = new ClienteDetail();
-    this.clienteService.getClientesDetail(clienteId).subscribe(c=> this.selected=c);
-}
+    this.clienteId = clienteId;
+    this.getClienteDetail();
+  }
 
   /**
     * Shows or hides the create component
@@ -75,6 +76,8 @@ showHideEdit(clienteId: number): void {
 }
 
    ngOnInit() {
+    this.selected =undefined;
+    this.clienteId = undefined;
     this.getClientes();
   }
 

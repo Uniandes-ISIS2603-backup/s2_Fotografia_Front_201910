@@ -6,5 +6,7 @@ export class FormaDePago
 
 tipoDeTarjeta: string;
 
-  
+  imagen:string;
+
+  tipoTarjetaDeCredito: string;
 }
