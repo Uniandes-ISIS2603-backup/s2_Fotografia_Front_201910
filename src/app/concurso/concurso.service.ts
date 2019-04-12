@@ -27,4 +27,8 @@ export class ConcursoService {
   createConcurso(concurso): Observable<Concurso>{
       return this.http.post<Concurso>(API_URL + concursos, concurso);
   }
+  
+  updateConcurso(concurso): Observable<ConcursoDetail> {
+      return this.http.put<ConcursoDetail>(API_URL + concursos + '/' + concurso.id, concurso);
+  }
 }

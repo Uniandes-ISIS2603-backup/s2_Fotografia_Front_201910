@@ -36,7 +36,6 @@ export class FormaDePagoListComponent implements OnInit {
 
    isCollapsed: boolean;
 
-
    /**
     * Trae todas las formas de pago
     */

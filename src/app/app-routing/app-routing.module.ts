@@ -38,8 +38,8 @@ import { ConcursoDetailComponent } from '../concurso/concurso-detail/concurso-de
 
 import {FotografoListComponent} from '../fotografo/fotografo-list/fotografo-list.component';
 import {FotografoDetailComponent} from '../fotografo/fotografo-detail/fotografo-detail.component';
-/** import {FotografoCreateComponent} from '../fotografo/fotografo-create/fotografo-create.component';
-**/
+import {InteresFotograficoListComponent} from '../interes-fotografico/interes-fotografico-list/interes-fotografico-list.component';
+import {InteresFotograficoDetailComponent} from '../interes-fotografico/interes-fotografico-detail/interes-fotografico-detail.component';
 
 
 const routes: Routes = [
@@ -83,6 +83,19 @@ const routes: Routes = [
             {
                 path: ':id',
                 component: FotografoDetailComponent
+            }
+        ]
+    },
+    {
+        path: 'interesFotograficos',
+        children:[
+            {
+                path: 'list',
+                component: InteresFotograficoListComponent
+            },
+            {
+                path: ':id',
+                component: InteresFotograficoDetailComponent
             }
         ]
     },

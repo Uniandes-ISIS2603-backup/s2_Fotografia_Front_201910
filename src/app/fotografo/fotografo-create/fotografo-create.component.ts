@@ -15,7 +15,7 @@ export class FotografoCreateComponent implements OnInit {
     /**
     * Constructor for the component
     * @param dp DatePipe to format the date.
-    * @param calificacionService The calificacion's services provider
+    * @param fotoService The calificacion's services provider
     * @param toastrService The toastr to show messages to the user
     */
     constructor(

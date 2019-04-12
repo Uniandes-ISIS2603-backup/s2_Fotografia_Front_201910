@@ -1,44 +1,76 @@
-<div class="row">
-  <div class="col-3"></div>
-  <div class="col-6">
-    <br>
-    <h2 class="text-center">Crear Factura</h2>
-    <br>
-    <form name="factura" (ngSubmit)="f.form.valid && createFactura()" #f="ngForm" novalidate>
-      <div class="form-group">
-        <label for="facturaNumero"><b>Numero de la factura</b></label>
-        <input type="text" name="facturaNumero" class="form-control" id="facturaNumero" [(ngModel)]="factura.numero" #facturaNumero="ngModel"
-          [ngClass]="{ 'is-invalid': f.submitted && facturaNumero.invalid }" required>
-        <div class="invalid-feedback">
-          <div>El Numero de la factura falta</div>
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="facturaPrecio"><b>Precio de la factura</b></label>
-        <input type="text" name="facturaPrecio" class="form-control" id="facturaPrecio" [(ngModel)]="factura.precio" #facturaPrecio="ngModel"
-          [ngClass]="{ 'is-invalid': f.submitted && facturaPrecio.invalid }" required>
-        <div class="invalid-feedback">
-          <div>El Precio de la factura falta</div>
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="facturaFecha"><b>Fecha de compra</b></label>
-        <div [ngClass]="{ 'is-invalid': f.submitted && facturaFecha.invalid }">
-          <input class="form-control" id="facturaFecha" name="facturaFecha" [(ngModel)]="factura.fechaCompra" ngbDatepicker #d="ngbDatepicker"
-            (click)="d.toggle()" #facturaFecha="ngModel" [ngClass]="{'is-invalid': f.submitted && ( facturaFecha.invalid) }"
-            required>
-          <div class="invalid-feedback">
-            <div>Fecha de compra falta</div>
-          </div>
-        </div>
-      </div>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
-      <div class="row form-inline justify-content-center align-self-center">
-        <button type="submit" class="btn btn-primary">Create</button>
-        <div class="divider"></div>
-        <button type="button" class="btn btn-danger" (click)="cancelCreation()">Cancel</button>
+<div class="container">
+  <div class="row">
+    <div class="well col-xs-10 col-sm-10 col-md-6 col-xs-offset-1 col-sm-offset-1 col-md-offset-3">
+      <div class="row">
+        <div class="col-xs-6 col-sm-6 col-md-6">
+          <address>
+            <strong>Picty inc</strong>
+            <br> Universidad de los Andes, Bogota
+            <br>
+            <abbr title="Phone">P:</abbr> (320) 275-1899
+          </address>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6 text-right">
+          <em>Fecha:</em>
+          <div >
+            <input class="form-control"  ngbDatepicker #d="ngbDatepicker"
+              (click)="d.toggle()">
+            <div class="invalid-feedback">
+              <div>Fecha de compra falta</div>
+            </div>
+          </div>
+
+          <em>Numero factura: </em>
+          <div class="form-group">
+            <input type="text" name="facturaNumero" class="form-control" id="facturaNumero" [(ngModel)]="factura.numero" #facturaNumero="ngModel">
+            <div class="invalid-feedback">
+              <div>El Numero de la factura falta</div>
+            </div>
+          </div>
+
+        </div>
       </div>
-    </form>
+      <div class="row">
+        <div class="text-center">
+          <h1>Recibo</h1>
+        </div>
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>Product</th>
+              <th>Fecha</th>
+              <th class="text-center">Precio</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="col-md-9"><em>Foto</em></td>
+              <div>
+                <input class="form-control" id="facturaFecha" name="facturaFecha" [(ngModel)]="factura.fechaCompra" ngbDatepicker #d="ngbDatepicker"
+                  (click)="d.toggle()" #facturaFecha="ngModel">
+                <div class="invalid-feedback">
+                  <div>Fecha de compra falta</div>
+                </div>
+              </div>
+              <td class="col-md-1 text-center">
+                <div class="form-group">
+                  <input type="text" name="facturaPrecio" class="form-control" id="facturaPrecio" [(ngModel)]="factura.precio" #facturaPrecio="ngModel">
+                  <div class="invalid-feedback">
+                    <div>El Precio de la factura falta</div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+  
+          </tbody>
+        </table>
+        <button type="button" class="btn btn-success btn-lg btn-block" (click)="createFactura()">
+          Pay Now   <span class="glyphicon glyphicon-chevron-right"></span>
+        </button>
+      </div>
+    </div>
   </div>
-  <div class="col-3"></div>
-</div>

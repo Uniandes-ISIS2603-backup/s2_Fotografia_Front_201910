@@ -1,3 +1,105 @@
-<p>
-  fotografo-edit works!
-</p>
+<div class="row">
+    <div class="col-12">
+        <br>
+        <h2 class="text-center">Editar mi perfil</h2>
+        <br>
+        <form name="fotografo" (ngSubmit)="f.form.valid && editFotografo()" #f="ngForm" novalidate>
+               <div class="form-group">
+                <label for="fotografoNombre"><b>Nombre</b></label>
+                <input type="text" name="fotografoNombre" class="form-control" id="fotografoNombre" [(ngModel)]="fotografo.nombre"
+                    #fotografoNombre="ngModel" [ngClass]="{ 'is-invalid': f.submitted && fotografoNombre.invalid }" required>
+                <div class="invalid-feedback">
+                    <div>No se ha puesto el nombre</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="fotografoApellido"><b>Apellido</b></label>
+                <input type="text" name="fotografoApellido" class="form-control" id="fotografoApellido" [(ngModel)]="fotografo.apellido"
+                    #fotografoApellido="ngModel" [ngClass]="{ 'is-invalid': f.submitted && fotografoApellido.invalid }" required>
+                <div class="invalid-feedback">
+                    <div>No se ha puesto el apellido</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="fotografoFechaNacimiento"><b>Fecha Nacimiento</b></label>
+                <input type="text" name="fotografoFechaNacimiento" class="form-control" id="fotografoFechaNacimiento" [(ngModel)]="fotografo.fechaNacimiento"
+                    #fotografoFechaNacimiento="ngModel" [ngClass]="{ 'is-invalid': f.submitted && fotografoFechaNacimiento.invalid }" required>
+                <div class="invalid-feedback">
+                    <div>No se ha puesto la fecha de nacimiento</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="fotografoEdad"><b>Edad</b></label>
+                <input type="text" name="fotografoEdad" class="form-control" id="fotografoEdad" [(ngModel)]="fotografo.edad"
+                    #fotografoEdad="ngModel" [ngClass]="{ 'is-invalid': f.submitted && fotografoEdad.invalid }" required>
+                <div class="invalid-feedback">
+                    <div>no se ha puesto el edad</div>
+                </div>
+            </div>
+            <div class="form-group">
+                    <label for="fotografoCorreo"><b>Correo</b></label>
+                    <input type="text" name="fotografoCorreo" class="form-control" id="fotografoCorreo" [(ngModel)]="fotografo.correo"
+                        #fotografoCorreo="ngModel" [ngClass]="{ 'is-invalid': f.submitted && fotografoCorreo.invalid }" required>
+                    <div class="invalid-feedback">
+                        <div>no se ha puesto el correo</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="fotografoTelefono"><b>Telefono</b></label>
+                    <input type="text" name="fotografoTelefono" class="form-control" id="fotografoTelefono" [(ngModel)]="fotografo.telefono"
+                        #fotografoTelefono="ngModel" [ngClass]="{ 'is-invalid': f.submitted && fotografoTelefono.invalid }" required>
+                    <div class="invalid-feedback">
+                        <div>no se ha puesto el telefono</div>
+                    </div>
+                    </div>
+                  
+                    <div class="form-group">
+                            <label for="fotografoPais"><b>Pais</b></label>
+                            <input type="text" name="fotografoPais" class="form-control" id="fotografoPais" [(ngModel)]="fotografo.pais"
+                                #fotografoPais="ngModel" [ngClass]="{ 'is-invalid': f.submitted && fotografoPais.invalid }" required>
+                            <div class="invalid-feedback">
+                                <div>no se ha puesto el pais del fotografo</div>
+                            </div>
+                          </div>
+
+                          <div class= "form-group">
+                              <label for="fotografoPassword"><b>Password</b></label>
+                              <input type="password" name="fotografoPassword" class="form-control" id="fotografoPassword" [(ngModel)]="fotografo.password"
+                                  #fotografoPassword="ngModel" [ngClass]="{ 'is-invalid': f.submitted && fotografoPassword.invalid }" required>
+                              <div class="invalid-feedback">
+                                  <div>The fotografo's password is missing</div>
+                              </div>
+                            </div>
+                            <div class= "form-group">
+                                <label for="fotografoLogin"><b>Login</b></label>
+                                <input type="text" name="fotografoLogin" class="form-control" id="fotografoLogin" [(ngModel)]="fotografo.login"
+                                    #fotografoLogin="ngModel" [ngClass]="{ 'is-invalid': f.submitted && fotografoLogin.invalid }" required>
+                                <div class="invalid-feedback">
+                                    <div>The fotografo's login is missing</div>
+                                </div>
+                              </div>
+                              <div class= "form-group">
+                                  <label for="fotografoFoto"><b>Foto</b></label>
+                                  <input type="foto" name="fotografoFoto" class="form-control" id="fotografoFoto" [(ngModel)]="fotografo.foto"
+                                      #fotografoFoto="ngModel" [ngClass]="{ 'is-invalid': f.submitted && fotografoFoto.invalid }" required>
+                                  <div class="invalid-feedback">
+                                      <div>The fotografo's foto is missing</div>
+                                  </div>
+                                </div>
+
+        </form>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <div class="row form-inline justify-content-center align-self-center">
+         Despues de "Guardar" presionar el boton "actualizar mi perfil " 
+            <button class="btn btn-primary" style="padding-right: 3em; background: rgb(127, 161, 255)" (click)="editFotografo()"> <span class="fa fa-check "></span> &nbsp; Guardar</button>
+            &nbsp;
+          
+            <button  class="btn btn-primary" style="padding-right: 3em; background: rgb(250, 84, 84)" (click)="cancelEdition()"> <span class="fa fa-ban"></span> Cancelar</button>
+        </div>
+    </div>
+</div>
+<br>
+<br>

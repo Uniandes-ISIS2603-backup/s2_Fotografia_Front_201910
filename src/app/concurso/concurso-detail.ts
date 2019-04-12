@@ -1,16 +1,12 @@
 
 import { Concurso } from './concurso';
 import { Photo } from '../photo/photo';
+import { Fotografo } from '../fotografo/fotografo';
 export class ConcursoDetail extends Concurso{
     
-    fotos: Photo[];
-    /**
-     * 
-     * 
-     * fotografos: Fotografo[];
-     * clientes: Cliente[];
-     * 
-     * 
-     * 
-     */
+    fotosEnConcurso: Photo[];
+    
+    
+    fotografos: Fotografo[];
+    
 }
