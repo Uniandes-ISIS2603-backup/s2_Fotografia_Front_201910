@@ -3,8 +3,8 @@ import { ActivatedRoute, Params } from '@angular/router';
 import {ClienteService} from '../cliente.service';
 import {ClienteDetail} from '../cliente-detail';
 import { ClienteListComponent } from '../cliente-list/cliente-list.component';
-import { FormaDePago } from 'src/app/forma-de-pago/forma-de-pago';
-import{FormaDePagoListComponent} from '../../forma-de-pago/forma-de-pago-list/forma-de-pago-list.component';
+import { FormaDePago } from '../../forma-de-pago/forma-de-pago';
+import{ FormaDePagoListComponent } from '../../forma-de-pago/forma-de-pago-list/forma-de-pago-list.component';
 @Component({
   selector: 'app-cliente-detail',
   templateUrl: './cliente-detail.component.html',

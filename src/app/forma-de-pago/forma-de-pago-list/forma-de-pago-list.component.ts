@@ -27,7 +27,7 @@ export class FormaDePagoListComponent implements OnInit {
     */
    showEdit: boolean;
 
-
+   isCollapsed: boolean;
 
   getFormasDePago():void
   {
