@@ -8,19 +8,30 @@ import { environment } from '../../environments/environment';
 
 const API_URL = environment.apiURL;
 const formasDePago = '/formasDePago';
+const clientes = '/clientes';
 
 
 
 @Injectable()
 export class FormaDePagoService {
 
+   /**
+    * Constructor del servicio
+    * @param http 
+    */
   constructor(private http:HttpClient) { }
 
-  
+  /**
+   * Trae las formas de pago
+   */
    getFormasDePago() : Observable<FormaDePago[]> {
         return this.http.get<FormaDePago[]>(API_URL + formasDePago);
     }
 
+    /**
+     * Trae el detalle de una forma de pago en especifico
+     * @param formaDePagoId 
+     */
     getFormaDePagoDetail(formaDePagoId):Observable<FormaDePagoDetail>
     {
        return this.http.get<FormaDePagoDetail>(API_URL + formasDePago+ '/' +formaDePagoId);
@@ -36,13 +47,22 @@ updateFormaDePago(formaDePago): Observable<FormaDePago> {
 }
 
 /**
-    * Creates a cliente
-    * @param formaDePago The new client
-    * @returns The confirmation that the client was created
+    * Creates a forma de pago
+    * @param formaDePago The new forma de pago
+    * @returns The confirmation that the forma de pago was created
     */
    createFormaDePago(formaDePago): Observable<FormaDePagoDetail> {
       return this.http.post<FormaDePagoDetail>(API_URL + formasDePago, formaDePago);
   }
+
+/**
+ * Trae las formas de pago de un cliente
+ * @param idCliente 
+ */
+getFormasDePagoCliente(idCliente: number): Observable<FormaDePago>
+{
+   return this.http.get<FormaDePago>(API_URL+ clientes + '/'+ idCliente + formasDePago   );
+}
 
 
 }
