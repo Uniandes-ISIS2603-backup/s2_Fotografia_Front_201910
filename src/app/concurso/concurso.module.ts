@@ -10,6 +10,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {FormsModule} from '@angular/forms';
 import {NgxPermissionsModule} from 'ngx-permissions';
 import {HttpClientModule} from '@angular/common/http';
+import { ConcursoEditComponent } from './concurso-edit/concurso-edit.component';
 
 @NgModule({
   imports: [
@@ -21,8 +22,8 @@ import {HttpClientModule} from '@angular/common/http';
     FormsModule,
     NgbModule
   ],
-  declarations: [ConcursoListComponent, ConcursoDetailComponent, ConcursoCreateComponent],
+  declarations: [ConcursoListComponent, ConcursoDetailComponent, ConcursoCreateComponent, ConcursoEditComponent],
   providers: [ConcursoService],
-  exports: [ConcursoListComponent, ConcursoDetailComponent, ConcursoCreateComponent]
+  exports: [ConcursoListComponent, ConcursoDetailComponent, ConcursoCreateComponent, ConcursoEditComponent]
 })
 export class ConcursoModule { }
