@@ -70,12 +70,13 @@ button {
   transform: translateY(101%);
   transition: all 0.3s ease-in-out;
 
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 .grid__overlay button {
   background: none;
   outline: none;
   font-weight: 100;
+  font-size: 12px;
   letter-spacing: 2px;
   border: 1px solid #ffffff;
   color: #ffffff;
