@@ -2,7 +2,8 @@ import { Component, OnInit, OnChanges, Input, ViewChild } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import {ClienteService} from '../cliente.service';
 import {ClienteDetail} from '../cliente-detail';
-import { ClienteListComponent } from '../cliente-list/cliente-list.component';
+import { ClienteFormaDePagoComponent } from '../cliente-forma-de-pago/cliente-forma-de-pago.component';
+
 
 import{FormaDePagoListComponent} from '../../forma-de-pago/forma-de-pago-list/forma-de-pago-list.component';
 import { Cliente } from '../cliente';
@@ -46,8 +47,8 @@ clienteId: number;
 /**
  * Para ver su hijo (forma de pago)
  */
-@ViewChild (FormaDePagoListComponent)
-formaDePagoComponent: FormaDePagoListComponent;
+@ViewChild (ClienteFormaDePagoComponent)
+formaDePagoComponent: ClienteFormaDePagoComponent;
 
 
 /**
@@ -117,8 +118,9 @@ updateCliente(): void {
 /**
  * Lo que debe hacer cuando reciba un cambio
  */
-ngOnChanges() {
-
+ngOnChanges() 
+{
+  this.formaDePagoComponent.isCollapsed = true;
 }
 
 }
