@@ -13,7 +13,8 @@ export class ConcursoListComponent implements OnInit {
   constructor(private concursoService: ConcursoService, private router: Router) { }
 
   concursos: Concurso[];
-  
+  concurso_edit_id: number;
+  selectedConcurso : Concurso;
   showCreate: boolean;
   showEdit: boolean;
   
@@ -24,6 +25,21 @@ export class ConcursoListComponent implements OnInit {
   showHideCreate(): void {
     this.showEdit = false;
     this.showCreate = !this.showCreate
+  }
+  
+  showHideEdit(concurso_id: number): void {
+    if (!this.showEdit || (this.showEdit && concurso_id != this.concurso_edit_id)) {
+        this.showCreate = false;
+        this.showEdit = true;
+        this.concurso_edit_id = concurso_id;
+    }
+    else {
+        this.showEdit = false;
+    }
+  }
+
+  updateConcurso(): void {
+    this.showEdit = false;
   }
 
   ngOnInit() {

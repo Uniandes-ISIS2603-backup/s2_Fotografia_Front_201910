@@ -4,7 +4,8 @@ import {FormaDePagoDetail} from '../forma-de-pago-detail';
 import {ToastrService} from 'ngx-toastr';
 import {DatePipe} from '@angular/common';
 import { NgbDate, NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
+import{Cliente} from '../../cliente/cliente';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-forma-de-pago-create',
@@ -13,43 +14,48 @@ import { NgbDate, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 })
 export class FormaDePagoCreateComponent implements OnInit {
 
-  constructor(private dp: DatePipe,
+    /**
+     * Constructor del componente
+     * @param dp Datepipe para darle formato a las fechas
+     * @param router 
+     * @param formaDePagoService El proveedor de servicios de las formas de pago
+     * @param toastrService El toastr que manda mensajes al usuario
+     */
+  constructor(private dp: DatePipe,private router: Router,
     private formaDePagoService: FormaDePagoService, private toastrService: ToastrService
 ) {}
 
 /**
-* The new client
+* La nueva forma de pago
 */
 formaDePago: FormaDePagoDetail;
 
-
+/**
+ * Los clientes de la aplicacion
+ */
+clientes: Cliente[];
 
 /**
-* The output which tells the parent component
-* that the user no longer wants to create a client
+ * El cliente de la forma de pago
+ */
+cliente: Cliente;
+
+/**
+* El output que le dice al componente padre que ya no se quiere crear una forma de pago
 */
 @Output() cancel = new EventEmitter();
 
 /**
-* The output which tells the parent component
-* that the user created a new cliente
+* El output que le dice al componente padre que se creo una forma de pago
 */
 @Output() create = new EventEmitter();
 
 
 
 /**
-* Creates a client
+* Crea una forma de pago
 */
 createFormaDePago(): FormaDePagoDetail {
-
-    /*
-    let dateB: Date = new Date(this.formaDePago.fechaVencimiento.getFullYear
-        (), this.formaDePago.fechaVencimiento.getMonth(), this.formaDePago.fechaVencimiento.getDate());
-
-    this.formaDePago.fechaVencimiento = this.dp.transform(dateB, 'yyyy-MM-dd');
-    */
-
    let dateB: Date = new Date(this.formaDePago.fechaVencimiento.year, this.formaDePago.fechaVencimiento.month , this.formaDePago.fechaVencimiento.day);
 
    this.formaDePago.fechaVencimiento = this.dp.transform(dateB, 'yyyy-MM-dd');
@@ -60,8 +66,9 @@ createFormaDePago(): FormaDePagoDetail {
         .subscribe((fdp) => {
             this.formaDePago = fdp;
             this.create.emit();
-            this.toastrService.success("The client was created", "cliente creation");
-        });
+            this.router.navigate(['/formasDePago/'+ fdp.id])
+            this.toastrService.success("The forma de pago was created", "forma de pago creation");
+ });
 
     return this.formaDePago;
 }
@@ -75,7 +82,7 @@ cancelCreation(): void {
 }
 
 /**
-* This function will initialize the component
+*Inicializa el componente
 */
 ngOnInit() {
     this.formaDePago = new FormaDePagoDetail();
@@ -83,6 +90,7 @@ ngOnInit() {
 
 
 /**
+ * Metodo para ocultar del form la barra de tipo de tarjeta, en caso de que la tarjeta sea debito
  * id="ifYes" style="display: none;"  en el html de tipo tarj cred
  * @param that 
  * 

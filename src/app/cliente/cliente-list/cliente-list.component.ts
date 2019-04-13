@@ -13,10 +13,24 @@ import {ClienteDetail} from '../cliente-detail';
 })
 export class ClienteListComponent implements OnInit {
 
+
+/**
+ * Constructor del componente
+ * @param clienteService el proveedor de servicios del cliente
+ */
   constructor(private clienteService:ClienteService) { }
 
+  /**
+   * El id del cliente
+   */
 clienteId: number;
-selected : Cliente;
+
+/**
+ * El cliente en detalle
+ */
+clienteDetail : ClienteDetail;
+
+loader: any;
 
 /**
     * Shows or hides the create component
@@ -39,18 +53,29 @@ selected : Cliente;
     this.clienteService.getClientes().subscribe(losClientes => this.clientes= losClientes);
   }
 
+  /**
+   * Trae el detalle del cliente
+   */
   getClienteDetail(): void {
     this.clienteService.getClientesDetail(this.clienteId)
-        .subscribe(selected => {
-            this.selected = selected
-        });
+        .subscribe(clienteDetail => 
+            this.clienteDetail = clienteDetail
+            
+        );
 }
 
+/**
+ * Lo que hace cuando se selecciona (con el boton)
+ * @param clienteId id del cliente
+ */
 onSelected(clienteId: number):void {
     this.clienteId = clienteId;
-    this.selected = new ClienteDetail();
-    this.clienteService.getClientesDetail(clienteId).subscribe(c=> this.selected=c);
-}
+    this.clienteDetail = new ClienteDetail();
+    this.clienteId = clienteId;
+    this.getClienteDetail();
+    console.log("Id en list "+this.clienteDetail.id)
+    
+  }
 
   /**
     * Shows or hides the create component
@@ -74,8 +99,16 @@ showHideEdit(clienteId: number): void {
     }
 }
 
+
+/**
+ * Inicializa el componente
+ */
    ngOnInit() {
+    this.clienteDetail =undefined;
+    this.clienteId = undefined;
     this.getClientes();
   }
+
+
 
 }

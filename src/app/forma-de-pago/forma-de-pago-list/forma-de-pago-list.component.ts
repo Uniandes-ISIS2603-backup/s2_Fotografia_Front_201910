@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import {FormaDePago} from '../forma-de-pago';
 import {FormaDePagoService} from '../forma-de-pago.service';
 import {FormaDePagoDetail} from '../forma-de-pago-detail';
@@ -10,9 +10,16 @@ import {FormaDePagoDetail} from '../forma-de-pago-detail';
 })
 export class FormaDePagoListComponent implements OnInit {
 
+  /**
+   *  COnstructor del componente
+   * @param formaDePagoService el proveedor de servicios de la forma de pago
+   */
   constructor(private formaDePagoService: FormaDePagoService) { }
 
-  formasDePago: FormaDePago[];
+  /**
+   * Las formas de pago
+   */
+  @Input() formasDePago: FormaDePago[];
 
   selected : FormaDePago;
   formaDePagoId: number;
@@ -27,13 +34,21 @@ export class FormaDePagoListComponent implements OnInit {
     */
    showEdit: boolean;
 
+   isCollapsed: boolean;
 
-
+   /**
+    * Trae todas las formas de pago
+    */
   getFormasDePago():void
   {
-    this.formaDePagoService.getFormasDePago().subscribe(fdp => this.formasDePago= fdp);
+    this.formaDePagoService.getFormasDePago().subscribe(fdp => 
+      this.formasDePago= fdp);
   }
+  
 
+/**
+ * Devuelve la forma de pago en detalle
+ */
     getFormaDePagoDetail(): void {
     this.formaDePagoService.getFormaDePagoDetail(this.formaDePagoId)
         .subscribe(selected => {
@@ -41,6 +56,10 @@ export class FormaDePagoListComponent implements OnInit {
         });
 }
 
+/**
+ * Lo que realiza cuando se selecciona
+ * @param formaDePagoId 
+ */
 onSelected(formaDePagoId: number):void {
     this.formaDePagoId = formaDePagoId;
     this.selected = new FormaDePagoDetail();
@@ -71,6 +90,9 @@ showHideEdit(formaDePagoId: number): void {
     }
 }
 
+/**
+ * Inicializa el componente
+ */
    ngOnInit() {
     this.getFormasDePago();
   }

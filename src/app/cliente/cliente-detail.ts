@@ -1,4 +1,5 @@
 import {Cliente} from './cliente';
+import { FormaDePagoDetail } from '../forma-de-pago/forma-de-pago-detail';
 export class ClienteDetail extends Cliente
 {
 
@@ -17,5 +18,10 @@ export class ClienteDetail extends Cliente
  * La contrasena del cliente
  */
   contrasena: string;
+
+  /**
+   * Las formas de pago del
+   */
+  formasDePago:FormaDePagoDetail[];
 
 }

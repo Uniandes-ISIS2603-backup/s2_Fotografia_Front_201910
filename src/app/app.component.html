@@ -1,80 +1,89 @@
    
     <div class="container-fluid">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
                 <a class="navbar-brand" href="#">
                     <div class="form-inline">
-                        <h2 class="mainTitle">Fotografia</h2>
+                        <img class="img-fluid" alt="Responsive image" height="200" width="310" src="https://i.imgur.com/lK1qsS2.jpg">
                     </div>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <div class="navbar-nav mr-auto mt-0">
-                        <li><a id="calificacion-navbar-item" routerLink="/calificaciones/list"><span class="fa fa-star"></span>Calificaciones</a></li>  
-                        &nbsp;
-                        &nbsp;
-                        <li><a id="jurado-navbar-item" routerLink="/jurados/list"><i class="fa fa-male"></i>Jurados</a></li>
-                        &nbsp;
-                        &nbsp;
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="navbar-nav mr-auto mt-0">
+                <li><a id="calificacion-navbar-item" routerLink="/calificaciones/list"><span class="fa fa-star"></span>Calificaciones</a></li>  
+                &nbsp;
+                &nbsp;
+                <li><a id="jurado-navbar-item" routerLink="/jurados/list"><i class="fa fa-male"></i>Jurados</a></li>
+                &nbsp;
+                &nbsp;
 
-                        <li><a id="fotografo-navbar-item" routerLink="/fotografos/list">Fotografos</a></li>  
-                        &nbsp;
-                        &nbsp;
+                <li><a id="fotografo-navbar-item" routerLink="/fotografos/list"><span class="fas fa-camera"></span>Fotografos</a></li>  
+                &nbsp;
+                &nbsp;
+                <li><a id="interes-fotografico-navbar-item" routerLink="/interesFotograficos/list"><span class="far fa-thumbs-up"></span> Intereses Fotograficos</a></li>  
+                &nbsp;
+                &nbsp;
 
-                        <li><a id="clienteItem" routerLink="/clientes/list">Clientes</a></li>  
-                        &nbsp;
-                        &nbsp;
-                        <li><a id="registroItem" routerLink="/clientes/registro">Registro</a></li>  
-                        &nbsp;
-                        &nbsp;
+                <li><a id="clienteItem" routerLink="/clientes/list">Clientes</a></li>  
+                &nbsp;
+                &nbsp;
 
-                        <li><a id="concurso-navbar-item" routerLink="/concursos/list"><i class="">Concursos</i></a></li>
-                        &nbsp;
-                        &nbsp;
-                        <li><a id="organizadorsTag" routerLink="/organizadors/list"><i class="fa fa-male"></i> Organizadores</a></li>
-                        &nbsp;
-                        &nbsp;
-                        <li><a id="rondasTag" routerLink="/rondas/list"><i class="fa fa-male"></i> Rondas</a></li>
-                        &nbsp;
-                        &nbsp;
-                        <li><a id="calificacion-navbar-item" routerLink="/photos/list"> Fotos</a></li>
+                <li><a id="concurso-navbar-item" routerLink="/concursos/list"><i class="">Concursos</i></a></li>
+                &nbsp;
+                &nbsp;
+                <li><a id="organizadorsTag" routerLink="/organizadors/list"><i class="fa fa-male"></i> Organizadores</a></li>
+                &nbsp;
+                &nbsp;
+                <li><a id="rondasTag" routerLink="/rondas/list"><i class="fa fa-male"></i> Rondas</a></li>
+                &nbsp;
+                &nbsp;
+                <li><a id="calificacion-navbar-item" routerLink="/photos/list"> Fotos</a></li>
 
-                        &nbsp;
-                        &nbsp;
-                        <li><a id="calificacion-navbar-item" routerLink="/facturas/list"> Facturas</a></li>
+                &nbsp;
+                &nbsp;
+                <li><a id="calificacion-navbar-item" routerLink="/facturas/list"> Facturas</a></li>
 
+                &nbsp;
+                &nbsp;
+                <li><a id="calificacion-navbar-item" routerLink="/formasDePago/list"> Formas De Pago</a></li>
 
-                    </div>
-                    <div class="navbar-nav ml-auto flex-column">
-                        <div class="flex-row" *ngxPermissionsOnly="['GUEST']">
-                            <div class="form-inline">
-                                <li class="right-space"><a id="signup-navbar-item" routerLink="/auth/sign-up"><span class="fa fa-user"></span>
-                                        Sign Up</a></li>
-                                <li><a id="login-navbar-item" routerLink="/auth/login"><span class="fa fa-sign-in"></span>Login</a></li>
-                            </div>
-                        </div>
-                        <div class="flex-row" *ngxPermissionsOnly="['CLIENT', 'ADMIN']">
-                            <div class="form-inline">
-                                <li><a id="logout-navbar-item" (click)="logout()" href="#"><span class="fa fa-sign-out"></span>Logout</a></li>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </nav>
-        
-            <div>
-                <router-outlet></router-outlet>
-                <br>
-                <br>
+                &nbsp;
+                &nbsp;
+                <li><a id="registroItem" routerLink="/clientes/registro">Registro</a></li>  
+               
+
             </div>
-            
-            <footer class="footer bg-light" id="footer">
-                <div class="container">
-                    <p class="navbar-text text-center">
-                        <img src="../assets/logo.png" >
-                    </p>
+            <div class="navbar-nav ml-auto flex-column">
+                <div class="flex-row" *ngxPermissionsOnly="['GUEST']">
+                    <div class="form-inline">
+                        <li class="right-space"><a id="signup-navbar-item" routerLink="/auth/sign-up"><span class="fa fa-user"></span>
+                                Sign Up</a></li>
+                        <li><a id="login-navbar-item" routerLink="/auth/login"><span class="fa fa-sign-in"></span>Login</a></li>
+                    </div>
                 </div>
-            </footer>
+                <div class="flex-row" *ngxPermissionsOnly="['CLIENT', 'ADMIN']">
+                    <div class="form-inline">
+                        <li><a id="logout-navbar-item" (click)="logout()" href="#"><span class="fa fa-sign-out"></span>Logout</a></li>
+                    </div>
+                </div>
+            </div>
         </div>
+    </nav>
+
+    <div>
+        <router-outlet></router-outlet>
+        <br>
+        <br>
+    </div>
+    
+    <footer class="footer bg-light" id="footer">
+        <div class="container">
+            <p class="navbar-text text-center">
+                <img src="../assets/logo.png" >
+            </p>
+        </div>
+    </footer>
+</div>
