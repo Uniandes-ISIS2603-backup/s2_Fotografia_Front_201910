@@ -15,6 +15,7 @@ import { FacturaEditComponent } from './factura-edit/factura-edit.component';
 import { FacturaPhotoComponent  } from './factura-photo/factura-photo.component';
 
 
+
 @NgModule({
   imports: [
     NgxPermissionsModule,
