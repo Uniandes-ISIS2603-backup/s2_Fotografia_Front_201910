@@ -12,6 +12,8 @@ import { AppRoutingModule } from '../app-routing/app-routing.module';
 import { FacturaDetailComponent } from './factura-detail/factura-detail.component';
 import { FacturaCreateComponent } from './factura-create/factura-create.component';
 import { FacturaEditComponent } from './factura-edit/factura-edit.component';
+import { FacturaPhotoComponent  } from './factura-photo/factura-photo.component';
+
 
 @NgModule({
   imports: [
@@ -23,7 +25,7 @@ import { FacturaEditComponent } from './factura-edit/factura-edit.component';
     CommonModule,
     FormsModule
   ],
-  declarations: [FacturaListComponent, FacturaDetailComponent, FacturaCreateComponent, FacturaEditComponent],
+  declarations: [FacturaListComponent, FacturaDetailComponent, FacturaCreateComponent, FacturaEditComponent, FacturaPhotoComponent],
   providers: [FacturaService],
   bootstrap: [FacturaListComponent]
 })

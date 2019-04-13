@@ -33,8 +33,7 @@ import {FormaDePagoModule} from './forma-de-pago/forma-de-pago.module';
 
 @NgModule({
     declarations: [
-        AppComponent,
-        
+        AppComponent,        
     ],
     imports: [
         AppRoutingModule,

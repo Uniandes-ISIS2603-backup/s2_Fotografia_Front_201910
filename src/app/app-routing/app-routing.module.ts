@@ -115,11 +115,7 @@ const routes: Routes = [
             },
             {
                 path: 'comprar',
-                children:[
-                    {
-                        path: ':id',
-                        component: FacturaCreateComponent
-                    }
+                component: FacturaCreateComponent
             }
         ]
     },

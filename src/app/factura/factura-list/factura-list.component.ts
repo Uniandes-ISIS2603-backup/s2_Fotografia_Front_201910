@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewContainerRef } from '@angular/core';
+import { Component, OnInit, ViewContainerRef, OnChanges } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { ModalDialogService, SimpleModalComponent } from 'ngx-modal-dialog';
 
@@ -11,7 +11,7 @@ import { FacturaDetail } from '../factura-detail';
   templateUrl: './factura-list.component.html',
   styleUrls: ['./factura-list.component.css']
 })
-export class FacturaListComponent implements OnInit {
+export class FacturaListComponent implements OnInit, OnChanges{
 
   /**
    * Constructor for the component
@@ -93,5 +93,7 @@ export class FacturaListComponent implements OnInit {
   ngOnInit() {
     this.getFacturas();
   }
-
+  ngOnChanges() {
+    this.getFacturas();
+  }
 }

@@ -69,6 +69,7 @@ export class FacturaCreateComponent implements OnInit {
     * This function will initialize the component
     */
     ngOnInit() {
+        console.log("Init de create");
         this.factura = new Factura();
     }
 

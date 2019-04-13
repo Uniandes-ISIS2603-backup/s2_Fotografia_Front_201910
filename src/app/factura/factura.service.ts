@@ -7,8 +7,11 @@ import { FacturaDetail } from './factura-detail';
 
 
 import { environment } from '../../environments/environment';
+import { Photo } from '../photo/photo';
 const API_URL = 'http://localhost:8080/s2_fotografia-api/api';
 const facturas = '/facturas';
+const photos = '/photos';
+
 
 @Injectable()
 export class FacturaService {
@@ -61,5 +64,11 @@ export class FacturaService {
   */
   deleteFactura(facturaId): Observable<FacturaDetail> {
     return this.http.delete<FacturaDetail>(API_URL + facturas + '/' + facturaId);
+  }
+
+  
+  getFacturaFoto(photoId: number): Observable<Photo> {
+    console.log(API_URL + "foto-" + photoId + ".json");
+    return this.http.get<Photo>(API_URL + photos + '/' + photoId);
   }
 }
