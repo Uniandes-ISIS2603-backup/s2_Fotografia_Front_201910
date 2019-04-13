@@ -18,7 +18,7 @@
       <li class="list-group-item"><b>Correo:</b> {{clienteDetail.correo}}</li>
     </ul>
     <div class="card-body view overlay" style="cursor: pointer " >
-      <a class="card-link  align-items-center d-flex nav-link-active" routerLinkActive="active" routerLink = "/formasDePago/list"><b>Formas de Pago</b> <img src = "https://www.peoplesbanknet.com/content/uploads/2018/04/creditcard-flat.png" class="img-fluid" alt="Responsive image" height="52" width="52" class="rounded float-right" alt="..."> <div class="divider col-5"></div><i class="material-icons">
+      <a class="card-link  align-items-center d-flex nav-link-active" routerLinkActive="active" ><b>Formas de Pago</b> <img src = "https://www.peoplesbanknet.com/content/uploads/2018/04/creditcard-flat.png" class="img-fluid" alt="Responsive image" height="52" width="52" class="rounded float-right" alt="..."> <div class="divider col-5"></div><i class="material-icons">
         arrow_forward_ios
         </i>  </a>
     </div>
@@ -32,6 +32,7 @@
 
 </div>
 
+<cliente-forma-de-pago class="m-3" [clienteId]="clienteDetail.id"></cliente-forma-de-pago>
 
-<p class="h3 p-3"> Formas de pago: </p>
-    <app-forma-de-pago-list [formasDePago]="clienteDetail.formasDePago"></app-forma-de-pago-list>
+
+    
