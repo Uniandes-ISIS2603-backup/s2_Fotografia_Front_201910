@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewContainerRef } from '@angular/core';
+import { Component, OnInit, ViewContainerRef, OnChanges, ChangeDetectionStrategy } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { ModalDialogService, SimpleModalComponent } from 'ngx-modal-dialog';
 
@@ -9,9 +9,10 @@ import { PhotoDetail } from '../photo-detail';
 @Component({
     selector: 'app-photo',
     templateUrl: './photo-list.component.html',
-    styleUrls: ['./photo-list.component.css']
+    styleUrls: ['./photo-list.component.css'],
+    changeDetection: ChangeDetectionStrategy.Default
 })
-export class PhotoListComponent implements OnInit {
+export class PhotoListComponent implements OnInit, OnChanges {
 
     /**
      * Constructor for the component
@@ -81,10 +82,12 @@ export class PhotoListComponent implements OnInit {
             this.showEdit = false;
         }
     }
-
+    /**
+    * Updates when the user clicks on Guardar
+    */
     updatePhoto(): void {
-        console.log('metood update en lista');
         this.showEdit = false;
+        this.getPhotoDetail();
     }
 
     /**
@@ -92,6 +95,11 @@ export class PhotoListComponent implements OnInit {
     * This method will be called when the component is created
     */
     ngOnInit() {
+        this.getPhotos();
+    }
+    ngOnChanges() {
+        console.log('metodo update en lista');
+
         this.getPhotos();
     }
 }

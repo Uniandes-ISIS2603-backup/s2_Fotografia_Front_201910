@@ -1,10 +1,11 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { FacturaService } from '../factura.service';
 
 import { FacturaDetail } from '../factura-detail';
 import { Factura } from '../factura';
+import { FacturaPhotoComponent  } from '../factura-photo/factura-photo.component';
 
 @Component({
   selector: 'app-factura-detail',
@@ -24,6 +25,7 @@ export class FacturaDetailComponent implements OnInit {
     private facturaService: FacturaService
   ) { }
 
+  @ViewChild(FacturaPhotoComponent) photoComponen: FacturaPhotoComponent;
 
 
 
@@ -50,7 +52,7 @@ export class FacturaDetailComponent implements OnInit {
 
   /**
   * The method which initializes the component.
-  * We need to create the Jurado so it is never considered as undefined
+  * We need to create the factura so it is never considered as undefined
   */
   ngOnInit() {
     this.factura_id = +this.route.snapshot.paramMap.get('id');
