@@ -26,7 +26,7 @@ export class ClienteFormaDePagoComponent implements OnInit {
    * Las formas de pago del cliente
    */
   formasDePago: FormaDePagoDetail[];
-
+  isCollapsed: boolean;
   
 /**
  * Trae las formas de pago del cliente
