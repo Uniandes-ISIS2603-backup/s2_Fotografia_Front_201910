@@ -15,4 +15,13 @@
                 </div>
         </div>
     </div>
+    <section id="portfolio">
+    <div class="project" *ngFor="let photo of concursoDetail.fotosEnConcurso">
+        <img class="project__image" src='{{photo.rutaFoto}}' src='{{photo.rutaFoto}}' />
+        <p>{{photo.nombre}}</p>
+        <div class="grid__overlay">
+            <button class="viewbutton" routerLink="/photos/{{photo.id}}">View</button>
+        </div>
+    </div>
+</section>
 </div>
