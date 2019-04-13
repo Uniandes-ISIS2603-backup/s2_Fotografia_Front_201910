@@ -1,3 +1,31 @@
-<p>
-  interes-fotografico-edit works!
-</p>
+<div class="row">
+    <div class="col-12">
+        <br>
+        <h2 class="text-center">Editar interes fotografico</h2>
+        <br>
+        <form name="interesFotografico" (ngSubmit)="f.form.valid && editInteresFotografico()" #f="ngForm" novalidate>
+               <div class="form-group">
+                <label for="interesFotograficoInteres"><b>Nombre</b></label>
+                <input type="text" name="interesFotograficoInteres" class="form-control" id="interesFotograficoInteres" [(ngModel)]="interesFotografico.interes"
+                    #interesFotograficoInteres="ngModel" [ngClass]="{ 'is-invalid': f.submitted &&interesFotograficoInteres.invalid }" required>
+                <div class="invalid-feedback">
+                    <div>No se ha puesto el nombre</div>
+                </div>
+              </div>
+              </form>
+    </div>
+
+</div>
+<div class="row">
+    <div class="col-12">
+        <div class="row form-inline justify-content-center align-self-center">
+         Despues de "Guardar" presionar el boton "actualizar mi perfil " 
+            <button class="btn btn-primary" style="padding-right: 3em; background: rgb(127, 161, 255)" (click)="editInteresFotografico()"> <span class="fa fa-check "></span> &nbsp; Guardar</button>
+            &nbsp;
+          
+            <button  class="btn btn-primary" style="padding-right: 3em; background: rgb(250, 84, 84)" (click)="cancelEdition()"> <span class="fa fa-ban"></span> Cancelar</button>
+        </div>
+    </div>
+</div>
+<br>
+<br>
