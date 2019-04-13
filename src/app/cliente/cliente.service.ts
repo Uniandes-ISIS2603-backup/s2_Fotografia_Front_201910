@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Cliente } from './cliente';
+import{FormaDePagoDetail} from '../forma-de-pago/forma-de-pago-detail';
 import{ClienteDetail} from './cliente-detail';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 
 const API_URL = environment.apiURL;
 const clientes = '/clientes';
+const formasDePago = '/formasDePago';
 
 @Injectable()
 export class ClienteService {
@@ -51,4 +53,11 @@ export class ClienteService {
 updateCliente(cliente): Observable<ClienteDetail> {
     return this.http.put<ClienteDetail>(API_URL + clientes + '/' + cliente.id, cliente);
  }
+
+
+getClienteFormasDePago(clienteId:number): Observable<FormaDePagoDetail[]>
+{
+    return this.http.get<FormaDePagoDetail[]>(API_URL+ clientes + '/'+ clienteId + formasDePago   );
+}
+
 }
