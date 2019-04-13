@@ -1,4 +1,5 @@
 import {Fotografo} from './fotografo';
+import{InteresFotografico} from  '../interes-fotografico/interes-fotografico';
 export class FotografoDetail extends Fotografo
 {
 
@@ -18,4 +19,8 @@ export class FotografoDetail extends Fotografo
  */
   password: string;
 
+  /**
+   * intereses fotograficos
+   */
+  intereses:InteresFotografico[];
 }

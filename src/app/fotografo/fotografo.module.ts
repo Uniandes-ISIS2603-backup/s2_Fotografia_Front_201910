@@ -11,6 +11,7 @@ import { AppRoutingModule } from '../app-routing/app-routing.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FotografoCreateComponent } from './fotografo-create/fotografo-create.component';
 import { FotografoEditComponent } from './fotografo-edit/fotografo-edit.component';
+import { FotografoInteresfotograficoComponent } from './fotografo-interesfotografico/fotografo-interesfotografico.component';
 
 
 @NgModule({
@@ -22,7 +23,7 @@ import { FotografoEditComponent } from './fotografo-edit/fotografo-edit.componen
             FormsModule, 
             NgbModule
       ],
-      declarations: [FotografoListComponent, FotografoDetailComponent, FotografoCreateComponent, FotografoEditComponent],
+      declarations: [FotografoListComponent, FotografoDetailComponent, FotografoCreateComponent, FotografoEditComponent, FotografoInteresfotograficoComponent],
       providers: [FotografoService],
       bootstrap: [FotografoListComponent]
 })
