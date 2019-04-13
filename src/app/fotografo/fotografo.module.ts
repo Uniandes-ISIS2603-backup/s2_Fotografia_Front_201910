@@ -9,6 +9,8 @@ import { FormsModule } from '@angular/forms';
 import { FotografoDetailComponent } from './fotografo-detail/fotografo-detail.component';
 import { AppRoutingModule } from '../app-routing/app-routing.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FotografoCreateComponent } from './fotografo-create/fotografo-create.component';
+import { FotografoEditComponent } from './fotografo-edit/fotografo-edit.component';
 
 
 @NgModule({
@@ -20,7 +22,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
             FormsModule, 
             NgbModule
       ],
-      declarations: [FotografoListComponent, FotografoDetailComponent],
+      declarations: [FotografoListComponent, FotografoDetailComponent, FotografoCreateComponent, FotografoEditComponent],
       providers: [FotografoService],
       bootstrap: [FotografoListComponent]
 })

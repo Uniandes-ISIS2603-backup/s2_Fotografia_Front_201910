@@ -37,4 +37,8 @@ export class Fotografo{
      * contraseña 
      */
     password:string;
+    /**
+     * foto
+     */
+    foto:string;
 }

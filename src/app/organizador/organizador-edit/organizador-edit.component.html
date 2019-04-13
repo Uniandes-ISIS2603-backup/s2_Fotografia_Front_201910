@@ -6,9 +6,9 @@
         <br>
         <form name="organizador" (ngSubmit)="f.form.valid && editOrganizador()" #f="ngForm" novalidate>
             <div class="form-group">
-                <label for="organizadorName"><b>Name</b></label>
-                <input type="text" name="organizadorName" class="form-control" id="organizadorName" [(ngModel)]="organizador.nombre"
-                    #organizadorName="ngModel" [ngClass]="{ 'is-invalid': f.submitted && organizadorName.invalid }" required>
+                <label for="organizadorNombre"><b>Name</b></label>
+                <input type="text" name="organizadorNombre" class="form-control" id="organizadorNombre" [(ngModel)]="organizador.nombre"
+                    #organizadorNombre="ngModel" [ngClass]="{ 'is-invalid': f.submitted && organizadorNombre.invalid }" required>
                 <div class="invalid-feedback">
                     <div>The organizador's name is missing</div>
                 </div>
@@ -32,7 +32,7 @@
                 </div>
             </div>
             <div class="row form-inline justify-content-center align-self-center">
-                <button type="submit" class="btn btn-primary">Edit</button>
+                <button type="submit" onclick="javascript:window.location.reload();" class="btn btn-primary">Edit</button>
                 <div class="divider"></div>
                 <button type="button" class="btn btn-danger" (click)="cancelEdition()">Cancel</button>
             </div>

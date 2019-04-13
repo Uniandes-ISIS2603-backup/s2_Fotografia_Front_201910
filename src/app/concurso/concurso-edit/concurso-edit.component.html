@@ -1,0 +1,60 @@
+<div class="row">
+        <div class="col">
+            <h3> Crear Concurso </h3>
+            <form name="concurso" (ngSubmit)="f.form.valid && editConcurso()" #f="ngForm" novalidate>
+                <div class="form-group">
+                    <label for="concursoTema"><b>Tema</b></label>
+                    <input type="text" name="concursoTema" class="form-control" id="concursoTema" [(ngModel)]="concurso.tema"
+                            #concursoTema="ngModel" ngClass="{ 'is-invalid': f.submitted && concursoTema.invalid }" required>
+                           <div class="invalid-feedback">
+                        <div> Falta poner el tema</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="concursoEdadDeLaFoto"><b>Pon la edad maxima que debe tener una foto:</b></label>
+                    <input type="number" name="concursoEdadDeLaFoto" class="form-control" id="concusoEdadDeLaFoto" [(ngModel)]="concurso.edadDeLaFoto"
+                           #concursoEdadDeLaFoto="ngModel" ngClass="{ 'is-invalid': f.submitted && concursoEdadDeLaFoto.invalid }" required>
+                           <div class="invalid-feedback">
+                        <div> Falta poner la edad maxima de una foto</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="concursoMaxFotos"><b>Pon el máximo numero de fotos que un fotografo puede subir:</b></label>
+                    <input type="number" name="concursoMaxFotos" class="form-control" id="concursoMaxFotos" [(ngModel)]="concurso.maxFotos"
+                           #concursoMaxFotos="ngModel" ngClass="{ 'is-invalid': f.submitted && concursoMaxFotos.invalid }" required>
+                           <div class="invalid-feedback">
+                        <div> Falta poner el numero maximo de fotos</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="concursoFechaDelConcurso"><b>Elige la fecha del concurso:</b></label>
+                    <input type="date" name="concursoFechaDelConcurso" class="form-control" id="concursoFechaDelConcurso" [(ngModel)]="concurso.fechaDelConcurso"
+                            #concursoFechaDelConcurso="ngModel" ngClass="{ 'is-invalid': f.submitted && concursoFechaDelConcurso.invalid }" required>
+
+                           <div class="invalid-feedback">
+                        <div> Falta poner la fecha del concurso</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="concursoPremioCantidad"><b>Pon la cantidad a ganar: </b></label>
+                    <input type="number" name="concursoPremioCantidad" class="form-control" id="concursoPremioCantidad" [(ngModel)]="concurso.premioCantidad"
+                            #concursoPremioCantidad="ngModel" ngClass="{ 'is-invalid': f.submitted && concursoPremioCantidad.invalid }" required>
+                           <div class="invalid-feedback">
+                        <div> Falta la cantidad del premio</div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+<div class="row">
+    <div class="col-12">
+        <div class="row form-inline justify-content-center align-self-center">
+            <button class="btn btn-primary" style="padding-right: 3em; background: rgb(127, 161, 255)" (click)="editConcurso()"> <span class="fa fa-save "></span> &nbsp; Guardar</button>
+            &nbsp;
+            <button  class="btn btn-primary" style="padding-right: 3em; background: rgb(250, 84, 84)" (click)="cancelEdition()"> <span class="fa fa-ban"></span> Cancelar</button>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+

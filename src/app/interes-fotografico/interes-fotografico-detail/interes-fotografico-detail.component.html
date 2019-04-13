@@ -1,0 +1,21 @@
+<p>
+  
+<body>
+<h1>#{{interesFotograficoDetail.interes}}</h1>
+</body>
+</p>
+<form name="interesFotografico" (ngSubmit)="f.form.valid && editInteresFotografico()" #f="ngForm" novalidate>
+    <div class="form-group">
+     <label for="interesFotograficoNombre"><b>Nombre</b></label>
+     <input type="text" name="interesFotograficoNombre" class="form-control" id="interesFotograficoNombre" [(ngModel)]="interesFotografico.interes"
+         #interesFotograficoNombre="ngModel" [ngClass]="{ 'is-invalid': f.submitted && interesFotograficoNombre.invalid }" required>
+     <div class="invalid-feedback">
+         <div>No se ha puesto el interes</div>
+     </div>
+ </div>
+
+<body>
+Conoce a los fotografos con intereses en {{interesFotograficoDetail.interes}}
+
+</body>
+

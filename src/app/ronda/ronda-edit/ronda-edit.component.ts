@@ -19,7 +19,7 @@ export class RondaEditComponent implements OnInit, OnChanges {
     /**
     * Constructor for the component
     * @param dp DatePipe to format the date.
-    * @param authorService The authors' services provider
+    * @param rondaService The authors' services provider
     * @param toastrService The toastr to show messages to the user
     */
     constructor(

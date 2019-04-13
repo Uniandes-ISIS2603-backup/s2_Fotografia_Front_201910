@@ -82,7 +82,7 @@ showHideEdit(organizador_id: number): void {
     }
 }
 
-updateEditorial(): void {
+updateOrganizador(): void {
     this.showEdit = false;
 }
 
