@@ -11,8 +11,10 @@
                   <dd>{{organizadorDetail.telefono}}</dd>
                   <dt>Pais</dt>
                   <dd>{{organizadorDetail.pais}}</dd>
-                  <dt>Concursos</dt>
-                  <dd>Blanco y Negro</dd>
+                  <dt>Concursos: </dt>
+                  <div *ngFor = "let concurso of organizadorDetail.concursos">
+                        <dd class="caption" routerLink="/concursos/{{concurso.id}}">{{concurso.tema}}</dd>
+                </div>
               </dl>
           </div>
   </div>

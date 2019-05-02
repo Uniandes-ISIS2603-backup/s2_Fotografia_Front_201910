@@ -4,7 +4,8 @@ import {DatePipe} from '@angular/common';
 import {ToastrService} from 'ngx-toastr';
 import {ConcursoService} from '../concurso.service';
 
-
+import {OrganizadorService} from '../../organizador/organizador.service';
+import {Organizador} from '../../organizador/organizador';
 
 @Component({
   selector: 'app-concurso-create',
@@ -16,6 +17,7 @@ export class ConcursoCreateComponent implements OnInit {
 
   constructor(
         private dp: DatePipe,
+        private organizadorService: OrganizadorService,
         private concursoService: ConcursoService,
         private toastrService: ToastrService
   ) { }
@@ -25,7 +27,18 @@ export class ConcursoCreateComponent implements OnInit {
   @Output() cancel = new EventEmitter();
   
   concurso: Concurso;
+
+  organizadors: Organizador[];
   
+  getOrganizadors(): void {
+    this.organizadorService.getOrganizadors()
+        .subscribe(organizadors => {
+            this.organizadors = organizadors;
+        }, err => {
+            this.toastrService.error(err, 'Error');
+        });
+}
+
   createConcurso(): Concurso{
         this.concursoService.createConcurso(this.concurso).subscribe(concurso => {
             this.concurso = concurso;
@@ -40,7 +53,8 @@ export class ConcursoCreateComponent implements OnInit {
     }
 
   ngOnInit() {
-      this.concurso = new Concurso();
+      this.concurso = new Concurso();}
+      
   }
 
 }
