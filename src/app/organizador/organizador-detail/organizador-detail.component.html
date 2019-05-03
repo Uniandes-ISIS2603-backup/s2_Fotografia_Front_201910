@@ -13,7 +13,7 @@
                   <dd>{{organizadorDetail.pais}}</dd>
                   <dt>Concursos: </dt>
                   <div *ngFor = "let concurso of organizadorDetail.concursos">
-                        <dd class="caption" routerLink="/concursos/{{concurso.id}}">{{concurso.tema}}</dd>
+                        <dd class="caption" routerLink="/concursos/{{concurso.id}}" style="cursor: pointer;">{{concurso.tema}}</dd>
                 </div>
               </dl>
           </div>
