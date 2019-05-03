@@ -57,7 +57,7 @@ updateCliente(cliente): Observable<ClienteDetail> {
 
 getClienteFormasDePago(clienteId:number): Observable<FormaDePagoDetail[]>
 {
-    return this.http.get<FormaDePagoDetail[]>(API_URL+ clientes + '/'+ clienteId + formasDePago   );
+    return this.http.get<FormaDePagoDetail[]>(API_URL+ clientes + '/'+ clienteId + formasDePago);
 }
 
 }

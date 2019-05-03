@@ -56,7 +56,7 @@ cliente: Cliente;
 * Crea una forma de pago
 */
 createFormaDePago(): FormaDePagoDetail {
-   let dateB: Date = new Date(this.formaDePago.fechaVencimiento.year, this.formaDePago.fechaVencimiento.month , this.formaDePago.fechaVencimiento.day);
+   let dateB: Date = new Date(this.formaDePago.fechaVencimiento.year, this.formaDePago.fechaVencimiento.month -1, this.formaDePago.fechaVencimiento.day);
 
    this.formaDePago.fechaVencimiento = this.dp.transform(dateB, 'yyyy-MM-dd');
    this.formaDePago.fechaVencimiento += "T00:00:00-05:00";

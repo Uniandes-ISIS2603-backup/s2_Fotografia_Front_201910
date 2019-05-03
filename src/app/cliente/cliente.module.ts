@@ -13,7 +13,7 @@ import { ClienteFormaDePagoComponent } from './cliente-forma-de-pago/cliente-for
 
 @NgModule({
   imports: [
-    CommonModule,FormsModule, AppRoutingModule, FormaDePagoModule
+    CommonModule,FormsModule, AppRoutingModule, FormaDePagoModule, NgbModule
   ],
   declarations: [ClienteListComponent, ClienteDetailComponent, ClienteCreateComponent, ClienteEditComponent, ClienteFormaDePagoComponent],
   exports: [ClienteListComponent, ClienteDetailComponent, ClienteCreateComponent, ClienteFormaDePagoComponent],

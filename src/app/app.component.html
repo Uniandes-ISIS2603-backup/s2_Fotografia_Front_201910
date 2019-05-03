@@ -3,59 +3,64 @@
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                     <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
                 <a class="navbar-brand" href="#">
-                    <div class="form-inline">
-                        <img class="img-fluid" alt="Responsive image" height="200" width="310" src="https://i.imgur.com/lK1qsS2.jpg">
-                    </div>
+                    
+                        <img alt="Responsive image" height="100" width="250" src="https://i.imgur.com/lK1qsS2.jpg">
+                    
                 </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <div class="navbar-nav mr-auto mt-0">
-                <li><a id="calificacion-navbar-item" routerLink="/calificaciones/list"><span class="fa fa-star"></span>Calificaciones</a></li>  
+            <ul class="navbar-nav mr-auto mt-0">
+                <li class ="nav-item"><a class ="nav-link" id="calificacion-navbar-item" routerLink="/calificaciones/list"><span class="fa fa-star"></span>Calificaciones</a></li>  
                 &nbsp;
                 &nbsp;
-                <li><a id="jurado-navbar-item" routerLink="/jurados/list"><i class="fa fa-male"></i>Jurados</a></li>
-                &nbsp;
-                &nbsp;
-
-                <li><a id="fotografo-navbar-item" routerLink="/fotografos/list"><span class="fas fa-camera"></span>Fotografos</a></li>  
-                &nbsp;
-                &nbsp;
-                <li><a id="interes-fotografico-navbar-item" routerLink="/interesFotograficos/list"><span class="far fa-thumbs-up"></span> Intereses Fotograficos</a></li>  
+                <li class ="nav-item"><a class ="nav-link" id="jurado-navbar-item" routerLink="/jurados/list"><i class="fa fa-male"></i>Jurados</a></li>
                 &nbsp;
                 &nbsp;
 
-                <li><a id="clienteItem" routerLink="/clientes/list">Clientes</a></li>  
+                <li class ="nav-item"><a class ="nav-link" id="fotografo-navbar-item" routerLink="/fotografos/list"><span class="fas fa-camera"></span>Fotografos</a></li>  
+                &nbsp;
+                &nbsp;
+                <li class ="nav-item"><a class ="nav-link" id="interes-fotografico-navbar-item" routerLink="/interesFotograficos/list"><span class="far fa-thumbs-up"></span> Intereses Fotograficos</a></li>  
                 &nbsp;
                 &nbsp;
 
-                <li><a id="concurso-navbar-item" routerLink="/concursos/list"><i class="">Concursos</i></a></li>
+                <li class ="nav-item"><a class ="nav-link" id="clienteItem" routerLink="/clientes/list">Clientes</a></li>  
                 &nbsp;
                 &nbsp;
-                <li><a id="organizadorsTag" routerLink="/organizadors/list"><i class="fa fa-male"></i> Organizadores</a></li>
+
+                <li class ="nav-item"><a class ="nav-link" id="concurso-navbar-item" routerLink="/concursos/list"><i class="">Concursos</i></a></li>
                 &nbsp;
                 &nbsp;
-                <li><a id="rondasTag" routerLink="/rondas/list"><i class="fa fa-male"></i> Rondas</a></li>
+                <li class ="nav-item"><a class ="nav-link" id="organizadorsTag" routerLink="/organizadors/list"><i class="fa fa-male"></i> Organizadores</a></li>
                 &nbsp;
                 &nbsp;
-                <li><a id="calificacion-navbar-item" routerLink="/photos/list"> Fotos</a></li>
+                <li class ="nav-item"><a class ="nav-link" id="rondasTag" routerLink="/rondas/list"><i class="fa fa-male"></i> Rondas</a></li>
+                &nbsp;
+                &nbsp;
+                <li class ="nav-item"><a class ="nav-link" id="calificacion-navbar-item" routerLink="/photos/list"> Fotos</a></li>
 
                 &nbsp;
                 &nbsp;
-                <li><a id="calificacion-navbar-item" routerLink="/facturas/list"> Facturas</a></li>
+                <li class ="nav-item"><a class ="nav-link" id="calificacion-navbar-item" routerLink="/facturas/list"> Facturas</a></li>
 
                 &nbsp;
                 &nbsp;
-                <li><a id="calificacion-navbar-item" routerLink="/formasDePago/list"> Formas De Pago</a></li>
+                <li class ="nav-item"><a class ="nav-link" id="calificacion-navbar-item" routerLink="/formasDePago/list"> Formas De Pago</a></li>
 
                 &nbsp;
                 &nbsp;
-                <li><a id="registroItem" routerLink="/clientes/registro">Registro</a></li>  
-               
+              
+            </ul>
 
-            </div>
+            <ul class="nav navbar-nav navbar-right">
+                <li class ="nav-item"><a class ="nav-link" id="registroItem" routerLink="/clientes/registro">Sign Up</a></li>  
+                <li class ="nav-item"><a class ="nav-link" id="registroItem" routerLink="/clientes/registro">Log In</a></li>
+            </ul>
+
+
             <div class="navbar-nav ml-auto flex-column">
                 <div class="flex-row" *ngxPermissionsOnly="['GUEST']">
                     <div class="form-inline">
@@ -78,11 +83,11 @@
         <br>
         <br>
     </div>
-    
+
     <footer class="footer bg-light" id="footer">
         <div class="container">
             <p class="navbar-text text-center">
-                <img src="../assets/logo.png" >
+                <img  class="img-fluid" src="../assets/logo.png" >
             </p>
         </div>
     </footer>
