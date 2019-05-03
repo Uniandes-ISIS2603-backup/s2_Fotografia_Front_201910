@@ -1,7 +1,8 @@
 import { Component, OnInit,Input } from '@angular/core';
 import {ClienteService} from '../cliente.service';
 import { FormaDePagoDetail } from '../../forma-de-pago/forma-de-pago-detail';
-import {FormaDePagoModule} from '../../forma-de-pago/forma-de-pago.module';
+import {FormaDePago} from '../../forma-de-pago/forma-de-pago';
+
 
 @Component({
   selector: 'cliente-forma-de-pago',
@@ -20,24 +21,26 @@ export class ClienteFormaDePagoComponent implements OnInit {
  * Id del cliente
  */
   @Input() clienteId: number;
- /*isCollapsed: boolean = true;*/
+ isCollapsed: boolean = true;
   
   /**
    * Las formas de pago del cliente
    */
-  formasDePago: FormaDePagoDetail[];
-  isCollapsed: boolean;
+  formasDePago: FormaDePago[];
+
   
 /**
  * Trae las formas de pago del cliente
  * @param clienteId el cliente del que se quieren traer las formas de pago
  */
   getFormasDePago(clienteId: number): void {
-    console.log("getFormasDePago " + clienteId);
+    console.log("getFormasDePago" + clienteId);
     this.clienteService.getClienteFormasDePago(clienteId)
       .subscribe(fdp => {
+        console.log("Tamaño" + fdp.length);
         this.formasDePago = fdp
       });
+      console.log(this.formasDePago.length);
   }
 
   /**
@@ -46,7 +49,7 @@ export class ClienteFormaDePagoComponent implements OnInit {
   getClienteFormasDePago(): void {
     console.log("getClienteFormasDePago :" + this.clienteId);
     this.getFormasDePago(this.clienteId);
-    /*this.toggleformasDePago();*/
+    this.toggleformasDePago();
   }
 
   /**
