@@ -1,4 +1,4 @@
-import {Component, OnInit, Output, EventEmitter} from '@angular/core';
+import {Component, OnInit, Output, EventEmitter, Input} from '@angular/core';
 import {FormaDePagoService} from '../forma-de-pago.service';
 import {FormaDePagoDetail} from '../forma-de-pago-detail';
 import {ToastrService} from 'ngx-toastr';
@@ -6,6 +6,8 @@ import {DatePipe} from '@angular/common';
 import { NgbDate, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import{Cliente} from '../../cliente/cliente';
 import {Router} from '@angular/router';
+import { FormaDePago } from '../forma-de-pago';
+//import {ClienteService} from '../../cliente/cliente.service';
 
 @Component({
   selector: 'app-forma-de-pago-create',
@@ -35,10 +37,7 @@ formaDePago: FormaDePagoDetail;
  */
 clientes: Cliente[];
 
-/**
- * El cliente de la forma de pago
- */
-cliente: Cliente;
+
 
 /**
 * El output que le dice al componente padre que ya no se quiere crear una forma de pago
@@ -50,7 +49,10 @@ cliente: Cliente;
 */
 @Output() create = new EventEmitter();
 
-
+/**
+ * Cliente id. Id del cliente dueño de la forma de pago
+ */
+@Input() clienteId: number;
 
 /**
 * Crea una forma de pago
@@ -66,7 +68,11 @@ createFormaDePago(): FormaDePagoDetail {
             this.create.emit();
             this.router.navigate(['/formasDePago/list'])
             this.toastrService.success("The forma de pago was created", "forma de pago creation");
+            this.formaDePagoService.createClienteFormaDePago(this.clienteId,this.formaDePago.id)
+            .subscribe();
  });
+
+ 
 
     return this.formaDePago;
 }
