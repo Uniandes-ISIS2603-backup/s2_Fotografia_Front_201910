@@ -60,13 +60,11 @@ createFormaDePago(): FormaDePagoDetail {
 
    this.formaDePago.fechaVencimiento = this.dp.transform(dateB, 'yyyy-MM-dd');
    this.formaDePago.fechaVencimiento += "T00:00:00-05:00";
-    console.log(this.formaDePago);
-    console.log(this.formaDePago.fechaVencimiento);
     this.formaDePagoService.createFormaDePago(this.formaDePago)
         .subscribe((fdp) => {
             this.formaDePago = fdp;
             this.create.emit();
-            this.router.navigate(['/formasDePago/'+ fdp.id])
+            this.router.navigate(['/formasDePago/list'])
             this.toastrService.success("The forma de pago was created", "forma de pago creation");
  });
 

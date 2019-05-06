@@ -23,6 +23,12 @@ export class FormaDePagoDetailComponent implements OnInit {
      */
   @Input() formaDePagoDetail: FormaDePagoDetail;
 
+
+  /**
+   * Id del cliente del cual se busca el detail. Llega de cliente-forma-de-pago
+   */
+  @Input() clienteId: number;
+
 /**
 * El id de la forma de pago que viene en el path get .../clientes/clienteId
 */
