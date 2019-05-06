@@ -22,6 +22,11 @@ export class AppComponent implements OnInit {
         this.title = "Fotografia";
         this.authService.start();
     }
+    
+    logout(): void{
+        this.authService.logout();
+        this.authService.printRole();
+    }
 
     /**
      * @ignore
