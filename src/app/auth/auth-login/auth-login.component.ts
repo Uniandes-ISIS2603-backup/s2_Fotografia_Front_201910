@@ -29,11 +29,12 @@ export class AuthLoginComponent implements OnInit {
 
     roles: String[];
 
+    role: string;
     /**
     * Logs the user in with the selected role
     */
     login(): void {
-        this.authService.login(this.user.role);
+        this.authService.login(this.role);
         this.sessionService.setSession(this.user);
         this.toastrService.success('Logged in');
     }
