@@ -47,7 +47,7 @@
                         <li><a id="login-navbar-item" routerLink="/auth/login"><span class="fa fa-sign-in"></span>Login</a></li>
                     </div>
                 </div>
-                <div class="flex-row" *ngxPermissionsOnly="['CLIENT', 'ADMIN']">
+                <div class="flex-row" *ngxPermissionsOnly="['CLIENT', 'ADMIN','ORGANIZADOR','FOTOGRAFO']">
                     <div class="form-inline">
                         <li><a id="logout-navbar-item" (click)="logout()" href="#"><span class="fa fa-sign-out"></span>Logout</a></li>
                     </div>
