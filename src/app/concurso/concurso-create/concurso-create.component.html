@@ -45,10 +45,10 @@
                 </div>
                 <div class="form-group">
                         <label for="concursoOrganizador"><b>Organizador</b></label>
-                        <select class="custom-select" name="concursoOrganizador" id="concursoOrganizador" [(ngModel)]="concurso.organizador"
+                        <select class="custom-select" name="concursoOrganizador" id="concursoOrganizador" [(ngModel)]="concurso.organizador.id"
                             #concursoOrganizador="ngModel" [ngClass]="{ 'is-invalid': f.submitted && concursoOrganizador.invalid }"
                             required>
-                            <option [value]="organizador" *ngFor="let organizador of organizadors">{{organizador.nombre}}</option>
+                            <option [value]="organizador.id" *ngFor="let organizador of organizadors">{{organizador.nombre}}</option>
                         </select>
                         <div class="invalid-feedback">
                             <div>The concurso's organizador is missing</div>

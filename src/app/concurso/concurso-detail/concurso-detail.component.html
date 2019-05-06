@@ -8,24 +8,35 @@
         <h4 routerLink="/rondas/{{concursoDetail.ronda.id}}" style="cursor: pointer;"> Ronda: {{concursoDetail.ronda.numRonda}}</h4>
     </div>
     <div class="row" style="padding-top:50px">
-        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 text-center">
-                <h4 class="list-group-item"><a href="#" ng-click="show = true" ng-init="show = false">Reglas del concurso</a></h4>
-                <div class="wrapper">
-                    <ul ng-show="show">
-                        <li>Maximas fotos por fotografo: {{concursoDetail.maxFotos}}</li>
-                        <li>Edad Maxima de la foto (en meses): {{concursoDetail.edadDeLaFoto}}</li>
-                        <li>Fecha De la premiacion: {{concursoDetail.fechaDelConcurso}}</li>
-                    </ul>
-                </div>
+        <div class="col-xs-9 col-sm-9 col-md-6 col-lg-6 text-center">
+            <h4 class="list-group-item"><a href="#" ng-click="show = true" ng-init="show = false">Reglas del concurso</a></h4>
+            <div class="wrapper">
+                <ul ng-show="show">
+                    <li>Maximas fotos por fotografo: {{concursoDetail.maxFotos}}</li>
+                    <li>Edad Maxima de la foto (en meses): {{concursoDetail.edadDeLaFoto}}</li>
+                    <li>Fecha De la premiacion: {{concursoDetail.fechaDelConcurso}}</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-xs-2 col-sm-2 col-md-4 col-lg-4 text-center">
+            <button class="btn btn-success" (click)="agregarFotografo()"> Entrar a concurso </button>
+        </div>
+        <div class="col-xs-1 col-sm-1 col-md-2 col-lg-2 text-center">
+            <button class="btn btn-primary" (click)="showPhotos()"> Agregar Foto </button>
+        </div>
+        <div *ngIf="show">
+            
         </div>
     </div>
+   
     <section id="portfolio">
-    <div class="project" *ngFor="let photo of concursoDetail.fotosEnConcurso">
-        <img class="project__image" src='{{photo.rutaFoto}}' src='{{photo.rutaFoto}}' />
-        <p>{{photo.nombre}}</p>
-        <div class="grid__overlay">
-            <button class="viewbutton" routerLink="/photos/{{photo.id}}">View</button>
+        <div class="project" *ngFor="let photo of concursoDetail.fotosEnConcurso">
+             <img class="project__image" src='{{photo.rutaFoto}}' src='{{photo.rutaFoto}}' />
+            <p>{{photo.nombre}}</p>
+            <div class="grid__overlay">
+                <br>
+                <button class="viewbutton" routerLink="/photos/{{photo.id}}">View</button>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 </div>

@@ -30,6 +30,7 @@ import { Ronda } from './ronda/ronda';
 import {PhotoModule} from './photo/photo.module';
 import {ConcursoModule} from './concurso/concurso.module';
 import {FormaDePagoModule} from './forma-de-pago/forma-de-pago.module';
+import{HomeModule} from './home/home.module';
 
 
 @NgModule({
@@ -53,6 +54,7 @@ import {FormaDePagoModule} from './forma-de-pago/forma-de-pago.module';
 
         ClienteModule,
         FormaDePagoModule,
+        HomeModule,
 
         RondaModule,
         PhotoModule,

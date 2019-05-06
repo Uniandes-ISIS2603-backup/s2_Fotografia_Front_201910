@@ -8,7 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AuthLoginComponent } from './auth-login/auth-login.component';
 import { AuthSignUpComponent } from './auth-sign-up/auth-sign-up.component';
-
+import { SessionService } from '../session.service';
 @NgModule({
     imports: [
         BrowserModule,
@@ -19,7 +19,8 @@ import { AuthSignUpComponent } from './auth-sign-up/auth-sign-up.component';
         NgbModule
     ],
     declarations: [AuthLoginComponent, AuthSignUpComponent],
-    providers: [AuthService],
+    providers: [AuthService, SessionService],
+    exports: [AuthLoginComponent, AuthSignUpComponent],
     bootstrap: [AuthLoginComponent]
 })
 export class AuthModule { }

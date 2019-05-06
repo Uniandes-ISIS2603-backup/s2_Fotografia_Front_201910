@@ -20,7 +20,7 @@ export class ClienteDetail extends Cliente
   contrasena: string;
 
   /**
-   * Las formas de pago del
+   * Las formas de pago del cliente
    */
   formasDePago:FormaDePagoDetail[];
 
