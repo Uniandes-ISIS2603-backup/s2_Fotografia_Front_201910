@@ -34,6 +34,9 @@ export class OrganizadorDetailComponent implements OnInit {
     * El id del organizador que viene en el path get .../organizadors/organizador_id
     */
    organizador_id: number;
+   
+   showCreate: boolean;
+   
     /**
     * The method which obtains the organizador whose details we want to show
     */
@@ -44,6 +47,9 @@ export class OrganizadorDetailComponent implements OnInit {
             });
     }
 
+    showHideCreate(): void {
+        this.showCreate = !this.showCreate;
+    }
    
     /**
     * The method which initializes the component.
@@ -53,5 +59,6 @@ export class OrganizadorDetailComponent implements OnInit {
         this.organizador_id = +this.route.snapshot.paramMap.get('id');
         this.organizadorDetail = new OrganizadorDetail();
         this.getOrganizadorDetail();
+        this.showCreate = false;
     }
 }

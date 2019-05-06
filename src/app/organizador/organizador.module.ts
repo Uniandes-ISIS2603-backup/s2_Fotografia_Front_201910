@@ -11,7 +11,7 @@ import {AppRoutingModule} from '../app-routing/app-routing.module';
 import {OrganizadorDetailComponent} from './organizador-detail/organizador-detail.component';
 import {OrganizadorCreateComponent} from './organizador-create/organizador-create.component';
 import { OrganizadorEditComponent } from './organizador-edit/organizador-edit.component';
-
+import { ConcursoModule } from '../concurso/concurso.module';
 
 @NgModule({
     imports: [
@@ -20,7 +20,8 @@ import { OrganizadorEditComponent } from './organizador-edit/organizador-edit.co
         HttpClientModule,
         CommonModule,
         FormsModule,
-        NgbModule
+        NgbModule,
+        ConcursoModule
     ],
     declarations: [
         OrganizadorListComponent, OrganizadorDetailComponent, OrganizadorCreateComponent, OrganizadorEditComponent
