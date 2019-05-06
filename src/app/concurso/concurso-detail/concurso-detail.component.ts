@@ -58,6 +58,7 @@ export class ConcursoDetailComponent implements OnInit {
       this.concursoDetail = new ConcursoDetail();
       this.show = false;
       this.getConcursoDetail();
+      
   }
 
 }
