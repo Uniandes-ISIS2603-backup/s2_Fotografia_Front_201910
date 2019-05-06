@@ -14,6 +14,12 @@ import {FormaDePagoDetail} from '../forma-de-pago-detail';
 })
 export class FormaDePagoEditComponent implements OnInit, OnChanges {
 
+
+/**
+ * Id del cliente del cual se quiere editar la forma de pago
+ */
+    @Input() clienteId : number;
+
    /**
     * Constructor for the component
     * @param dp DatePipe to format the date.
@@ -68,6 +74,7 @@ export class FormaDePagoEditComponent implements OnInit, OnChanges {
 
         this.formaDePago.fechaVencimiento = this.dp.transform(dateB, 'yyyy-MM-dd');
         this.formaDePago.fechaVencimiento += "T00:00:00-05:00";
+        this.formaDePago.cliente_id = this.clienteId;
         this.formaDePagoService.updateFormaDePago(this.formaDePago)
             .subscribe(() => {
                 this.toastrService.success("La informacion de la forma d epago fue actualizada", "Forma De Pago edition");
