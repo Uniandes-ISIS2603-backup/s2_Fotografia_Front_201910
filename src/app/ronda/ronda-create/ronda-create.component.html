@@ -21,11 +21,11 @@
                     <option [value]="concurso.id" *ngFor="let concurso of concursos">{{concurso.tema}}</option>
                 </select>
                 <div class="invalid-feedback">
-                    <div>The concurso's concurso is missing</div>
+                    <div>The ronda's concurso is missing</div>
                 </div>
             </div>
           <div class="row form-inline justify-content-center align-self-center">
-              <button type="submit" class="btn btn-primary">Create</button>
+              <button type="submit"  onclick="javascript:window.location.reload();" class="btn btn-primary">Create</button>
               <div class="divider"></div>
               <button type="button" class="btn btn-danger" (click)="cancelCreation()">Cancel</button>
           </div>

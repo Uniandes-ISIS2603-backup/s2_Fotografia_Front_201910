@@ -8,7 +8,7 @@
             </thead>
             <tbody>
                 <tr *ngFor = "let concurso of concursos">
-                    <td> <dd class="figure-caption" routerLink="/concursos/{{concurso.id}}"  > {{concurso.tema}}</dd> </td>
+                    <td> <dd class="figure-caption" style="cursor: pointer;" routerLink="/concursos/{{concurso.id}}"  > {{concurso.tema}}</dd> </td>
                     <td><button class="btn btn-primary" (click)="showHideEdit(concurso.id)"><span class="far fa-edit"></span></button></td>
             </tr>
             </tbody>
@@ -31,4 +31,5 @@
         </div>
     </div>
     </div>
+    
 </div>
