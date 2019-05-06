@@ -22,5 +22,6 @@ export class FotografoDetail extends Fotografo
   /**
    * intereses fotograficos
    */
-  intereses:InteresFotografico[];
+  intereses:InteresFotografico
+  
 }
