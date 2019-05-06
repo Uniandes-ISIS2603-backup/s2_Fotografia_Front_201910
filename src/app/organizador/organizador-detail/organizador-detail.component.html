@@ -18,14 +18,23 @@
               </dl>
           </div>
           <div class="row justify-content-center align-self-center">
-                <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+                <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }"  type="button" class="btn"
                     (click)="showHideCreate()">Crear concurso</button>
-            </div>
+         </div>
             <br>
-            <div class="col-md-8">
+            <div class="col-md-8" >
                 <div *ngIf="showCreate">
-                    <app-concurso-create (cancel)="showHideCreate()" (create)="ngOnInit()" *ngIf="showCreate"></app-concurso-create>
+                    <app-concurso-create (cancel)= "showHideCreate()" (create)="ngOnInit()" *ngIf="showCreate"></app-concurso-create>
                 </div>
-            </div>
+        </div>
   </div>
+  <div >
+        <tr *ngFor = "let organizador of organizadors">
+                <td style="cursor: pointer;"> 
+                    <dd style="text-align: center;" routerLink="/organizadors/{{organizador.id}}" ><img src="{{organizador.foto}}"/></dd>
+                </td>
+               
+            </tr>
+     
+</div>
 </div>
