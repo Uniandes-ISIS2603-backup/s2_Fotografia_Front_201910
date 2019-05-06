@@ -2,7 +2,7 @@ import { Component, OnInit,Input } from '@angular/core';
 import {ClienteService} from '../cliente.service';
 import { FormaDePagoDetail } from '../../forma-de-pago/forma-de-pago-detail';
 import {FormaDePago} from '../../forma-de-pago/forma-de-pago';
-
+import{FormaDePagoService} from '../../forma-de-pago/forma-de-pago.service';
 
 @Component({
   selector: 'cliente-forma-de-pago',
@@ -15,18 +15,25 @@ export class ClienteFormaDePagoComponent implements OnInit {
    * Constructor del componente
    * @param clienteService Servicio proveedor del cliente
    */
-  constructor(private clienteService: ClienteService) { }
+  constructor(private clienteService: ClienteService, private formaDePagoService: FormaDePagoService) { }
 
 /**
  * Id del cliente
  */
   @Input() clienteId: number;
  isCollapsed: boolean = true;
+
+    /**
+    * Shows or hides the detail component.
+    */
+   showDetail: boolean;
   
   /**
    * Las formas de pago del cliente
    */
   formasDePago: FormaDePago[];
+  selected: FormaDePago;
+  formaDePagoId :number;
 
   
 /**
@@ -68,5 +75,39 @@ export class ClienteFormaDePagoComponent implements OnInit {
      this.formasDePago = [new FormaDePagoDetail()];
     this.isCollapsed  = true;
   }
+
+/**
+ * Devuelve la forma de pago en detalle
+ */
+getFormaDePagoDetail(): void {
+  this.formaDePagoService.getFormaDePagoDetail(this.formaDePagoId)
+      .subscribe(selected => {
+          this.selected = selected
+      });
+}
+
+/**
+* Lo que realiza cuando se selecciona
+* @param formaDePagoId 
+*/
+onSelected(formaDePagoId: number):void {
+  this.formaDePagoId = formaDePagoId;
+  this.selected = new FormaDePagoDetail();
+  this.formaDePagoService.getFormaDePagoDetail(formaDePagoId).subscribe(fdp=> this.selected=fdp);
+}
+
+  /**
+* Shows or hides the detail component
+*/
+showHideDetail(formaDePagoId: number): void {
+  if (!this.showDetail || (this.showDetail && formaDePagoId != this.formaDePagoId)) {
+      this.showDetail = true;
+      this.formaDePagoId = formaDePagoId;
+  }
+  else {
+      this.showDetail = false;
+  }
+}
+
 
 }

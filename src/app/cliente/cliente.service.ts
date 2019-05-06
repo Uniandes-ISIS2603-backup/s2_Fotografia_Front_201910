@@ -54,7 +54,19 @@ updateCliente(cliente): Observable<ClienteDetail> {
     return this.http.put<ClienteDetail>(API_URL + clientes + '/' + cliente.id, cliente);
  }
 
+ /**
+  * un clientele
+  * @param clienteId Id del cliente que se desea eliminar
+  */
+deleteCliente(clienteId):Observable<ClienteDetail>
+{
+    return this.http.delete<ClienteDetail>(API_URL + clientes + '/'+ clienteId);
+}
 
+/**
+ * Trae las formas de pago asociasas a un cliente
+ * @param clienteId el id del cliente del cual se quieren consultar las formas de pago
+ */
 getClienteFormasDePago(clienteId:number): Observable<FormaDePagoDetail[]>
 {
     return this.http.get<FormaDePagoDetail[]>(API_URL+ clientes + '/'+ clienteId + formasDePago);

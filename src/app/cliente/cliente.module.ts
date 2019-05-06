@@ -10,12 +10,13 @@ import { ClienteCreateComponent } from './cliente-create/cliente-create.componen
 import { ClienteEditComponent } from './cliente-edit/cliente-edit.component';
 import{FormaDePagoModule} from '../forma-de-pago/forma-de-pago.module';
 import { ClienteFormaDePagoComponent } from './cliente-forma-de-pago/cliente-forma-de-pago.component';
+import { ClienteDeleteComponent } from './cliente-delete/cliente-delete.component';
 
 @NgModule({
   imports: [
     CommonModule,FormsModule, AppRoutingModule, FormaDePagoModule, NgbModule
   ],
-  declarations: [ClienteListComponent, ClienteDetailComponent, ClienteCreateComponent, ClienteEditComponent, ClienteFormaDePagoComponent],
+  declarations: [ClienteListComponent, ClienteDetailComponent, ClienteCreateComponent, ClienteEditComponent, ClienteFormaDePagoComponent, ClienteDeleteComponent],
   exports: [ClienteListComponent, ClienteDetailComponent, ClienteCreateComponent, ClienteFormaDePagoComponent],
   providers: [ClienteService]
 })
