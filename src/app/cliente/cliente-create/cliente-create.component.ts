@@ -2,6 +2,7 @@ import {Component, OnInit, Output, EventEmitter} from '@angular/core';
 import {ClienteService} from '../cliente.service';
 import {Cliente} from '../cliente';
 import {ToastrService} from 'ngx-toastr';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-cliente-create',
@@ -15,7 +16,7 @@ export class ClienteCreateComponent implements OnInit
      * @param clienteService El proveedor de servicios del cliente
      * @param toastrService El toastr que muestra los mensajes
      */
-  constructor(
+  constructor(private router: Router,
         private clienteService: ClienteService, private toastrService: ToastrService
     ) {}
 
@@ -40,12 +41,12 @@ export class ClienteCreateComponent implements OnInit
     * Crea un clinente
     */
     createCliente(): Cliente {
-
         console.log(this.cliente);
         this.clienteService.createCliente(this.cliente)
             .subscribe((cli) => {
                 this.cliente = cli;
                 this.create.emit();
+                this.router.navigate(['/clientes/list'])
                 this.toastrService.success("The client was created", "cliente creation");
             });
 
