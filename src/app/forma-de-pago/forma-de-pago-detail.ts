@@ -12,4 +12,6 @@ export class FormaDePagoDetail extends FormaDePago
    */
   numeroVerificacion: number;
 
+  cliente_id: number;
+
 }

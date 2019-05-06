@@ -27,6 +27,18 @@ export class ClienteFormaDePagoComponent implements OnInit {
     * Shows or hides the detail component.
     */
    showDetail: boolean;
+
+   
+  /**
+    * Shows or hides the create component
+    */
+   showCreate: boolean;
+
+   
+   /**
+    * Shows or hides the edit component.
+    */
+   showEdit: boolean;
   
   /**
    * Las formas de pago del cliente
@@ -109,5 +121,27 @@ showHideDetail(formaDePagoId: number): void {
   }
 }
 
+
+  /**
+    * Shows or hides the create component
+    */
+   showHideCreate(): void {
+    this.showEdit = false;
+    this.showCreate = !this.showCreate!
+}
+
+/**
+* Shows or hides the create component
+*/
+showHideEdit(formaDePagoId: number): void {
+  if (!this.showEdit || (this.showEdit && formaDePagoId != this.formaDePagoId)) {
+      this.showCreate = false;
+      this.showEdit = true;
+      this.formaDePagoId = formaDePagoId;
+  }
+  else {
+      this.showEdit = false;
+  }
+}
 
 }

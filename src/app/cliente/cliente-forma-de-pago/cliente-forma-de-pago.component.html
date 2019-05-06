@@ -8,6 +8,22 @@
   </p>
   
   <div id="collapseFormasDePago" [ngbCollapse]="isCollapsed">
+
+      <div class="row justify-content-center align-self-center">
+          <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+              (click)="showHideCreate()"> Agregar Forma De Pago <i class="material-icons">
+                  add
+                  </i>
+              </button>
+      </div>
+
+      <br>
+      <div class="col-md-12">
+            <div *ngIf="showCreate">
+               <app-forma-de-pago-create (cancel)="showHideCreate()" (create)="ngOnInit()" *ngIf="showCreate"></app-forma-de-pago-create>
+            </div>
+      </div>
+
       <table class = "table table-hover">
           <tbody>
               <hr>
