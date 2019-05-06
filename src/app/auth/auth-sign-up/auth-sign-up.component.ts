@@ -27,11 +27,12 @@ export class AuthSignUpComponent implements OnInit {
 
     roles: String[];
 
+    role: string;
     /**
     * Sign the user up with the selected role
     */
     signUp(): void {
-        this.authService.login(this.user.role);
+        this.authService.login(this.role);
         this.sessionService.setSession(this.user);
         this.toastrService.success('Successfully signed up');
     }

@@ -33,6 +33,7 @@ export class AuthService {
         } else if (role === 'ORGANIZADOR'){
             this.setOrganizadorRole();
         }
+        console.log(role);
     }
 
     setGuestRole (): void {

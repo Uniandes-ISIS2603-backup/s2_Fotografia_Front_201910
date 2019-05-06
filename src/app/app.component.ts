@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import { AuthService } from './auth/auth.service';
-
 /**
  * The app component. This component is the base of the Fotografia
  */
@@ -21,12 +20,14 @@ export class AppComponent implements OnInit {
      */
     ngOnInit(): void {
         this.title = "Fotografia";
+        this.authService.start();
     }
 
     /**
      * @ignore
      */
-    constructor() {}
+    constructor(private authService: AuthService) 
+        {}
 
 }
 
