@@ -13,6 +13,17 @@
                   <div>El Numero de Ronda de la ronda falta</div>
               </div>
           </div>
+          <div class="form-group">
+                <label for="rondaConcurso"><b>Concurso</b></label>
+                <select class="custom-select" name="rondaConcurso" id="rondaConcurso" [(ngModel)]="ronda.concurso.id"
+                    #rondaConcurso="ngModel" [ngClass]="{ 'is-invalid': f.submitted && rondaConcurso.invalid }"
+                    required>
+                    <option [value]="concurso.id" *ngFor="let concurso of concursos">{{concurso.tema}}</option>
+                </select>
+                <div class="invalid-feedback">
+                    <div>The concurso's concurso is missing</div>
+                </div>
+            </div>
           <div class="row form-inline justify-content-center align-self-center">
               <button type="submit" class="btn btn-primary">Create</button>
               <div class="divider"></div>

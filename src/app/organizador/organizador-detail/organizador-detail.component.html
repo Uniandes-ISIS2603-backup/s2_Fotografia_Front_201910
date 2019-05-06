@@ -1,6 +1,7 @@
 <div class="panel-body">
   <div class="border margin">
       <p class="h3 p-3">{{organizadorDetail.nombre}}<p> 
+      <img src="{{organizadorDetail.foto}}">
       <div class="row">
           <div class="col">
               <dl>     
@@ -10,8 +11,10 @@
                   <dd>{{organizadorDetail.telefono}}</dd>
                   <dt>Pais</dt>
                   <dd>{{organizadorDetail.pais}}</dd>
-                  <dt>Concursos</dt>
-                  <dd>Blanco y Negro</dd>
+                  <dt>Concursos: </dt>
+                  <div *ngFor = "let concurso of organizadorDetail.concursos">
+                        <dd class="caption" routerLink="/concursos/{{concurso.id}}" style="cursor: pointer;">{{concurso.tema}}</dd>
+                </div>
               </dl>
           </div>
   </div>

@@ -10,12 +10,11 @@ import {OrganizadorService} from '../organizador.service';
   selector: 'app-organizador-create',
   templateUrl: './organizador-create.component.html',
   styleUrls: ['./organizador-create.component.css'],
-  providers: [DatePipe]
+
 })
 export class OrganizadorCreateComponent implements OnInit {
 
   constructor(
-        private dp: DatePipe,
         private organizadorService: OrganizadorService,
         private toastrService: ToastrService
   ) { }
@@ -29,7 +28,7 @@ export class OrganizadorCreateComponent implements OnInit {
   createOrganizador(): Organizador{
         this.organizadorService.createOrganizador(this.organizador).subscribe(organizador => {
             this.organizador = organizador;
-            this.create.emit("WOOOOOOOOOOOOOOO");
+            this.create.emit();
             this.toastrService.success("El organizador se creo", "Creacion del organizador");
         });
         return this.organizador;

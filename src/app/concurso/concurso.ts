@@ -1,4 +1,5 @@
 import {Organizador} from '../organizador/organizador';
+import { Ronda } from '../ronda/ronda';
 /**
  * Clase  del concurso
  */
@@ -18,5 +19,7 @@ export class Concurso {
         
         fechaDelConcurso: any;
             
+        ronda: Ronda;
+        
         organizador: Organizador;
 }

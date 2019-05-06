@@ -22,4 +22,8 @@ export class Organizador {
      * The organizador's phone
      */
     telefono: number;
+     /**
+     * The organizador's foto
+     */
+    foto: string;
 }

@@ -14,6 +14,14 @@
               </div>
           </div>
           <div class="form-group">
+                <label for="organizadorFoto"><b>Foto</b></label>
+                <input type="text" name="organizadorFoto" class="form-control" id="organizadorFoto" [(ngModel)]="organizador.foto"
+                    #organizadorFoto="ngModel" [ngClass]="{ 'is-invalid': f.submitted && organizadorFoto.invalid }" required>
+                <div class="invalid-feedback">
+                    <div>The organizador's foto is missing</div>
+                </div>
+            </div>
+          <div class="form-group">
             <label for="organizadorEdad"><b>Edad</b></label>
             <textarea name="organizadorEdad" class="form-control" id="organizadorEdad" [(ngModel)]="organizador.edad"
                 #organizadorEdad="ngModel" [ngClass]="{ 'is-invalid': f.submitted && organizadorEdad.invalid }"
@@ -21,6 +29,14 @@
             <div class="invalid-feedback">
                 <div>The organizador's edad is missing</div>
             </div>
+            <div class="form-group">
+                    <label for="organizadorTelefono"><b>Telefono</b></label>
+                    <input type="text" name="organizadorTelefono" class="form-control" id="organizadorTelefono" [(ngModel)]="organizador.telefono"
+                        #organizadorTelefono="ngModel" [ngClass]="{ 'is-invalid': f.submitted && organizadorTelefono.invalid }" required>
+                    <div class="invalid-feedback">
+                        <div>The organizador's telefono is missing</div>
+                    </div>
+                </div>
         </div>
           <div class="form-group">
               <label for="organizadorPais"><b>Pais</b></label>
