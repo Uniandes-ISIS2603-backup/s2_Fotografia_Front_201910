@@ -1,7 +1,7 @@
 <div class="panel-body">
   <div class="border margin">
       <p class="h3 p-3">{{organizadorDetail.nombre}}<p> 
-      <img src="{{organizadorDetail.foto}}">
+      <img src="{{organizadorDetail.foto}}" width='215' height='215'>
       <div class="row">
           <div class="col">
               <dl>     
@@ -18,14 +18,19 @@
               </dl>
           </div>
           <div class="row justify-content-center align-self-center">
-                <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+                <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }"  type="button" class="btn"
                     (click)="showHideCreate()">Crear concurso</button>
-            </div>
+         </div>
             <br>
-            <div class="col-md-8">
+            <div class="col-md-8" >
                 <div *ngIf="showCreate">
-                    <app-concurso-create (cancel)="showHideCreate()" (create)="ngOnInit()" *ngIf="showCreate"></app-concurso-create>
+                    <app-concurso-create (cancel)= "showHideCreate()" (create)="ngOnInit()" *ngIf="showCreate"></app-concurso-create>
                 </div>
-            </div>
+        </div>
+        
   </div>
+  <p class="h3 p-3">Otros Organizadores: <p> 
+  <div *ngFor="let organizador of organizadors">
+        <h4 routerLink="/organizadors/{{organizador.id}}" style="cursor: pointer;"> <img src="{{organizador.foto}}" width='215' height='215'></h4>  
+</div>
 </div>
