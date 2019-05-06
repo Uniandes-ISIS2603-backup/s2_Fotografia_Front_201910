@@ -3,6 +3,7 @@ import { ToastrService } from 'ngx-toastr';
 
 import { AuthService } from '../auth.service';
 import { User } from '../user';
+import { SessionService } from '../../session.service';
 
 @Component({
     selector: 'app-auth-sign-up',
@@ -19,6 +20,7 @@ export class AuthSignUpComponent implements OnInit {
     constructor(
         private authService: AuthService,
         private toastrService: ToastrService,
+        private sessionService: SessionService
     ) { }
 
     user: User;
@@ -30,7 +32,8 @@ export class AuthSignUpComponent implements OnInit {
     */
     signUp(): void {
         this.authService.login(this.user.role);
-        this.toastrService.success('Successfully signed up')
+        this.sessionService.setSession(this.user);
+        this.toastrService.success('Successfully signed up');
     }
 
     /**
@@ -38,7 +41,7 @@ export class AuthSignUpComponent implements OnInit {
     */
     ngOnInit() {
         this.user = new User();
-        this.roles = ['Administrator', 'Client'];
+        this.roles = ['Administrator', 'Client','Fotografo','Organizador'];
     }
 
 }
