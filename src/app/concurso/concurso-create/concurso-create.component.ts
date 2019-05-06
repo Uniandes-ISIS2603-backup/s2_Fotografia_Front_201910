@@ -64,7 +64,7 @@ export class ConcursoCreateComponent implements OnInit {
    createConcurso(): Concurso{
     this.concursoService.createConcurso(this.concurso).subscribe(concurso => {
         this.concurso = concurso;
-        this.create.emit("WOOOOOOOOOOOOOOO");
+        this.create.emit();
         this.toastrService.success("El concurso se creo", "Creacion del Concurso");
     });
     return this.concurso;
