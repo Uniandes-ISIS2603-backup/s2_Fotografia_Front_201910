@@ -65,4 +65,58 @@ getFormasDePagoCliente(idCliente: number): Observable<FormaDePago>
 }
 
 
+/**
+ * Asocia la forma de pago al cliente que la crea
+ * @param clienteId id del cliente al que se le asociara la forma de pago
+ * @param formaDePagoId id de la forma de pago que se le va a asociar al cliente
+ */
+createClienteFormaDePago(clienteId: number, formaDePagoId: number): Observable<FormaDePagoDetail>
+{
+    return this.http.post<FormaDePagoDetail>(API_URL + clientes + '/' + clienteId + formasDePago+ '/' + formaDePagoId ,null );
+
 }
+
+/**
+ * Edita la forma de pago que esta asociada a un cliente
+ * @param clienteId Id del cliente al que se le pondra la forma de pago 
+ * @param formaDePagoId Id de la nueva forma de pago que se le va a asociar al cliente
+ */
+updateClienteFormaDePago(clienteId:number): Observable<FormaDePago>
+{
+   return this.http.put<FormaDePagoDetail>(API_URL + clientes + '/' + clienteId + formasDePago , null )
+}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
