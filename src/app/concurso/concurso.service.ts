@@ -3,9 +3,11 @@ import { HttpClient } from '@angular/common/http';
 
 import { Concurso } from './concurso';
 import { ConcursoDetail}  from './concurso-detail';
-
+import { Photo } from '../photo/photo';
+import { PhotoDetail } from '../photo/photo-detail';
 import { Observable } from 'rxjs';
-
+import { Fotografo } from '../fotografo/fotografo';
+import { FotografoDetail} from '../fotografo/fotografo-detail';
 const API_URL = "http://localhost:8080/s2_fotografia-api/api";
 const concursos = "/concursos";
 
@@ -30,5 +32,13 @@ export class ConcursoService {
   
   updateConcurso(concurso): Observable<ConcursoDetail> {
       return this.http.put<ConcursoDetail>(API_URL + concursos + '/' + concurso.id, concurso);
+  }
+  
+  putPhoto(concurso, photo): Observable<PhotoDetail>{
+      return this.http.post<PhotoDetail>(API_URL + concursos + '/' + concurso.id + '/photos/' + photo.id, null);
+  }
+  
+  putFotografo(concurso, fotografo) : Observable<FotografoDetail>{
+      return this.http.post<FotografoDetail>(API_URL + concursos + '/' + concurso.id + '/fotografos/' + fotografo.id, null);
   }
 }

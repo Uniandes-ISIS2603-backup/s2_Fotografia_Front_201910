@@ -4,11 +4,14 @@ import { HttpClient } from '@angular/common/http';
 
 import { Fotografo } from './fotografo';
 import { FotografoDetail } from './fotografo-detail';
+import {InteresFotograficoDetail} from '../interes-fotografico/interes-fotografico-detail';
 
 
  import { environment } from '../../environments/environment';
+import { InteresFotografico } from '../interes-fotografico/interes-fotografico';
 const API_URL = 'http://localhost:8080/s2_fotografia-api/api';
 const fotografos = '/Fotografos';
+const intereses = '/InteresFotograficos';
 
 @Injectable()
 export class FotografoService {
@@ -61,5 +64,11 @@ updateFotografo(fotografo): Observable<FotografoDetail> {
 deleteFotografo(fotografoId): Observable<FotografoDetail> {
    return this.http.delete<FotografoDetail>(API_URL + fotografos + '/' + fotografoId);
 }
-
+getIntereses(interesId: number): Observable<InteresFotografico> {
+   console.log(API_URL + "in-" + interesId + ".json");
+   return this.http.get<InteresFotografico>(API_URL + "historia-" + interesId + ".json");
+ }
+ getFotografoInteresesFotograficos(Id:number): Observable<InteresFotograficoDetail[]>{
+   return this.http.get<InteresFotograficoDetail[]>(API_URL+ fotografos + '/'+ Id + intereses   );
+ }
 }

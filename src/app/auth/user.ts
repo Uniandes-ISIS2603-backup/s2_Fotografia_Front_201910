@@ -6,15 +6,13 @@ export class User {
     /**
     * The user's name
     */
-    name: string;
+    nombre: string;
+    
 
     /**
     * The user's password
     */
     password: string;
 
-    /**
-    * The user's role
-    */
-    role: string;
+  
 }

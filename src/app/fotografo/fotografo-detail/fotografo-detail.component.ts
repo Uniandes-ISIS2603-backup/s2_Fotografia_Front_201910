@@ -1,7 +1,11 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { Component, OnInit, OnDestroy, ViewChild, ViewContainerRef ,Input} from '@angular/core';
+import { ActivatedRoute, Params ,Router,NavigationEnd} from '@angular/router';
 import {FotografoService} from '../fotografo.service';
 import {FotografoDetail} from '../fotografo-detail';
+import {ModalDialogService, SimpleModalComponent} from 'ngx-modal-dialog';
+import {ToastrService} from 'ngx-toastr';
+import { FotografoInteresfotograficoComponent } from './../fotografo-interesfotografico/fotografo-interesfotografico.component';
+
 
 @Component({
   selector: 'app-fotografo-detail',
@@ -12,7 +16,38 @@ export class FotografoDetailComponent implements OnInit
 {
 
 constructor(private fotografoService: FotografoService,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute,
+    private modalDialogService: ModalDialogService,
+    private router: Router,
+    private viewRef: ViewContainerRef,
+    private toastrService: ToastrService
+) {
+    //This is added so we can refresh the view when one of the books in
+    //the "Other books" list is clicked
+    this.navigationSubscription = this.router.events.subscribe((e: any) => {
+        if (e instanceof NavigationEnd) {
+            this.ngOnInit();
+        }
+    });
+}
+navigationSubscription;
+
+
+    /**
+     * The child BookReviewListComponent
+     */
+    @ViewChild(FotografoInteresfotograficoComponent) reviewListComponent: FotografoInteresfotograficoComponent;
+
+    /**
+     * The child BookReviewListComponent
+     */
+    
+    toggleReviews(): void {
+       
+       /**  this.reviewListComponent.isCollapsed = !this.reviewListComponent.isCollapsed;*/
+    }
+
+    
 
   @Input() fotografoDetail: FotografoDetail;
 

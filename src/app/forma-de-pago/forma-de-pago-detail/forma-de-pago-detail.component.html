@@ -23,5 +23,5 @@
 
     <div class="col-md-8">
         <div *ngIf="showEdit">
-          <app-forma-de-pago-edit [formaDePagoId]="formaDePagoId" (cancel)="showHideEdit(formaDePagoId)" (update)="updateFormaDePago()"></app-forma-de-pago-edit></div>
+          <app-forma-de-pago-edit [formaDePagoId]="formaDePagoId" [clienteId]="clienteId" (cancel)="showHideEdit(formaDePagoId)" (update)="updateFormaDePago()"></app-forma-de-pago-edit></div>
     </div>

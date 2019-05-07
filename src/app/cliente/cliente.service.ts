@@ -13,51 +13,75 @@ const formasDePago = '/formasDePago';
 @Injectable()
 export class ClienteService {
 
-    /**
-    * Constructor of the service
-    * @param http The HttpClient-This is necessary in order to perform requests
-    */
+/**
+* Constructor of the service
+* @param http The HttpClient-This is necessary in order to perform requests
+*/
 
-  constructor(private http: HttpClient) { }
-
-  /**
-   * Trae la lista de clientes
-   */
-   getClientes() : Observable<Cliente[]> {
-        return this.http.get<Cliente[]>(API_URL + clientes);
-    }
-
-    /**
-     * Trae el cliente con un id especifico
-     * @param clienteId id del cliente
-     */
-    getClientesDetail(clienteId):Observable<ClienteDetail>
-    {
-      return this.http.get<ClienteDetail>(API_URL + clientes + '/'+ clienteId);
-    }
+constructor(private http: HttpClient) { }
 
 /**
-    * Creates a cliente
-    * @param cliente The new client
-    * @returns The confirmation that the client was created
-    */
-    createCliente(cliente): Observable<Cliente> {
-        return this.http.post<Cliente>(API_URL + clientes, cliente);
-    }
+* Trae la lista de clientes
+*/
+getClientes() : Observable<Cliente[]> 
+{
+    return this.http.get<Cliente[]>(API_URL + clientes);
+}
+
+/**
+* Trae el cliente con un id especifico
+* @param clienteId id del cliente
+*/
+getClientesDetail(clienteId):Observable<ClienteDetail>
+{
+    return this.http.get<ClienteDetail>(API_URL + clientes + '/'+ clienteId);
+}
+
+/**
+* Creates a cliente
+* @param cliente The new client
+* @returns The confirmation that the client was created
+*/
+createCliente(cliente): Observable<Cliente> 
+{
+    return this.http.post<Cliente>(API_URL + clientes, cliente);
+}
 
     /**
 * Updates a Client
 * @param Cliente The client which will be update
 * @returns The confirmation of the cliente's update
 */
-updateCliente(cliente): Observable<ClienteDetail> {
+updateCliente(cliente): Observable<ClienteDetail> 
+{
     return this.http.put<ClienteDetail>(API_URL + clientes + '/' + cliente.id, cliente);
- }
+}
 
+ /**
+  * un clientele
+  * @param clienteId Id del cliente que se desea eliminar
+  */
+deleteCliente(clienteId):Observable<ClienteDetail>
+{
+    return this.http.delete<ClienteDetail>(API_URL + clientes + '/'+ clienteId);
+}
 
+/**
+ * Trae las formas de pago asociasas a un cliente
+ * @param clienteId el id del cliente del cual se quieren consultar las formas de pago
+ */
 getClienteFormasDePago(clienteId:number): Observable<FormaDePagoDetail[]>
 {
-    return this.http.get<FormaDePagoDetail[]>(API_URL+ clientes + '/'+ clienteId + formasDePago   );
+    return this.http.get<FormaDePagoDetail[]>(API_URL+ clientes + '/'+ clienteId + formasDePago);
 }
+
+/**
+ * Asocia un cliente con una forma de pago
+ */
+//createClienteFormaDePago(clienteId: number, formaDePagoId:number): Observable<FormaDePagoDetail>
+//{
+   // console.log ("Id del cliente: " + clienteId + " Id de la forma de pago: " + formaDePagoId);
+   // return this.http.post<FormaDePagoDetail>(API_URL + clientes + '/' + clienteId + formasDePago+ '/' + formaDePagoId,null );
+//}
 
 }

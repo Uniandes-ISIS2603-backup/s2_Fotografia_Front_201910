@@ -1,0 +1,45 @@
+// vars
+$random_color: rgba(rd(255),rd(255),rd(255),.5);
+
+$c: ( // colors
+	t: rgba(0,0,0,0),
+	s: #000,
+	w: #fff,
+	gr: desaturate(rgb(rd(255),rd(255),rd(255)), 100%),
+	r: rgb(rd(255),rd(150),rd(150)),
+	g: rgb(rd(150),rd(255),rd(150)),
+	b: rgb(rd(150),rd(150),rd(255)),
+	bg: $random_color,
+	cp: ( // color palette
+		1: #3B3A4A,
+		2: #067242,
+		3: #098B54,
+		4: #DED5C4,
+		5: #EF7E56,
+		6: #F0AE2C,
+		7: #F9D00F,
+		8: #FBF7F7
+	),
+);
+
+// settings
+$f: unquote("'Podkova', serif");
+$fb: unquote("'Trebuchet MS', Helvetica, sans-serif");
+$fz: 16px;
+
+$time: .3s;
+
+// --------- defaults ---------
+* {
+	&:focus {
+		outline: 0;
+	}
+	
+	&, &:before, &:after {
+		box-sizing: border-box;
+	}
+}
+
+nav.navbar.navbar-expand-lg.bg-dark.navbar-dark {
+    background-color: #000000!important;
+}

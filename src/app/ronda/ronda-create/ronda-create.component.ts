@@ -1,7 +1,12 @@
-import {Component, OnInit, Output, EventEmitter} from '@angular/core';
+    
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import {Router} from '@angular/router';
 import {DatePipe} from '@angular/common';
 import {ToastrService} from 'ngx-toastr';
-import {RondaService} from '../ronda.service';
+
+import {ConcursoService} from '../../concurso/concurso.service';
+import {RondaService} from '../../ronda/ronda.service';
+import {Concurso} from '../../concurso/concurso';
 import {Ronda} from '../ronda';
 
 @Component({
@@ -12,16 +17,20 @@ import {Ronda} from '../ronda';
 })
 export class RondaCreateComponent implements OnInit {
 
+
     /**
     * Constructor for the component
     * @param dp DatePipe to format the date.
     * @param rondaService The ronda's services provider
     * @param toastrService The toastr to show messages to the user
+    * @param router The router
     */
     constructor(
         private dp: DatePipe,
         private rondaService: RondaService,
-        private toastrService: ToastrService
+        private concursoService: ConcursoService,
+        private toastrService: ToastrService,
+        private router: Router
     ) {}
 
     /**
@@ -41,6 +50,23 @@ export class RondaCreateComponent implements OnInit {
     */
     @Output() create = new EventEmitter();
 
+    
+    /**
+    * The list of all the Concursos in the concursoStore
+    */
+   concursos: Concurso[];
+
+   /**
+   * Retrieves the list of Concursos in the concursoStore
+   */
+   getConcursos(): void {
+       this.concursoService.getConcursos()
+           .subscribe(concursos => {
+               this.concursos = concursos;
+           }, err => {
+               this.toastrService.error(err, 'Error');
+           });
+   }
     /**
     * Creates an ronda
     */
@@ -61,14 +87,16 @@ export class RondaCreateComponent implements OnInit {
     * user no longer wants to create an user
     */
     cancelCreation(): void {
-        this.cancel.emit();
+        this.toastrService.warning('The ronda wasn\'t created', 'ronda creation');
+        this.router.navigate(['/rondas/list']);
     }
 
-    /**
+ /**
     * This function will initialize the component
     */
-    ngOnInit() {
-        this.ronda = new Ronda();
-    }
-
+   ngOnInit() {
+    this.ronda = new Ronda();
+    this.ronda.concurso = new Concurso();
+    this.getConcursos();
+}
 }

@@ -1,7 +1,8 @@
 import { Component, OnInit,Input } from '@angular/core';
 import {ClienteService} from '../cliente.service';
 import { FormaDePagoDetail } from '../../forma-de-pago/forma-de-pago-detail';
-import {FormaDePagoModule} from '../../forma-de-pago/forma-de-pago.module';
+import {FormaDePago} from '../../forma-de-pago/forma-de-pago';
+import{FormaDePagoService} from '../../forma-de-pago/forma-de-pago.service';
 
 @Component({
   selector: 'cliente-forma-de-pago',
@@ -14,30 +15,51 @@ export class ClienteFormaDePagoComponent implements OnInit {
    * Constructor del componente
    * @param clienteService Servicio proveedor del cliente
    */
-  constructor(private clienteService: ClienteService) { }
+  constructor(private clienteService: ClienteService, private formaDePagoService: FormaDePagoService) { }
 
 /**
  * Id del cliente
  */
   @Input() clienteId: number;
- /*isCollapsed: boolean = true;*/
+ isCollapsed: boolean = true;
+
+    /**
+    * Shows or hides the detail component.
+    */
+   showDetail: boolean;
+
+   
+  /**
+    * Shows or hides the create component
+    */
+   showCreate: boolean;
+
+   
+   /**
+    * Shows or hides the edit component.
+    */
+   showEdit: boolean;
   
   /**
    * Las formas de pago del cliente
    */
-  formasDePago: FormaDePagoDetail[];
-  isCollapsed: boolean;
+  formasDePago: FormaDePago[];
+  selected: FormaDePago;
+  formaDePagoId :number;
+
   
 /**
  * Trae las formas de pago del cliente
  * @param clienteId el cliente del que se quieren traer las formas de pago
  */
   getFormasDePago(clienteId: number): void {
-    console.log("getFormasDePago " + clienteId);
+    console.log("getFormasDePago" + clienteId);
     this.clienteService.getClienteFormasDePago(clienteId)
       .subscribe(fdp => {
+        console.log("Tamaño" + fdp.length);
         this.formasDePago = fdp
       });
+      console.log(this.formasDePago.length);
   }
 
   /**
@@ -46,7 +68,7 @@ export class ClienteFormaDePagoComponent implements OnInit {
   getClienteFormasDePago(): void {
     console.log("getClienteFormasDePago :" + this.clienteId);
     this.getFormasDePago(this.clienteId);
-    /*this.toggleformasDePago();*/
+    this.toggleformasDePago();
   }
 
   /**
@@ -65,5 +87,61 @@ export class ClienteFormaDePagoComponent implements OnInit {
      this.formasDePago = [new FormaDePagoDetail()];
     this.isCollapsed  = true;
   }
+
+/**
+ * Devuelve la forma de pago en detalle
+ */
+getFormaDePagoDetail(): void {
+  this.formaDePagoService.getFormaDePagoDetail(this.formaDePagoId)
+      .subscribe(selected => {
+          this.selected = selected
+      });
+}
+
+/**
+* Lo que realiza cuando se selecciona
+* @param formaDePagoId 
+*/
+onSelected(formaDePagoId: number):void {
+  this.formaDePagoId = formaDePagoId;
+  this.selected = new FormaDePagoDetail();
+  this.formaDePagoService.getFormaDePagoDetail(formaDePagoId).subscribe(fdp=> this.selected=fdp);
+}
+
+  /**
+* Shows or hides the detail component
+*/
+showHideDetail(formaDePagoId: number): void {
+  if (!this.showDetail || (this.showDetail && formaDePagoId != this.formaDePagoId)) {
+      this.showDetail = true;
+      this.formaDePagoId = formaDePagoId;
+  }
+  else {
+      this.showDetail = false;
+  }
+}
+
+
+  /**
+    * Shows or hides the create component
+    */
+   showHideCreate(): void {
+    this.showEdit = false;
+    this.showCreate = !this.showCreate!
+}
+
+/**
+* Shows or hides the create component
+*/
+showHideEdit(formaDePagoId: number): void {
+  if (!this.showEdit || (this.showEdit && formaDePagoId != this.formaDePagoId)) {
+      this.showCreate = false;
+      this.showEdit = true;
+      this.formaDePagoId = formaDePagoId;
+  }
+  else {
+      this.showEdit = false;
+  }
+}
 
 }

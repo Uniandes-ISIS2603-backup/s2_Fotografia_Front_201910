@@ -1,3 +1,5 @@
+import { Concurso } from "../concurso/concurso";
+
 export class Ronda {
     /**
     * Ronda id
@@ -9,4 +11,5 @@ export class Ronda {
      */
     numRonda: number;
     
+    concurso: Concurso;
 }

@@ -3,6 +3,8 @@ import {CommonModule} from '@angular/common';
 import {RouterModule, Routes} from '@angular/router';
 import {NgxPermissionsGuard} from 'ngx-permissions';
 
+import{HomeMainComponent} from '../home/home-main/home-main.component';
+
 import {CalificacionListComponent} from '../calificacion/calificacion-list/calificacion-list.component';
 import {CalificacionDetailComponent} from '../calificacion/calificacion-detail/calificacion-detail.component';
 import {JuradoListComponent} from '../jurado/jurado-list/jurado-list.component';
@@ -140,7 +142,8 @@ const routes: Routes = [
             },
             {
                 path: ':id',
-                component: OrganizadorDetailComponent
+                component: OrganizadorDetailComponent,
+                runGuardsAndResolvers: 'always' 
             }
         ]
     },
@@ -171,7 +174,7 @@ const routes: Routes = [
                 }
             },
             {
-                path: ':sign-up',
+                path: 'sign-up',
                 component: AuthSignUpComponent,
                 canActivate: [NgxPermissionsGuard],
                 data: {
@@ -233,12 +236,13 @@ const routes: Routes = [
     },
     {
         path: 'home',
-        component: AuthLoginComponent
+        component: HomeMainComponent
     },
     {
         path: '**',
         redirectTo: 'home',
     }
+    
 ];
 
 @NgModule({

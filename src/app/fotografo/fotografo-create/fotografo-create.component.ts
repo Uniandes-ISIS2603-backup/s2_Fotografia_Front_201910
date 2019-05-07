@@ -3,7 +3,7 @@ import {DatePipe} from '@angular/common';
 import {ToastrService} from 'ngx-toastr';
 import {FotografoService} from '../fotografo.service';
 import {Fotografo} from '../fotografo';
-
+import {SessionService} from '../../session.service';
 @Component({
     selector: 'app-fotografo-create',
     templateUrl: './fotografo-create.component.html',
@@ -21,7 +21,8 @@ export class FotografoCreateComponent implements OnInit {
     constructor(
         private dp: DatePipe,
         private fotografoService: FotografoService,
-        private toastrService: ToastrService
+        private toastrService: ToastrService,
+        private sessionService: SessionService
     ) {}
 
     /**
@@ -50,6 +51,7 @@ export class FotografoCreateComponent implements OnInit {
             .subscribe((fotografo) => {
                 this.fotografo = fotografo;
                 this.create.emit();
+                this.sessionService.setSession(this.fotografo);
                 this.toastrService.success("The calificacion was created", "calificacion creation");
 
             });
