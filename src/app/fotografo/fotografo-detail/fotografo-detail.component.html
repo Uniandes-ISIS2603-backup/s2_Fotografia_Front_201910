@@ -1,28 +1,32 @@
-<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">
-<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
-<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
-
-<div class="container">
-  <div class="row">
-    <div class="span2">
-      <img src="{{fotografoDetail.foto}}"  alt="" class="img-rounded" width="2000">
+<div class ="cointainer">
+<div class="rela-block container">
+  <div class="rela-block profile-card">
+  <div class="profile-pic" id="profile_pic">
+  </div>
+  <div class="rela-block profile-name-container">
+    <div class="rela-block user-name" id="user_name">{{fotografoDetail.nombre}} {{fotografoDetail.apellido}}</div>
+    <div class="rela-block user-desc" id="user_description"> {{fotografoDetail.descrip}}. Tengo {{fotografoDetail.edad}} años soy de {{fotografoDetail.pais}} y mis hobbies son {{fotografoDetail.hobbies}}</div>
+  </div>
+  <div class="rela-block profile-card-stats">
+    <div class="floated profile-stat works" id="num_works">{{fotografoDetail.correo}}<br></div>
+    <div class="floated profile-stat followers" id="num_followers">@{{fotografoDetail.login}}<br></div>
+    <div class="floated profile-stat following" id="num_following">{{fotografoDetail.telefono}}<br></div>
+  </div>
+</div>
+  <div class="rela-block footer"><br></div>
+</div>
+    
+<section id="portfolio">
+    <div class="project" *ngFor="let photo of fotografoDetail.fotos">
+         <img class="project__image" src='{{photo.rutaFoto}}' src='{{photo.rutaFoto}}' />
+        <p>{{photo.nombre}}</p>
+        <div class="grid__overlay">
+            <br>
+            <button class="viewbutton" routerLink="/photos/{{photo.id}}">View</button>
+        </div>
     </div>
-    <div class="span4">
-      <blockquote>
-        <p>{{fotografoDetail.nombre}}</p>
-        <small><cite title="Source Title">{{fotografoDetail.pais}}  <i class="icon-map-marker"></i></cite></small>
-      </blockquote>
-      <p>
-          <i class="icon-envelope"></i> {{fotografoDetail.correo}} <br>
-          <i class="icon-globe"></i> {{fotografoDetail.login}} <br>
-          <i class="icon-gift"></i> {{fotografoDetail.fechaNacimiento}}<br>
-          <i class = "fas fa-calendar"></i>{{fotografoDetail.edad}} años<br>
-          <i class = "fas fa-phone"></i>{{fotografoDetail.telefono}}<br>
-      </p>
-      <button class="btn btn-primary" routerLink="/fotografos/list">Regresar</button>
-           
-     
-    </div>
-    <app-fotografo-interesfotografico class="m-3" [id]="fotografoDetail.id"></app-fotografo-interesfotografico>
+</section>
+  

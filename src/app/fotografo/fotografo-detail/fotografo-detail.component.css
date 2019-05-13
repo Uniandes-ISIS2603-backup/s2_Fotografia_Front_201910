@@ -1,0 +1,333 @@
+* {
+  box-sizing: border-box;
+  -webkit-transition: 0.3s cubic-bezier(1, 1, 1, 1), color 0.3s ease;
+  transition: 0.3s cubic-bezier(2, 12, 1, 1), color 0.3s ease;
+  
+}
+.rela-block {
+  display: block;
+  position: relative;
+  margin: auto;
+  
+}
+.rela-inline {
+  display: inline-block;
+  position: relative;
+  margin: auto;
+}
+.floated {
+  display: inline-block;
+  position: relative;
+  margin: false;
+  float: left;
+}
+.floated.right {
+  float: right;
+}
+.abs-center {
+  display: false;
+  position: absolute;
+  margin: false;
+  top: 50%;
+  left: 50%;
+  right: false;
+  bottom: false;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  text-align: center;
+  width: 88%;
+}
+.vert-center {
+  display: false;
+  position: absolute;
+  margin: false;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+.horz-center {
+  display: false;
+  position: absolute;
+  margin: false;
+  top: false;
+  left: 50%;
+  right: false;
+  bottom: false;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+.blurred {
+  -webkit-filter: blur(2px);
+          filter: blur(2px);
+}
+.overlay {
+  z-index: -1;
+  display: false;
+  position: fixed;
+  margin: false;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.7);
+  text-align: center;
+  opacity: 0;
+}
+.overlay.active {
+  z-index: 100;
+  opacity: 1;
+}
+.overlay.active .overlay-image {
+  opacity: 1;
+}
+.overlay-card {
+  height: 75vh;
+  min-height: 800px;
+  width: calc(92% - 40px);
+  max-width: 1086px;
+  padding-left: 30px;
+  background-color: #f4f4f4;
+  border-radius: 2px;
+  overflow: hidden;
+}
+.overlay-image {
+  height: 100%;
+  width: 480px;
+  opacity: 0;
+  -webkit-transition: 0.3s cubic-bezier(0.75, 0, 0.2, 1), opacity 0.2s 0.3s ease;
+  transition: 0.3s cubic-bezier(0.75, 0, 0.2, 1), opacity 0.2s 0.3s ease;
+}
+.overlay-desc {
+  font-family: "Roboto";
+  font-size: 16px;
+  letter-spacing: 0px;
+  font-weight: 400;
+  line-height: 20px;
+  height: calc(100% - 40px);
+  margin: 20px;
+  border-left: 1px solid #ccc;
+  width: calc(100% - 520px);
+  padding: 60px 60px 60px 40px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.overlay-desc::-webkit-scrollbar {
+  width: 6px;
+}
+.overlay-desc::-webkit-scrollbar-thumb {
+  background-color: #999;
+}
+
+
+
+
+.profile-card {
+  position: relative;
+  width: calc(100% - 40px);
+  padding-top: 100px;
+  margin: 70px auto 30px;
+  background-color: #C3F1F1;
+  box-shadow: 0 2px 6px -2px rgba(0,0,0,0.26);
+}
+.profile-pic {
+  display: false;
+  position: absolute;
+  margin: false;
+  top: -90px;
+  left: 50%;
+  right: false;
+  bottom: false;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  height: 180px;
+  width: 180px;
+  border: 10px solid #fff;
+  border-radius: 100%;
+  background: url("https://www.soyhomosensual.com/wp-content/uploads/2017/12/850_400_shannon-taggart-fotografa-fantasmas.jpg") center no-repeat;
+  background-size: cover;
+}
+.profile-name-container {
+  margin: 0 auto 10px;
+  padding: 10px;
+  text-align: center;
+}
+.user-name {
+  font-family: "Comic sans ms";
+  font-size: 24px;
+  letter-spacing: 1px;
+  font-weight: 400;
+  line-height: 30px;
+  margin-bottom: 12px;
+}
+.user-desc {
+  letter-spacing: 1px;
+  color: #999;
+}
+.profile-card-stats {
+  height: 75px;
+  padding: 10px 0px;
+  text-align: center;
+  overflow: hidden;
+}
+.profile-stat {
+  height: 100%;
+  width: 33.3333%;
+}
+.profile-stat:after {
+  color: #999;
+}
+.works::after {
+  content: "Correo";
+}
+.followers::after {
+  content: "user";
+}
+.following::after {
+  content: "Telefono";
+}
+
+@media screen and (max-width: 1000px) {
+  .container {
+    max-width: 562px;
+  }
+
+ 
+
+}
+
+
+
+
+#portfolio {
+  width: 100%;
+  min-height: 100vh;
+  background: #ffffff;
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(200px, 1fr));
+  grid-template-rows:  repeat(4, minmax(400px, 1fr));
+  grid-gap: 2px;
+}
+
+.project {
+  position: relative;
+  background: #F2DAD7;
+  overflow: hidden;
+}
+.project img {
+  position: absolute;
+  opacity: 0.9;
+    height: 100%;
+    width: 200%;
+}
+.project p {
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  padding: 1em 0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  z-index: 3;
+}
+.project .grid__title {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  white-space: nowrap;
+  bottom: 0;
+  font-weight: 100;
+  font-size: 0.8em;
+  z-index: 3;
+  text-transform: uppercase;
+  color: #ffffff;
+  text-shadow: 2px 2px 4px #000000;
+  letter-spacing: 2px;
+}
+
+.project:hover .grid__overlay {
+  transform: translateY(0%);
+}
+
+.grid__overlay {
+  background: rgba(90, 122, 182, 0.9);
+  height: 100%;
+  grid-column: 1 / -1;
+  grid-row: 1 / -1;
+  position: relative;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  transform: translateY(101%);
+  transition: all 0.3s ease-in-out;
+
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.grid__overlay button {
+  background: none;
+  outline: none;
+  font-weight: 100;
+  font-size: 12px;
+  letter-spacing: 2px;
+  border: 1px solid #ffffff;
+  color: #ffffff;
+  text-transform: uppercase;
+  padding: 10px;
+}
+.grid__overlay button:hover {
+  transition: all 0.3s ease-in-out;
+  background: #ffffff;
+  color: rgba(90, 122, 182, 1);
+  transform: scale(1.05);
+}
+
+.overlay {
+  position: fixed;
+  background: rgba(71, 69, 69, 0.7);
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: none;
+  z-index: 3;
+}
+
+.overlay.open {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+}
+
+.overlay__inner {
+  background: #ffffff;
+  width: 700px;
+  padding: 20px;
+  position: relative;
+  opacity: 1;
+}
+
+.close {
+  position: absolute;
+  top: 3px;
+  right: 10px;
+  background: none;
+  outline: 0;
+  color: #474545;
+  border: 0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+.close:hover {
+  color: #00FFFF;
+}
+
+.project__image {
+  margin-left: -50%;
+  
+  
+}
+p{
+    size: 50px;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px #000000;
+}
