@@ -1,6 +1,12 @@
+
+<div class = "principal">
+    <div class="content-box-blue">.</div>
+    <div class="content-box-blue">.</div>
+    <div class="content-box-blue">.</div>
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
 <div class ="cointainer">
 <div class="rela-block container">
   <div class="rela-block profile-card">
@@ -19,19 +25,15 @@
     <div class="floated profile-stat followers" id="num_followers">@{{fotografoDetail.login}}<br></div>
     <div class="floated profile-stat following" id="num_following">{{fotografoDetail.telefono}}<br></div>
   </div>
+  
 </div>
+<div class="rela-block content">  
+  </div>
+  <div class="rela-inline image"*ngFor="let photo of fotografoDetail.fotos">
+      <dd style="text-align: center;" routerLink="/photos/{{photo.id}}" > <img src='{{photo.rutaFoto}}' alt="images"></dd> 
+  </div>
   <div class="rela-block footer"><br></div>
 </div>
     
-<section id="portfolio">
-    <div class="project" *ngFor="let photo of fotografoDetail.fotos">
-         <img class="project__image" src='{{photo.rutaFoto}}' src='{{photo.rutaFoto}}' />
-        <p>{{photo.nombre}}</p>
-        <div class="grid__overlay">
-            
-            <br>
-            <button class="viewbutton" routerLink="/photos/{{photo.id}}">View</button>
-        </div>
-    </div>
-</section>
+</div>
   

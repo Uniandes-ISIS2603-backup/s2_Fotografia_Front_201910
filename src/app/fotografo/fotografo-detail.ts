@@ -13,6 +13,10 @@ export class FotografoDetail extends Fotografo
 
   foto:string;
 
+  hobbies:string;
+
+  descrip:string;
+
   pais:string;
 
   edad:number;
