@@ -130,7 +130,8 @@
   background-color: #C3F1F1;
   box-shadow: 0 2px 6px -2px rgba(0,0,0,0.26);
 }
-.profile-pic {
+
+.profile-pic img {
   display: false;
   position: absolute;
   margin: false;
@@ -144,7 +145,6 @@
   width: 180px;
   border: 10px solid #fff;
   border-radius: 100%;
-  background: url("https://www.soyhomosensual.com/wp-content/uploads/2017/12/850_400_shannon-taggart-fotografa-fantasmas.jpg") center no-repeat;
   background-size: cover;
 }
 .profile-name-container {

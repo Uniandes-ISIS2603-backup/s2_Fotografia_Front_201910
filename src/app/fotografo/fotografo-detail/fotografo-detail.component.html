@@ -4,7 +4,11 @@
 <div class ="cointainer">
 <div class="rela-block container">
   <div class="rela-block profile-card">
+      
   <div class="profile-pic" id="profile_pic">
+      <div class="avatar">
+          <img  src='{{fotografoDetail.foto}}'>
+      </div>
   </div>
   <div class="rela-block profile-name-container">
     <div class="rela-block user-name" id="user_name">{{fotografoDetail.nombre}} {{fotografoDetail.apellido}}</div>
@@ -24,6 +28,7 @@
          <img class="project__image" src='{{photo.rutaFoto}}' src='{{photo.rutaFoto}}' />
         <p>{{photo.nombre}}</p>
         <div class="grid__overlay">
+            
             <br>
             <button class="viewbutton" routerLink="/photos/{{photo.id}}">View</button>
         </div>
