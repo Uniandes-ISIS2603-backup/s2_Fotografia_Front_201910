@@ -4,7 +4,7 @@
       <br>
       <h2 class="text-center">Registrarme</h2>
       <br>
-      <form name="cliente" (ngSubmit)="f.form.valid && createCliente()" #f="ngForm" novalidate>
+      <form name="cliente"  #f="ngForm" novalidate>
         <div class="form-group">
           <label for="loginCliente">Login</label>
           <input type="text" name="loginCliente" class="form-control" id="loginCliente"  placeholder="Nombre de usuario" [(ngModel)]="cliente.login"
