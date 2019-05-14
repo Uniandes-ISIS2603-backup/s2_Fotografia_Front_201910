@@ -5,11 +5,13 @@
     <img src="http://icons.iconarchive.com/icons/pelfusion/long-shadow-media/512/Camera-icon.png" class="card-img-top" alt="Profile Picture">
     <div class="card-body">
       <h3 class="card-title text-center">{{clienteDetail.nombre}}  
-          
+          &nbsp;
           <a  (click)="showHideEdit(clienteDetail.id)">
-
               <i class="material-icons icon-blue" style = "cursor: pointer">create</i>
-    
+          </a>
+          &nbsp;
+          <a (click)="deleteCliente()" data-toggle="modal" data-target="#myModal"> 
+            <i class="material-icons icon-red" style = "cursor:pointer"> delete </i>
           </a>
      </h3>
     </div>
@@ -27,6 +29,12 @@
   <div>
       <div *ngIf="showEdit">
           <app-cliente-edit [clienteId]="clienteId" (cancel)="showHideEdit(clienteId)" (update)="updateCliente()"></app-cliente-edit>
+      </div>
+  </div>
+
+  <div>
+      <div *ngIf="showDelete">
+          <app-cliente-delete [clienteDetail]="clienteDetail"></app-cliente-delete>
       </div>
   </div>
 

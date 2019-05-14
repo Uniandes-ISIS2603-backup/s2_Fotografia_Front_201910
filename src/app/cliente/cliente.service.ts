@@ -44,6 +44,7 @@ getClientesDetail(clienteId):Observable<ClienteDetail>
 */
 createCliente(cliente): Observable<Cliente> 
 {
+    console.log("LLAMADO");
     return this.http.post<Cliente>(API_URL + clientes, cliente);
 }
 
@@ -74,14 +75,5 @@ getClienteFormasDePago(clienteId:number): Observable<FormaDePagoDetail[]>
 {
     return this.http.get<FormaDePagoDetail[]>(API_URL+ clientes + '/'+ clienteId + formasDePago);
 }
-
-/**
- * Asocia un cliente con una forma de pago
- */
-//createClienteFormaDePago(clienteId: number, formaDePagoId:number): Observable<FormaDePagoDetail>
-//{
-   // console.log ("Id del cliente: " + clienteId + " Id de la forma de pago: " + formaDePagoId);
-   // return this.http.post<FormaDePagoDetail>(API_URL + clientes + '/' + clienteId + formasDePago+ '/' + formaDePagoId,null );
-//}
 
 }
