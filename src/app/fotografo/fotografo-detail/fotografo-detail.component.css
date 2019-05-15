@@ -155,6 +155,9 @@
   padding: 10px;
   text-align: center;
 }
+.btn-primary{
+  background-color: rgb(153, 153, 153);
+}
 .user-name {
   font-family: "Comic sans ms";
   font-size: 24px;

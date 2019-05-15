@@ -50,11 +50,20 @@ navigationSubscription;
     
 
   @Input() fotografoDetail: FotografoDetail;
+  /** 
+  * Shows or hides the create component
+  */
+ showCreate: boolean;
+
+ /**
+  * Shows or hides the edit component.
+  */
+ showEdit: boolean;
 
 /**
 * El id del fotografo que viene en el path get .../fotografos/fotografoId
 */
-fotografoId: number;
+fotografo_id: number;
 
   @Input() id: number;
     loader: any;
@@ -78,7 +87,20 @@ fotografoId: number;
   ngOnInit() {
     this.loader = this.route.params.subscribe((params: Params) => this.onLoad(params));
   }
+  showHideEdit(fotografo_id: number): void {
+    if (!this.showEdit || (this.showEdit && fotografo_id != this.fotografo_id)) {
+        this.showCreate = false;
+        this.showEdit = true;
+        this.fotografo_id = fotografo_id;
+    }
+    else {
+        this.showEdit = false;
+    }
+   }
 
+updateFotografo(): void {
+    this.showEdit = false;
+}
   ngOnDestroy() {
     this.loader.unsubscribe();
   }
