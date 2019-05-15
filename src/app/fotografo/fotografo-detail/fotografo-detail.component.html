@@ -6,9 +6,13 @@
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
+    
 
 <div class ="cointainer">
 <div class="rela-block container">
+
+    
   <div class="rela-block profile-card">
       
   <div class="profile-pic" id="profile_pic">
@@ -31,9 +35,19 @@
   </div>
   <div class="rela-inline image"*ngFor="let photo of fotografoDetail.fotos">
       <dd style="text-align: center;" routerLink="/photos/{{photo.id}}" > <img src='{{photo.rutaFoto}}' alt="images"></dd> 
-  </div>
+  
+    </div>
   <div class="rela-block footer"><br></div>
+  <div class="col-md-8">
+      <div *ngIf="showEdit">
+          <app-fotografo-edit [fotografo_id]="fotografo_id" (cancel)="showHideEdit(fotografo_id)" (update)="updateFotografo()"  (update)="ngOnInit()"></app-fotografo-edit>
+      </div>
+  </div>
 </div>
-    
+</div>
+<button class="btn btn-primary" (click)="showHideEdit(fotografoDetail.id)">Editar mi perfil</button>   
+
+   
+
 </div>
   

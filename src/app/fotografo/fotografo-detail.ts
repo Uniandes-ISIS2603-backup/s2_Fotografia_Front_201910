@@ -7,6 +7,9 @@ export class FotografoDetail extends Fotografo
   /**
     * El nombre del cliente
     */
+  
+  id:number;
+  
   nombre: string;
 
   apellido:string;
