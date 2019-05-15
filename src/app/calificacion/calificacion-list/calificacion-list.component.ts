@@ -3,7 +3,7 @@ import { ToastrService } from 'ngx-toastr';
 import {ModalDialogService, SimpleModalComponent} from 'ngx-modal-dialog';
 
 import { CalificacionService } from '../calificacion.service';
-import { Calificacion } from '../calificacion';
+import { Calificacion } from '../../photo/calificacion';
 import { CalificacionDetail } from '../calificacion-detail';
 
 @Component({

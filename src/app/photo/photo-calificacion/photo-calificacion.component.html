@@ -1,0 +1,10 @@
+<div id="collapseCalificacion" [ngbCollapse]="isCollapsed">
+    <table class="table table-striped">
+        <tbody>
+            <tr *ngFor="let calificacion of photoCalificaciones">
+                <td><span id="photo-calificada"><b>{{calificacion.puntaje}}</b></span>
+                    <span>: </span><span id="calificacion-comentario">{{calificacion.comentario}}</span><br></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
