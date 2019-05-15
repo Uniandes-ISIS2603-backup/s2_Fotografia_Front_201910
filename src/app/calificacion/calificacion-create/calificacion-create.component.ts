@@ -2,7 +2,7 @@ import {Component, OnInit, Output, EventEmitter} from '@angular/core';
 import {DatePipe} from '@angular/common';
 import {ToastrService} from 'ngx-toastr';
 import {CalificacionService} from '../calificacion.service';
-import {Calificacion} from '../calificacion';
+import {Calificacion} from '../../photo/calificacion';
 
 @Component({
     selector: 'app-calificacion-create',

@@ -8,7 +8,7 @@ import {AppModule} from '../../app.module';
 import {CalificacionDetailComponent} from './calificacion-detail.component';
 import {AppRoutingModule} from '../../app-routing/app-routing.module';
 import {CalificacionService} from '../calificacion.service';
-import {Calificacion} from '../calificacion';
+import {Calificacion} from '../../photo/calificacion';
 
 describe('CalificacionDetailComponent', () => {
   let component: CalificacionDetailComponent;

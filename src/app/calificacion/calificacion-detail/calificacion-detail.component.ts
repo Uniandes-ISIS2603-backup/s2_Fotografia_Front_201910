@@ -4,7 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { CalificacionService } from '../calificacion.service';
 
 import { CalificacionDetail } from '../calificacion-detail';
-import { Calificacion } from '../calificacion';
+import { Calificacion } from '../../photo/calificacion';
 
 @Component({
   selector: 'app-calificacion-detail',

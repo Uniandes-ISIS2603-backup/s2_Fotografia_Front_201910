@@ -1,11 +1,13 @@
 
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 
 
 import { PhotoService } from '../photo.service';
 import { Photo } from '../photo';
 import { PhotoDetail } from '../photo-detail';
+import { PhotoCalificacionComponent } from '../photo-calificacion/photo-calificacion.component';
+import {PhotoAddCalificacionComponent} from '../photo-add-calificacion/photo-add-calificacion.component';
 
 @Component({
   selector: 'app-photo-detail',
@@ -14,6 +16,10 @@ import { PhotoDetail } from '../photo-detail';
 })
 export class PhotoDetailComponent implements OnInit, OnDestroy {
 
+    /**
+    * Shows or hides the edit component.
+    */
+   showEdit: boolean;
 
   /**
     * The constructor of the component
@@ -57,8 +63,26 @@ other_photos: Photo[];
 */
 navigationSubscription;
 
+calificacion_edit_id: number;
+
+/**
+    * Shows or hides the create component
+    */
+   showCreate: boolean;
+
+/**
+     * The child PhotoCalificacionListComponent
+     */
+    @ViewChild(PhotoCalificacionComponent) calificacionListComponent:PhotoCalificacionComponent;
+
+    /**
+     * The child PhotoCalificacionListComponent
+     */
+   @ViewChild(PhotoAddCalificacionComponent) calificacionAddComponent: PhotoAddCalificacionComponent;
+
 /**
 * The method which retrieves the details of the photo that
+
 * we want to show
 */
 getPhotoDetail(): void {
@@ -80,11 +104,29 @@ getOtherPhotos(): void {
 }
 
 /**
+     * The function called when a calificacion is posted, so that the child component can refresh the list
+     */
+    updateCalificaciones(): void {
+        this.getPhotoDetail();
+        this.calificacionListComponent.updateCalificaciones(this.photoDetail.calificaciones);
+        this.calificacionListComponent.isCollapsed = false;
+        this.calificacionAddComponent.isCollapsed = true;
+    }
+
+    /**
+    * Shows or hides the create component
+    */
+   showHideCreate(): void {
+    this.showCreate = !this.showCreate!
+}
+
+/**
 * The method which initilizes the component
 * We need to initialize the photo and its editorial so that
 * they are never considered undefined
 */
 ngOnInit() {
+    this.showCreate =false;
     this.id= + this.route.snapshot.paramMap.get('id');
     this.photoDetail = new PhotoDetail();
     this.getPhotoDetail();

@@ -2,7 +2,7 @@ import {ComponentFixture, TestBed, getTestBed} from '@angular/core/testing';
 import {APP_BASE_HREF} from '@angular/common';
 import {HttpClientModule} from '@angular/common/http';
 
-import {Calificacion} from './calificacion';
+import {Calificacion} from '../photo/calificacion';
 import { CalificacionService } from './calificacion.service';
 import {AppModule} from '../app.module';
 
