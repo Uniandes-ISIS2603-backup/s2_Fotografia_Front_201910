@@ -32,3 +32,50 @@
     </div>
     </div>
 </div>
+<div class="row">
+    <div class="col-xs-5">
+      
+    </div>
+    <div class="col-xs-7">
+        <div class="container">
+            <div class="card" *ngFor = "let concurso of concursos">
+                 <h2>Test</h2>
+                <i class="fa fa-mail-forward"></i>
+                <p>{{concurso.tema}}</p>
+                <div class="pic"></div>
+                <ul>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+                <div class="social">
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-github"></i>
+                </div>
+                <a routerLink="/concursos/{{concurso.id}}"><button></button></a>
+            </div>
+        </div>
+    </div>
+</div>

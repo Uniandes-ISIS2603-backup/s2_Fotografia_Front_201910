@@ -35,7 +35,7 @@ export class ClienteCreateComponent implements OnInit
     /**
     * El output que le dice al usuario que ya se creo un cliente
     */
-    @Output() create = new EventEmitter();
+    @Output() create = new EventEmitter<Cliente>();
 
     /**
     * Crea un clinente
@@ -45,8 +45,8 @@ export class ClienteCreateComponent implements OnInit
         this.clienteService.createCliente(this.cliente)
             .subscribe((cli) => {
                 this.cliente = cli;
-                this.create.emit();
-                this.router.navigate(['/clientes/list'])
+                this.create.emit(this.cliente);
+                this.router.navigate(['/clientes/list']);
                 this.toastrService.success("The client was created", "cliente creation");
             });
 

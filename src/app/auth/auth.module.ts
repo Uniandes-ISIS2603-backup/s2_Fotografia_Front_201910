@@ -8,7 +8,10 @@ import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AuthLoginComponent } from './auth-login/auth-login.component';
 import { AuthSignUpComponent } from './auth-sign-up/auth-sign-up.component';
-import { SessionService } from '../session.service';
+import { FotografoModule } from '../fotografo/fotografo.module';
+import { OrganizadorModule } from '../organizador/organizador.module';
+import { JuradoModule } from '../jurado/jurado.module';
+import { ClienteModule } from '../cliente/cliente.module';
 @NgModule({
     imports: [
         BrowserModule,
@@ -16,10 +19,14 @@ import { SessionService } from '../session.service';
         HttpClientModule,
         CommonModule,
         FormsModule,
-        NgbModule
+        NgbModule,
+        ClienteModule,
+        JuradoModule,
+        OrganizadorModule,
+        FotografoModule
     ],
     declarations: [AuthLoginComponent, AuthSignUpComponent],
-    providers: [AuthService, SessionService],
+    providers: [AuthService],
     exports: [AuthLoginComponent, AuthSignUpComponent],
     bootstrap: [AuthLoginComponent]
 })

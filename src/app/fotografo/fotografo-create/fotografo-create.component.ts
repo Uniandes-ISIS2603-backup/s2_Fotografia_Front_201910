@@ -3,7 +3,6 @@ import {DatePipe} from '@angular/common';
 import {ToastrService} from 'ngx-toastr';
 import {FotografoService} from '../fotografo.service';
 import {Fotografo} from '../fotografo';
-import {SessionService} from '../../session.service';
 @Component({
     selector: 'app-fotografo-create',
     templateUrl: './fotografo-create.component.html',
@@ -21,9 +20,8 @@ export class FotografoCreateComponent implements OnInit {
     constructor(
         private dp: DatePipe,
         private fotografoService: FotografoService,
-        private toastrService: ToastrService,
-        private sessionService: SessionService
-    ) {}
+        private toastrService: ToastrService
+    ) {this.create = new EventEmitter();}
 
     /**
     * The new calificacion
@@ -40,7 +38,7 @@ export class FotografoCreateComponent implements OnInit {
     * The output which tells the parent component
     * that the user created a new calificacion
     */
-    @Output() create = new EventEmitter();
+    @Output() create : EventEmitter<Fotografo>;
 
     /**
     * Creates an calificacion
@@ -49,10 +47,10 @@ export class FotografoCreateComponent implements OnInit {
 
         this.fotografoService.createFotografo(this.fotografo)
             .subscribe((fotografo) => {
-                this.fotografo = fotografo;
-                this.create.emit();
-                this.sessionService.setSession(this.fotografo);
-                this.toastrService.success("The calificacion was created", "calificacion creation");
+                this.fotografo = new Fotografo(fotografo.nombre, fotografo.apellido, fotografo.fechaNacimiento, fotografo.edad, 
+                fotografo.correo, fotografo.telefono, fotografo.pais, fotografo.id, fotografo.login, fotografo.password);
+                this.create.emit(this.fotografo);
+                this.toastrService.success("El fotografo se creo", "Fotografo creation");
 
             });
         return this.fotografo;
