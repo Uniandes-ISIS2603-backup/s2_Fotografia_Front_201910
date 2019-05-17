@@ -1,3 +1,5 @@
+import { Calificacion } from "./calificacion";
+
 export class Photo {
     /*
     * Atributo correspondiente al id de la foto.
@@ -36,4 +38,6 @@ export class Photo {
      * Atributo correspondiente a si la ha sido publicada o no.
      */
     published: boolean;
+
+    calificaciones: Calificacion[];
 }

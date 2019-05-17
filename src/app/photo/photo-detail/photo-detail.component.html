@@ -11,6 +11,9 @@
       <dd>{{photoDetail.price}}</dd>
       <hr>
     </div>
+    <div *ngFor="let c of photoDetail.calification">
+      <p>{{c.puntaje}}</p>
+    </div>
     <button class="viewbutton" routerLink="/facturas/comprar">Comprar</button>
     <br>
     <div class="row justify-content-center align-self-center" >
@@ -20,8 +23,14 @@
     <br>
     <div style= "justify-content: flex-start;" class="col-md-8">
         <div *ngIf="showCreate">
-            <app-photo-calificaciones [photoCalificaciones]="photoDetail.calificaciones"></app-photo-calificaciones>
             <app-photo-add-calificacion [photo]="photoDetail" (updateCalificaciones)="updateCalificaciones()" (cancel)="showHideCreate()" (create)="ngOnInit()" *ngIf="showCreate"></app-photo-add-calificacion>
         </div>
     </div>
+    <div class="rela-inline image" >
+       
+          <app-photo-calificaciones [photoCalificaciones]="photoDetail.calification"></app-photo-calificaciones>
+         
+      </div>
+    <div class="rela-block footer"><br></div>
+
   </div>

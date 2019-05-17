@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter, } from '@angular/core';
+import { Component, OnInit, OnChanges, Input, Output, EventEmitter, } from '@angular/core';
 import { Calificacion } from '../calificacion';
 import { PhotoService } from '../photo.service';
 import { ToastrService } from 'ngx-toastr';
@@ -8,7 +8,7 @@ import { Photo } from '../photo';
     selector: 'app-photo-calificaciones',
     templateUrl: './photo-calificacion.component.html',
 })
-export class PhotoCalificacionComponent implements OnInit {
+export class PhotoCalificacionComponent implements OnInit, OnChanges {
 
       /**
     * The constructor of the component
@@ -33,5 +33,10 @@ export class PhotoCalificacionComponent implements OnInit {
     }
     
     ngOnInit(){
+        console.log(" INIT input list calificaciones "+this.photoCalificaciones);
+    }
+
+    ngOnChanges(){
+        console.log(" CHANGES input list calificaciones "+this.photoCalificaciones);
     }
 }
