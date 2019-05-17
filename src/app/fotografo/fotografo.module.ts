@@ -14,7 +14,6 @@ import { FotografoEditComponent } from './fotografo-edit/fotografo-edit.componen
 import { FotografoInteresfotograficoComponent } from './fotografo-interesfotografico/fotografo-interesfotografico.component';
 
 import { SessionService} from '../session.service';
-import { FotografoFotoComponent } from './fotografo-foto/fotografo-foto.component';
 @NgModule({
     imports: [
         BrowserModule,
@@ -24,7 +23,7 @@ import { FotografoFotoComponent } from './fotografo-foto/fotografo-foto.componen
             FormsModule, 
             NgbModule
       ],
-      declarations: [FotografoListComponent, FotografoDetailComponent, FotografoCreateComponent, FotografoEditComponent, FotografoInteresfotograficoComponent, FotografoFotoComponent],
+      declarations: [FotografoListComponent, FotografoDetailComponent, FotografoCreateComponent, FotografoEditComponent, FotografoInteresfotograficoComponent],
       providers: [FotografoService, SessionService],
       bootstrap: [FotografoListComponent, FotografoCreateComponent]
 })

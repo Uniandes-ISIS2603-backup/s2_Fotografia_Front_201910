@@ -5,7 +5,6 @@ import { NgForm } from '@angular/forms';
 import { Calificacion } from '../calificacion';
 import { PhotoService } from '../photo.service';
 import { Photo } from '../../photo/photo';
-import { create } from 'domain';
 @Component({
     selector: 'app-photo-add-calificacion',
     templateUrl: './photo-add-calificacion.component.html'

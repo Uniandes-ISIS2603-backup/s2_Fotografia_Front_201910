@@ -55,10 +55,19 @@ navigationSubscription;
   */
  showCreate: boolean;
 
+ desplegar :boolean;
+
+ confirmar : boolean;
+
+ sinFotos:boolean;
+ mandeError: boolean;
+
  /**
   * Shows or hides the edit component.
   */
  showEdit: boolean;
+
+ showConfig : boolean;
 
 /**
 * El id del fotografo que viene en el path get .../fotografos/fotografoId
@@ -98,11 +107,63 @@ fotografo_id: number;
     }
    }
 
+   showHideConfig(fotografo_id: number): void {
+    if (!this.showConfig || (this.showConfig && fotografo_id != this.fotografo_id)) {
+        this.showCreate = false;
+        this.showConfig = true;
+        this.fotografo_id = fotografo_id;
+    }
+    else {
+        this.showConfig = false;
+    }
+   }
+   desplegarMenu(fotografo_id: number): void {
+    if (!this.desplegar || (this.desplegar && fotografo_id != this.fotografo_id)) {
+       
+        this.desplegar = true;
+        this.fotografo_id = fotografo_id;
+    }
+    else {
+        this.desplegar = false;
+    }
+   }
 updateFotografo(): void {
     this.showEdit = false;
 }
   ngOnDestroy() {
     this.loader.unsubscribe();
+  }
+
+  eliminar(fotografo_id: number): void{
+    
+    if (!this.confirmar || (this.desplegar && fotografo_id != this.fotografo_id)) {
+       
+      this.confirmar = true;
+      this.fotografo_id = fotografo_id;
+  }
+  else {
+      this.confirmar = false;
+  }
+  }
+
+  alerta(texto:string){
+    alert(texto);
+  }
+
+
+  verificarFotos(): void{
+  if(this.fotografoDetail.fotos.length!=0){
+    this.sinFotos = true;
+    this.mandeError = false;
+    
+  }
+  else{
+   this.sinFotos = false;
+   this.mandeError = true;
+  }
+  }
+  delete(): void{
+
   }
 
 }

@@ -1,13 +1,59 @@
-
+<head>
+  <meta charset="UTF-8">
+</head>
 <div class = "principal">
     <div class="content-box-blue">.</div>
     <div class="content-box-blue">.</div>
-    <div class="content-box-blue">.</div>
+    <table>
+        <style>
+             @import url('https://fonts.googleapis.com/css?family=Muli|Quicksand');
+             </style>
+     <tr>
+       
+       <td><button class="boton" (click)="showHideConfig(fotografoDetail.id)"><span class="fa fa-gear"></span></button></td>
+      
+       <td><div class = "Texto">Configuraciones</div></td>
+      
+     </tr>
+</table>
+<div *ngIf="showConfig">
+    <table>
+        <style>
+             @import url('https://fonts.googleapis.com/css?family=Muli|Quicksand');
+             </style>
+     <tr>
+       
+       <td><button class="boton" (click)="showHideEdit(fotografo_id)"><span class="fa fa-edit"></span></button></td>
+       <td><div class = "Texto">Editar mi perfil</div></td>
+      
+     </tr>
+     
+     <tr>
+       <td><button class="boton" (click)="verificarFotos(fotografo_id)" onclick="return confirm ('¿Estas seguro de eliminar el perfil?')"><span class="fa fa-trash"></span></button></td>
+       <td><div class = "Texto">Eliminar mi perfil</div></td>
+      <td>
+       <div *ngIf ="sinFotos"> Para eliminar su perfil debe eliminar todas las fotos</div>
+       <div *ngIf ="mandeError"> Para eliminar su perfil debe eliminar todas las fotos</div>
+        </td>
+      </tr> 
+     
+     
+     </table>
+     
+     <div *ngIf="showEdit">
+         <app-fotografo-edit [fotografo_id]="fotografo_id" (cancel)="showHideEdit(fotografo_id)" (update)="updateFotografo()"  (update)="ngOnInit()"></app-fotografo-edit>
+     </div>
+</div>
+ 
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
-    
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <div class ="cointainer">
 <div class="rela-block container">
@@ -21,13 +67,21 @@
       </div>
   </div>
   <div class="rela-block profile-name-container">
-    <div class="rela-block user-name" id="user_name">{{fotografoDetail.nombre}} {{fotografoDetail.apellido}}</div>
+    <div class="rela-block user-name" id="user_name">
+        <style>
+            @import url('https://fonts.googleapis.com/css?family=Muli|Quicksand');
+            </style>{{fotografoDetail.nombre}} {{fotografoDetail.apellido}}</div>
     <div class="rela-block user-desc" id="user_description"> {{fotografoDetail.descrip}}. Tengo {{fotografoDetail.edad}} años soy de {{fotografoDetail.pais}} y mis hobbies son {{fotografoDetail.hobbies}}</div>
   </div>
+  
   <div class="rela-block profile-card-stats">
+      <style>
+          @import url('https://fonts.googleapis.com/css?family=Muli|Quicksand');
+          </style>
     <div class="floated profile-stat works" id="num_works">{{fotografoDetail.correo}}<br></div>
     <div class="floated profile-stat followers" id="num_followers">@{{fotografoDetail.login}}<br></div>
     <div class="floated profile-stat following" id="num_following">{{fotografoDetail.telefono}}<br></div>
+    
   </div>
   
 </div>
@@ -38,15 +92,7 @@
   
     </div>
   <div class="rela-block footer"><br></div>
-  <div class="col-md-8">
-      <div *ngIf="showEdit">
-          <app-fotografo-edit [fotografo_id]="fotografo_id" (cancel)="showHideEdit(fotografo_id)" (update)="updateFotografo()"  (update)="ngOnInit()"></app-fotografo-edit>
-      </div>
-  </div>
-</div>
-</div>
-<button class="btn btn-primary" (click)="showHideEdit(fotografoDetail.id)">Editar mi perfil</button>   
-
+ 
    
 
 </div>

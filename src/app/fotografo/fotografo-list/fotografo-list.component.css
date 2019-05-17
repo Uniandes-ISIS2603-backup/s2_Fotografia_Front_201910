@@ -5,7 +5,7 @@
   justify-content:center;
   align-items: center;
   min-height: 100vh;
-  background: #e0d6d6;
+  background: #ded4df;
   font-family: sans-serif;
 }
 .box{
@@ -19,9 +19,10 @@
   background-color: rgb(153, 153, 153);
 }
 .textprincipal{
-  font-family: 'Quicksand', sans-serif;
+  font-family:bold 12px 'Quicksand', sans-serif;
   color: rgb(129, 129, 129);
   font-size: 24px;
+  text-align:center;
   letter-spacing: 1px;
   font-weight: 400;
   line-height: 30px;

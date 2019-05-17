@@ -5,7 +5,31 @@
   
 }
 .principal{
-  background: #e9e1e1;
+  background: #ded4df;
+}
+.boton{
+  width:30px;
+  height:30px;
+  background-color:rgb(214, 209, 209);
+
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  border-radius: 50px;
+  text-transform: uppercase;
+  float:left;
+}
+.boton:hover{
+  opacity: 0.50;
+  -moz-opacity: .50;
+  filter:alpha (opacity=50);
+}
+.boton a{
+  color:#fff;
+  text-decoration:none;
+  padding:5px 5px 5px 0;
+}
+.Texto{
+  font-family:'Quicksand', sans-serif;
 }
 .rela-block {
   display: block;
@@ -17,6 +41,15 @@
   display: inline-block;
   position: relative;
   margin: auto;
+}
+.num_works{
+  font-family:  'Quicksand', sans-serif;
+}
+.num_followers{
+  font-family:  'Quicksand', sans-serif;
+}
+.num_following{
+  font-family:  'Quicksand', sans-serif;
 }
 .floated {
   display: inline-block;
@@ -159,7 +192,7 @@
   background-color: rgb(153, 153, 153);
 }
 .user-name {
-  font-family: "Comic sans ms";
+  font-family:  'Quicksand', sans-serif;
   font-size: 24px;
   letter-spacing: 1px;
   font-weight: 400;
@@ -168,6 +201,7 @@
 }
 .user-desc {
   letter-spacing: 1px;
+  font-family:  'Quicksand', sans-serif;
   color: #999;
 }
 .profile-card-stats {
@@ -184,12 +218,15 @@
   color: #999;
 }
 .works::after {
+  font-family:  'Quicksand', sans-serif;
   content: "Correo";
 }
 .followers::after {
+  font-family:  'Quicksand', sans-serif;
   content: "user";
 }
 .following::after {
+  font-family:  'Quicksand', sans-serif;
   content: "Telefono";
 }
 
