@@ -1,0 +1,32 @@
+<div id="collapseAddCalificacion" [ngbCollapse]="isCollapsed">
+    <div class="container-fluid">
+        <h3>Add a calificacion</h3>
+        <form name="post" (ngSubmit)="calificacionForm.form.valid && postcalificacion(calificacionForm)" #calificacionForm="ngForm" novalidate>
+              <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label for="calificacionPuntaje"><b>Puntaje</b></label>
+                        <input type="text" name="calificacionPuntaje" class="form-control" id="calificacionPuntaje" [(ngModel)]="calificacion.puntaje"
+                               #calificacionPuntaje="ngModel" [ngClass]="{ 'is-invalid': calificacionForm.submitted && calificacionPuntaje.invalid }" required>
+                               <div class="invalid-feedback">
+                            <div>The calificacion's title is missing</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label for="calificacionComentario"><b>Comentario</b></label>
+                        <input type="text" name="calificacionComentario" class="form-control" id="calificacionComentario" [(ngModel)]="calificacion.comentario"
+                               #calificacionComentario="ngModel" [ngClass]="{ 'is-invalid': calificacionForm.submitted && calificacionPuntaje.invalid }" required>
+                               <div class="invalid-feedback">
+                            <div>The calificacion's comentario is missing</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row form-inline justify-content-center align-self-center">
+                <button type="submit" class="btn btn-primary">Post calificacion</button>
+            </div>
+        </form>
+    </div>
+</div>
