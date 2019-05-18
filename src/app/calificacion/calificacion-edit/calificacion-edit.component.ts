@@ -5,7 +5,7 @@ import {CalificacionService} from '../calificacion.service';
 import {CalificacionDetail} from '../calificacion-detail';
 import {ToastrService} from 'ngx-toastr';
 import { CalificacionCreateComponent } from '../calificacion-create/calificacion-create.component';
-import { Calificacion } from '../calificacion';
+import { Calificacion } from '../../photo/calificacion';
 
 
 @Component({

@@ -42,6 +42,8 @@ clienteId: number;
    showEdit: boolean;
 
 
+showDelete : boolean;
+
     loader: any;
 
 /**
@@ -106,6 +108,11 @@ showHideEdit(clienteId: number): void {
   else {
       this.showEdit = false;
   }
+}
+
+
+deleteCliente() : void{
+  this.showDelete = true;
 }
 
 /**

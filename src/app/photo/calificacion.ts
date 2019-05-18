@@ -1,3 +1,5 @@
+import {Photo} from './photo';
+
 export class Calificacion {
     /**
     * Calificacion id
@@ -13,9 +15,10 @@ export class Calificacion {
      * 
      */
     puntaje: number;
-    
-    /** Foto
-     * 
+
+    /**
+     * Photo
      */
-    foto: string;
+    photo: Photo;
+    
 }

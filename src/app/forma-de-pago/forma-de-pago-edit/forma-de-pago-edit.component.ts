@@ -5,6 +5,7 @@ import {ToastrService} from 'ngx-toastr';
 
 import {FormaDePagoService} from '../forma-de-pago.service';
 import {FormaDePagoDetail} from '../forma-de-pago-detail';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-forma-de-pago-edit',
@@ -29,6 +30,7 @@ export class FormaDePagoEditComponent implements OnInit, OnChanges {
     constructor(private dp: DatePipe,
         private formaDePagoService: FormaDePagoService,
         private toastrService: ToastrService,
+        private router: Router
     ) {}
 
 /**
@@ -74,10 +76,12 @@ export class FormaDePagoEditComponent implements OnInit, OnChanges {
 
         this.formaDePago.fechaVencimiento = this.dp.transform(dateB, 'yyyy-MM-dd');
         this.formaDePago.fechaVencimiento += "T00:00:00-05:00";
-        this.formaDePago.cliente_id = this.clienteId;
         this.formaDePagoService.updateFormaDePago(this.formaDePago)
             .subscribe(() => {
-                this.toastrService.success("La informacion de la forma d epago fue actualizada", "Forma De Pago edition");
+                this.formaDePagoService.createClienteFormaDePago(this.clienteId,this.formaDePago.id)
+            .subscribe();
+                this.router.navigate(['/formasDePago/list']);
+                this.toastrService.success("La informacion de la forma de pago fue actualizada", "Forma De Pago edition");  
             });
         this.update.emit();
     }

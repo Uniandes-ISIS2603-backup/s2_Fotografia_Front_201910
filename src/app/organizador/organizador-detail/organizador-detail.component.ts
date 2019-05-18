@@ -30,6 +30,8 @@ export class OrganizadorDetailComponent implements OnInit {
     */
    organizadorDetail: OrganizadorDetail;
 
+   organizadors: Organizador[];
+
     /**
     * El id del organizador que viene en el path get .../organizadors/organizador_id
     */
@@ -50,7 +52,15 @@ export class OrganizadorDetailComponent implements OnInit {
     showHideCreate(): void {
         this.showCreate = !this.showCreate;
     }
-   
+   /**
+* Asks the service to update the list of Organizadors
+*/
+getOrganizadors(): void {
+    this.organizadorService.getOrganizadors()
+        .subscribe(organizadors => {
+            this.organizadors = organizadors;
+        });
+}
     /**
     * The method which initializes the component.
     * We need to create the organizador so it is never considered as undefined
@@ -60,5 +70,6 @@ export class OrganizadorDetailComponent implements OnInit {
         this.organizadorDetail = new OrganizadorDetail();
         this.getOrganizadorDetail();
         this.showCreate = false;
+        this.getOrganizadors();
     }
 }

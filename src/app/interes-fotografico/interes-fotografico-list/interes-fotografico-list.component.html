@@ -1,59 +1,31 @@
-<div class="pin-layout">
-  <div class="thumbnail">
+<div class="conatiner">
+    <div class="wrap">
       
-    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
-      <br>
-      <div class="row justify-content-center align-self-center">
-        <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
-            (click)="showHideCreate()">Crear interes fotografico</button>
-    </div>
-    <br>
-    <div class="col-md-8">
-        <div *ngIf="showCreate">
-            <app-interes-fotografico-create (cancel)="showHideCreate()" (create)="ngOnInit()" *ngIf="showCreate"></app-interes-fotografico-create>
+
+      <div class="box one" *ngFor = "let interes of intereses" [ngStyle]="{'background-image':' url(' + interes.foto + ')'}" routerLink="/interesFotograficos/{{interes.id}}">
+        <style>
+          .one {
+      background-size: cover;
+      background-position: center;
+    }
+        </style> 
+
+
+        <div class="date">
         </div>
-    </div>
-      <div class="row justify-content-center align-self-center">
-          <button [ngClass]="{ 'btn-primary': !act, 'btn-danger': act}" type="button" class="btn"
-              (click)="ngOnInit()">Actualizar interes fotografico</button>
-      </div>
-      <br>
-      <div class="col-md-9">
-          <div *ngIf="act">
-              <app-interes-fotografico-list (actualizar)="ngOnInit()" ></app-interes-fotografico-list>
-          </div>
+        <h1>{{interes.interes}}</h1>
+        <div class="poster p1">
+          <h4>#</h4>
+        </div>
       </div>
       
-    <style>
       
-      table, th, td{
-        width:100%; 
-        border: 1px solid black;
-        border-collapse: collapse;
-        align-self: center;
-      }
-      th
-    </style>
-    <table >
-        <thead>
-            <tr>
-              <th style="background-color :#4da6ff;text-align: center" class="text-center">Filtra por los intereses de los fotografos</th> </tr>
-        </thead>
-      <tbody>
-        <tr *ngFor = "let interesFotografico of interesFotograficos">
-            <td style="cursor: pointer;"> 
-                <dd style="text-align: center;" routerLink="/interesFotograficos/{{interesFotografico.id}}" >{{interesFotografico.interes}}</dd>
-            </td>
-            <td>
-                <button class="btn btn-primary" (click)="showHideEdit(interesFotografico.id)"><span class="far fa-edit"></span></button>
-            </td>
-        </tr>
-    </tbody>
-  </table>
-  <div class="col-md-8">
-        <div *ngIf="showEdit">
-            <app-interes-fotografico-edit [interesFotografico_id]="interesFotografico_id" (cancel)="showHideEdit(fotografo_id)" (update)="updateInteresFotografico()"></app-interes-fotografico-edit>
-        </div>
+      
     </div>
+
+    <div *ngIf="interesFotograficoDetail">
+        <app-interes-fotografico-detail [interesFotograficoDetail]="interesFotograficoDetail"></app-interes-fotografico-detail>
+      </div>
     </div>
-</div>
+    
+    
