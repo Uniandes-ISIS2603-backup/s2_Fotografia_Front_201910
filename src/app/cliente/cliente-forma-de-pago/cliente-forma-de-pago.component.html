@@ -20,7 +20,7 @@
       <br>
       <div class="col-md-12">
             <div *ngIf="showCreate">
-               <app-forma-de-pago-create (cancel)="showHideCreate()" (create)="ngOnInit()" *ngIf="showCreate"></app-forma-de-pago-create>
+               <app-forma-de-pago-create [clienteId]="clienteId" (cancel)="showHideCreate()" (create)="ngOnInit()" *ngIf="showCreate"></app-forma-de-pago-create>
             </div>
       </div>
 

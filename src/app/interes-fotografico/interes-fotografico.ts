@@ -9,4 +9,6 @@ export class InteresFotografico{
      * id
      */
     id:number;
+
+    foto:string;
 }

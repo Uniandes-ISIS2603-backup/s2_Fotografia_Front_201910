@@ -82,7 +82,7 @@ showHideEdit(ronda_id: number): void {
     }
 }
 
-updateEditorial(): void {
+updateRonda(): void {
     this.showEdit = false;
 }
 

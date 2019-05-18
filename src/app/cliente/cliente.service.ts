@@ -44,6 +44,7 @@ getClientesDetail(clienteId):Observable<ClienteDetail>
 */
 createCliente(cliente): Observable<Cliente> 
 {
+    console.log("LLAMADO");
     return this.http.post<Cliente>(API_URL + clientes, cliente);
 }
 

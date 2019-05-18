@@ -26,7 +26,7 @@ export class ClienteFormaDePagoComponent implements OnInit {
     /**
     * Shows or hides the detail component.
     */
-   showDetail: boolean;
+   showDetail: boolean = true;
 
    
   /**
@@ -78,6 +78,9 @@ export class ClienteFormaDePagoComponent implements OnInit {
 
     this.isCollapsed = !this.isCollapsed;
   }
+
+
+
   /**
   * The method which initializes the component.
   * We need to create the curso so it is never considered as undefined
@@ -106,21 +109,8 @@ onSelected(formaDePagoId: number):void {
   this.formaDePagoId = formaDePagoId;
   this.selected = new FormaDePagoDetail();
   this.formaDePagoService.getFormaDePagoDetail(formaDePagoId).subscribe(fdp=> this.selected=fdp);
+ 
 }
-
-  /**
-* Shows or hides the detail component
-*/
-showHideDetail(formaDePagoId: number): void {
-  if (!this.showDetail || (this.showDetail && formaDePagoId != this.formaDePagoId)) {
-      this.showDetail = true;
-      this.formaDePagoId = formaDePagoId;
-  }
-  else {
-      this.showDetail = false;
-  }
-}
-
 
   /**
     * Shows or hides the create component

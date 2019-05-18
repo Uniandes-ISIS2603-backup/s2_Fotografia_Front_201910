@@ -1,37 +1,38 @@
 <div class="container-fluid">
-    <div class="col-md-6">
-        <table class="table table-striped">
-            <thead class="thead-dark">
-                <tr>
-                    <th>Concursos</th>    
+        <div class="col-md-6">
+            <table class="table table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Concursos</th>    
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor = "let concurso of concursos">
+                        <td> <dd class="figure-caption" style="cursor: pointer;" routerLink="/concursos/{{concurso.id}}"  > {{concurso.tema}}</dd> </td>
+                        <td><button class="btn btn-primary" (click)="showHideEdit(concurso.id)"><span class="far fa-edit"></span></button></td>
                 </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor = "let concurso of concursos">
-                    <td> <dd class="figure-caption" routerLink="/concursos/{{concurso.id}}"  > {{concurso.tema}}</dd> </td>
-                    <td><button class="btn btn-primary" (click)="showHideEdit(concurso.id)"><span class="far fa-edit"></span></button></td>
-            </tr>
-            </tbody>
-            <br>
-            <div class="row justify-content-center align-self-center">
-                <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
-                    (click)="showHideCreate()">Crear concurso</button>
-            </div>
-            <br>
-            <div class="col-md-8">
-                <div *ngIf="showCreate">
-                    <app-concurso-create (cancel)="showHideCreate()" (create)="ngOnInit()" *ngIf="showCreate"></app-concurso-create>
+                </tbody>
+                <br>
+                <div class="row justify-content-center align-self-center">
+                    <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+                        (click)="showHideCreate()">Crear concurso</button>
                 </div>
+                <br>
+                <div class="col-md-8">
+                    <div *ngIf="showCreate">
+                        <app-concurso-create (cancel)="showHideCreate()" (create)="ngOnInit()" *ngIf="showCreate"></app-concurso-create>
+                    </div>
+                </div>
+                <br>
+            </table>
+            <div class="col-md-8">
+            <div *ngIf="showEdit">
+                <app-concurso-edit [concurso_id]="concurso_edit_id" (cancel)="showHideEdit(concurso_edit_id)" (update)="updateConcurso()"></app-concurso-edit>
             </div>
-            <br>
-        </table>
-        <div class="col-md-8">
-        <div *ngIf="showEdit">
-            <app-concurso-edit [concurso_id]="concurso_edit_id" (cancel)="showHideEdit(concurso_edit_id)" (update)="updateConcurso()"></app-concurso-edit>
         </div>
+        </div>
+        
     </div>
-    </div>
-</div>
 <div class="row">
     <div class="col-xs-5">
       

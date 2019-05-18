@@ -25,6 +25,6 @@ import { FotografoInteresfotograficoComponent } from './fotografo-interesfotogra
       declarations: [FotografoListComponent, FotografoDetailComponent, FotografoCreateComponent, FotografoEditComponent, FotografoInteresfotograficoComponent],
       providers: [FotografoService],
       exports: [FotografoCreateComponent],
-      bootstrap: [FotografoListComponent]
+      bootstrap: [FotografoListComponent, FotografoCreateComponent]
 })
 export class FotografoModule {}

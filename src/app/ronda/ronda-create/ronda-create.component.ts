@@ -7,7 +7,8 @@ import {ToastrService} from 'ngx-toastr';
 import {ConcursoService} from '../../concurso/concurso.service';
 import {RondaService} from '../../ronda/ronda.service';
 import {Concurso} from '../../concurso/concurso';
-import {Ronda} from '../../ronda/ronda';
+import {Ronda} from '../ronda';
+
 @Component({
     selector: 'app-ronda-create',
     templateUrl: './ronda-create.component.html',
@@ -16,17 +17,20 @@ import {Ronda} from '../../ronda/ronda';
 })
 export class RondaCreateComponent implements OnInit {
 
+
     /**
     * Constructor for the component
     * @param dp DatePipe to format the date.
     * @param rondaService The ronda's services provider
     * @param toastrService The toastr to show messages to the user
+    * @param router The router
     */
     constructor(
         private dp: DatePipe,
         private rondaService: RondaService,
         private concursoService: ConcursoService,
-        private toastrService: ToastrService
+        private toastrService: ToastrService,
+        private router: Router
     ) {}
 
     /**
@@ -83,7 +87,8 @@ export class RondaCreateComponent implements OnInit {
     * user no longer wants to create an user
     */
     cancelCreation(): void {
-        this.cancel.emit();
+        this.toastrService.warning('The ronda wasn\'t created', 'ronda creation');
+        this.router.navigate(['/rondas/list']);
     }
 
  /**
