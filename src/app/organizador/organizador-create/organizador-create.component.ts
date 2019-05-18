@@ -27,7 +27,7 @@ export class OrganizadorCreateComponent implements OnInit {
   
   createOrganizador(): Organizador{
         this.organizadorService.createOrganizador(this.organizador).subscribe(organizador => {
-            this.organizador = organizador;
+            this.organizador = new Organizador(organizador.id, organizador.nombre, organizador.apellido, organizador.telefono, organizador.foto);
             this.create.emit(this.organizador);
             this.toastrService.success("El organizador se creo", "Creacion del organizador");
         });
