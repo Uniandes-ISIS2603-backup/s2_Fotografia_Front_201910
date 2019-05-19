@@ -1,18 +1,37 @@
 
+<html lang="en">
 
-    <div class="form-group">
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=ABeeZee&display=swap');
+        </style>
 
-     <div class="interesFotograficoNombre"><b>#{{interesFotograficoDetail.interes}}</b></div>
-     <style>
-            @import url('https://fonts.googleapis.com/css?family=Muli|Quicksand');
-            </style>
-   </div>
 
-   
-   <div class="rela-inline image"*ngFor="let photo of interesFotograficoDetail.fotos">
-        <div class="Hola" routerLink="/photos/{{photo.id}}" > <img src='{{photo.rutaFoto}}' alt="images"></div> 
+<div class="interesFotograficoNombre"><b>#{{interesFotograficoDetail.interes}}</b>
+  </div>
+
+
+  
+
+
+      <div class="conatiner">
+        <div class="wrap">
+          
     
-      </div>
-
-
-
+          <div class="box one" *ngFor = "let photo of interesFotograficoDetail.fotosInteres" [ngStyle]="{'background-image':' url(' + photo.rutaFoto+ ')'}" routerLink="/photos/{{photo.id}}">
+            <style>
+              .one {
+          background-size: cover;
+          background-position: center;
+        }
+            </style> 
+    
+           
+          </div>
+          
+          
+          
+        </div>
+  
+        </div>
+  
+        </html>

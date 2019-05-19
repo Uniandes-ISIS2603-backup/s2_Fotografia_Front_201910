@@ -14,7 +14,10 @@ import {ToastrService} from 'ngx-toastr';
   styleUrls: ['./interes-fotografico-detail.component.css']
 })
 export class InteresFotograficoDetailComponent implements OnInit
+
 {
+
+  
 
   constructor(private interesFotograficoService: InteresFotograficoService,
     private route: ActivatedRoute,
@@ -148,7 +151,7 @@ updateInteresFotografico(): void {
 
 
   verificarFotos(): void{
-  if(this.interesFotograficoDetail.fotos.length!=0){
+  if(this.interesFotograficoDetail.fotosInteres.length!=0){
     this.sinFotos = true;
     this.mandeError = false;
     
@@ -162,4 +165,5 @@ updateInteresFotografico(): void {
 
   }
 
+  
 }
