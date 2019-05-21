@@ -1,16 +1,27 @@
 <div>
-  <img src="{{photoDetail.rutaFoto}}" class="fotoFondo">
-  <div class="top">
-    <dt> Descripcion</dt>
-    <dd>{{photoDetail.description}}</dd>
-    <hr>
-    <dt>Fecha</dt>
-    <dd>{{photoDetail.date| date:'yyyy-MM-dd'}}</dd>
-    <hr>
-    <dt>Precio</dt>
-    <dd>{{photoDetail.price}}</dd>
-    <hr>
+    <img src="{{photoDetail.rutaFoto}}" class="fotoFondo">
+    <div class="top">
+      <dt> Descripcion</dt>
+      <dd>{{photoDetail.description}}</dd>
+      <hr>
+      <dt>Fecha</dt>
+      <dd>{{photoDetail.date| date:'yyyy-MM-dd'}}</dd>
+      <hr>
+      <dt>Precio</dt>
+      <dd>{{photoDetail.price}}</dd>
+      <hr>
+    </div>
+    <button class="viewbutton" routerLink="/facturas/comprar">Comprar</button>
+    <br>
+    <div class="row justify-content-center align-self-center" >
+        <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+            (click)="showHideCreate()">Crear Calificación</button>
+    </div>
+    <br>
+    <div style= "justify-content: flex-start;" class="col-md-8">
+        <div *ngIf="showCreate">
+            <app-photo-calificaciones [photoCalificaciones]="photoDetail.calificaciones"></app-photo-calificaciones>
+            <app-photo-add-calificacion [photo]="photoDetail" (updateCalificaciones)="updateCalificaciones()" (cancel)="showHideCreate()" (create)="ngOnInit()" *ngIf="showCreate"></app-photo-add-calificacion>
+        </div>
+    </div>
   </div>
-  <button class="viewbutton" routerLink="/facturas/comprar">Comprar</button>
-</div>
-

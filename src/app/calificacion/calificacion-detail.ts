@@ -1,4 +1,4 @@
-import { Calificacion } from "./calificacion";
+import { Calificacion } from "../photo/calificacion";
 
 export class CalificacionDetail extends Calificacion {
     

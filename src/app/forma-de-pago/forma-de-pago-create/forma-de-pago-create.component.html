@@ -4,7 +4,7 @@
       <br>
       <h2 class="text-center">Agregar Forma De Pago</h2>
       <br>
-      <form name="formaDePago" (ngSubmit)="f.form.valid && createFormaDePago()" #f="ngForm" novalidate>
+      <form name="formaDePago"  #f="ngForm" novalidate>
         <div class="form-group">
           <label for="numeroTarjeta">Numero Tarjeta</label>
           <input type="text" name="numeroTarjeta" class="form-control" id="numeroTarjeta"  placeholder="Numero de la tarjeta" [(ngModel)]="formaDePago.numeroTarjeta"

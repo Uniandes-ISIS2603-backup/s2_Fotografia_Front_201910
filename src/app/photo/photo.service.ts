@@ -5,9 +5,11 @@ import { HttpClient } from '@angular/common/http';
 import { Photo } from './photo';
 import { PhotoDetail } from './photo-detail';
 import { environment } from '../../environments/environment';
+import { Calificacion } from './calificacion'; 
 
 const API_URL = environment.apiURL;
 const photos = '/photos';
+const calificaciones = '/calificaciones';
 
 @Injectable()
 export class PhotoService {
@@ -56,7 +58,24 @@ export class PhotoService {
     * @param photoId The photo which will be deleted
     * @returns True if the photo was deleted, false otherwise
     */
-    deleteJurado(photoId): Observable<PhotoDetail> {
+    deletePhoto(photoId): Observable<PhotoDetail> {
         return this.http.delete<PhotoDetail>(API_URL + photos + '/' + photoId);
     }
+
+    /**
+    * Creates a calificacion
+    * @param calificacion The calificacion
+    * @returns True if the calificacion was posted, false otherwise
+    */
+   createCalificacion(photoId, calificacion): Observable<Calificacion> {
+    return this.http.post<Calificacion>(API_URL + photos + '/' + photoId + calificaciones, calificacion);
+}
+    /**
+    * Updates a photo
+    * @param photo The photo which will be update
+    * @returns The confirmation of the photo's update
+    */
+   updateCalificaciones(photoId): Observable<PhotoDetail> {
+    return this.http.get<PhotoDetail>(API_URL + photos + '/' + photoId + calificaciones);
+}
 }

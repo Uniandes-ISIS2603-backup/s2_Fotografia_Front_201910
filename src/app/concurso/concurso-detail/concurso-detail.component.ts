@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { ConcursoService } from '../concurso.service';
+import { AuthService } from '../../auth/auth.service';
 import { ConcursoDetail } from '../concurso-detail';
 import { Concurso } from '../concurso';
 
-import { SessionService } from '../../session.service';
 
 
 @Component({
@@ -20,7 +20,7 @@ export class ConcursoDetailComponent implements OnInit {
 
   constructor(private concursoService: ConcursoService,
               private route: ActivatedRoute,
-              private sessionService: SessionService
+              private authService: AuthService
               ) { }
 
   concursoDetail: ConcursoDetail;
@@ -39,7 +39,7 @@ export class ConcursoDetailComponent implements OnInit {
     }
     
    agregarFotografo(): void{
-       this.fotografo = this.sessionService.getSession();
+       this.fotografo = this.authService.getCurrentUser();
        if(this.fotografo){
            this.concursoService.putFotografo(this.concursoDetail, this.fotografo).subscribe(fotografo =>{
                this.fotografo = fotografo;

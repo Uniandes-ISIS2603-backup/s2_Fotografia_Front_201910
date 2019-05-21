@@ -3,6 +3,14 @@
  * It contains all the information relevant to the Organizador.
  */
 export class Organizador {
+    
+    constructor(id?:number, nombre?:string, apellido?:string, telefono?:number, foto?:string){
+        this.id = id;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.telefono = telefono;
+        this.foto = foto;
+    }
     /**
     * The organizador's id
     */

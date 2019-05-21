@@ -25,9 +25,9 @@ export class InteresFotograficoListComponent implements OnInit {
 /**
 * The list of InteresFotograficos which belong to the BookStore
 */
-interesFotograficos: InteresFotografico[];
+intereses: InteresFotografico[];
 interesFotografico_id: number;
-selectedInteresFotografico : InteresFotografico;
+interesFotograficoDetail : InteresFotograficoDetail;
 
 /**
     * Shows or hides the create component
@@ -42,24 +42,22 @@ selectedInteresFotografico : InteresFotografico;
 
   onSelected(interesFotografico_id: number): void {
     this.interesFotografico_id = interesFotografico_id;
-    this.selectedInteresFotografico= new InteresFotograficoDetail();
-    this.interesFotograficoService.getInteresFotograficoDetail(interesFotografico_id).subscribe(o => this.selectedInteresFotografico = o);
+    this.interesFotograficoDetail= new InteresFotograficoDetail();
+    this.getInteresFotograficoDetail();
   }
 /**
 * Asks the service to update the list of InteresFotograficos
 */
 getInteresFotograficos(): void {
-    this.interesFotograficoService.getInteresFotograficos()
-        .subscribe(interesFotograficos => {
-            this.interesFotograficos = interesFotograficos;
-        });
+    this.interesFotograficoService.getInteresFotograficos().subscribe(losClientes => this.intereses= losClientes);
 }
 
 getInteresFotograficoDetail(): void {
     this.interesFotograficoService.getInteresFotograficoDetail(this.interesFotografico_id)
-        .subscribe(selectedInteresFotografico => {
-            this.selectedInteresFotografico = selectedInteresFotografico
-        });
+        .subscribe(interesDetail => 
+            this.interesFotograficoDetail = interesDetail
+            
+        );
 }
 
 /**
@@ -95,6 +93,7 @@ updateEditorial(): void {
 ngOnInit() {
     this.getInteresFotograficos();
 }
+
 
 }
 

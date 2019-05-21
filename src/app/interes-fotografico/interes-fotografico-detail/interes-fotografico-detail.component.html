@@ -1,21 +1,34 @@
-<p>
+
+
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=ABeeZee&display=swap');
+        </style>
+
+
+<div class="interesFotograficoNombre"><b>#{{interesFotograficoDetail.interes}}</b>
+  </div>
+
+
   
-<body>
-<h1>#{{interesFotograficoDetail.interes}}</h1>
-</body>
-</p>
-<form name="interesFotografico" (ngSubmit)="f.form.valid && editInteresFotografico()" #f="ngForm" novalidate>
-    <div class="form-group">
-     <label for="interesFotograficoNombre"><b>Nombre</b></label>
-     <input type="text" name="interesFotograficoNombre" class="form-control" id="interesFotograficoNombre" [(ngModel)]="interesFotografico.interes"
-         #interesFotograficoNombre="ngModel" [ngClass]="{ 'is-invalid': f.submitted && interesFotograficoNombre.invalid }" required>
-     <div class="invalid-feedback">
-         <div>No se ha puesto el interes</div>
-     </div>
- </div>
 
-<body>
-Conoce a los fotografos con intereses en {{interesFotograficoDetail.interes}}
 
-</body>
-
+      <div class="conatiner">
+        <div class="wrap">
+          
+    
+          <div class="box one" *ngFor = "let photo of interesFotograficoDetail.fotosInteres" [ngStyle]="{'background-image':' url(' + photo.rutaFoto+ ')'}" routerLink="/photos/{{photo.id}}">
+            <style>
+              .one {
+          background-size: cover;
+          background-position: center;
+        }
+            </style> 
+    
+           
+          </div>
+          
+          
+          
+        </div>
+  
+        </div>

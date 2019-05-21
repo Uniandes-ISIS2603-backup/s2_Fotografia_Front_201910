@@ -1,0 +1,263 @@
+* {
+  box-sizing: border-box;
+  -webkit-transition: 0.3s cubic-bezier(1, 1, 1, 1), color 0.3s ease;
+  transition: 0.3s cubic-bezier(2, 12, 1, 1), color 0.3s ease;
+  
+}
+.principal{
+  background: #ded4df;
+}
+.boton{
+  width:30px;
+  height:30px;
+  background-color:rgb(214, 209, 209);
+
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  border-radius: 50px;
+  text-transform: uppercase;
+  float:left;
+}
+.boton:hover{
+  opacity: 0.50;
+  -moz-opacity: .50;
+  filter:alpha (opacity=50);
+}
+.boton a{
+  color:#fff;
+  text-decoration:none;
+  padding:5px 5px 5px 0;
+}
+.Texto{
+  font-family:'Quicksand', sans-serif;
+}
+.rela-block {
+  display: block;
+  position: relative;
+  margin: auto;
+  
+}
+.rela-inline {
+  display: inline-block;
+  position: relative;
+  margin: auto;
+}
+.num_works{
+  font-family:  'Quicksand', sans-serif;
+}
+.num_followers{
+  font-family:  'Quicksand', sans-serif;
+}
+.num_following{
+  font-family:  'Quicksand', sans-serif;
+}
+.floated {
+  display: inline-block;
+  position: relative;
+  margin: false;
+  float: left;
+}
+.floated.right {
+  float: right;
+}
+.abs-center {
+  display: false;
+  position: absolute;
+  margin: false;
+  top: 50%;
+  left: 50%;
+  right: false;
+  bottom: false;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  text-align: center;
+  width: 88%;
+}
+.vert-center {
+  display: false;
+  position: absolute;
+  margin: false;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+.horz-center {
+  display: false;
+  position: absolute;
+  margin: false;
+  top: false;
+  left: 50%;
+  right: false;
+  bottom: false;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+.blurred {
+  -webkit-filter: blur(2px);
+          filter: blur(2px);
+}
+.overlay {
+  z-index: -1;
+  display: false;
+  position: fixed;
+  margin: false;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.7);
+  text-align: center;
+  opacity: 0;
+}
+.overlay.active {
+  z-index: 100;
+  opacity: 1;
+}
+.overlay.active .overlay-image {
+  opacity: 1;
+}
+.overlay-card {
+  height: 75vh;
+  min-height: 800px;
+  width: calc(92% - 40px);
+  max-width: 1086px;
+  padding-left: 30px;
+  background-color: #f4f4f4;
+  border-radius: 2px;
+  overflow: hidden;
+}
+.overlay-image {
+  height: 100%;
+  width: 480px;
+  opacity: 0;
+  -webkit-transition: 0.3s cubic-bezier(0.75, 0, 0.2, 1), opacity 0.2s 0.3s ease;
+  transition: 0.3s cubic-bezier(0.75, 0, 0.2, 1), opacity 0.2s 0.3s ease;
+}
+.overlay-desc {
+  font-family: "Roboto";
+  font-size: 16px;
+  letter-spacing: 0px;
+  font-weight: 400;
+  line-height: 20px;
+  height: calc(100% - 40px);
+  margin: 20px;
+  border-left: 1px solid #ccc;
+  width: calc(100% - 520px);
+  padding: 60px 60px 60px 40px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.overlay-desc::-webkit-scrollbar {
+  width: 6px;
+}
+.overlay-desc::-webkit-scrollbar-thumb {
+  background-color: #999;
+}
+
+
+
+
+.profile-card {
+  position: relative;
+  width: calc(100% - 40px);
+  padding-top: 100px;
+  margin: 70px auto 30px;
+  background-color:#ffff;
+  box-shadow: 0 2px 6px -2px rgba(0,0,0,0.26);
+}
+
+.profile-pic img {
+  display: false;
+  position: absolute;
+  margin: false;
+  top: -90px;
+  left: 50%;
+  right: false;
+  bottom: false;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  height: 180px;
+  width: 180px;
+  border: 10px solid #fff;
+  border-radius: 100%;
+  background-size: cover;
+}
+.profile-name-container {
+  margin: 0 auto 10px;
+  padding: 10px;
+  text-align: center;
+}
+.btn-primary{
+  background-color: rgb(153, 153, 153);
+}
+.user-name {
+  font-family:  'Quicksand', sans-serif;
+  font-size: 24px;
+  letter-spacing: 1px;
+  font-weight: 400;
+  line-height: 30px;
+  margin-bottom: 12px;
+}
+.user-desc {
+  letter-spacing: 1px;
+  font-family:  'Quicksand', sans-serif;
+  color: #999;
+}
+.profile-card-stats {
+  height: 75px;
+  padding: 10px 0px;
+  text-align: center;
+  overflow: hidden;
+}
+.profile-stat {
+  height: 100%;
+  width: 33.3333%;
+}
+.profile-stat:after {
+  color: #999;
+}
+.works::after {
+  font-family:  'Quicksand', sans-serif;
+  content: "Correo";
+}
+.followers::after {
+  font-family:  'Quicksand', sans-serif;
+  content: "user";
+}
+.following::after {
+  font-family:  'Quicksand', sans-serif;
+  content: "Telefono";
+}
+
+@media screen and (max-width: 1000px) {
+  .container {
+    max-width: 562px;
+  }
+
+ 
+
+}
+
+.image {
+  width: 300px;
+  height: 300px;
+  cursor: pointer;
+  margin: 0 40px 40px;
+  overflow: hidden;
+  border-radius: 5px;
+  border: 10px solid #ffff;
+  box-shadow: 0 2px 6px -2px rgba(0,0,0,0.26);
+  background-color: rgba(0,0,0,0.4);
+  background-size: cover !important;
+  -webkit-transition: 0.2s cubic-bezier(0.5, 0, 0.2, 1);
+  transition: 0.2s cubic-bezier(0.5, 0, 0.2, 1);
+}
+.image img{
+  
+  width: 300px;
+  height: 300px;
+  
+}
+
+

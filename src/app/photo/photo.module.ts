@@ -13,6 +13,8 @@ import { PhotoListComponent } from './photo-list/photo-list.component';
 import { PhotoDetailComponent } from './photo-detail/photo-detail.component';
 import { PhotoCreateComponent } from './photo-create/photo-create.component';
 import { PhotoEditComponent } from './photo-edit/photo-edit.component';
+import { PhotoCalificacionComponent} from './photo-calificacion/photo-calificacion.component';
+import {PhotoAddCalificacionComponent} from './photo-add-calificacion/photo-add-calificacion.component';
 
 @NgModule({
   imports: [
@@ -24,7 +26,7 @@ import { PhotoEditComponent } from './photo-edit/photo-edit.component';
     CommonModule,
     FormsModule
   ],
-  declarations: [PhotoListComponent, PhotoDetailComponent, PhotoCreateComponent, PhotoEditComponent],
+  declarations: [PhotoListComponent, PhotoDetailComponent, PhotoCreateComponent, PhotoEditComponent, PhotoCalificacionComponent, PhotoAddCalificacionComponent],
   providers: [PhotoService],
   bootstrap: [PhotoListComponent]
 })

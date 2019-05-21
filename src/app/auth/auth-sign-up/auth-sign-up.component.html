@@ -1,26 +1,31 @@
 <div class="row">
     <div class="col-6 offset-3">
         <br>
-        <h2 class="text-center">Sign up</h2>
+        <h2 class="text-center">Registrarse como:</h2>
         <br>
-        <form name="sign-up" (ngSubmit)="f.form.valid && signUp()" #f="ngForm" novalidate>
-            <div class="form-group">
-                <label for="username"><b>Name</b></label>
-                <input type="text" name="username" class="form-control" id="username" [(ngModel)]="user.nombre" required>
-            </div>
-            <div class="form-group">
-                <label for="password"><b>Password</b></label>
-                <input type="password" name="password" class="form-control" id="password" [(ngModel)]="user.password" required>
-            </div>
-            <div class="form-group">
-                <label for="role"><b>Role</b></label>
-                <select class="custom-select" name="role" id="role" [(ngModel)]="role" required>
-                    <option [value]="prole" *ngFor="let prole of roles">{{prole}}</option>
-                </select>
-            </div>
-            <div class="justify-content-center align-self-center">
-                <button type="submit" class="btn btn-primary"> Sign Up</button>
-            </div>
-        </form>
     </div>
 </div>
+<div class="row">
+    <div class="col">
+        <div class="btn-group special" role="group" data-toggle="buttons">
+            <button type="button" class="btn btn-secondary btn-lg" data-toggle="button" aria-pressed="false" (click)="showFotografo()">Fotografo </button>
+            <button type="button" class="btn btn-secondary btn-lg" data-toggle="button" aria-pressed="false" (click)="showCliente()">Cliente</button>
+            <button type="button" class="btn btn-secondary btn-lg" data-toggle="button" aria-pressed="false" (click)="showOrganizador()">Organizador</button>
+            <button type="button" class="btn btn-secondary btn-lg" data-toggle="button" aria-pressed="false" (click)="showJurado()">Jurado</button>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+            <app-fotografo-create  *ngIf="bshowFotografo" (create)="signUp($event)"></app-fotografo-create>
+            <app-cliente-create (create)="signUp($event)" *ngIf="bshowCliente" ></app-cliente-create>
+            <app-organizador-create (create)="signUp($event)" *ngIf="bshowOrganizador" ></app-organizador-create>
+            <app-jurado-create (create)="signUp($event)" *ngIf="bshowJurado" ></app-jurado-create>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+            <button type="button" class="btn btn-dark btn-lg" data-toggle="button" aria-pressed="false" (click)="createAdministrador()">Administrador</button>
+    </div>
+</div>
+
