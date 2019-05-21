@@ -59,7 +59,7 @@ updateCliente(cliente): Observable<ClienteDetail>
 }
 
  /**
-  * un clientele
+  *Eliminar un cliente
   * @param clienteId Id del cliente que se desea eliminar
   */
 deleteCliente(clienteId):Observable<ClienteDetail>

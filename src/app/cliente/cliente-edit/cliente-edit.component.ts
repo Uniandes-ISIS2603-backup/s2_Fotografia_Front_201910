@@ -44,6 +44,7 @@ export class ClienteEditComponent implements OnInit, OnChanges {
 */
 @Input() cliente: ClienteDetail;
 
+
 /**
 * Retrieves the information of the client
 */
