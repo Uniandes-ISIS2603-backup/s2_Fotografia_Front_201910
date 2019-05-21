@@ -57,7 +57,9 @@ formaDePagoComponent: ClienteFormaDePagoComponent;
  * Lo que se quiere hacer cuando se cargue el componente
  * @param params 
  */
-  onLoad(params) {
+ 
+
+   onLoad(params) {
 
     this.clienteId = +this.route.snapshot.paramMap.get('id');
     if(this.clienteId = 0){

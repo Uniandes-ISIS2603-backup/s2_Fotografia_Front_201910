@@ -86,6 +86,15 @@ updateClienteFormaDePago(clienteId:number): Observable<FormaDePago>
    return this.http.put<FormaDePagoDetail>(API_URL + clientes + '/' + clienteId + formasDePago , null )
 }
 
+ /**
+  * Eliminar una forma de pago
+  * @param clienteId Id del la forma de pago a eliminar
+  */
+ deleteFormaDePago(formaDePagoId):Observable<FormaDePagoDetail>
+ {
+     return this.http.delete<FormaDePagoDetail>(API_URL + formasDePago + '/'+ formaDePagoId);
+ }
+
 }
 
 

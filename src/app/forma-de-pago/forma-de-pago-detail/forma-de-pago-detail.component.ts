@@ -40,6 +40,8 @@ formaDePagoId: number;
     */
    showEdit: boolean;
 
+   showDelete : boolean;
+
     loader: any;
 
     /**
@@ -99,5 +101,8 @@ updateFormaDePago(): void {
   this.showEdit = false;
 }
 
+deleteFormaDePago() : void{
+  this.showDelete = true;
+}
 
 }

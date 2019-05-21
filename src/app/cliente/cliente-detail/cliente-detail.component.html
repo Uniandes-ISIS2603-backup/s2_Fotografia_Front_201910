@@ -1,46 +1,73 @@
-<div class = "container-fluid w-50">
+<div class="principal">
+    <div class="content-box-blue">.</div>
+    <div class="content-box-blue">.</div>
 
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-  <div class="card ">
-    <img src="http://icons.iconarchive.com/icons/pelfusion/long-shadow-media/512/Camera-icon.png" class="card-img-top" alt="Profile Picture">
-    <div class="card-body">
-      <h3 class="card-title text-center">{{clienteDetail.nombre}}  
-          &nbsp;
-          <a  (click)="showHideEdit(clienteDetail.id)">
-              <i class="material-icons icon-blue" style = "cursor: pointer">create</i>
-          </a>
-          &nbsp;
-          <a (click)="deleteCliente()" data-toggle="modal" data-target="#myModal"> 
-            <i class="material-icons icon-red" style = "cursor:pointer"> delete </i>
-          </a>
-     </h3>
-    </div>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item"><b>Login: </b> {{clienteDetail.login}}</li>
-      <li class="list-group-item"><b>Correo:</b> {{clienteDetail.correo}}</li>
-    </ul>
-    <div class="card-body view overlay" style="cursor: pointer " >
-      <a class="card-link  align-items-center d-flex nav-link-active" routerLinkActive="active" ><b>Formas de Pago</b> <img src = "https://www.peoplesbanknet.com/content/uploads/2018/04/creditcard-flat.png" class="img-fluid" alt="Responsive image" height="52" width="52" class="rounded float-right" alt="..."> <div class="divider col-5"></div><i class="material-icons">
-        arrow_forward_ios
-        </i>  </a>
-    </div>
-  </div>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-  <div>
-      <div *ngIf="showEdit">
-          <app-cliente-edit [clienteId]="clienteId" (cancel)="showHideEdit(clienteId)" (update)="updateCliente()"></app-cliente-edit>
-      </div>
-  </div>
+    <div class="cointainer">
+        <div class="rela-block container">
 
-  <div>
-      <div *ngIf="showDelete">
-          <app-cliente-delete [clienteDetail]="clienteDetail"></app-cliente-delete>
-      </div>
-  </div>
+            <div class="rela-block profile-card">
 
-</div>
+                <div class="profile-pic" id="profile_pic">
+                    <div class="avatar">
+                        <img src= '{{clienteDetail.imagen}}'>
+                    </div>
+                </div>
+                <div class="rela-block profile-name-container">
+                    <div class="rela-block user-name" id="user_name">
+                        <style>
+                            @import url('https://fonts.googleapis.com/css?family=Muli|Quicksand');
+                        </style>{{clienteDetail.nombre}} &nbsp;
+                        <a (click)="showHideEdit(clienteDetail.id)">
+                            <i class="material-icons icon-blue" style="cursor: pointer">create</i>
+                        </a>
+                        &nbsp;
+                        <a (click)="deleteCliente()" data-toggle="modal" data-target="#myModal">
+                            <i class="material-icons icon-red" style="cursor:pointer"> delete </i>
+                        </a>
 
-<cliente-forma-de-pago class="m-3" [clienteId]="clienteDetail.id"></cliente-forma-de-pago>
+                    </div>
+                </div>
 
+                <div class="rela-block profile-card-stats">
+                    <style>
+                        @import url('https://fonts.googleapis.com/css?family=Muli|Quicksand');
+                    </style>
+                    <div class="floated profile-stat works" id="num_works">{{clienteDetail.correo}}
+                        <br>
+                    </div>
+                    <div class="floated profile-stat followers" id="num_followers">@{{clienteDetail.login}}
+                        <br>
+                    </div>
+                    <div class="floated profile-stat following" id="num_following">Extra informacion
+                        <br>
+                    </div>
 
-    
+                </div>
+
+            </div>
+
+            <div>
+                <div *ngIf="showEdit">
+                    <app-cliente-edit [clienteId]="clienteId" (cancel)="showHideEdit(clienteId)" (update)="updateCliente()"></app-cliente-edit>
+                </div>
+            </div>
+
+            <div *ngIf="showDelete">
+                <app-cliente-delete [clienteDetail]="clienteDetail"></app-cliente-delete>
+            </div>
+
+        </div>
+
+        <cliente-forma-de-pago class="m-3" [clienteId]="clienteDetail.id"></cliente-forma-de-pago>
+
+ 
