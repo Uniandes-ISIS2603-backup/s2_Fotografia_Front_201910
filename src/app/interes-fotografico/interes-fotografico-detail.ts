@@ -8,6 +8,7 @@ export class InteresFotograficoDetail extends InteresFotografico{
      */
     interes:string;
 
-    fotos:Photo[];
+
+    fotosInteres:Photo[];
 
 }

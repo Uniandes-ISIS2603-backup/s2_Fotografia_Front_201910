@@ -148,7 +148,8 @@ updateInteresFotografico(): void {
 
 
   verificarFotos(): void{
-  if(this.interesFotograficoDetail.fotos.length!=0){
+
+  if(this.interesFotograficoDetail.fotosInteres.length!=0){
     this.sinFotos = true;
     this.mandeError = false;
     

@@ -76,6 +76,7 @@ fotografo_id: number;
 
 @Input() id: number;
 
+
 loader: any;
 
 getFotografoDetail(): void {
