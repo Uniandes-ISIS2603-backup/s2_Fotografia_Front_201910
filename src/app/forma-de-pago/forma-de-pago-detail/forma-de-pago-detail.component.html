@@ -5,10 +5,15 @@
     <div class="card-body row justify-content-center align-self-center">
       <h3 class="card-title text-center">{{formaDePagoDetail.numeroTarjeta}}
           <a  (click)="showHideEdit(formaDePagoDetail.id)">
-
               <i class="material-icons icon-blue" style = "cursor: pointer">create</i>
-    
           </a>
+
+          &nbsp;
+
+          <a (click)="deleteFormaDePago()" data-toggle="modal" data-target="#myModal"> 
+              <i class="material-icons icon-red" style = "cursor:pointer"> delete </i>
+            </a>
+
       </h3>
      
     </div>
@@ -24,4 +29,8 @@
     <div class="col-md-8">
         <div *ngIf="showEdit">
           <app-forma-de-pago-edit [formaDePagoId]="formaDePagoId" [clienteId]="clienteId" (cancel)="showHideEdit(formaDePagoId)" (update)="updateFormaDePago()"></app-forma-de-pago-edit></div>
+    </div>
+
+    <div *ngIf="showDelete">
+        <app-forma-de-pago-delete [formaDePagoDetail]="formaDePagoDetail"></app-forma-de-pago-delete>
     </div>
