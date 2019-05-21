@@ -48,7 +48,7 @@ export class JuradoCreateComponent implements OnInit {
 
         this.juradoService.createJurado(this.jurado)
             .subscribe((jurado) => {
-                this.jurado = jurado;
+                this.jurado = new Jurado(jurado.id, jurado.nombre, jurado.apellido, jurado.correo, jurado.cedula, jurado.pais, jurado.ciudad);
                 this.create.emit(this.jurado);
                 this.toastrService.success("The calificacion was created", "calificacion creation");
 
