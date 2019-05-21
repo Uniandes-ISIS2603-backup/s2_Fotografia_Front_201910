@@ -6,7 +6,6 @@ import {FotografoDetail} from '../fotografo-detail';
 import {ToastrService} from 'ngx-toastr';
 import { FotografoCreateComponent } from '../fotografo-create/fotografo-create.component';
 import { Fotografo } from '../fotografo';
-import { SessionService } from '../../session.service';
 
 @Component({
     selector: 'app-fotografo-edit',
@@ -24,8 +23,7 @@ export class FotografoEditComponent implements OnInit, OnChanges {
     */
     constructor(
         private fotografoService: FotografoService,
-        private toastrService: ToastrService,
-        private sessionService: SessionService
+        private toastrService: ToastrService
     ) {}
 
      /**
@@ -69,7 +67,6 @@ export class FotografoEditComponent implements OnInit, OnChanges {
         this.fotografoService.updateFotografo(this.fotografo)
             .subscribe(() => {
                 this.toastrService.success("The author's information was updated", "Author edition");
-                this.sessionService.setSession(this.fotografo);
             });
         this.update.emit();
     }

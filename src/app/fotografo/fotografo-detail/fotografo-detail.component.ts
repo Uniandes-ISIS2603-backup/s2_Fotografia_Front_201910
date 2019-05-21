@@ -74,11 +74,13 @@ navigationSubscription;
 */
 fotografo_id: number;
 
-  @Input() id: number;
-    loader: any;
+@Input() id: number;
 
-    getFotografoDetail(): void {
-      console.log(this.id);
+
+loader: any;
+
+getFotografoDetail(): void {
+    console.log(this.id);
     this.fotografoService.getFotografoDetail(this.id)
       .subscribe(cli => {
         this.fotografoDetail = cli
@@ -86,9 +88,7 @@ fotografo_id: number;
   }
 
   onLoad(params) {
-
     this.id = parseInt(params['id']);
-    console.log(" en detail " + this.id);
     this.fotografoDetail = new FotografoDetail();
     this.getFotografoDetail();
   }

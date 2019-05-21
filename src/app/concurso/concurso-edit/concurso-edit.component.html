@@ -1,6 +1,6 @@
 <div class="row">
         <div class="col">
-            <h3> Crear Concurso </h3>
+            <h3> Editar Concurso </h3>
             <form name="concurso" (ngSubmit)="f.form.valid && editConcurso()" #f="ngForm" novalidate>
                 <div class="form-group">
                     <label for="concursoTema"><b>Tema</b></label>
@@ -51,7 +51,7 @@
         <div class="row form-inline justify-content-center align-self-center">
             <button class="btn btn-primary" style="padding-right: 3em; background: rgb(127, 161, 255)" (click)="editConcurso()"> <span class="fa fa-save "></span> &nbsp; Guardar</button>
             &nbsp;
-            <button  class="btn btn-primary" style="padding-right: 3em; background: rgb(250, 84, 84)" (click)="cancelEdition()"> <span class="fa fa-ban"></span> Cancelar</button>
+            <button  class="btn btn-primary" style="padding-right: 3em; background: rgb(250, 84, 84)" (click)="cancelEdit()"> <span class="fa fa-ban"></span> Cancelar</button>
         </div>
     </div>
 </div>

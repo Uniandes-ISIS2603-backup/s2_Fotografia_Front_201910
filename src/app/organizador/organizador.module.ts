@@ -26,6 +26,7 @@ import { ConcursoModule } from '../concurso/concurso.module';
     declarations: [
         OrganizadorListComponent, OrganizadorDetailComponent, OrganizadorCreateComponent, OrganizadorEditComponent
     ],
+    exports: [OrganizadorCreateComponent],
     providers: [OrganizadorService]
 })
 export class OrganizadorModule {}

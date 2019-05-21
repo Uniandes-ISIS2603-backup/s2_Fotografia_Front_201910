@@ -39,7 +39,7 @@ export class JuradoCreateComponent implements OnInit {
     * The output which tells the parent component
     * that the user created a new calificacion
     */
-    @Output() create = new EventEmitter();
+    @Output() create = new EventEmitter<Jurado>();
 
     /**
     * Creates an calificacion
@@ -48,8 +48,8 @@ export class JuradoCreateComponent implements OnInit {
 
         this.juradoService.createJurado(this.jurado)
             .subscribe((jurado) => {
-                this.jurado = jurado;
-                this.create.emit();
+                this.jurado = new Jurado(jurado.id, jurado.nombre, jurado.apellido, jurado.correo, jurado.cedula, jurado.pais, jurado.ciudad);
+                this.create.emit(this.jurado);
                 this.toastrService.success("The calificacion was created", "calificacion creation");
 
             });

@@ -19,7 +19,7 @@ export class OrganizadorCreateComponent implements OnInit {
         private toastrService: ToastrService
   ) { }
 
-  @Output() create = new EventEmitter();
+  @Output() create = new EventEmitter<Organizador>();
     
   @Output() cancel = new EventEmitter();
   
@@ -27,8 +27,8 @@ export class OrganizadorCreateComponent implements OnInit {
   
   createOrganizador(): Organizador{
         this.organizadorService.createOrganizador(this.organizador).subscribe(organizador => {
-            this.organizador = organizador;
-            this.create.emit();
+            this.organizador = new Organizador(organizador.id, organizador.nombre, organizador.apellido, organizador.telefono, organizador.foto);
+            this.create.emit(this.organizador);
             this.toastrService.success("El organizador se creo", "Creacion del organizador");
         });
         return this.organizador;

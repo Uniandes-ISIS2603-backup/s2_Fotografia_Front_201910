@@ -23,6 +23,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   ],
   declarations: [JuradoListComponent, JuradoDetailComponent, JuradoCreateComponent, JuradoEditComponent],
   providers: [JuradoService],
+  exports: [JuradoCreateComponent],
   bootstrap: [JuradoListComponent]
 })
 export class JuradoModule { }

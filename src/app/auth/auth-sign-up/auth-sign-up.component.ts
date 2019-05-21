@@ -3,8 +3,10 @@ import { ToastrService } from 'ngx-toastr';
 
 import { AuthService } from '../auth.service';
 import { User } from '../user';
-import { SessionService } from '../../session.service';
-
+import { Fotografo } from '../../fotografo/fotografo';
+import { Organizador } from '../../organizador/organizador';
+import { Cliente } from '../../cliente/cliente';
+import { Jurado } from '../../jurado/jurado';
 @Component({
     selector: 'app-auth-sign-up',
     templateUrl: './auth-sign-up.component.html',
@@ -19,8 +21,7 @@ export class AuthSignUpComponent implements OnInit {
     */
     constructor(
         private authService: AuthService,
-        private toastrService: ToastrService,
-        private sessionService: SessionService
+        private toastrService: ToastrService
     ) { }
 
     user: User;
@@ -28,12 +29,66 @@ export class AuthSignUpComponent implements OnInit {
     roles: String[];
 
     role: string;
+    
+    bshowFotografo: boolean;
+    
+    bshowCliente: boolean;
+    
+    bshowOrganizador: boolean;
+    
+    bshowJurado: boolean;
+    
+    showFotografo(): void {
+        this.bshowFotografo = !this.bshowFotografo;
+        this.bshowCliente = false;
+        this.bshowJurado = false;
+        this.bshowOrganizador = false;
+    }
+    
+    showJurado(): void {
+        this.bshowJurado = !this.bshowJurado;
+        this.bshowFotografo = false;
+        this.bshowCliente = false;
+        this.bshowOrganizador = false;
+    }
+    
+    showOrganizador(): void {
+        this.bshowOrganizador = !this.bshowOrganizador;
+        this.bshowFotografo = false;
+        this.bshowCliente = false;
+        this.bshowJurado = false;
+    }
+    
+    showCliente(): void{
+        this.bshowCliente = !this.bshowCliente;
+        this.bshowFotografo = false;
+        this.bshowOrganizador = false;
+        this.bshowJurado = false;
+    }
+    
+    createAdministrador(): void{
+        this.authService.login('Administrador');
+    }
     /**
     * Sign the user up with the selected role
     */
-    signUp(): void {
-        this.authService.login(this.role);
-        this.sessionService.setSession(this.user);
+    signUp(usuario: Fotografo | Organizador | Cliente | Jurado ): void {
+        if(usuario instanceof Cliente){
+            this.authService.signUp('Client', usuario);
+
+        }
+        else if(usuario instanceof Fotografo){
+            this.authService.signUp('Fotografo', usuario);
+
+        }
+        else if(usuario instanceof Jurado){
+            this.authService.signUp('Jurado', usuario)
+         
+        }
+        else if(usuario instanceof Organizador){
+            this.authService.signUp('Organizador', usuario)
+        
+        }
         this.toastrService.success('Successfully signed up');
     }
 
@@ -42,7 +97,12 @@ export class AuthSignUpComponent implements OnInit {
     */
     ngOnInit() {
         this.user = new User();
-        this.roles = ['Administrator', 'Client','Fotografo','Organizador'];
+        this.bshowFotografo = false;
+        this.bshowCliente = false;
+        this.bshowJurado = false;
+        this.bshowOrganizador = false;
+        this.roles = ['Administrator', 'Client','Fotografo','Organizador', 'Jurado'];
+        
     }
 
 }
