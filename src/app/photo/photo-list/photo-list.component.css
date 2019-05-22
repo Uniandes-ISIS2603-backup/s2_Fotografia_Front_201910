@@ -138,3 +138,23 @@ p{
     color: #ffffff;
     text-shadow: 2px 2px 4px #000000;
 }
+.animacioncarrito{
+}
+.animacioncarrito:hover {
+  animation: move 10s steps(10) infinite alternate;
+}
+@keyframes move {
+  from { top: 0; left: 0; }
+  to   { top: 100px; left: 100px; }
+}
+
+.carrito{
+  padding-top: 30px;
+  height: 80px;
+  width: 50px;
+}
+
+.partearriba{
+  width:75%;
+  margin: 0 auto;
+}
