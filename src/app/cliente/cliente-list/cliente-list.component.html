@@ -26,7 +26,7 @@
             <tbody>
               
                   <tr *ngFor = "let c of clientes"  class="list-group-item-action">
-                    <h5 style="cursor: pointer" class="text-center" (click)="onSelected(c.id)">{{c.login}} <div class="divider col-1"></div><img src="http://icons.iconarchive.com/icons/pelfusion/long-shadow-media/512/Camera-icon.png" class="img-fluid" alt="Responsive image" height="62" width="62" ></h5>
+                    <h5 style="cursor: pointer" class="text-center" (click)="onSelected(c.id)">{{c.login}} <div class="divider col-1"></div><img src= "{{c.imagen}}" class="img-fluid" alt="Responsive image" height="62" width="62" ></h5>
                     <hr>
                 </tr>
               

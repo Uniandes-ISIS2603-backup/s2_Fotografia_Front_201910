@@ -32,13 +32,22 @@
                 </div>
          <small id="passwordHelp" class="form-text text-muted">La contraseña debe tener minimo 8 caracteres con al menos un numero</small>
         </div>
-        <div class="form-group">
+          <div class="form-group">
               <label for="clienteNombre">Nombre</label>
               <input type="text" name="clienteNombre" class="form-control" id="clienteNombre" placeholder="Nombre Completo" [(ngModel)]="cliente.nombre"
                   #clienteNombre="ngModel" [ngClass]="{ 'is-invalid': f.submitted && clienteNombre.invalid }" required>
               <div class="invalid-feedback">
                   <div>No se ingreso el nombre</div>
               </div>
+
+              <div class="form-group">
+              <label for="clienteImagen"><b>Ruta de foto de perfil</b></label>
+              <input type="text" name="clienteImagen" class="form-control" id="clienteImagen" [(ngModel)]="cliente.imagen"
+                     #clienteImagen="ngModel" [ngClass]="{ 'is-invalid': f.submitted && clienteImagen.invalid }" required>
+                     <div class="invalid-feedback">
+                  <div>Falta ingresar la ruta de la imagen</div>
+              </div>
+
         </div>
         
           <div class="row form-inline justify-content-center align-self-center">
@@ -46,7 +55,6 @@
               <div class="divider col-1"> </div>
               <button type="button" class="btn btn-danger" (click)="cancelCreation()">Cancel</button>
           </div>
-      </form>
-  </div>
+
   <div class="col-3"></div>
 </div>
