@@ -5,10 +5,12 @@ import{FormaDePagoDetail} from '../forma-de-pago/forma-de-pago-detail';
 import{ClienteDetail} from './cliente-detail';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
+import { FacturaDetail } from '../factura/factura-detail';
 
 const API_URL = environment.apiURL;
 const clientes = '/clientes';
 const formasDePago = '/formasDePago';
+const facturas = '/facturas';
 
 @Injectable()
 export class ClienteService {
@@ -83,6 +85,15 @@ deleteCliente(clienteId):Observable<ClienteDetail>
 getClienteFormasDePago(clienteId:number): Observable<FormaDePagoDetail[]>
 {
     return this.http.get<FormaDePagoDetail[]>(API_URL+ clientes + '/'+ clienteId + formasDePago);
+}
+
+/**
+ * Trae las facturas asociasas a un cliente
+ * @param clienteId el id del cliente del cual se quieren consultar las facturas
+ */
+getClienteFacturas(clienteId:number): Observable<FacturaDetail[]>
+{
+    return this.http.get<FacturaDetail[]>(API_URL+ clientes + '/'+ clienteId + facturas);
 }
 
 }

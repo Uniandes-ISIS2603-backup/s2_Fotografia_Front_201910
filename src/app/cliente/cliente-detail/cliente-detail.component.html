@@ -53,6 +53,7 @@
             </div>
             <div class="btn-group">
                     <cliente-forma-de-pago class="m-3" [clienteId]="clienteDetail.id"></cliente-forma-de-pago>
+                    <app-cliente-factura class="m-3" [clienteId] = "clienteDetail.id"></app-cliente-factura>
             </div>
             <div>
                 <div *ngIf="showEdit">

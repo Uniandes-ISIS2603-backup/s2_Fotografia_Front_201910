@@ -76,13 +76,13 @@ export class ClienteDetailComponent implements OnInit, OnChanges {
    */
   ngOnInit() {
     this.loader = this.route.params.subscribe((params: Params) => this.onLoad(params));
-   
+    console.log("El id del Cliente:  "+this.clienteDetail.id);
+
     if (this.clienteLogin === undefined) {
       this.clienteLogin = JSON.parse(localStorage.getItem('cliente'));
       this.getClienteDetailLogin();
     }
   }
-
   /**
    * Permite que se detenga la subscripcion
    */
