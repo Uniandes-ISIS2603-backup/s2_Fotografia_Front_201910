@@ -10,13 +10,14 @@ import { FormaDePagoDetailComponent } from './forma-de-pago-detail/forma-de-pago
 
 import { FormaDePagoCreateComponent } from './forma-de-pago-create/forma-de-pago-create.component';
 import { FormaDePagoEditComponent } from './forma-de-pago-edit/forma-de-pago-edit.component';
+import { FormaDePagoDeleteComponent } from './forma-de-pago-delete/forma-de-pago-delete.component';
 
 
 @NgModule({
   imports: [
     CommonModule, FormsModule, AppRoutingModule, NgbModule
   ],
-  declarations: [FormaDePagoListComponent, FormaDePagoDetailComponent, FormaDePagoCreateComponent, FormaDePagoEditComponent],
+  declarations: [FormaDePagoListComponent, FormaDePagoDetailComponent, FormaDePagoCreateComponent, FormaDePagoEditComponent, FormaDePagoDeleteComponent],
   exports: [FormaDePagoListComponent, FormaDePagoCreateComponent, FormaDePagoDetailComponent],
   providers: [FormaDePagoService, DatePipe]
 })
