@@ -74,13 +74,11 @@ navigationSubscription;
 */
 fotografo_id: number;
 
-@Input() id: number;
+  @Input() id: number;
+    loader: any;
 
-
-loader: any;
-
-getFotografoDetail(): void {
-    console.log(this.id);
+    getFotografoDetail(): void {
+      console.log(this.id);
     this.fotografoService.getFotografoDetail(this.id)
       .subscribe(cli => {
         this.fotografoDetail = cli
@@ -88,7 +86,9 @@ getFotografoDetail(): void {
   }
 
   onLoad(params) {
+
     this.id = parseInt(params['id']);
+    console.log(" en detail " + this.id);
     this.fotografoDetail = new FotografoDetail();
     this.getFotografoDetail();
   }
@@ -96,11 +96,11 @@ getFotografoDetail(): void {
   ngOnInit() {
     this.loader = this.route.params.subscribe((params: Params) => this.onLoad(params));
   }
-  showHideEdit(fotografo_id: number): void {
-    if (!this.showEdit || (this.showEdit && fotografo_id != this.fotografo_id)) {
+  showHideEdit(id: number): void {
+    if (!this.showEdit || (this.showEdit && id != id)) {
         this.showCreate = false;
         this.showEdit = true;
-        this.fotografo_id = fotografo_id;
+        this.id = id;
     }
     else {
         this.showEdit = false;

@@ -6,6 +6,8 @@ import { PhotoService } from '../photo.service';
 import { Photo } from '../photo';
 import { PhotoDetail } from '../photo-detail';
 
+import {CartServiceService} from '../../shopping-cart/cart-service.service';
+
 @Component({
     selector: 'app-photo',
     templateUrl: './photo-list.component.html',
@@ -20,6 +22,7 @@ export class PhotoListComponent implements OnInit, OnChanges {
      */
     constructor(
         private photoService: PhotoService,
+        private cartService: CartServiceService
     ) { }
 
     /**
@@ -38,7 +41,16 @@ export class PhotoListComponent implements OnInit, OnChanges {
      * Shows or hides the edit component.
      */
     showEdit: boolean;
+    /**
+    * Shows or hides the cart component.
+    */
+    showBuy: boolean;
 
+
+    /**
+     * Sucede cuando se selecciona una nueva foto
+     * @param photo_id Id de la foto seleccionada
+     */
     onSelected(photo_id: number): void {
         this.photo_edit_id = photo_id;
         this.selectedPhoto = new PhotoDetail();
@@ -61,6 +73,19 @@ export class PhotoListComponent implements OnInit, OnChanges {
             });
     }
 
+    showBuyCarrito(): void{
+        this.showBuy = true;
+    }
+    showBuyCarrito2(): void{
+        if(this.showBuy){
+            this.showBuy = false;
+        } else{
+            this.showBuy = true;
+        }
+    }
+    addToCart(photo: Photo){
+        this.cartService.addToCart(photo);
+    }
     /**
         * Shows or hides the create component
         */
@@ -89,7 +114,7 @@ export class PhotoListComponent implements OnInit, OnChanges {
         this.showEdit = false;
         this.getPhotoDetail();
     }
-
+  
     /**
     * This will initialize the component by retrieving the list of Jurados from the service
     * This method will be called when the component is created
@@ -98,8 +123,6 @@ export class PhotoListComponent implements OnInit, OnChanges {
         this.getPhotos();
     }
     ngOnChanges() {
-        console.log('metodo update en lista');
-
         this.getPhotos();
     }
 }
