@@ -16,7 +16,6 @@ export class CartServiceService {
   }
 
   public addToCart(item: Photo) {
-    console.log('log del service add to cart');
     this.itemsInCartSubject.next([...this.itemsInCart, item]);
   }
 
