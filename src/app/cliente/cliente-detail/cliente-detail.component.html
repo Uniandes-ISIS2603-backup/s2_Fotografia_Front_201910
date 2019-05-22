@@ -49,9 +49,11 @@
                         <br>
                     </div>
                 </div>
-
+                
             </div>
-
+            <div class="btn-group">
+                    <cliente-forma-de-pago class="m-3" [clienteId]="clienteDetail.id"></cliente-forma-de-pago>
+            </div>
             <div>
                 <div *ngIf="showEdit">
                     <app-cliente-edit [clienteId]="clienteId" (cancel)="showHideEdit(clienteId)" (update)="updateCliente()"></app-cliente-edit>
@@ -61,10 +63,7 @@
             <div *ngIf="showDelete">
                 <app-cliente-delete [clienteDetail]="clienteDetail"></app-cliente-delete>
             </div>
-
-            <div class="btn-group">
-                    <cliente-forma-de-pago class="m-3" [clienteId]="clienteDetail.id"></cliente-forma-de-pago>
-            </div>        
+            
             
 </div>
 

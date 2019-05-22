@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
     title: String;
 
     retrievedObject: string = JSON.parse(localStorage.getItem('cliente'));
-    loginCliente = this.retrievedObject;
+    loginCliente :string = this.retrievedObject;
 
 
 
@@ -28,7 +28,7 @@ export class AppComponent implements OnInit {
     ngOnInit(): void {
         this.title = "Fotografia";
         this.authService.start();
-        
+        this.loginCliente = this.retrievedObject;
         console.log('cliente login : ', (this.retrievedObject));
         console.log('cliente id: ', this.loginCliente);
     }
@@ -36,6 +36,7 @@ export class AppComponent implements OnInit {
     logout(): void{
         this.authService.logout();
         this.authService.printRole();
+        
     }
 
     /**
