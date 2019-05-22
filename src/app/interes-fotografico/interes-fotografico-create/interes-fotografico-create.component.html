@@ -15,6 +15,15 @@
                     <div>No se ha puesto el nombre</div>
                 </div>
               </div>
+
+              <div class= "form-group">
+                <label for="foto"><b>Foto</b></label>
+                <input type="text" name="foto" class="form-control" id="foto" [(ngModel)]="interesFotografico.foto"
+                    #interesFotograficoFoto="ngModel" [ngClass]="{ 'is-invalid': f.submitted &&interesFotograficoFoto.invalid }" required>
+                <div class="invalid-feedback">
+                    <div>No se ha puesto la foto</div>
+                </div>
+              </div>
               </form>
     </div>
 
@@ -22,7 +31,7 @@
            
                    
             <div class="row form-inline justify-content-center align-self-center">
-                <button type="submit" class="btn btn-primary">Create</button>
+                <button type="submit" class="btn btn-primary" (click)=createInteresFotografico()  routerLink="/interesFotograficos/list" >Create</button>
                 <div class="divider"></div>
                 <button type="button" class="btn btn-danger" (click)="cancelCreation()">Cancel</button>
             </div>

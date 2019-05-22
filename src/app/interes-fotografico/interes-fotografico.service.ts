@@ -41,7 +41,7 @@ export class InteresFotograficoService {
    * @returns The confirmation of the InteresFotografico's creation
    */
   createInteresFotografico(interesFotografico): Observable<InteresFotografico> {
-   return this.http.post<InteresFotografico>(API_URL + interesFotografico, interesFotografico);
+   return this.http.post<InteresFotografico>(API_URL + interesFotograficos, interesFotografico);
 }
 
 /**
