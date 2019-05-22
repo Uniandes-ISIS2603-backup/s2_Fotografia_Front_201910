@@ -29,6 +29,8 @@ import {FormaDePagoDetailComponent} from '../forma-de-pago/forma-de-pago-detail/
 import {FormaDePagoCreateComponent} from '../forma-de-pago/forma-de-pago-create/forma-de-pago-create.component';
 
 import {PhotoListComponent} from '../photo/photo-list/photo-list.component';
+import {ShoppingCartComponent} from '../shopping-cart/shopping-cart.component';
+
 
 import {PhotoDetailComponent} from '../photo/photo-detail/photo-detail.component';
 import {PhotoEditComponent} from '../photo/photo-edit/photo-edit.component';
@@ -159,6 +161,10 @@ const routes: Routes = [
                 component: RondaDetailComponent
             }
         ]
+    },
+    {
+        path: 'shopping-cart',
+        component: ShoppingCartComponent
     },
     {
         path: 'auth',

@@ -43,3 +43,8 @@ $time: .3s;
 nav.navbar.navbar-expand-lg.bg-dark.navbar-dark {
     background-color: #000000!important;
 }
+
+.open-shopping-cart{
+	height: 10px;
+	width: 10px;
+}
