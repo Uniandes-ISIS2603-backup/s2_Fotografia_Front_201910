@@ -98,6 +98,9 @@ export class ClienteDetailComponent implements OnInit, OnChanges {
     this.clienteService.getClienteLogin(this.clienteLogin)
       .subscribe(clienteDetail => {
         this.clienteDetail = clienteDetail
+        console.log ("Para storage" + this.clienteDetail.id);
+        localStorage.setItem('clienteActual', JSON.stringify(this.clienteDetail));
+
       });
 
     return this.clienteDetail;
