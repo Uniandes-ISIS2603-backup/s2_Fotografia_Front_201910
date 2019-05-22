@@ -38,7 +38,16 @@ export class PhotoListComponent implements OnInit, OnChanges {
      * Shows or hides the edit component.
      */
     showEdit: boolean;
+    /**
+    * Shows or hides the edit component.
+    */
+    showBuy: boolean;
 
+
+    /**
+     * Sucede cuando se selecciona una nueva foto
+     * @param photo_id Id de la foto seleccionada
+     */
     onSelected(photo_id: number): void {
         this.photo_edit_id = photo_id;
         this.selectedPhoto = new PhotoDetail();
