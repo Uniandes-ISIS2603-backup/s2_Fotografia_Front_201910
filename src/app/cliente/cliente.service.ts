@@ -38,6 +38,15 @@ getClientesDetail(clienteId):Observable<ClienteDetail>
 }
 
 /**
+* Trae el cliente con un login especifico
+* @param clienteId id del cliente
+*/
+getClienteLogin(login):Observable<ClienteDetail>
+{
+    return this.http.get<ClienteDetail>(API_URL + clientes + '/'+ login);
+}
+
+/**
 * Creates a cliente
 * @param cliente The new client
 * @returns The confirmation that the client was created

@@ -48,10 +48,6 @@
                     <div class="floated profile-stat followers" id="num_followers">@{{clienteDetail.login}}
                         <br>
                     </div>
-                    <div class="floated profile-stat following" id="num_following">Extra informacion
-                        <br>
-                    </div>
-
                 </div>
 
             </div>
@@ -66,8 +62,10 @@
                 <app-cliente-delete [clienteDetail]="clienteDetail"></app-cliente-delete>
             </div>
 
-        </div>
-
-        <cliente-forma-de-pago class="m-3" [clienteId]="clienteDetail.id"></cliente-forma-de-pago>
+            <div class="btn-group">
+                    <cliente-forma-de-pago class="m-3" [clienteId]="clienteDetail.id"></cliente-forma-de-pago>
+            </div>        
+            
+</div>
 
  

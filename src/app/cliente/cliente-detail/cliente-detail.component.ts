@@ -7,6 +7,7 @@ import { ClienteFormaDePagoComponent } from '../cliente-forma-de-pago/cliente-fo
 
 import{FormaDePagoListComponent} from '../../forma-de-pago/forma-de-pago-list/forma-de-pago-list.component';
 import { Cliente } from '../cliente';
+import { User } from 'src/app/auth/user';
 
 @Component({
   selector: 'app-cliente-detail',
@@ -28,7 +29,10 @@ constructor(private clienteService: ClienteService,
      * El cliente detail que recibe de listar
      * Cuando se selecciona un cliente de la lista
      */
-  @Input() clienteDetail: ClienteDetail;
+ @Input() clienteDetail: ClienteDetail;
+//clienteDetail :ClienteDetail;
+
+clienteLogin: string;
 
 /**
 * El id del cliente que viene en el path get .../clientes/clienteId
@@ -46,6 +50,7 @@ showDelete : boolean;
 
     loader: any;
 
+
 /**
  * Para ver su hijo (forma de pago)
  */
@@ -57,26 +62,34 @@ formaDePagoComponent: ClienteFormaDePagoComponent;
  * Lo que se quiere hacer cuando se cargue el componente
  * @param params 
  */
- 
-
    onLoad(params) {
 
     this.clienteId = +this.route.snapshot.paramMap.get('id');
+
+
     if(this.clienteId = 0){
     console.log(" en detail " + this.clienteId);
     /*this.clienteDetail = new ClienteDetail();*/
     this.clienteId = this.clienteDetail.id
    }
-  }
+
+   
+
+  } 
 
   /**
    * Inicializa el componente
    */
   ngOnInit() {
 
+    if(this.clienteLogin === undefined)
+    {
+       this.clienteLogin = JSON.parse(localStorage.getItem('cliente'));
+       this.getClienteDetailLogin();
+    }
+
     console.log("Id cuando inicia"  +this.clienteDetail.id)
     this.loader = this.route.params.subscribe((params: Params) => this.onLoad(params));
-    
    console.log("id del cliente" + this.clienteId)
     
   }
@@ -91,14 +104,25 @@ formaDePagoComponent: ClienteFormaDePagoComponent;
   /**
    * Devuelve el detalle del cliente
    */
+  getClienteDetailLogin(): ClienteDetail {
+
+    this.clienteService.getClienteLogin(this.clienteLogin)
+      .subscribe(clienteDetail => {
+        this.clienteDetail = clienteDetail
+      });   
+
+      return this.clienteDetail;
+  }
+
   getClienteDetail(): void {
     this.clienteService.getClientesDetail(this.clienteId)
       .subscribe(clienteDetail => {
         this.clienteDetail = clienteDetail
-      });
+      });   
   }
 
-  
+
+
   /**
 * Shows or hides the create component
 */

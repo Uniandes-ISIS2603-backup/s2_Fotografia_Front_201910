@@ -59,8 +59,7 @@ loader: any;
   getClienteDetail(): void {
     this.clienteService.getClientesDetail(this.clienteId)
         .subscribe(clienteDetail => 
-            this.clienteDetail = clienteDetail
-            
+            this.clienteDetail = clienteDetail  
         );
 }
 

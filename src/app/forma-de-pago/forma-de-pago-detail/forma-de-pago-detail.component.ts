@@ -44,6 +44,8 @@ formaDePagoId: number;
 
     loader: any;
 
+    foto :string;
+
     /**
      * Consigue el detalle de una forma de pago
      */
@@ -52,7 +54,32 @@ formaDePagoId: number;
     this.formaDePagoService.getFormaDePagoDetail(this.formaDePagoId)
       .subscribe(fdp => {
         this.formaDePagoDetail = fdp
-      });
+        console.log ("Tipo de la tarjeta"+this.formaDePagoDetail.tipoDeTarjeta);
+      
+        if (this.formaDePagoDetail.tipoDeTarjeta === "Tarjeta Debito")
+    {
+      console.log ("Tipo de la tarjeta"+this.formaDePagoDetail.tipoDeTarjeta);
+      this.foto = 'https://cdn.imgbin.com/14/0/25/imgbin-maestro-payment-mastercard-debit-card-logo-mastercard-cDK6J65ScXtBADpptQ1Gj6fL4.jpg';
+    }
+    else{
+      if(this.formaDePagoDetail.tipoTarjetaDeCredito === "VISA")
+      {
+        console.log (this.formaDePagoDetail.tipoDeTarjeta);
+        this.foto = 'https://www.fireeye.com/partners/strategic-technology-partners/visa-fireeye-cyber-watch-program/_jcr_content/content-par/grid_20_80_full/grid-20-left/image.img.png/1505254557388.png';
+      }
+  
+      else
+      {
+        console.log (this.formaDePagoDetail.tipoDeTarjeta);
+        this.foto = 'https://seeklogo.com/images/M/MasterCard-logo-D7B12F05DD-seeklogo.com.png';
+      }
+    }
+
+      }
+      
+      
+      
+      );
   }
 
   /**
@@ -64,7 +91,8 @@ formaDePagoId: number;
     if(this.formaDePagoId){
     console.log(" en detail " + this.formaDePagoId);
     this.formaDePagoDetail = new FormaDePagoDetail();
-    this.getFormaDePagoDetail();}
+    this.getFormaDePagoDetail();
+  }
   }
 
   /**
@@ -72,6 +100,7 @@ formaDePagoId: number;
    */
   ngOnInit() {
     this.loader = this.route.params.subscribe((params: Params) => this.onLoad(params));
+ 
   }
 
   /**
