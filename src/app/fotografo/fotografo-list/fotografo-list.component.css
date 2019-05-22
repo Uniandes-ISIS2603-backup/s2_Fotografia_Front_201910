@@ -5,7 +5,7 @@
   justify-content:center;
   align-items: center;
   min-height: 100vh;
-  background: #ded4df;
+  background: #ffffff;
   font-family: sans-serif;
 }
 .box{
@@ -98,7 +98,6 @@ z-index: 1;
  font-weight: 600;
  font-size: 20px;
  color: #777;
- text-transform: uppercase;
 } 
 
 .card .details h2 span{

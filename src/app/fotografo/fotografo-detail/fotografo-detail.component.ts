@@ -160,10 +160,16 @@ updateFotografo(): void {
   else{
    this.sinFotos = false;
    this.mandeError = true;
-  }
-  }
-  delete(): void{
 
+  }
+  }
+  
+    delete(): void {
+      console.log(this.fotografoDetail);
+      this.fotografoService.deleteFotografo(this.fotografoDetail.id)
+          .subscribe(
+          );
+  
   }
 
 }

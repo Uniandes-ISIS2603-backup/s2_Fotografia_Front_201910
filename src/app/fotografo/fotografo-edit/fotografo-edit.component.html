@@ -94,10 +94,10 @@
     <div class="col-12">
         <div class="row form-inline justify-content-center align-self-center">
          
-            <button class="btn btn-primary" style="padding-right: 3em; background: rgb(127, 161, 255)" (click)="editFotografo()"> <span class="fa fa-check "></span> &nbsp; Guardar</button>
+            <button class="btn btn-primary" style="padding-right: 3em; background: rgb(127, 161, 255)" (click)="editFotografo()"routerLink="/fotografos/{{fotografo_id}}"> <span class="fa fa-check "></span> &nbsp; Guardar</button>
             &nbsp;
           
-            <button  class="btn btn-primary" style="padding-right: 3em; background: rgb(250, 84, 84)" (click)="cancelEdition()"> <span class="fa fa-ban"></span> Cancelar</button>
+            <button  class="btn btn-primary" style="padding-right: 3em; background: rgb(250, 84, 84)" (click)="cancelEdition()" > <span class="fa fa-ban"></span> Cancelar</button>
         </div>
     </div>
 </div>
