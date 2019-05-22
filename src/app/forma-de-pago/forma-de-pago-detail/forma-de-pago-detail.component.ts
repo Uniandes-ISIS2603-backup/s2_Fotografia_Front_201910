@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import {FormaDePagoService} from '../forma-de-pago.service';
 import {FormaDePagoDetail} from '../forma-de-pago-detail';
@@ -44,6 +44,8 @@ formaDePagoId: number;
 
     loader: any;
 
+    foto :string;
+
     /**
      * Consigue el detalle de una forma de pago
      */
@@ -52,7 +54,9 @@ formaDePagoId: number;
     this.formaDePagoService.getFormaDePagoDetail(this.formaDePagoId)
       .subscribe(fdp => {
         this.formaDePagoDetail = fdp
-      });
+        console.log ("Tipo de la tarjeta"+this.formaDePagoDetail.tipoDeTarjeta);
+      }
+      );
   }
 
   /**
@@ -64,7 +68,7 @@ formaDePagoId: number;
     if(this.formaDePagoId){
     console.log(" en detail " + this.formaDePagoId);
     this.formaDePagoDetail = new FormaDePagoDetail();
-    this.getFormaDePagoDetail();}
+    this.getFormaDePagoDetail();}  
   }
 
   /**
@@ -73,6 +77,8 @@ formaDePagoId: number;
   ngOnInit() {
     this.loader = this.route.params.subscribe((params: Params) => this.onLoad(params));
   }
+
+  
 
   /**
    * Para la subscripcion
@@ -104,5 +110,6 @@ updateFormaDePago(): void {
 deleteFormaDePago() : void{
   this.showDelete = true;
 }
+
 
 }

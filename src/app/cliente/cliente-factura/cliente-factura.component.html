@@ -1,0 +1,60 @@
+<div class = "container-fluid">
+    <p>
+  
+      <button type="button" class="btn btn-lg btn-light align-self-center" [ngClass]="{ 'btn-light': isCollapsed,'btn-outline-light':!isCollapsed}" (click)="getClienteFacturas()">
+        Mis Facturas
+    </button>
+  </p>
+  
+  <div id="collapseFacturas" [ngbCollapse]="isCollapsed">
+
+      <div class="pin-layout">
+          <div class="thumbnail">
+              <br>
+              <div class="row justify-content-center align-self-center">
+                  <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+                      (click)="showHideCreate()">Crear Factura</button>
+              </div>
+              <br>
+              <div class="col-md-8">
+                  <div *ngIf="showCreate">
+                      <app-factura-create (cancel)="showHideCreate()" (create)="ngOnInit()" *ngIf="showCreate"></app-factura-create>
+                  </div>
+              </div>
+              <br>
+            <style>
+              table, th, td{
+                width:100%; 
+                border: 1px solid black;
+                border-collapse: collapse;
+                align-self: center;
+              }
+              th, td {
+                padding: 15px;
+                background-color:rgb(247, 247, 247);
+              }
+            </style>
+            <table >
+                <thead>
+                    <tr>
+                        <th style="background-color:rgba(164, 210, 255, 0.877); text-align: center" class="caption">Factura</th>    
+                    </tr>
+                </thead>
+              <tbody>
+                <tr *ngFor = "let factura of facturas">
+                    <td style="cursor: pointer;"> 
+                        <dd style="text-align: center;" routerLink="/facturas/{{factura.id}}" >{{factura.numero}}</dd>
+                    </td>
+                    <td>
+                        <button class="btn btn-primary" (click)="showHideEdit(factura.id)"><span class="fa fa-pencil"></span></button>
+                    </td>
+                </tr>
+            </tbody>
+          </table>
+          </div>
+      </div>
+            
+        
+       
+  </div>
+  </div>

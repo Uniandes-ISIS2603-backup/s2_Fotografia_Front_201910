@@ -58,10 +58,10 @@ loader: any;
    */
   getClienteDetail(): void {
     this.clienteService.getClientesDetail(this.clienteId)
-        .subscribe(clienteDetail => 
-            this.clienteDetail = clienteDetail
-            
-        );
+        .subscribe(clienteDetail => {
+            this.clienteDetail = clienteDetail  
+            console.log(this.clienteDetail);
+        });
 }
 
 /**
@@ -71,7 +71,6 @@ loader: any;
 onSelected(clienteId: number):void {
     this.clienteId = clienteId;
     this.clienteDetail = new ClienteDetail();
-    this.clienteId = clienteId;
     this.getClienteDetail();
     console.log("Id en list "+this.clienteDetail.id)
     

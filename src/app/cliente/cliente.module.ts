@@ -11,13 +11,15 @@ import { ClienteEditComponent } from './cliente-edit/cliente-edit.component';
 import{FormaDePagoModule} from '../forma-de-pago/forma-de-pago.module';
 import { ClienteFormaDePagoComponent } from './cliente-forma-de-pago/cliente-forma-de-pago.component';
 import { ClienteDeleteComponent } from './cliente-delete/cliente-delete.component';
+import { ClienteFacturaComponent } from './cliente-factura/cliente-factura.component';
+import {FacturaModule} from '../factura/factura.module';
 
 @NgModule({
   imports: [
-    CommonModule,FormsModule, AppRoutingModule, FormaDePagoModule, NgbModule
+    CommonModule,FormsModule, AppRoutingModule, FormaDePagoModule, NgbModule, FacturaModule
   ],
-  declarations: [ClienteListComponent, ClienteDetailComponent, ClienteCreateComponent, ClienteEditComponent, ClienteFormaDePagoComponent, ClienteDeleteComponent],
-  exports: [ClienteListComponent, ClienteDetailComponent, ClienteCreateComponent, ClienteFormaDePagoComponent],
+  declarations: [ClienteListComponent, ClienteDetailComponent, ClienteCreateComponent, ClienteEditComponent, ClienteFormaDePagoComponent, ClienteDeleteComponent, ClienteFacturaComponent],
+  exports: [ClienteListComponent, ClienteDetailComponent, ClienteCreateComponent, ClienteFormaDePagoComponent, ClienteFacturaComponent],
   providers: [ClienteService]
 })
 export class ClienteModule { }
