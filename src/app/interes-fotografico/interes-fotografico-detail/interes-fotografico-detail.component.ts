@@ -1,4 +1,5 @@
 
+
 import { Component, OnInit, OnChanges, Input} from '@angular/core';
 import {InteresFotograficoService} from '../interes-fotografico.service';
 import {InteresFotograficoDetail} from '../interes-fotografico-detail';
@@ -72,6 +73,7 @@ verif:boolean;
  crear:boolean;
 
  showConfig : boolean;
+ entra:boolean;
 
 /**
 * El id del interesFotografico que viene en el path get .../interesFotograficos/interesFotograficoId
@@ -180,13 +182,29 @@ this.verif = true;
 
   }
   delete(): void {
-    console.log(this.interesFotograficoDetail);
-    this.interesFotograficoService.deleteInteresFotografico(this.interesFotograficoDetail.id)
-        .subscribe(
-        );
+    this.modalDialogService.openDialog(this.viewRef, {
+      title: 'Delete a interes',
+      childComponent: SimpleModalComponent,
+      data: {text: '¿Esta seguro que desea eliminar este interes?'},
+      actionButtons: [
+          {
+              text: 'Yes',
+              buttonClass: 'btn btn-danger',
+              onAction: () => {
+                  this.interesFotograficoService.deleteInteresFotografico(this.interesFotograficoDetail.id).subscribe(interes => {
+                      this.toastrService.success("Interes ", "eliminar interes");
+                      this.router.navigate(['interes/list']);
+                  }, err => {
+                      this.toastrService.error(err, "Error");
+                  });
+               
+              }
+          },
+          {text: 'No', onAction: () => true}
+      ]
+  });
 
-      
-
+  
 }
 
 }
