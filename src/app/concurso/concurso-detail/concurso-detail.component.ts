@@ -93,6 +93,7 @@ export class ConcursoDetailComponent implements OnInit {
        this.concursoService.putPhoto(this.concursoDetail, foto).subscribe(pFoto => {
            this.toastrService.success("Agregaste la foto al concurso!", "Ingresar foto");
            this.show  = false;
+           this.ngOnInit;
        });
    }
    
