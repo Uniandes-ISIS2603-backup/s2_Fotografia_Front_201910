@@ -1,50 +1,27 @@
-<div class="pin-layout">
-    <div class="thumbnail">
-        <br>
-        <div class="row justify-content-center align-self-center">
-            <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
-                (click)="showHideCreate()">Crear jurado</button>
+<div class = body>
+
+
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Muli|Quicksand');
+        </style>
+    <tr>
+        <div class= "text">.</div> 
+       
+    </tr>
+    
+
+
+  <div class="box">
+      <div class="card" *ngFor = "let jurado of jurados">
+        <div class="imgBx">
+            <dd style="text-align: center;" routerLink="/jurados/{{jurado.id}}" > <img src='{{jurado.imagen}}' alt="images"></dd>
+         </div>
+        <div class="details">
+            <h2>{{jurado.nombre}} {{jurado.apellido}}<br></h2>
         </div>
-        <br>
-        <div class="col-md-8">
-            <div *ngIf="showCreate">
-                <app-jurado-create (cancel)="showHideCreate()" (create)="ngOnInit()" *ngIf="showCreate"></app-jurado-create>
-            </div>
-        </div>
-        <br>
-      <style>
-        table, th, td{
-          width:100%; 
-          border: 1px solid black;
-          border-collapse: collapse;
-          align-self: center;
-        }
-        th, td {
-          padding: 15px;
-          background-color:rgb(247, 247, 247);
-        }
-      </style>
-      <table >
-          <thead>
-              <tr>
-                  <th style="background-color:rgba(164, 210, 255, 0.877); text-align: center" class="caption">Jurado</th>    
-              </tr>
-          </thead>
-        <tbody>
-          <tr *ngFor = "let jurado of jurados">
-              <td style="cursor: pointer;"> 
-                  <dd style="text-align: center;" routerLink="/jurados/{{jurado.id}}" >{{jurado.nombre}}</dd>
-              </td>
-              <td>
-                  <button class="btn btn-primary" (click)="showHideEdit(jurado.id)"><span class="fa fa-pencil"></span></button>
-              </td>
-          </tr>
-      </tbody>
-    </table>
-    <div class="col-md-8">
-        <div *ngIf="showEdit">
-            <app-jurado-edit [jurado_id]="jurado_edit_id" (cancel)="showHideEdit(jurado_edit_id)" (update)="updateJurado()"></app-jurado-edit>
-        </div>
-    </div>
-    </div>
+      </div>
+  </div>
+  
+ 
+  
 </div>

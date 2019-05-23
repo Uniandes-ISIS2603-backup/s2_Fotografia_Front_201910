@@ -43,4 +43,6 @@ export class Jurado {
      * 
      */
     ciudad: string;
+
+    imagen: string;
 }

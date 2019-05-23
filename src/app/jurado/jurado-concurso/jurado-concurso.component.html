@@ -1,0 +1,13 @@
+<div id="collapsejuradoConcurso" [ngbCollapse]="isCollapsed">
+        <table class="table table-striped">
+            <tbody>
+                <tr *ngIf="juradoConcurso != null">
+                    <tr><td><span id="photo-calificada"><b>Tema:</b> {{juradoConcurso.tema}}</span><br>
+                        <span><b> Fecha del concurso:</b> </span><span id="juradoConcurso-comentario"> {{juradoConcurso.fechaDelConcurso}}</span><br>
+                        <span><b>Máximo número de fotos:</b> </span><span id="juradoConcurso-comentario"> {{juradoConcurso.maxFotos}}</span><br>
+                        <span><b>Premio:</b> </span><span id="juradoConcurso-comentario"> {{juradoConcurso.premioCantidad}}</span><br></td>
+                    
+                </tr>
+            </tbody>
+        </table>
+    </div>

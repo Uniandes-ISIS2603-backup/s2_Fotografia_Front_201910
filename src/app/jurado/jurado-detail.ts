@@ -1,7 +1,8 @@
 import { Jurado } from "./jurado";
+import { Concurso } from "../concurso/concurso";
+
 
 export class JuradoDetail extends Jurado {
     
-    /** Los libros del author **/
-    //books : Book[];
+    concursoJurado: Concurso;
 }
