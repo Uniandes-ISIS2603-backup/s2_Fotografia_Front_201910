@@ -9,7 +9,7 @@ export class Concurso {
         
         tema: string;
         
-        reglas: string[];
+        restricciones: string;
         
         edadDeLaFoto: number;
         

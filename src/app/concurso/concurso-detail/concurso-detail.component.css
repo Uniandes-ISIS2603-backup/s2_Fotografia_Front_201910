@@ -1,140 +1,106 @@
-.procedure-details {
-  max-height: 100px;
-  transition: .8s;
-  overflow: hidden;
+.container-fluid {
+  color: white;
+  background-color: #0d1a26;
 }
 
-.procedure-details.hidden {
-    max-height: 0;
+
+body {
+  font-family: Raleway;
+  background-color: #202125;
 }
 
-#portfolio {
-  width: 100%;
-  min-height: 100vh;
-  background: #ffffff;
-  position: relative;
-  display: grid;
-  grid-template-columns: repeat(4, minmax(200px, 1fr));
-  grid-template-rows:  repeat(4, minmax(400px, 1fr));
-  grid-gap: 2px;
+.heading {
+    text-align: center;
+    font-size: 3.0em;
+    letter-spacing: 1px;
+    padding: 10px;
+    color: white;
 }
 
-.project {
-  position: relative;
-  background: #F2DAD7;
-  overflow: hidden;
-}
-.project img {
-  position: absolute;
-  opacity: 0.9;
-    height: 100%;
-    width: 200%;
-}
-.project p {
-  position: absolute;
-  text-align: center;
-  width: 100%;
-  padding: 1em 0;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  z-index: 3;
-}
-.project .grid__title {
-  position: absolute;
-  width: 100%;
-  text-align: center;
-  white-space: nowrap;
-  bottom: 0;
-  font-weight: 100;
-  font-size: 0.8em;
-  z-index: 3;
-  text-transform: uppercase;
-  color: #ffffff;
-  text-shadow: 2px 2px 4px #000000;
-  letter-spacing: 2px;
+.heading2 {
+    text-align: center;
+    font-size: 2.0em;
+    letter-spacing: 1px;
+    color: white;
 }
 
-.project:hover .grid__overlay {
-  transform: translateY(0%);
+.heading3 {
+    text-align: center;
+    font-size: 1.0em;
+    color: white;
+}
+.heading4 {
+    text-align: center;
+    letter-spacing: 1px;
+    color: white;
 }
 
-.grid__overlay {
-  background: rgba(90, 122, 182, 0.9);
-  height: 100%;
-  grid-column: 1 / -1;
-  grid-row: 1 / -1;
-  position: relative;
-  display: grid;
-  justify-items: center;
-  align-items: center;
-  transform: translateY(101%);
-  transition: all 0.3s ease-in-out;
 
-  grid-template-columns: 1fr 1fr 1fr;
-}
-.grid__overlay button {
-  background: none;
-  outline: none;
-  font-weight: 100;
-  font-size: 12px;
-  letter-spacing: 2px;
-  border: 1px solid #ffffff;
-  color: #ffffff;
-  text-transform: uppercase;
-  padding: 10px;
-}
-.grid__overlay button:hover {
-  transition: all 0.3s ease-in-out;
-  background: #ffffff;
-  color: rgba(90, 122, 182, 1);
-  transform: scale(1.05);
-}
-
-.overlay {
-  position: fixed;
-  background: rgba(71, 69, 69, 0.7);
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  display: none;
-  z-index: 3;
-}
-
-.overlay.open {
-  display: grid;
-  align-items: center;
-  justify-items: center;
-}
-
-.overlay__inner {
-  background: #ffffff;
-  width: 700px;
+.gallery-image {
   padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.gallery-image img {
+  height: 250px;
+  width: 350px;
+  transform: scale(1.0);
+  transition: transform 0.4s ease;
+}
+
+.img-box {
+  box-sizing: content-box;
+  margin: 10px;
+  height: 250px;
+  width: 350px;
+  overflow: hidden;
+  display: inline-block;
+  color: white;
   position: relative;
-  opacity: 1;
+  background-color: white;
 }
 
-.close {
+.caption {
   position: absolute;
-  top: 3px;
-  right: 10px;
-  background: none;
-  outline: 0;
-  color: #474545;
-  border: 0;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-}
-.close:hover {
-  color: #00FFFF;
+  bottom: 5px;
+  left: 20px;
+  opacity: 0.0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-.project__image {
-  margin-left: -50%;
+.transparent-box {
+  height: 250px;
+  width: 350px;
+  background-color:rgba(0, 0, 0, 0);
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: background-color 0.3s ease;
 }
-p{
-    size: 50px;
-    color: #ffffff;
-    text-shadow: 2px 2px 4px #000000;
+
+.img-box:hover img { 
+  transform: scale(1.1);
+}
+
+.img-box:hover .transparent-box {
+  background-color:rgba(0, 0, 0, 0.5);
+}
+
+.img-box:hover .caption {
+  transform: translateY(-20px);
+  opacity: 1.0;
+}
+
+.img-box:hover {
+  cursor: pointer;
+}
+
+.caption > p:nth-child(2) {
+  font-size: 0.8em;
+}
+
+.opacity-low {
+  opacity: 0.5;
 }
