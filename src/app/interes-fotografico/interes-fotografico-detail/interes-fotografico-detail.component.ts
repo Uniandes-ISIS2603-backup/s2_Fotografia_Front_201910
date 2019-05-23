@@ -185,7 +185,7 @@ this.verif = true;
         .subscribe(
         );
 
-      return alert ('El interes fotografico fue eliminado');
+      
 
 }
 
