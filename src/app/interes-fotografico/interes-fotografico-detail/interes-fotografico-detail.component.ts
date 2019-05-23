@@ -37,6 +37,7 @@ export class InteresFotograficoDetailComponent implements OnInit
 }
 navigationSubscription;
 
+verif:boolean;
 
     /**
      * The child BookReviewListComponent
@@ -71,7 +72,6 @@ navigationSubscription;
  crear:boolean;
 
  showConfig : boolean;
- verif:boolean;
 
 /**
 * El id del interesFotografico que viene en el path get .../interesFotograficos/interesFotograficoId
@@ -85,14 +85,7 @@ fotoId: number;
     loader: any;
     
 
-    getPhotos(): void {
-      this.photoService.getPhotos()
-          .subscribe(photos => {
-              this.fotos = photos;
-          }, err => {
-              this.toastrService.error(err, 'Error');
-          });
-  }
+  
 
     getInteresFotograficoDetail(): void {
       console.log(this.id);
@@ -114,7 +107,7 @@ fotoId: number;
 
   ngOnInit() {
     this.loader = this.route.params.subscribe((params: Params) => this.onLoad(params));
-    this.getPhotos;
+    this.interesFotograficoDetail;
   }
   showHideEdit(interesFotografico_id: number): void {
     if (!this.showEdit || (this.showEdit && interesFotografico_id != this.interesFotografico_id)) {
@@ -185,13 +178,7 @@ updateInteresFotografico(): void {
   }
   
 
-  createFoto():void{
-
-    this.getPhotos();
-    if(this.fotos.length!=0){
-    this.crear = true;
-    }
-  }
+ 
   
   verf():void{
 this.verif = true;

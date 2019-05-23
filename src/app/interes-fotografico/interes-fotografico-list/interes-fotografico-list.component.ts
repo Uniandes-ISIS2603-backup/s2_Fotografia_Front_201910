@@ -7,7 +7,7 @@ import { InteresFotografico } from '../interes-fotografico';
 import { InteresFotograficoDetail } from '../interes-fotografico-detail';
 
 @Component({
-  selector: 'app-interes-fotografico-list',
+  selector: 'app-interes-fotografico',
   templateUrl: './interes-fotografico-list.component.html',
   styleUrls: ['./interes-fotografico-list.component.css']
 })
@@ -25,9 +25,9 @@ export class InteresFotograficoListComponent implements OnInit {
 /**
 * The list of InteresFotograficos which belong to the BookStore
 */
-intereses: InteresFotografico[];
+interesFotograficos: InteresFotografico[];
 interesFotografico_id: number;
-interesFotograficoDetail : InteresFotograficoDetail;
+interesFotograficoDetail : InteresFotografico;
 
 /**
     * Shows or hides the create component
@@ -43,21 +43,23 @@ interesFotograficoDetail : InteresFotograficoDetail;
   onSelected(interesFotografico_id: number): void {
     this.interesFotografico_id = interesFotografico_id;
     this.interesFotograficoDetail= new InteresFotograficoDetail();
-    this.getInteresFotograficoDetail();
+    this.interesFotograficoService.getInteresFotograficoDetail(interesFotografico_id).subscribe(o => this.interesFotograficoDetail = o);
   }
 /**
 * Asks the service to update the list of InteresFotograficos
 */
 getInteresFotograficos(): void {
-    this.interesFotograficoService.getInteresFotograficos().subscribe(losClientes => this.intereses= losClientes);
+    this.interesFotograficoService.getInteresFotograficos()
+        .subscribe(interesFotograficos => {
+            this.interesFotograficos = interesFotograficos;
+        });
 }
 
 getInteresFotograficoDetail(): void {
     this.interesFotograficoService.getInteresFotograficoDetail(this.interesFotografico_id)
-        .subscribe(interesDetail => 
-            this.interesFotograficoDetail = interesDetail
-            
-        );
+        .subscribe(selectedInteresFotografico => {
+            this.interesFotograficoDetail = selectedInteresFotografico
+        });
 }
 
 /**
@@ -82,7 +84,7 @@ showHideEdit(interesFotografico_id: number): void {
     }
 }
 
-updateEditorial(): void {
+updateInteresFotografico(): void {
     this.showEdit = false;
 }
 
@@ -94,6 +96,4 @@ ngOnInit() {
     this.getInteresFotograficos();
 }
 
-
 }
-

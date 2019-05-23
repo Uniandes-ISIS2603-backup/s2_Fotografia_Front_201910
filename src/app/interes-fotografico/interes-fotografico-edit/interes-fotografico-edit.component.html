@@ -12,6 +12,16 @@
                     <div>No se ha puesto el nombre</div>
                 </div>
               </div>
+             
+
+              <div class= "form-group">
+                <label for="interesFotograficoFoto"><b>Foto</b></label>
+                <input type="text" name="interesFotograficoFoto" class="form-control" id="interesFotograficoFoto" [(ngModel)]="interesFotografico.foto"
+                    #interesFotograficoFoto="ngModel" [ngClass]="{ 'is-invalid': f.submitted &&interesFotograficoFoto.invalid }" required>
+                <div class="invalid-feedback">
+                    <div>No se ha puesto la foto</div>
+                </div>
+              </div>
               </form>
     </div>
 
@@ -19,8 +29,8 @@
 <div class="row">
     <div class="col-12">
         <div class="row form-inline justify-content-center align-self-center">
-         Despues de "Guardar" presionar el boton "actualizar mi perfil " 
-            <button class="btn btn-primary" style="padding-right: 3em; background: rgb(127, 161, 255)" (click)="editInteresFotografico()"> <span class="fa fa-check "></span> &nbsp; Guardar</button>
+        
+            <button class="btn btn-primary" style="padding-right: 3em; background: rgb(127, 161, 255)" (click)="editInteresFotografico()"routerLink="/interesFotograficos/{{interesFotografico_id}"> <span class="fa fa-check "></span> &nbsp; Guardar</button>
             &nbsp;
           
             <button  class="btn btn-primary" style="padding-right: 3em; background: rgb(250, 84, 84)" (click)="cancelEdition()"> <span class="fa fa-ban"></span> Cancelar</button>
