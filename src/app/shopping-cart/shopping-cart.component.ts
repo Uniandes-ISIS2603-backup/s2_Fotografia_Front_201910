@@ -1,10 +1,13 @@
 // Se importa la anotación utilizada para anotar componentes.
-import {Component} from '@angular/core'
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 // Se importa el modelo Item
 import {Photo} from '../photo/photo'
 import {CartServiceService} from './cart-service.service'
-import {Observable} from 'rxjs';
+import {Observable, from} from 'rxjs';
 import {of} from 'rxjs/observable/of';
+import { FacturaService } from '../factura/factura.service';
+import { ToastrService } from 'ngx-toastr';
+import { Factura } from '../factura/factura';
 
 
 // Declarar el componente utilizando @Component, definiendo el selector del
@@ -22,12 +25,31 @@ export class ShoppingCartComponent {
   public shoppingCartItems$: Observable<Photo[]> = of([]);
   invoice: Photo[];
   
-  constructor(private cartService: CartServiceService) {
+  facturaService: FacturaService;
+  /**
+    * The new factura
+    */
+   factura: Factura;
+
+     /**
+    * The output which tells the parent component
+    * that the user no longer wants to create an calificacion
+    */
+   @Output() cancel = new EventEmitter();
+
+   /**
+   * The output which tells the parent component
+   * that the user created a new calificacion
+   */
+   @Output() create = new EventEmitter();
+
+  constructor(private cartService: CartServiceService, facturaService: FacturaService, private toastrService: ToastrService) {
     this.shoppingCartItems$ = this
       .cartService
       .getItems();
-
+    this.facturaService = facturaService;
     this.shoppingCartItems$.subscribe(_ => this.invoice = _); 
+
   }
 
   
@@ -62,11 +84,19 @@ export class ShoppingCartComponent {
    * @returns El precio total de la factura.
    */
   total(): number {
-    console.log('total');
     let total = 0;
     for (const item of this.invoice) {
       total = total + item.price;
     }
     return total;
+  }
+
+  checkout(){
+    console.log('checkout');
+    this.facturaService.createFactura(this.invoice, this.total()).subscribe((factura) => {
+      this.factura = factura;
+      this.create.emit();
+      this.toastrService.success("The factura was created", "factura creation");
+  });;
   }
 }

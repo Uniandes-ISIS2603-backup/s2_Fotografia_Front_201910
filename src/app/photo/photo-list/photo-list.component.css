@@ -138,8 +138,7 @@ p{
     color: #ffffff;
     text-shadow: 2px 2px 4px #000000;
 }
-.animacioncarrito{
-}
+
 .animacioncarrito:hover {
   animation: move 10s steps(10) infinite alternate;
 }
@@ -155,6 +154,7 @@ p{
 }
 
 .partearriba{
+  padding-top: 10px;
   width:75%;
   margin: 0 auto;
 }

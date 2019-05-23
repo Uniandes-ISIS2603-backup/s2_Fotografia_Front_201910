@@ -40,7 +40,7 @@ export class FacturaListComponent implements OnInit, OnChanges{
 
   onSelected(factura_id: number): void {
     this.factura_edit_id = factura_id;
-    this.selectedFactura = new FacturaDetail();
+    this.selectedFactura = new FacturaDetail(0,0,0,null);
     this.getFacturaDetail();
   }
   /**

@@ -6,6 +6,7 @@ import { FacturaService } from '../factura.service';
 import { FacturaDetail } from '../factura-detail';
 import { Factura } from '../factura';
 import { FacturaPhotoComponent  } from '../factura-photo/factura-photo.component';
+import { Photo } from '../../photo/photo';
 
 @Component({
   selector: 'app-factura-detail',
@@ -39,6 +40,8 @@ export class FacturaDetailComponent implements OnInit {
   */
   facturaDetail: FacturaDetail;
 
+  photos: Photo[];
+
   /**
   * The method which obtains the factura whose details we want to show
   */
@@ -56,8 +59,10 @@ export class FacturaDetailComponent implements OnInit {
   */
   ngOnInit() {
     this.factura_id = +this.route.snapshot.paramMap.get('id');
-    this.facturaDetail = new FacturaDetail();
+    this.facturaDetail = new FacturaDetail(0,0,0,null);
     this.getFacturaDetail();
+    this.photos = this.facturaDetail.photos;
+    console.log(this.photos);
   }
 
 }

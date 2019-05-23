@@ -1,13 +1,23 @@
+<div *ngIf="!showBuy">
+        <div class='partearriba'>
+            <div class="card-header bg-dark text-light">
+                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                Carrito de compras
+                <a (click)="showBuyCarrito2()" class="btn btn-outline-info btn-sm pull-right">Abrir</a>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
 <div *ngIf="showBuy">
-    <div class=partearriba>
+    <div class='partearriba'>
         <div class="card-header bg-dark text-light">
             <i class="fa fa-shopping-cart" aria-hidden="true"></i>
             Carrito de compras
             <a (click)="showBuyCarrito2()" class="btn btn-outline-info btn-sm pull-right">Cerrar</a>
             <div class="clearfix"></div>
         </div>
+        <shoppingCart-component></shoppingCart-component>
     </div>
-    <shoppingCart-component></shoppingCart-component>
 </div>
 <div class="pin-layout">
     <div class="thumbnail">

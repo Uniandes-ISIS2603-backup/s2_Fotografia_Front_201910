@@ -1,4 +1,3 @@
-
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
@@ -49,32 +48,47 @@
                             <td>   </td>
                             <td>   </td>
                             <td class="text-right">
-                            <p>
-                                <strong>Subtotal: </strong>
-                            </p>
-                            <p>
-                                <strong>Impuestos (17%): </strong>
-                            </p></td>
+                                <p>
+                                    <strong>Subtotal: </strong>
+                                </p>
+                                <p>
+                                    <strong>Impuestos (17%): </strong>
+                                </p>
+                            </td>
                             <td class="text-center">
-                            <p>
-                                <strong>${{facturaDetail.precio}}</strong>
-                            </p>
-                            <p>
-                                <strong>${{facturaDetail.precio * 0.17}}</strong>
-                            </p></td>
+                                <p>
+                                    <strong>${{facturaDetail.precio}}</strong>
+                                </p>
+                                <p>
+                                    <strong>${{facturaDetail.precio * 0.17}}</strong>
+                                </p>
+                            </td>
                         </tr>
                         <tr>
                             <td>   </td>
                             <td>   </td>
-                            <td class="text-right"><h4><strong>Total: </strong></h4></td>
-                            <td class="text-center text-danger"><h4><strong>${{facturaDetail.precio * 0.17 + facturaDetail.precio}}</strong></h4></td>
+                            <td class="text-right">
+                                <h4><strong>Total: </strong></h4>
+                            </td>
+                            <td class="text-center text-danger">
+                                <h4><strong>${{facturaDetail.precio * 0.17 + facturaDetail.precio}}</strong></h4>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
-    
-    
-    <factura-photo class="m-3" [idcurso]="facturaDetail.precio"></factura-photo>
-    
+</div>
+<div class="project" *ngFor="let photo of photos">
+    <img class="project__image" src='{{photo.rutaFoto}}' src='{{photo.rutaFoto}}' />
+    <p>{{photo.nombre}}</p>
+    <h3 class="grid__title"> ${{photo.price}}</h3>
+    <div class="grid__overlay">
+        <button class="viewbutton" routerLink="/photos/{{photo.id}}">View</button>
+        <button class="viewbutton" (click)="showHideEdit(photo.id)">Edit</button>
+        <div class="">
+            <button class="animacioncarrito" (click)="addToCart(photo);showBuyCarrito()">Al carrito!</button>
+        </div>
+    </div>
+</div>
