@@ -52,7 +52,7 @@
         <h3 class="grid__title"> ${{photo.price}}</h3>
         <div class="grid__overlay">
             <button class="viewbutton" routerLink="/photos/{{photo.id}}">View</button>
-            <button class="viewbutton" (click)="showHideEdit(photo.id)">Edit</button>
+            <button class="viewbutton" (click)="showHideEdit(photo.id)" *ngxPermissionsOnly="['FOTOGRAFO']">Edit</button>
             <div class="">
                 <button class="animacioncarrito" (click)="addToCart(photo);showBuyCarrito()">Al carrito!</button>
             </div>
