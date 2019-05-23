@@ -68,23 +68,6 @@ getJuradoDetail(): void {
     this.showCreate = !this.showCreate!
 }
 
-/**
-* Shows or hides the create component
-*/
-showHideEdit(jurado_id: number): void {
-    if (!this.showEdit || (this.showEdit && jurado_id != this.jurado_edit_id)) {
-        this.showCreate = false;
-        this.showEdit = true;
-        this.jurado_edit_id = jurado_id;
-    }
-    else {
-        this.showEdit = false;
-    }
-}
-
-updateEditorial(): void {
-    this.showEdit = false;
-}
 
 /**
 * This will initialize the component by retrieving the list of Jurados from the service

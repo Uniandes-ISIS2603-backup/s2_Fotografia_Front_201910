@@ -10,6 +10,8 @@ import { AppRoutingModule } from '../app-routing/app-routing.module';
 import { JuradoDetailComponent } from './jurado-detail/jurado-detail.component';
 import { JuradoCreateComponent } from './jurado-create/jurado-create.component';
 import { JuradoEditComponent } from './jurado-edit/jurado-edit.component';
+import { JuradoConcursoComponent} from './jurado-concurso/jurado-concurso.component';
+import { ConcursoModule} from '../concurso/concurso.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
@@ -19,9 +21,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
         HttpClientModule,
         CommonModule,
         FormsModule, 
-        NgbModule
+        NgbModule,
+        ConcursoModule
   ],
-  declarations: [JuradoListComponent, JuradoDetailComponent, JuradoCreateComponent, JuradoEditComponent],
+  declarations: [JuradoListComponent, JuradoDetailComponent, JuradoCreateComponent, JuradoEditComponent, JuradoConcursoComponent],
   providers: [JuradoService],
   exports: [JuradoCreateComponent],
   bootstrap: [JuradoListComponent]

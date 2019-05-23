@@ -1,22 +1,126 @@
-<div class="panel-body">
-    <div class="border margin">
-        <p style="background-color:rgba(164, 210, 255, 0.877); text-align: center" class="h3 p-3">{{juradoDetail.nombre}}<p> 
-        <div class="row">
-            <div class="col">
-                <dl>     
-                    <dt style="background-color:rgb(247, 247, 247);text-align: center">Apellido</dt>
-                    <dd style="background-color:rgb(247, 247, 247); text-align: center">{{juradoDetail.apellido}}</dd>
-                    <dt style="background-color:rgb(247, 247, 247); text-align: center">Correo</dt>
-                    <dd style="background-color:rgb(247, 247, 247); text-align: center">{{juradoDetail.correo}}</dd>
-                    <dt style="background-color:rgb(247, 247, 247); text-align: center">Cedula</dt>
-                    <dd style="background-color:rgb(247, 247, 247); text-align: center">{{juradoDetail.cedula}}</dd>
-                    <dt style="background-color:rgb(247, 247, 247); text-align: center">País</dt>
-                    <dd style="background-color:rgb(247, 247, 247); text-align: center">{{juradoDetail.pais}}</dd>
-                    <dt style="background-color:rgb(247, 247, 247); text-align: center">Ciudad</dt>
-                    <dd style="background-color:rgb(247, 247, 247); text-align: center">{{juradoDetail.ciudad}}</dd>
-                </dl>
-            </div>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+<!------ Include the above in your HEAD tag ---------->
+
+
+
+<body class="profile-page">
   
-        </div>
-    </div>
-  </div>
+
+    
+    <div class="page-header header-filter"  style="background-image:url('https://www.blogdelfotografo.com/wp-content/uploads/2015/10/15583603744_33147607c0_k.jpg');">	</div>
+   
+    <div class="main main-raised">
+        <div class="row">
+            <div class="col-md-6">
+                          <div class="profile-tabs">
+                           
+                            
+                              <ul class="nav nav-pills nav-pills-icons " role="tablist">
+                              <li class="nav-item">
+                                  <a class="nav-link active" href="#studio" role="tab" data-toggle="tab">
+                                    <i class='fas fa-user'></i>
+                                         Perfil
+                                  </a>
+                              </li>
+                              <li class="nav-item">
+                                
+                                  <a class="nav-link" href="#works" role="tab" data-toggle="tab" (click)="showHideEdit(id)">
+                                    <i class='fas fa-edit'></i>
+                                      Editar perfil
+
+                                  </a>
+                              </li>
+  
+                             
+                              <li class="nav-item">
+                                  <a class="nav-link" href="#favorite" role="tab" data-toggle="tab" onclick="return confirm ('¿Estas seguro que desea eliminar este perfil?')" (click) = "delete()" routerLink="/fotografos/list">
+                                    <i class='fas fa-trash'></i>
+                                      Eliminar perfil
+                                  </a>
+                              </li>
+                            </ul>
+                          </div>
+              </div>
+              <div class="col-sm-3">.</div>
+              <div class="col-sm-3">.</div>
+              </div>
+		<div class="profile-content">
+                <div class="row">
+
+	                <div class="col-sm-4">
+
+                    <div class="profile">
+	                    <div class="avatar">
+	                      <img src="{{juradoDetail.imagen}}">
+                      </div>
+                      </div>
+                    </div>
+                        <div class="col-sm-8">
+                            <div  class="tab-pane active text-center gallery" id="studio"  >
+                                <div class="conatiner iman">
+                                    <h3 align="center">Concurso</h3>
+                                    <div class="wrap">
+                                    <app-jurado-concurso [juradoConcurso]="juradoDetail.concursoJurado"> </app-jurado-concurso>
+                                  <style>
+                                      .one {
+                                  background-size: cover;
+                                  background-position: center;
+                                }
+                                    </style> 
+                                  
+                             </div>
+                            </div> 
+                            
+                        </div>
+	                        <div class="name">
+	                            <h3 class="title">{{juradoDetail.nombre}} {{juradoDetail.apellido}}</h3>
+                
+                <p>{{juradoDetail.ciudad}}. </p>
+               <div class = "row">
+                 <div class ="col-sm-3">
+                    <i class="fas fa-envelope"></i> {{juradoDetail.correo}} <br>
+               </div>
+               <div class ="col-sm-3">
+                  <i class="fas fa-map-marker-alt"></i> {{juradoDetail.pais}} <br>
+              </div>
+               </div>
+              </div>
+             
+                            </div>
+                          
+                            
+                            
+                            <div class="tab-content tab-space" >
+                            <div class="tab-pane text-center gallery" id="works">
+               
+                                    <div class = "row"*ngIf="showEdit">
+                                    
+                                    <div class="col-sm-2">
+                                     .
+                                        </div>
+                                        <div class="col-sm-2">
+                                            .
+                                               </div>
+                                    
+                                      <div class="col-sm-8">
+                                             <app-jurado-edit [jurado_id]="jurado_id" (cancel)="showHideEdit(id)" (update)="updateJurado()"  (update)=" getJuradoDetail()"></app-jurado-edit>
+                                       </div>
+                                  </div>
+                                    </div>
+                                  <div class="tab-pane text-center gallery" id="favorite">
+                                        <div class="row">
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                      
+                              
+                                  </div>
+                              </div>
+	</div>
+
+</body>
