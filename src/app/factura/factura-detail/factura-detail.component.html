@@ -38,12 +38,14 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td class="col-md-9"><em>Foto</em></td>
-                            <td class="col-md-1" style="text-align: center"> {{facturaDetail.fechaCompra}} </td>
-                            <td class="col-md-1 text-center">${{facturaDetail.precio}}</td>
-                            <td class="col-md-1 text-center">1</td>
-                        </tr>
+                        <div class="alinear" *ngFor="let photo of facturaDetail.photos">
+                            <tr>
+                                <td class="col-md-9"><em></em><img class="project__image" src='{{photo.rutaFoto}}'></td>
+                                <td class="col-md-1" style="text-align: center"> {{facturaDetail.fechaCompra}} </td>
+                                <td class="col-md-1 text-center">${{facturaDetail.precio}}</td>
+                                <td class="col-md-1 text-center">1</td>
+                            </tr>
+                        </div>
                         <tr>
                             <td>   </td>
                             <td>   </td>
@@ -77,18 +79,6 @@
                     </tbody>
                 </table>
             </div>
-        </div>
-    </div>
-</div>
-<div class="project" *ngFor="let photo of facturaDetail.photos">
-    <img class="project__image" src='{{photo.rutaFoto}}' src='{{photo.rutaFoto}}' />
-    <p>{{photo.nombre}}</p>
-    <h3 class="grid__title"> ${{photo.price}}</h3>
-    <div class="grid__overlay">
-        <button class="viewbutton" routerLink="/photos/{{photo.id}}">View</button>
-        <button class="viewbutton" (click)="showHideEdit(photo.id)">Edit</button>
-        <div class="">
-            <button class="animacioncarrito" (click)="addToCart(photo);showBuyCarrito()">Al carrito!</button>
         </div>
     </div>
 </div>
