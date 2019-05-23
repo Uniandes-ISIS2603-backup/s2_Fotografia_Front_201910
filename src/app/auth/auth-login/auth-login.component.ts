@@ -43,15 +43,7 @@ export class AuthLoginComponent implements OnInit {
     */
     login(): void {
 
-      this.getClienteDetailLogin();
-      if(this.clienteDetail === null || this.clienteDetail === undefined)
-      {
-          this.toastrService.error('No se econtro un cliente con el login dado');
-      }
-      else{
-          this.authService.login(this.role, this.user.nombre);
-          this.toastrService.success('Logged in');
-      }
+       
 
 
         let respuesta = `{"login": "${this.user.nombre}", "password":"${this.user.password}"}`
@@ -63,17 +55,17 @@ export class AuthLoginComponent implements OnInit {
                 this.router.navigateByUrl('/');
             }
         }
-       /**  else if(this.role === 'Client'){
-            this.authService.loginCliente(res).
-            subscribe(cliente => {
-                this.authService.setCurrentUser(cliente);
-                localStorage.setItem('currentUser', JSON.stringify(cliente));
-                localStorage.setItem('cliente',JSON.stringify(this.user.nombre) );
-                this.authService.setClientRole();
-                this.router.navigateByUrl('/');
-            }
-            );
-        }*/
+        else if(this.role === 'Client'){
+          this.getClienteDetailLogin();
+          if(this.clienteDetail === null || this.clienteDetail === undefined)
+          {
+              this.toastrService.error('No se econtro un cliente con el login dado');
+          }
+          else{
+              this.authService.login(this.role, this.user.nombre);
+              this.toastrService.success('Logged in');
+          }
+        }
         else if(this.role === 'Fotografo'){
             this.authService.loginFotografo(res).
             subscribe(cliente => {
