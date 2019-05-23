@@ -25,7 +25,7 @@
                         routerLink="/concursos/list">Concursos</a></li>
                 &nbsp;
                 <li class="nav-item"><a class="nav-link" id="organizadorsTag" routerLink="/organizadors/list"
-                        *ngxPermissionsOnly="['ADMIN']">Organizadores</a></li>
+                        *ngxPermissionsOnly="['ADMIN','ORGANIZADOR']">Organizadores</a></li>
                 &nbsp;
                 <li class="nav-item"><a class="nav-link" id="calificacion-navbar-item"
                         routerLink="/photos/list">Fotos</a></li>
@@ -58,7 +58,7 @@
                                     class="fa fa-sign-out"></span>Logout</a></li>
                     </div>
                 </div>
-                <div class="flex-row" *ngxPermissionsOnly="['CLIENT']">
+                <div class="flex-row" *ngxPermissionsOnly="['CLIENT','ADMIN']">
                     <div class="form-inline">
                         <li><a id="logout-navbar-item" routerLink="/shopping-cart"><span
                                     class="fa fa-shopping-cart"></span>Carrito de compras</a></li>

@@ -1,5 +1,5 @@
     
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import {Router} from '@angular/router';
 import {DatePipe} from '@angular/common';
 import {ToastrService} from 'ngx-toastr';
@@ -31,6 +31,8 @@ export class ConcursoCreateComponent implements OnInit {
         private toastrService: ToastrService,
         private router: Router
     ) {}
+    
+    @Input() organizadorId: number;
 
     @Output() create = new EventEmitter();
     
@@ -96,6 +98,7 @@ export class ConcursoCreateComponent implements OnInit {
     */
     ngOnInit() {
         this.concurso = new Concurso();
+        this.concurso.organizador = new Organizador(this.organizadorId);
     }
 
 }

@@ -24,10 +24,10 @@
             <br>
             <div class="col-md-8" >
                 <div *ngIf="showCreate">
-                    <app-concurso-create (cancel)= "showHideCreate()" (create)="ngOnInit()" *ngIf="showCreate"></app-concurso-create>
+                    <app-concurso-create [organizadorId]="organizador_id" (cancel)= "showHideCreate()" (create)="ngOnInit()" *ngIf="showCreate"></app-concurso-create>
                 </div>
         </div>
-        
+           
   </div>
   <p class="h3 p-3">Otros Organizadores: <p> 
   <div *ngFor="let organizador of organizadors">

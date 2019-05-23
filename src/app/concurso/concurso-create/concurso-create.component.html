@@ -36,15 +36,6 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="concursoReglas"><b>Pon las reglas del concurso:</b></label>
-                    <input type="text" name="concursoReglas" class="form-control" id="concursoReglas" [(ngModel)]="reglas"
-                            #concursoReglas="ngModel" ngClass="{ 'is-invalid': f.submitted }" required>
-                    <input type=button (click)="subirRegla()" value="Añadir regla"/>
-                           <div class="invalid-feedback">
-                        <div> Falta poner reglas al concurso</div>
-                    </div>
-                </div>
-                <div class="form-group">
                     <label for="concursoPremioCantidad"><b>Pon la cantidad a ganar: </b></label>
                     <input type="number" name="concursoPremioCantidad" class="form-control" id="concursoPremioCantidad" [(ngModel)]="concurso.premioCantidad"
                             #concursoPremioCantidad="ngModel" ngClass="{ 'is-invalid': f.submitted && concursoPremioCantidad.invalid }" required>
