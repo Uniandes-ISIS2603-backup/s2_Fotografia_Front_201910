@@ -37,7 +37,7 @@
     <div class="gallery-image">
         <div class="img-box" *ngFor="let photo of concursoDetail.fotosEnConcurso">
           <img src="{{photo.rutaFoto}}" alt="" />
-          <div class="transparent-box">
+          <div class="transparent-box" routerLink="/photos/{{photo.id}}">
             <div class="caption">
               <p>{{photo.nombre}}</p>
               <p class="opacity-low">{{photo.description}}</p>

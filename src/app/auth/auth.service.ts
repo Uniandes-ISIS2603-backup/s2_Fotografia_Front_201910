@@ -1,8 +1,17 @@
 import {Injectable} from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { FotografoDetail } from '../fotografo/fotografo-detail';
+import { OrganizadorDetail } from '../organizador/organizador-detail';
+import { JuradoDetail } from '../jurado/jurado-detail';
+import { ClienteDetail } from '../cliente/cliente-detail';
+import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
 import {Router} from '@angular/router';
 import {NgxRolesService, NgxPermissionsService} from 'ngx-permissions';
 import 'rxjs/add/operator/catch';
 
+
+const API_URL = environment.apiURL;
 /**
  * The service provider for everything related to authentication
  */
@@ -15,10 +24,30 @@ export class AuthService {
      * @param roleService NgxRolesService to manage authentication roles
      * @param permissionsService NgxPermissionsService to manage authentication permissions
      */
-    constructor (private router: Router, private roleService: NgxRolesService, private permissionsService: NgxPermissionsService) { }
+    constructor (private router: Router, private roleService: NgxRolesService, private permissionsService: NgxPermissionsService, private http: HttpClient) { }
     
     currentUser: any;
     
+    loginCliente(body): Observable<ClienteDetail> {
+        return this.http.post<ClienteDetail>(API_URL + '/login/cliente', body);
+    }
+    
+    loginOrganizador(body): Observable<OrganizadorDetail> {
+        return this.http.post<OrganizadorDetail>(API_URL + '/login/organizador', body);
+    }
+    
+    loginJurado(body): Observable<JuradoDetail> {
+        return this.http.post<JuradoDetail>(API_URL + '/login/jurado', body);
+        
+    }
+    
+    loginFotografo(body): Observable<FotografoDetail>{
+        return this.http.post<FotografoDetail>(API_URL + '/login/fotografo', body);
+    }
+    
+    loginAdministrador(body): void {
+        
+    }
     
     start (): void {
         this.permissionsService.flushPermissions();
@@ -37,7 +66,6 @@ export class AuthService {
         } else if (role === 'ORGANIZADOR'){
             this.setOrganizadorRole();
         }
-        console.log(role);
     }
 
     setGuestRole (): void {
@@ -106,7 +134,6 @@ export class AuthService {
         }
         this.setCurrentUser(user);
         localStorage.setItem('currentUser', JSON.stringify(user));
-        console.log(user);
         this.printRole();
         this.router.navigateByUrl('/');
     }

@@ -1,4 +1,15 @@
 export class Photo {
+    
+    constructor(id?: number, nombre?:string, rutaFoto?:string, date?:any, description?: string, price?:number, winner?:boolean, published?:boolean){
+        this.id = id;
+        this.nombre = nombre;
+        this.rutaFoto = rutaFoto;
+        this.date = date;
+        this.description = description;
+        this.price = price;
+        this.winner = winner;
+        this.published = published;
+    }
     /*
     * Atributo correspondiente al id de la foto.
     */

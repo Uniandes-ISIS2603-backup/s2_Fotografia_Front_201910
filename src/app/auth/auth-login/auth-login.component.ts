@@ -6,6 +6,8 @@ import { User } from '../user';
 
 import { ToastrService } from 'ngx-toastr';
 
+import {Router} from '@angular/router';
+
 @Component({
     selector: 'app-auth-login',
     templateUrl: './auth-login.component.html',
@@ -20,7 +22,8 @@ export class AuthLoginComponent implements OnInit {
     */
     constructor(
         private authService: AuthService,
-        private toastrService: ToastrService
+        private toastrService: ToastrService,
+        private router: Router
     ) { }
 
     user: User;
@@ -32,8 +35,56 @@ export class AuthLoginComponent implements OnInit {
     * Logs the user in with the selected role
     */
     login(): void {
-        this.authService.login(this.role);
-        this.toastrService.success('Logged in');
+        let respuesta = `{"login": "${this.user.nombre}", "password":"${this.user.password}"}`
+        let res = JSON.parse(respuesta);
+        if(this.role === 'Administrador'){
+            if(this.user.nombre === 'admin' && this.user.password === 'admin'){
+                this.authService.setAdministratorRole();
+                localStorage.setItem('currentUser', JSON.stringify(this.user));
+                this.router.navigateByUrl('/');
+            }
+        }
+        else if(this.role === 'Client'){
+            this.authService.loginCliente(res).
+            subscribe(cliente => {
+                this.authService.setCurrentUser(cliente);
+                localStorage.setItem('currentUser', JSON.stringify(cliente));
+                this.authService.setClientRole();
+                this.router.navigateByUrl('/');
+            }
+            );
+        }
+        else if(this.role === 'Fotografo'){
+            this.authService.loginFotografo(res).
+            subscribe(cliente => {
+                this.authService.setCurrentUser(cliente);
+                localStorage.setItem('currentUser', JSON.stringify(cliente));
+                this.authService.setFotografoRole();
+                this.router.navigateByUrl('/');
+            }
+            );
+        }
+        else if(this.role === 'Organizador'){
+            this.authService.loginOrganizador(res).
+            subscribe(cliente => {
+                this.authService.setCurrentUser(cliente);
+                localStorage.setItem('currentUser', JSON.stringify(cliente));
+                this.authService.setOrganizadorRole();
+                this.router.navigateByUrl('/');
+            }
+            );
+        }
+        else if(this.role === 'Jurado'){
+            this.authService.loginJurado(res).
+            subscribe(cliente => {
+                this.authService.setCurrentUser(cliente);
+                localStorage.setItem('currentUser', JSON.stringify(cliente));
+                this.authService.setJuradoRole();
+                this.router.navigateByUrl('/');
+            }
+            );
+        }
+   
     }
 
     /**
@@ -41,7 +92,7 @@ export class AuthLoginComponent implements OnInit {
     */
     ngOnInit() {
         this.user = new User();
-        this.roles = ['Administrator', 'Client', 'Fotografo','Organizador'];
+        this.roles = ['Administrator', 'Client', 'Fotografo','Organizador','Jurado'];
     }
 
 }
