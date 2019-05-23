@@ -90,11 +90,11 @@ fotografo_id: number;
   }
 
   onLoad(params) {
-
     this.id = parseInt(params['id']);
     console.log(" en detail " + this.id);
     this.fotografoDetail = new FotografoDetail();
     this.getFotografoDetail();
+    console.log(this.fotografoDetail)
   }
 
   ngOnInit() {

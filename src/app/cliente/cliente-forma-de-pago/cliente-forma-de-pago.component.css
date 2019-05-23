@@ -199,7 +199,7 @@ border-radius: 4px;
   width: 800px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  grid-gap: 15px;
+  grid-gap: 100px;
   margin: 0 auto;
 }
 

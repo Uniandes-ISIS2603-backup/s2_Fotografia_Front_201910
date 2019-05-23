@@ -108,28 +108,22 @@ fotoId: number;
   ngOnInit() {
     this.loader = this.route.params.subscribe((params: Params) => this.onLoad(params));
     this.interesFotograficoDetail;
+    this.getInteresFotograficoDetail();
   }
   showHideEdit(interesFotografico_id: number): void {
-    if (!this.showEdit || (this.showEdit && interesFotografico_id != this.interesFotografico_id)) {
+    if (!this.showEdit || (this.showEdit && interesFotografico_id != this.interesFotograficoDetail.id)) {
         this.showCreate = false;
         this.showEdit = true;
         this.interesFotografico_id = interesFotografico_id;
+        this.interesFotograficoDetail = new InteresFotograficoDetail();
+        this.getInteresFotograficoDetail();
     }
     else {
         this.showEdit = false;
     }
    }
 
-   showHideConfig(interesFotografico_id: number): void {
-    if (!this.showConfig || (this.showConfig && interesFotografico_id != this.interesFotografico_id)) {
-        this.showCreate = false;
-        this.showConfig = true;
-        this.interesFotografico_id = interesFotografico_id;
-    }
-    else {
-        this.showConfig = false;
-    }
-   }
+
    desplegarMenu(interesFotografico_id: number): void {
     if (!this.desplegar || (this.desplegar && interesFotografico_id != this.interesFotografico_id)) {
        
@@ -142,6 +136,7 @@ fotoId: number;
    }
 updateInteresFotografico(): void {
     this.showEdit = false;
+    this.ngOnInit();
 }
   ngOnDestroy() {
     this.loader.unsubscribe();

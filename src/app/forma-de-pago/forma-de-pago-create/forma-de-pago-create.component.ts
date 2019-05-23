@@ -54,6 +54,8 @@ clientes: Cliente[];
  */
 @Input() clienteId: number;
 
+@Output() crearFdp = new EventEmitter();
+
 /**
 * Crea una forma de pago
 */
@@ -66,14 +68,10 @@ createFormaDePago(): FormaDePagoDetail {
         .subscribe((fdp) => {
             this.formaDePago = fdp;
             this.create.emit();
-            this.router.navigate(['/formasDePago/list'])
             this.toastrService.success("The forma de pago was created", "forma de pago creation");
             this.formaDePagoService.createClienteFormaDePago(this.clienteId,this.formaDePago.id)
             .subscribe();
  });
-
- 
-
     return this.formaDePago;
 }
 

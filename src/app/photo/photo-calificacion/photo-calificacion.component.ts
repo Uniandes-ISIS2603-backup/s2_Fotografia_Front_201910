@@ -7,6 +7,7 @@ import { Photo } from '../photo';
 @Component({
     selector: 'app-photo-calificaciones',
     templateUrl: './photo-calificacion.component.html',
+    styleUrls: ['./photo-calificacion.component.css']
 })
 export class PhotoCalificacionComponent implements OnInit {
 
@@ -21,9 +22,14 @@ export class PhotoCalificacionComponent implements OnInit {
 ) { }
 
     @Input() photoCalificaciones : Calificacion [];
+
+    public incrementar = 0;
     
     public isCollapsed = false;
 
+    increase(): void{
+        this.incrementar ++;
+    }
 
     /**
      * The function called when a Calificacion is posted to update the Calificacions

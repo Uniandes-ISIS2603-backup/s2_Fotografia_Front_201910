@@ -1,10 +1,42 @@
-<div id="collapseCalificacion" [ngbCollapse]="isCollapsed">
-    <table class="table table-striped">
-        <tbody>
-            <tr *ngFor="let calificacion of photoCalificaciones">
-                <td><span id="photo-calificada"><b>{{calificacion.puntaje}}</b></span>
-                    <span>: </span><span id="calificacion-comentario">{{calificacion.comentario}}</span><br></td>
-            </tr>
-        </tbody>
-    </table>
-</div>
+<div class="card" *ngFor="let calificacion of photoCalificaciones"> 
+        <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <img src="https://image.ibb.co/jw55Ex/def_face.jpg" class="img img-rounded img-fluid"/>
+                            <p class="text-secondary text-center">Hace 15 Minutos</p>
+                        </div>
+                        <div class="col-md-10">
+                                <div *ngIf="calificacion.clienteCalificador != null">
+                            <p>
+                                <a class="float-left" ><strong>{{calificacion.clienteCalificador.nombre}}</strong></a>
+                            </p>
+                                </div>
+                                <div *ngIf="calificacion.puntaje >= 1">
+                                <span class="float-right"><i class="text-warning fa fa-star"></i></span>
+                                </div> 
+                                <div *ngIf="calificacion.puntaje >= 2">
+                                <span class="float-right"><i class="text-warning fa fa-star"></i></span>
+                                </div> 
+                                <div *ngIf="calificacion.puntaje >= 3">
+                                <span class="float-right"><i class="text-warning fa fa-star"></i></span>
+                                </div> 
+                                <div *ngIf="calificacion.puntaje >= 4">
+                                <span class="float-right"><i class="text-warning fa fa-star"></i></span>
+                                </div> 
+                                <div *ngIf="calificacion.puntaje == 5">
+                                <span class="float-right"><i class="text-warning fa fa-star"></i></span>
+                                </div>
+                                <br> 
+                                <span class="float-right" style="height: 2mm">Puntaje: {{calificacion.puntaje}} </span> 
+                            <br>
+                           <div class="clearfix"></div>
+                            <p>{{calificacion.comentario}}</p>
+                            <p>
+                                <button class="float-right btn text-white btn-danger" (click)="increase()"> <i class="fa fa-heart"></i> Like {{incrementar}} </button>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+  </div>

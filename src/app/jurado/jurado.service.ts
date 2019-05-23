@@ -9,6 +9,7 @@ import { JuradoDetail } from './jurado-detail';
 import { environment } from '../../environments/environment';
 const API_URL = 'http://localhost:8080/s2_fotografia-api/api';
 const jurados = '/jurados';
+const concursos = '/concursos';
 
 @Injectable()
 export class JuradoService {
@@ -61,4 +62,13 @@ updateJurado(jurado): Observable<JuradoDetail> {
 deleteJurado(juradoId): Observable<JuradoDetail> {
    return this.http.delete<JuradoDetail>(API_URL + jurados + '/' + juradoId);
 }
+
+/**
+    * Updates a photo
+    * @param photo The photo which will be update
+    * @returns The confirmation of the photo's update
+    */
+   updateConcurso(juradoId): Observable<JuradoDetail> {
+      return this.http.get<JuradoDetail>(API_URL + jurados + '/' + juradoId + concursos);
+  }
 }

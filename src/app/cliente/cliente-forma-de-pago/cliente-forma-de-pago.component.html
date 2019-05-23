@@ -1,4 +1,6 @@
-
+<style>
+    @import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
+    </style>
 <div class="container-fluid">
   <p>
     <button type="button" class="btn btn-lg btn-light align-self-center"
@@ -36,7 +38,7 @@
               <p class="card_numer">{{fdp.numeroTarjeta}}</p>
               <div class="card__space-75">
                 <span class="card__label">Card holder</span>
-                <p class="card__info">John Doe</p>
+                <p class="card__info">{{fdp.nombre}}</p>
               </div>
               <div class="card__space-25">
                 <span class="card__label">Expires</span>
@@ -58,17 +60,16 @@
           </div>
 
           <br>
-
-          <div class="container-fluid align-self-center">
-            <div *ngIf="selected">
-              <app-forma-de-pago-detail [formaDePagoDetail]="selected" [clienteId]="clienteId">
-              </app-forma-de-pago-detail>
-            </div>
-          </div>
-
         </div>
-
-
-
       </div>
+
+
+    
     </div>
+
+    <div class="container-fluid ">
+        <div *ngIf="selected">
+          <app-forma-de-pago-detail [formaDePagoDetail]="selected" [clienteId]="clienteId">
+          </app-forma-de-pago-detail>
+        </div>
+      </div>

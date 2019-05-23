@@ -13,15 +13,19 @@
     </div>
     <button class="viewbutton" routerLink="/facturas/comprar">Comprar</button>
     <br>
-    <div class="row justify-content-center align-self-center" >
-        <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
-            (click)="showHideCreate()">Crear Calificación</button>
-    </div>
-    <br>
     <div style= "justify-content: flex-start;" class="col-md-8">
+            <app-photo-calificaciones [photoCalificaciones]="photoDetail.calification"></app-photo-calificaciones>
+            <br>
+            <div class="row justify-content-center align-self-center" >
+                <td *ngxPermissionsOnly="['JURADO', 'CLIENT']">
+                    <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+                        (click)="showHideCreate()">Comentario</button>
+                </td>    
+                </div>
         <div *ngIf="showCreate">
-            <app-photo-calificaciones [photoCalificaciones]="photoDetail.calificaciones"></app-photo-calificaciones>
-            <app-photo-add-calificacion [photo]="photoDetail" (updateCalificaciones)="updateCalificaciones()" (cancel)="showHideCreate()" (create)="ngOnInit()" *ngIf="showCreate"></app-photo-add-calificacion>
-        </div>
+          <td *ngxPermissionsOnly="['JURADO','CLIENT']">
+            <app-photo-add-calificacion  [photo]="photoDetail" (updateCalificaciones)="updateCalificaciones()" (cancel)="showHideCreate()" (create)="ngOnInit()" *ngIf="showCreate" ></app-photo-add-calificacion>
+          </td>
+          </div>
     </div>
   </div>

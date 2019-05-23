@@ -1,3 +1,6 @@
+<style>
+        @import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
+        </style>
 <div class="row">
     <div class="col-6 offset-3">
         <br>
@@ -12,6 +15,7 @@
             <button type="button" class="btn btn-secondary btn-lg" data-toggle="button" aria-pressed="false" (click)="showCliente()">Cliente</button>
             <button type="button" class="btn btn-secondary btn-lg" data-toggle="button" aria-pressed="false" (click)="showOrganizador()">Organizador</button>
             <button type="button" class="btn btn-secondary btn-lg" data-toggle="button" aria-pressed="false" (click)="showJurado()">Jurado</button>
+            <button type="button" class="btn btn-secondary btn-lg" data-toggle="button" aria-pressed="false" (click)="createAdministrador()">Administrador</button>
         </div>
     </div>
 </div>
@@ -23,9 +27,5 @@
             <app-jurado-create (create)="signUp($event)" *ngIf="bshowJurado" ></app-jurado-create>
     </div>
 </div>
-<div class="row">
-    <div class="col">
-            <button type="button" class="btn btn-dark btn-lg" data-toggle="button" aria-pressed="false" (click)="createAdministrador()">Administrador</button>
-    </div>
-</div>
+
 

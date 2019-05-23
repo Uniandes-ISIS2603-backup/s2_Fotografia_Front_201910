@@ -50,19 +50,6 @@ import {InteresFotograficoDetailComponent} from '../interes-fotografico/interes-
 
 const routes: Routes = [
     {
-        path: 'calificaciones',
-        children:[
-            {
-                path: 'list',
-                component: CalificacionListComponent
-            },
-            {
-                path: ':id',
-                component: CalificacionDetailComponent
-            }
-        ]
-    },
-    {
         path: 'photos',
         children:[
             {

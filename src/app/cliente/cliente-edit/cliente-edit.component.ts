@@ -63,8 +63,9 @@ editCliente(): void {
     this.clienteService.updateCliente(this.cliente)
         .subscribe(() => {
             this.toastrService.success("La informacion del cliente fue actualizada", "Cliente edition");
+            this.update.emit();
         });
-        this.update.emit();
+        
 }
 
 /**

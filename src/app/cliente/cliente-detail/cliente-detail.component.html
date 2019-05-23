@@ -4,9 +4,9 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
     integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 
-<style>
-    @import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
-</style>
+    <style>
+            @import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
+            </style>
 
 <!------ Include the above in your HEAD tag ---------->
 
@@ -41,7 +41,7 @@
 
 
                         <li class="nav-item">
-                            <a class="nav-link" href="#favorite" role="tab" data-toggle="tab">
+                            <a class="nav-link" href="#favorite" role="tab" data-toggle="tab" (click)="deleteCliente()" data-toggle="modal" data-target="#myModal">
                                 <i class='fas fa-trash'></i>
                                 Eliminar perfil
                             </a>
@@ -73,7 +73,7 @@
                             </div>
                         </div>
 
-                        <div class="row btn-group">
+                        <div class="row">
                                 <cliente-forma-de-pago class="m-3" [clienteId]="clienteDetail.id" [disabledFdp]= "disabledFdp"></cliente-forma-de-pago>
                                 <app-cliente-factura class="m-3" [clienteId] = "clienteDetail.id" [disabledFac]= "disabledFac"></app-cliente-factura>
                         </div>
@@ -82,28 +82,15 @@
                     <div *ngIf="showEdit">
                             <app-cliente-edit [clienteId]="clienteDetail.id"  (cancel)="showHideEdit(clienteId)"
                                 (update)="updateCliente()" style="align-items: center"></app-cliente-edit>
-                        </div>
-                </div>
-                <div class="tab-content tab-space">
-                    <div class="tab-pane active text-center gallery" id="studio">
-                        <div class="conatiner iman">
-                            <div class="wrap">
-
-
-                            </div>
-                        </div>
                     </div>
 
+                    <div *ngIf="showDelete">
+                            <app-cliente-delete [clienteDetail]="clienteDetail"></app-cliente-delete>
+                    </div>
                 </div>
-                <div class="tab-pane text-center gallery" id="works">
-
-                </div>
+                
             </div>
-            <div class="tab-pane text-center gallery" id="favorite">
-                <div class="row">
-
-                </div>
-            </div>
+            
         </div>
        
 
