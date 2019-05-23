@@ -1,70 +1,74 @@
-<div class = "container-fluid">
-    <p>
-  
-      <button type="button" class="btn btn-lg btn-light align-self-center" [ngClass]="{ 'btn-light': isCollapsed,'btn-outline-light':!isCollapsed}" (click)="getClienteFormasDePago()">
-        Mis Formas De Pago
+
+<div class="container-fluid">
+  <p>
+    <button type="button" class="btn btn-lg btn-light align-self-center"
+      [ngClass]="{ 'btn-light': isCollapsed,'btn-outline-secondary':!isCollapsed, 'disabled': disabledFdp}"
+      (click)="getClienteFormasDePago()">
+      Mis Formas De Pago
     </button>
   </p>
-  
+
   <div id="collapseFormasDePago" [ngbCollapse]="isCollapsed">
 
-      <div class="row justify-content-center align-self-center">
-          <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
-              (click)="showHideCreate()"> Agregar Forma De Pago <i class="material-icons">
-                  add
-                  </i>
-              </button>
-      </div>
+    <div class="row justify-content-center align-self-center">
+      <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+        (click)="showHideCreate()"> Agregar Forma De Pago <i class="material-icons">
+          add
+        </i>
+      </button>
+    </div>
 
-      <br>
-      <div class="col-md-12">
-            <div *ngIf="showCreate">
-               <app-forma-de-pago-create [clienteId]="clienteId" (cancel)="showHideCreate()" (create)="ngOnInit()" *ngIf="showCreate"></app-forma-de-pago-create>
+    <br>
+    <div class="col-md-12">
+      <div *ngIf="showCreate">
+        <app-forma-de-pago-create [clienteId]="clienteId" (cancel)="showHideCreate()" (create)="ngOnInit()"
+          *ngIf="showCreate"></app-forma-de-pago-create>
+      </div>
+    </div>
+
+    <div class="box">
+      <div *ngFor="let fdp of formasDePago" class="card">
+        <div>
+          <div class="card" (click)="onSelected(fdp.id)">
+            <div class="card__front card__part">
+              <img class="card__front-square card__square" src="https://image.ibb.co/cZeFjx/little_square.png">
+              <img class="card__front-logo card__logo" src={{fdp.foto}}>
+              <p class="card_numer">{{fdp.numeroTarjeta}}</p>
+              <div class="card__space-75">
+                <span class="card__label">Card holder</span>
+                <p class="card__info">John Doe</p>
+              </div>
+              <div class="card__space-25">
+                <span class="card__label">Expires</span>
+                <p class="card__info">{{fdp.fechaFormato}}</p>
+              </div>
             </div>
-      </div>
 
-      <div class = "box">
-              <div *ngFor = "let fdp of formasDePago"  class="card">
-              <div>
-                  <div class="card" (click)="onSelected(fdp.id)">
-                      <div class="card__front card__part">
-                        <img class="card__front-square card__square" src="https://image.ibb.co/cZeFjx/little_square.png">
-                        <img class="card__front-logo card__logo" src={{fdp.foto}}>
-                        <p class="card_numer">{{fdp.numeroTarjeta}}</p>
-                        <div class="card__space-75">
-                          <span class="card__label">Card holder</span>
-                          <p class="card__info">John Doe</p>
-                        </div>
-                        <div class="card__space-25">
-                          <span class="card__label">Expires</span>
-                                <p class="card__info">{{fdp.fechaFormato}}</p>
-                        </div>
-                      </div>
-                      
-                      <div class="card__back card__part">
-                        <div class="card__black-line"></div>
-                        <div class="card__back-content">
-                          <div class="card__secret">
-                            <p class="card__secret--last">{{fdp.numeroVerificacion}}</p>
-                          </div>
-                          <img class="card__back-square card__square" src="https://image.ibb.co/cZeFjx/little_square.png">
-                          <img class="card__back-logo card__logo" src="{{fdp.foto}}">
-                          
-                        </div>
-                      </div>
-                    </div>
+            <div class="card__back card__part">
+              <div class="card__black-line"></div>
+              <div class="card__back-content">
+                <div class="card__secret">
+                  <p class="card__secret--last">{{fdp.numeroVerificacion}}</p>
+                </div>
+                <img class="card__back-square card__square" src="https://image.ibb.co/cZeFjx/little_square.png">
+                <img class="card__back-logo card__logo" src="{{fdp.foto}}">
 
-                    <br>
-                   
-                    <div class="container-fluid align-self-center" >
-                        <div *ngIf="selected">
-                            <app-forma-de-pago-detail [formaDePagoDetail]="selected"  [clienteId]="clienteId" ></app-forma-de-pago-detail>
-                          </div>
-                      </div>  
-                      
+              </div>
+            </div>
+          </div>
+
+          <br>
+
+          <div class="container-fluid align-self-center">
+            <div *ngIf="selected">
+              <app-forma-de-pago-detail [formaDePagoDetail]="selected" [clienteId]="clienteId">
+              </app-forma-de-pago-detail>
+            </div>
+          </div>
+
         </div>
-            
-        
-       
-  </div>
-  </div>
+
+
+
+      </div>
+    </div>

@@ -1,7 +1,7 @@
 <div class = "container-fluid">
     <p>
   
-      <button type="button" class="btn btn-lg btn-light align-self-center" [ngClass]="{ 'btn-light': isCollapsed,'btn-outline-light':!isCollapsed}" (click)="getClienteFacturas()">
+      <button type="button" class="btn btn-lg btn-light align-self-center" [ngClass]="{ 'btn-light': isCollapsed,'btn-outline-secondary':!isCollapsed, 'disabled': disabledFac}" (click)="getClienteFacturas()">
         Mis Facturas
     </button>
   </p>

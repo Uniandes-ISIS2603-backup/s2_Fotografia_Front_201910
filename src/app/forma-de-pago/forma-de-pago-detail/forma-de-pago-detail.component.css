@@ -57,7 +57,7 @@ z-index: 1000;
   display: inline-block;
     width: 320px;
     height: 190px;
-    background-image: url('https://image.ibb.co/bVnMrc/g3095.png'), linear-gradient(to right bottom, #fd696b, #fa616e, #f65871, #f15075, #ec4879); /*linear-gradient(to right bottom, #fd8369, #fc7870, #f96e78, #f56581, #ee5d8a)*/
+    background-image: url('https://image.ibb.co/bVnMrc/g3095.png'), linear-gradient(to right bottom, #7d7d7a, #8e8d8d, #a1a2a3, #b3b6b5, #bec0c2); /*linear-gradient(to right bottom, #fd8369, #fc7870, #f96e78, #f56581, #ee5d8a)*/
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;

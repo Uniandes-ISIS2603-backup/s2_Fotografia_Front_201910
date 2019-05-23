@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges, Input, ViewChild } from '@angular/core';
+import { Component, OnInit, OnChanges, Input, ViewChild, Output } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { ClienteService } from '../cliente.service';
 import { ClienteDetail } from '../cliente-detail';
@@ -44,6 +44,10 @@ export class ClienteDetailComponent implements OnInit, OnChanges {
 
   loader: any;
 
+  @Output()disabledFdp: boolean;
+
+  @Output()disabledFac:boolean;
+
 
   /**
    * Para ver su hijo (forma de pago)
@@ -76,12 +80,13 @@ export class ClienteDetailComponent implements OnInit, OnChanges {
    */
   ngOnInit() {
     this.loader = this.route.params.subscribe((params: Params) => this.onLoad(params));
-    console.log("El id del Cliente:  "+this.clienteDetail.id);
 
     if (this.clienteLogin === undefined) {
       this.clienteLogin = JSON.parse(localStorage.getItem('cliente'));
       this.getClienteDetailLogin();
     }
+
+    
   }
   /**
    * Permite que se detenga la subscripcion
@@ -112,10 +117,14 @@ export class ClienteDetailComponent implements OnInit, OnChanges {
   showHideEdit(clienteId: number): void {
     if (!this.showEdit || (this.showEdit && clienteId != this.clienteId)) {
       this.showEdit = true;
+      this.disabledFac = true;
+      this.disabledFdp = true;
       this.clienteId = clienteId;
     }
     else {
       this.showEdit = false;
+      this.disabledFac = false;
+      this.disabledFdp = false;
     }
   }
 
