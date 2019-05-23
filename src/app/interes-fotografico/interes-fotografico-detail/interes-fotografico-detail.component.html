@@ -1,4 +1,5 @@
 
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 
     <style>
         @import url('https://fonts.googleapis.com/css?family=ABeeZee&display=swap');
@@ -27,8 +28,29 @@
            
           </div>
           
-          
-          
-        </div>
+        
   
+        </div>
+
+        <div class="row justify-content-center align-self-center">
+          <button [ngClass]="{ 'btn-danger': !verif, 'btn-primary': verif }" type="button" class="btn"
+          onclick="return confirm ('¿Estas seguro que desea eliminar este interes?')" (click) = "delete()" routerLink="/app">Eliminar interes fotografico</button>
+        </div>
+        <div class >.</div>
+  
+        <div class="row justify-content-center align-self-center">
+          <button [ngClass]="{ 'btn-primary': !verif, 'btn-danger': verif }" type="button" class="btn"
+           (click) = "showHideEdit(interesFotografico_id)">Editar interes fotografico</button>
+        </div>
+        <div class = "row"*ngIf="showEdit">
+              
+        
+          
+            <div class="col-sm-8">
+             <app-interes-fotografico-edit [interesFotografico_id]="id" (cancel)="showHideEdit(interesFotografico_id)" (update)="updateInteresFotografico()"  (update)=" getInteresFotograficoDetail()" ></app-interes-fotografico-edit>
+           
+             </div>
+        </div>
+    
+
         </div>

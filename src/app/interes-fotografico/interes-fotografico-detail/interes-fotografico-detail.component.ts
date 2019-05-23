@@ -4,9 +4,11 @@ import {InteresFotograficoService} from '../interes-fotografico.service';
 import {InteresFotograficoDetail} from '../interes-fotografico-detail';
 import {  OnDestroy, ViewChild, ViewContainerRef } from '@angular/core';
 import { ActivatedRoute, Params ,Router,NavigationEnd} from '@angular/router';
-
+import {PhotoService} from '../../photo/photo.service';
+import {PhotoModule} from '../../photo/photo.module';
 import {ModalDialogService, SimpleModalComponent} from 'ngx-modal-dialog';
 import {ToastrService} from 'ngx-toastr';
+import { Photo } from '../../photo/photo';
 
 @Component({
   selector: 'app-interes-fotografico-detail',
@@ -19,9 +21,11 @@ export class InteresFotograficoDetailComponent implements OnInit
   constructor(private interesFotograficoService: InteresFotograficoService,
     private route: ActivatedRoute,
     private modalDialogService: ModalDialogService,
+    private photoService: PhotoService,
     private router: Router,
     private viewRef: ViewContainerRef,
     private toastrService: ToastrService
+
 ) {
     //This is added so we can refresh the view when one of the books in
     //the "Other books" list is clicked
@@ -33,6 +37,7 @@ export class InteresFotograficoDetailComponent implements OnInit
 }
 navigationSubscription;
 
+verif:boolean;
 
     /**
      * The child BookReviewListComponent
@@ -58,10 +63,13 @@ navigationSubscription;
  sinFotos:boolean;
  mandeError: boolean;
 
+ fotos:Photo[];
+
  /**
   * Shows or hides the edit component.
   */
  showEdit: boolean;
+ crear:boolean;
 
  showConfig : boolean;
 
@@ -70,15 +78,23 @@ navigationSubscription;
 */
 interesFotografico_id: number;
 
+fotoId: number;
+
+
   @Input() id: number;
     loader: any;
+    
+
+  
 
     getInteresFotograficoDetail(): void {
       console.log(this.id);
     this.interesFotograficoService.getInteresFotograficoDetail(this.id)
       .subscribe(cli => {
-        this.interesFotograficoDetail = cli
+        this.interesFotograficoDetail = cli;
       });
+
+     this.verif = false;
   }
 
   onLoad(params) {
@@ -91,6 +107,7 @@ interesFotografico_id: number;
 
   ngOnInit() {
     this.loader = this.route.params.subscribe((params: Params) => this.onLoad(params));
+    this.interesFotograficoDetail;
   }
   showHideEdit(interesFotografico_id: number): void {
     if (!this.showEdit || (this.showEdit && interesFotografico_id != this.interesFotografico_id)) {
@@ -159,8 +176,22 @@ updateInteresFotografico(): void {
    this.mandeError = true;
   }
   }
-  delete(): void{
+  
+
+ 
+  
+  verf():void{
+this.verif = true;
 
   }
+  delete(): void {
+    console.log(this.interesFotograficoDetail);
+    this.interesFotograficoService.deleteInteresFotografico(this.id)
+        .subscribe(
+        );
+
+      return alert ('El interes fotografico fue eliminado');
+
+}
 
 }

@@ -48,7 +48,7 @@ export class InteresFotograficoCreateComponent implements OnInit {
 
         this.interesFotograficoService.createInteresFotografico(this.interesFotografico)
             .subscribe((interesFotografico) => {
-                this.interesFotografico = interesFotografico;
+                this.interesFotografico = new InteresFotografico(interesFotografico.interes,interesFotografico.foto, interesFotografico.id);
                 this.create.emit();
                 this.toastrService.success("The interes was created", "interes creation");
 

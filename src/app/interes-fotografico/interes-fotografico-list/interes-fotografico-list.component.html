@@ -17,7 +17,7 @@
     <div class="wrap">
       
 
-      <div class="box one" *ngFor = "let interes of intereses" [ngStyle]="{'background-image':' url(' + interes.foto + ')'}" routerLink="/interesFotograficos/{{interes.id}}">
+      <div class="box one" *ngFor = "let interes of interesFotograficos" [ngStyle]="{'background-image':' url(' + interes.foto + ')'}" routerLink="/interesFotograficos/{{interes.id}}">
         <style>
           .one {
       background-size: cover;
@@ -35,9 +35,6 @@
       
     </div>
 
-    <div *ngIf="interesFotograficoDetail">
-        <app-interes-fotografico-detail [interesFotograficoDetail]="interesFotograficoDetail"></app-interes-fotografico-detail>
-      </div>
-    </div>
+  
     
     
