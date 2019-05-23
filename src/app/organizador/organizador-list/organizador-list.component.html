@@ -37,7 +37,7 @@
                   <dd style="text-align: center;" routerLink="/organizadors/{{organizador.id}}" >{{organizador.nombre}}</dd>
               </td>
               <td>
-                  <button class="btn btn-primary" (click)="showHideEdit(organizador.id)"><span class="fa fa-pencil"></span></button>
+                  <button class="btn btn-primary" (click)="showHideEdit(organizador.id)" (click)="showHideEdit(organizador.id)"><span class="fa fa-pencil"></span></button>
               </td>
           </tr>
       </tbody>

@@ -72,4 +72,12 @@ getOrganizadors(): void {
         this.showCreate = false;
         this.getOrganizadors();
     }
+
+    atu():void{
+        this.organizador_id = +this.route.snapshot.paramMap.get('id');
+        this.organizadorDetail = new OrganizadorDetail();
+        this.getOrganizadorDetail();
+        this.showCreate = false;
+        this.getOrganizadors(); 
+    }
 }

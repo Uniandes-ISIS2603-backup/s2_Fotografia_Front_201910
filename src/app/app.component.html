@@ -25,7 +25,7 @@
                         routerLink="/concursos/list">Concursos</a></li>
                 &nbsp;
                 <li class="nav-item"><a class="nav-link" id="organizadorsTag" routerLink="/organizadors/list"
-                        *ngxPermissionsOnly="['ADMIN','ORGANIZADOR']">Organizadores</a></li>
+                        *ngxPermissionsOnly="['ADMIN']">Organizadores</a></li>
                 &nbsp;
                 <li class="nav-item"><a class="nav-link" id="calificacion-navbar-item"
                         routerLink="/photos/list">Fotos</a></li>
@@ -38,6 +38,9 @@
                 &nbsp;
 
                 <li class ="nav-item"><a class ="nav-link" id="calificacion-navbar-item" routerLink ="/clientes/login"  *ngxPermissionsOnly="['CLIENT']">Mi Cuenta</a></li>
+
+                &nbsp;
+                <li class ="nav-item"><a class ="nav-link" id="calificacion-navbar-item" routerLink ="/organizadors/200"  *ngxPermissionsOnly="['ORGANIZADOR']">Mi Cuenta</a></li>
 
                 &nbsp;
             </ul>

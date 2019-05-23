@@ -30,7 +30,13 @@
            
   </div>
   <p class="h3 p-3">Otros Organizadores: <p> 
-  <div *ngFor="let organizador of organizadors">
-        <h4 routerLink="/organizadors/{{organizador.id}}" style="cursor: pointer;"> <img src="{{organizador.foto}}" width='215' height='215'></h4>  
+    <div  class = "row">
+  <div class = "col-sm-4" *ngFor="let organizador of organizadors">
+        <div class = "org" routerLink="/organizadors/{{organizador.id}}" style="cursor: pointer;" (click)="atu()" > <img src="{{organizador.foto}}" ></div>  
+        
+</div>
+<div class = "col-sm-4">
+          
+</div>
 </div>
 </div>
