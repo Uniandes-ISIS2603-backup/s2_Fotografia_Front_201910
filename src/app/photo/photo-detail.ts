@@ -3,6 +3,6 @@ import {Photo} from './photo';
 
 export class PhotoDetail extends Photo {
     
-    calificaciones: Calificacion[];
+    calification: Calificacion[];
 
 }

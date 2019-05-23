@@ -7,7 +7,8 @@ import { PhotoService } from '../photo.service';
 import { Photo } from '../../photo/photo';
 @Component({
     selector: 'app-photo-add-calificacion',
-    templateUrl: './photo-add-calificacion.component.html'
+    templateUrl: './photo-add-calificacion.component.html',
+    styleUrls: ['./photo-add-calificacion.component.css']
 })
 export class PhotoAddCalificacionComponent implements OnInit, OnChanges {
 
@@ -30,6 +31,12 @@ export class PhotoAddCalificacionComponent implements OnInit, OnChanges {
     * The calificacion to post
     */
     calificacion: Calificacion;
+
+    nombre: string;
+
+    setNombre(): void{
+        this.nombre = 'Desconocido';
+    }
     
     /**
     * The output which tells the parent component

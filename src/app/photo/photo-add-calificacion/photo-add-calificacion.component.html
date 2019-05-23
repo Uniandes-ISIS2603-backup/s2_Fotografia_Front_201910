@@ -1,32 +1,27 @@
-<div id="collapseAddCalificacion" [ngbCollapse]="isCollapsed">
-    <div class="container-fluid">
-        <h3>Add a calificacion</h3>
-        <form name="post" (ngSubmit)="calificacionForm.form.valid && postcalificacion(calificacionForm)" #calificacionForm="ngForm" novalidate>
-              <div class="row">
-                <div class="col">
-                    <div class="form-group">
-                        <label for="calificacionPuntaje"><b>Puntaje</b></label>
-                        <input type="text" name="calificacionPuntaje" class="form-control" id="calificacionPuntaje" [(ngModel)]="calificacion.puntaje"
-                               #calificacionPuntaje="ngModel" [ngClass]="{ 'is-invalid': calificacionForm.submitted && calificacionPuntaje.invalid }" required>
-                               <div class="invalid-feedback">
-                            <div>The calificacion's title is missing</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="form-group">
-                        <label for="calificacionComentario"><b>Comentario</b></label>
-                        <input type="text" name="calificacionComentario" class="form-control" id="calificacionComentario" [(ngModel)]="calificacion.comentario"
-                               #calificacionComentario="ngModel" [ngClass]="{ 'is-invalid': calificacionForm.submitted && calificacionPuntaje.invalid }" required>
-                               <div class="invalid-feedback">
-                            <div>The calificacion's comentario is missing</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row form-inline justify-content-center align-self-center">
-                <button type="submit" class="btn btn-primary">Post calificacion</button>
-            </div>
-        </form>
-    </div>
-</div>
+<div class="row">
+    
+        <div class="col-md-6">
+                                <div class="widget-area no-padding blank">
+                                    <div class="status-upload">
+                                        <form name="post" (ngSubmit)="calificacionForm.form.valid && postcalificacion(calificacionForm)" #calificacionForm="ngForm" novalidate>
+                                            <textarea placeholder="What are you doing right now?"  name="calificacionComentario" class="form-control" id="calificacionComentario" [(ngModel)]="calificacion.comentario"
+                                            #calificacionComentario="ngModel" [ngClass]="{ 'is-invalid': calificacionForm.submitted && calificacionPuntaje.invalid }" required ></textarea>
+                                            <div class="invalid-feedback">
+                                                    <div>The calificacion's comentario is missing</div>
+                                            </div>
+                                            <input type="text" placeholder="Asigne un puntaje a la foto"  name="calificacionPuntaje" class="form-control" id="calificacionPuntaje" [(ngModel)]="calificacion.puntaje"
+                                            #calificacionComentario="ngModel" [ngClass]="{ 'is-invalid': calificacionForm.submitted && calificacionPuntaje.invalid }" rows="1" cols="50" required >
+                                            <div class="invalid-feedback">
+                                                    <div>The calificacion's puntaje is missing</div>
+                                            </div>
+                                            <ul>
+                                            </ul>
+                                            <button type="submit" class="btn btn-success green"><i class="fa fa-share"></i> Share</button>
+                                            <div class="divider"></div>
+                <button type="button" class="btn btn-danger" (click)="cancelCreation()">Cancel</button>
+                                        </form>
+                                    </div><!-- Status Upload  -->
+                                </div><!-- Widget Area -->
+                            </div>
+            
+        </div>

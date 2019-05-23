@@ -1,4 +1,5 @@
 import {Photo} from './photo';
+import { Cliente } from '../cliente/cliente';
 
 export class Calificacion {
     /**
@@ -20,5 +21,7 @@ export class Calificacion {
      * Photo
      */
     photo: Photo;
+
+    clienteCalificador: Cliente;
     
 }
