@@ -41,7 +41,7 @@ export class AuthLoginComponent implements OnInit {
     */
     ngOnInit() {
         this.user = new User();
-        this.roles = ['Administrator', 'Client', 'Fotografo','Organizador','Jurado'];
+        this.roles = ['Administrator', 'Client', 'Fotografo','Organizador'];
     }
 
 }
