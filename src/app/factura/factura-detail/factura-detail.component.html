@@ -80,7 +80,7 @@
         </div>
     </div>
 </div>
-<div class="project" *ngFor="let photo of photos">
+<div class="project" *ngFor="let photo of facturaDetail.photos">
     <img class="project__image" src='{{photo.rutaFoto}}' src='{{photo.rutaFoto}}' />
     <p>{{photo.nombre}}</p>
     <h3 class="grid__title"> ${{photo.price}}</h3>

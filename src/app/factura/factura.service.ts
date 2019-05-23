@@ -49,7 +49,7 @@ export class FacturaService {
   */
   createFactura(photos: Photo[], total: number): Observable<FacturaDetail> {
     let dateB: Date = new Date();
-    this.factura = new Factura(22,total,this.dp.transform(dateB, 'yyyy-MM-dd'),photos); 
+    this.factura = new Factura(Math.floor((Math.random() * 100000) + 1),total,this.dp.transform(dateB, 'yyyy-MM-dd'),photos); 
 
     console.log(this.factura);
     console.log(API_URL + facturas);
