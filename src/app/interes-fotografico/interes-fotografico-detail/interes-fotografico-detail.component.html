@@ -40,14 +40,14 @@
   
         <div class="row justify-content-center align-self-center">
           <button [ngClass]="{ 'btn-primary': !verif, 'btn-danger': verif }" type="button" class="btn"
-           (click) = "showHideEdit(interesFotografico_id)">Editar interes fotografico</button>
+           (click) = "showHideEdit(id)">Editar interes fotografico</button>
         </div>
         <div class = "row"*ngIf="showEdit">
               
         
           
             <div class="col-sm-8">
-             <app-interes-fotografico-edit [interesFotografico_id]="id" (cancel)="showHideEdit(interesFotografico_id)" (update)="updateInteresFotografico()"  (update)=" getInteresFotograficoDetail()" ></app-interes-fotografico-edit>
+             <app-interes-fotografico-edit [interesFotografico_id]="id" (cancel)="showHideEdit(id)" (update)="updateInteresFotografico()" (update)= "ngOnInit()" ></app-interes-fotografico-edit>
            
              </div>
         </div>
