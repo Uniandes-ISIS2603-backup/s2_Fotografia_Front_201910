@@ -42,22 +42,6 @@ export class FacturaCreateComponent implements OnInit {
     @Output() create = new EventEmitter();
 
     /**
-    * Creates a factura
-    */
-    createFactura(): Factura {
-        let dateB: Date = new Date(this.factura.fechaCompra.year, this.factura.fechaCompra.month - 1, this.factura.fechaCompra.day);
-        this.factura.fechaCompra = this.dp.transform(dateB, 'yyyy-MM-dd');
-
-        this.facturaService.createFactura(this.factura)
-            .subscribe((factura) => {
-                this.factura = factura;
-                this.create.emit();
-                this.toastrService.success("The factura was created", "factura creation");
-            });
-        return this.factura;
-    }
-
-    /**
     * Emits the signal to tell the parent component that the
     * user no longer wants to create an user
     */
@@ -70,7 +54,7 @@ export class FacturaCreateComponent implements OnInit {
     */
     ngOnInit() {
         console.log("Init de create");
-        this.factura = new Factura();
+        //this.factura = new Factura();
     }
 
 }

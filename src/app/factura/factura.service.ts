@@ -4,6 +4,8 @@ import { HttpClient } from '@angular/common/http';
 
 import { Factura } from './factura';
 import { FacturaDetail } from './factura-detail';
+import { DatePipe } from '@angular/common';
+
 
 
 import { environment } from '../../environments/environment';
@@ -16,17 +18,19 @@ const photos = '/photos';
 @Injectable()
 export class FacturaService {
 
+  factura: Factura;
   /**
    * Constructor of the service
    * @param http The HttpClient - This is necessary in order to perform requests
    */
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private dp: DatePipe) { }
 
   /**
   * Returns the Observable object containing the list of facturas retrieved from the API
   * @returns The list of facturas in real time
   */
   getFacturas(): Observable<Factura[]> {
+    console.log('hgjskl');
     return this.http.get<Factura[]>(API_URL + facturas);
   }
 
@@ -43,9 +47,13 @@ export class FacturaService {
   * @param factura The factura which will be created
   * @returns The confirmation of the factura's creation
   */
-  createFactura(factura): Observable<Factura> {
-    console.log(factura);
-    return this.http.post<Factura>(API_URL + facturas, factura);
+  createFactura(photos: Photo[], total: number): Observable<FacturaDetail> {
+    let dateB: Date = new Date();
+    this.factura = new Factura(22,total,this.dp.transform(dateB, 'yyyy-MM-dd'),photos); 
+
+    console.log(this.factura);
+    console.log(API_URL + facturas);
+    return this.http.post<FacturaDetail>(API_URL + facturas, this.factura);
   }
 
   /**

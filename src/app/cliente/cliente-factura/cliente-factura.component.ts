@@ -88,7 +88,7 @@ export class ClienteFacturaComponent implements OnInit {
   */
   ngOnInit() {
     if (this.facturas == undefined)
-      this.facturas = [new FacturaDetail()];
+      this.facturas = [new FacturaDetail(0,0,0,null)];
     this.isCollapsed = true;
   }
 
@@ -108,7 +108,7 @@ export class ClienteFacturaComponent implements OnInit {
   */
   onSelected(facturaId: number): void {
     this.facturaId = facturaId;
-    this.selected = new FacturaDetail();
+    this.selected = new FacturaDetail(0,0,0,null);
     this.facturaService.getFacturaDetail(facturaId).subscribe(fac => this.selected = fac);
 
   }
