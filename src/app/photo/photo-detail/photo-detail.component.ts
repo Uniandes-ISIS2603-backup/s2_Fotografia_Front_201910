@@ -108,7 +108,7 @@ getOtherPhotos(): void {
      */
     updateCalificaciones(): void {
         this.getPhotoDetail();
-        this.calificacionListComponent.updateCalificaciones(this.photoDetail.calificaciones);
+        this.calificacionListComponent.updateCalificaciones(this.photoDetail.calification);
         this.calificacionListComponent.isCollapsed = false;
         this.calificacionAddComponent.isCollapsed = true;
     }
