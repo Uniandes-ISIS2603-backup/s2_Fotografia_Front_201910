@@ -27,27 +27,34 @@
                 background-color:rgb(247, 247, 247);
               }
             </style>
-            <table >
-                <thead>
-                    <tr>
-                        <th style="background-color:rgba(164, 210, 255, 0.877); text-align: center" class="caption">Factura</th>    
-                    </tr>
-                </thead>
-              <tbody>
-                <tr *ngFor = "let factura of facturas">
-                    <td style="cursor: pointer;"> 
-                        <dd style="text-align: center;" routerLink="/facturas/{{factura.id}}" >{{factura.numero}}</dd>
-                    </td>
-                    <td>
-                        <button class="btn btn-primary" (click)="showHideEdit(factura.id)"><span class="fa fa-pencil"></span></button>
-                    </td>
-                </tr>
-            </tbody>
-          </table>
-          </div>
-      </div>
             
-        
-       
+          </div>
+      </div>  
+
+      <div class="prueb">
+          <div class="conatiner">
+              <div class="wrap">
+                  <div class="box one" *ngFor="let factura of facturas"
+                      [ngStyle]="{'background-image':' url(https://www.grupovadillo.com/wp-content/uploads/2018/03/contenido-factura.jpg)'}"
+                      routerLink="/facturas/{{factura.id}}">
+                      <style>
+                          .one {
+                              background-size: cover;
+                              background-position: center;
+                          }
+                      </style>
+                      <div class="date">
+                      </div>
+                      <h1>{{factura.numero}}</h1>
+                  </div>
+      
+      
+      
+              </div>
+          </div>
+      
+      </div>
+
   </div>
   </div>
+

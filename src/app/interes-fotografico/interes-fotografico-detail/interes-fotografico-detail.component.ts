@@ -181,11 +181,11 @@ this.verif = true;
   }
   delete(): void {
     console.log(this.interesFotograficoDetail);
-    this.interesFotograficoService.deleteInteresFotografico(this.id)
+    this.interesFotograficoService.deleteInteresFotografico(this.interesFotograficoDetail.id)
         .subscribe(
         );
 
-      return alert ('El interes fotografico fue eliminado');
+      
 
 }
 

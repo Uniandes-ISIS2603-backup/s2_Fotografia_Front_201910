@@ -48,12 +48,12 @@ export class AuthLoginComponent implements OnInit {
 
         let respuesta = `{"login": "${this.user.nombre}", "password":"${this.user.password}"}`
         let res = JSON.parse(respuesta);
-        if(this.role === 'Administrador'){
-            if(this.user.nombre === 'admin' && this.user.password === 'admin'){
+        if(this.role === 'Administrator'){
+         
                 this.authService.setAdministratorRole();
                 localStorage.setItem('currentUser', JSON.stringify(this.user));
                 this.router.navigateByUrl('/');
-            }
+            
         }
         else if(this.role === 'Client'){
           this.getClienteDetailLogin();
