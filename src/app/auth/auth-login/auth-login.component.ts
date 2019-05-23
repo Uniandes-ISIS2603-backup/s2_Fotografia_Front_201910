@@ -54,7 +54,6 @@ export class AuthLoginComponent implements OnInit {
       }
 
 
-
         let respuesta = `{"login": "${this.user.nombre}", "password":"${this.user.password}"}`
         let res = JSON.parse(respuesta);
         if(this.role === 'Administrador'){
