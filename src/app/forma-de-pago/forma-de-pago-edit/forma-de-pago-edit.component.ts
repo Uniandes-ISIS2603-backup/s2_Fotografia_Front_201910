@@ -80,7 +80,7 @@ export class FormaDePagoEditComponent implements OnInit, OnChanges {
             .subscribe(() => {
                 this.formaDePagoService.createClienteFormaDePago(this.clienteId,this.formaDePago.id)
             .subscribe();
-                this.router.navigate(['/formasDePago/list']);
+               // this.router.navigate(['/clientes/login']);
                 this.toastrService.success("La informacion de la forma de pago fue actualizada", "Forma De Pago edition");  
             });
         this.update.emit();

@@ -18,7 +18,7 @@ import { FormaDePagoDeleteComponent } from './forma-de-pago-delete/forma-de-pago
     CommonModule, FormsModule, AppRoutingModule, NgbModule
   ],
   declarations: [FormaDePagoListComponent, FormaDePagoDetailComponent, FormaDePagoCreateComponent, FormaDePagoEditComponent, FormaDePagoDeleteComponent],
-  exports: [FormaDePagoListComponent, FormaDePagoCreateComponent, FormaDePagoDetailComponent],
+  exports: [FormaDePagoListComponent, FormaDePagoCreateComponent, FormaDePagoDetailComponent, FormaDePagoEditComponent, FormaDePagoDeleteComponent],
   providers: [FormaDePagoService, DatePipe]
 })
 export class FormaDePagoModule {}

@@ -138,6 +138,9 @@ export class ClienteDetailComponent implements OnInit, OnChanges {
    */
   updateCliente(): void {
     this.showEdit = false;
+    this.getClienteDetailLogin();
+    this.disabledFac = false;
+    this.disabledFdp = false;
   }
 
   /**

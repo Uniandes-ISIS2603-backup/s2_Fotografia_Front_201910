@@ -72,9 +72,6 @@ createFormaDePago(): FormaDePagoDetail {
             this.formaDePagoService.createClienteFormaDePago(this.clienteId,this.formaDePago.id)
             .subscribe();
  });
-
- 
-
     return this.formaDePago;
 }
 

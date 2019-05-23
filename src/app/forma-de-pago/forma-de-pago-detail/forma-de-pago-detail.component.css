@@ -2,6 +2,11 @@ i.icon-blue {
     color: rgb(25, 140, 235);
 }
 
+i.icon-red
+{
+  color: rgb(140, 0, 26);
+}
+
 .center {
     display: block;
     margin-left: auto;

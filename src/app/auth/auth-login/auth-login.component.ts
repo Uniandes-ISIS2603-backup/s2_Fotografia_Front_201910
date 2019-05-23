@@ -41,7 +41,7 @@ export class AuthLoginComponent implements OnInit {
     login(): void {
 
         this.getClienteDetailLogin();
-        if(this.clienteDetail === null )
+        if(this.clienteDetail === null || this.clienteDetail ===undefined)
         {
             this.toastrService.error('No se econtro un cliente con el login dado');
         }

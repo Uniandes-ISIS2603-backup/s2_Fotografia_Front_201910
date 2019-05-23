@@ -3,6 +3,7 @@ import { ClienteService } from '../cliente.service';
 import {ClienteDetail} from '../cliente-detail';
 import {ToastrService} from 'ngx-toastr';
 import {Router} from '@angular/router';
+import {AuthService} from '../../auth/auth.service';
 
 @Component({
   selector: 'app-cliente-delete',
@@ -23,7 +24,7 @@ export class ClienteDeleteComponent implements OnInit
  * @param clienteService el proveedor de servicios del cliente
  */
   constructor(private router: Router,
-    private clienteService: ClienteService, private toastrService: ToastrService) { }
+    private clienteService: ClienteService, private authService:AuthService, private toastrService: ToastrService) { }
 
   ngOnInit() 
   {
@@ -35,7 +36,7 @@ export class ClienteDeleteComponent implements OnInit
     this.clienteService.deleteCliente(clienteDetail.id)
         .subscribe(c=>{
           this.eventoEliminar.emit();
-          this.router.navigate(['/clientes/list']);  
+          this.authService.logout();  
         });
 }
 
