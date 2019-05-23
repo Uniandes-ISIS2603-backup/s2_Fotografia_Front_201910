@@ -8,6 +8,10 @@ import { ToastrService } from 'ngx-toastr';
 
 import {Router} from '@angular/router';
 
+import {ClienteService} from '../../cliente/cliente.service';
+
+import {ClienteDetail} from '../../cliente/cliente-detail';
+
 @Component({
     selector: 'app-auth-login',
     templateUrl: './auth-login.component.html',
@@ -23,6 +27,7 @@ export class AuthLoginComponent implements OnInit {
     constructor(
         private authService: AuthService,
         private toastrService: ToastrService,
+        private clienteService: ClienteService,
         private router: Router
     ) { }
 
@@ -31,10 +36,25 @@ export class AuthLoginComponent implements OnInit {
     roles: String[];
 
     role: string;
+
+    clienteDetail: ClienteDetail;
     /**
     * Logs the user in with the selected role
     */
     login(): void {
+
+      this.getClienteDetailLogin();
+      if(this.clienteDetail === null || this.clienteDetail === undefined)
+      {
+          this.toastrService.error('No se econtro un cliente con el login dado');
+      }
+      else{
+          this.authService.login(this.role, this.user.nombre);
+          this.toastrService.success('Logged in');
+      }
+
+
+
         let respuesta = `{"login": "${this.user.nombre}", "password":"${this.user.password}"}`
         let res = JSON.parse(respuesta);
         if(this.role === 'Administrador'){
@@ -44,16 +64,17 @@ export class AuthLoginComponent implements OnInit {
                 this.router.navigateByUrl('/');
             }
         }
-        else if(this.role === 'Client'){
+       /**  else if(this.role === 'Client'){
             this.authService.loginCliente(res).
             subscribe(cliente => {
                 this.authService.setCurrentUser(cliente);
                 localStorage.setItem('currentUser', JSON.stringify(cliente));
+                localStorage.setItem('cliente',JSON.stringify(this.user.nombre) );
                 this.authService.setClientRole();
                 this.router.navigateByUrl('/');
             }
             );
-        }
+        }*/
         else if(this.role === 'Fotografo'){
             this.authService.loginFotografo(res).
             subscribe(cliente => {
@@ -94,5 +115,16 @@ export class AuthLoginComponent implements OnInit {
         this.user = new User();
         this.roles = ['Administrator', 'Client', 'Fotografo','Organizador','Jurado'];
     }
+
+    getClienteDetailLogin(): ClienteDetail {
+
+      this.clienteService.getClienteLogin(this.user.nombre)
+        .subscribe(clienteDetail => {
+          this.clienteDetail = clienteDetail
+          console.log ("Para storage" + this.clienteDetail.id);
+        });
+  
+      return this.clienteDetail;
+      }
 
 }
