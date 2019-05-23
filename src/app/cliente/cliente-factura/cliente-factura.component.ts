@@ -21,6 +21,9 @@ export class ClienteFacturaComponent implements OnInit {
    * Id del cliente
    */
   @Input() clienteId: number;
+
+  @Input() disabledFac: boolean;
+
   isCollapsed: boolean = true;
 
   /**

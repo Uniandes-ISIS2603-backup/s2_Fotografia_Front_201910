@@ -1,71 +1,113 @@
-<div class="principal">
-    <div class="content-box-blue">.</div>
-    <div class="content-box-blue">.</div>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+    integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    @import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
+</style>
 
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!------ Include the above in your HEAD tag ---------->
 
-    <div class="cointainer">
-        <div class="rela-block container">
 
-            <div class="rela-block profile-card">
 
-                <div class="profile-pic" id="profile_pic">
-                    <div class="avatar">
-                        <img src= '{{clienteDetail.imagen}}'>
-                    </div>
-                </div>
-                <div class="rela-block profile-name-container">
-                    <div class="rela-block user-name" id="user_name">
-                        <style>
-                            @import url('https://fonts.googleapis.com/css?family=Muli|Quicksand');
-                        </style>{{clienteDetail.nombre}} &nbsp;
-                        <a (click)="showHideEdit(clienteDetail.id)">
-                            <i class="material-icons icon-blue" style="cursor: pointer">create</i>
-                        </a>
-                        &nbsp;
-                        <a (click)="deleteCliente()" data-toggle="modal" data-target="#myModal">
-                            <i class="material-icons icon-red" style="cursor:pointer"> delete </i>
-                        </a>
+<body class="profile-page">
+    <div class="page-header header-filter container-fluid col-12"
+        style="background-image:url('http://wallpapere.org/wp-content/uploads/2012/02/black-and-white-city-night.png');">
+    </div>
 
-                    </div>
-                </div>
+    <div class="main main-raised">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="profile-tabs">
 
-                <div class="rela-block profile-card-stats">
-                    <style>
-                        @import url('https://fonts.googleapis.com/css?family=Muli|Quicksand');
-                    </style>
-                    <div class="floated profile-stat works" id="num_works">{{clienteDetail.correo}}
-                        <br>
-                    </div>
-                    <div class="floated profile-stat followers" id="num_followers">@{{clienteDetail.login}}
-                        <br>
-                    </div>
-                </div>
-                
-            </div>
-            <div class="btn-group">
-                    <cliente-forma-de-pago class="m-3" [clienteId]="clienteDetail.id"></cliente-forma-de-pago>
-                    <app-cliente-factura class="m-3" [clienteId] = "clienteDetail.id"></app-cliente-factura>
-            </div>
-            <div>
-                <div *ngIf="showEdit">
-                    <app-cliente-edit [clienteId]="clienteId" (cancel)="showHideEdit(clienteId)" (update)="updateCliente()"></app-cliente-edit>
+
+                    <ul class="nav nav-pills nav-pills-icons " role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#studio" role="tab" data-toggle="tab">
+                                <i class='fas fa-user'></i>
+                                Perfil
+                            </a>
+                        </li>
+                        <li class="nav-item">
+
+                            <a class="nav-link" href="#works" role="tab" data-toggle="tab" (click)="showHideEdit(id)">
+                                <i class='fas fa-edit'></i>
+                                Editar perfil
+
+                            </a>
+                        </li>
+
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#favorite" role="tab" data-toggle="tab">
+                                <i class='fas fa-trash'></i>
+                                Eliminar perfil
+                            </a>
+                        </li>
+                    </ul>
                 </div>
             </div>
+            <div class="col-sm-3">.</div>
+            <div class="col-sm-3">.</div>
+        </div>
+        <div class="profile-content">
 
-            <div *ngIf="showDelete">
-                <app-cliente-delete [clienteDetail]="clienteDetail"></app-cliente-delete>
+            <div class="row">
+                <div class="col-sm-3">
+
+                    <div class="profile">
+                        <div class="avatar">
+                            <img src="{{clienteDetail.imagen}}">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-8">
+                    <div class="name">
+                        <h3 class="title">{{clienteDetail.nombre}}</h3>
+                        <h6>@{{clienteDetail.login}}</h6>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <i class="fas fa-envelope"></i> {{clienteDetail.correo}} <br>
+                            </div>
+                        </div>
+
+                        <div class="row btn-group">
+                                <cliente-forma-de-pago class="m-3" [clienteId]="clienteDetail.id" [disabledFdp]= "disabledFdp"></cliente-forma-de-pago>
+                                <app-cliente-factura class="m-3" [clienteId] = "clienteDetail.id" [disabledFac]= "disabledFac"></app-cliente-factura>
+                        </div>
+                        
+                    </div>
+                    <div *ngIf="showEdit">
+                            <app-cliente-edit [clienteId]="clienteDetail.id"  (cancel)="showHideEdit(clienteId)"
+                                (update)="updateCliente()" style="align-items: center"></app-cliente-edit>
+                        </div>
+                </div>
+                <div class="tab-content tab-space">
+                    <div class="tab-pane active text-center gallery" id="studio">
+                        <div class="conatiner iman">
+                            <div class="wrap">
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="tab-pane text-center gallery" id="works">
+
+                </div>
             </div>
-            
-            
-</div>
+            <div class="tab-pane text-center gallery" id="favorite">
+                <div class="row">
 
- 
+                </div>
+            </div>
+        </div>
+       
+
+    </div>
+
+
+</body>

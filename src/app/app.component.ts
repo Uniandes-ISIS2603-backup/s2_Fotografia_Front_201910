@@ -19,16 +19,18 @@ export class AppComponent implements OnInit {
     retrievedObject: string = JSON.parse(localStorage.getItem('cliente'));
     loginCliente :string = this.retrievedObject;
 
-
-
-
     /**
      * Assigns a title to the web page
      */
     ngOnInit(): void {
         this.title = "Fotografia";
+
+        if (localStorage == null)
+        {
+            localStorage.setItem('cliente', JSON.stringify(100));
+        }
         this.authService.start();
-        this.loginCliente = this.retrievedObject;
+       this.loginCliente = this.retrievedObject;
         console.log('cliente login : ', (this.retrievedObject));
         console.log('cliente id: ', this.loginCliente);
     }
@@ -47,11 +49,3 @@ export class AppComponent implements OnInit {
 
         
 }
-
-
-
-
-
-
-
-

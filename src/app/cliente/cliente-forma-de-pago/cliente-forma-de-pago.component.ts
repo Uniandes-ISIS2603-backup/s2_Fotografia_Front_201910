@@ -21,6 +21,9 @@ export class ClienteFormaDePagoComponent implements OnInit {
    * Id del cliente
    */
   @Input() clienteId: number;
+
+  @Input() disabledFdp: boolean;
+
   isCollapsed: boolean = true;
 
   /**

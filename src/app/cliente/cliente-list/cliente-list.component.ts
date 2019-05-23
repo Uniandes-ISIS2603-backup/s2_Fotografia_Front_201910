@@ -60,7 +60,7 @@ loader: any;
     this.clienteService.getClientesDetail(this.clienteId)
         .subscribe(clienteDetail => {
             this.clienteDetail = clienteDetail  
-            console.log(this.clienteDetail);
+            console.log("EL DETAIL DEL CLIENTE: " + this.clienteDetail.id);
         });
 }
 
