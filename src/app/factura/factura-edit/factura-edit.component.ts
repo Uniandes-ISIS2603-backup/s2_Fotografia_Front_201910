@@ -85,7 +85,7 @@ export class FacturaEditComponent implements OnInit, OnChanges {
     * This function will initialize the component
     */
     ngOnInit() {
-        this.factura = new FacturaDetail();
+        this.factura = new FacturaDetail(this.factura.numero, this.factura.precio, this.factura.fechaCompra,this.factura.photos);
         this.getFactura();
     }
 

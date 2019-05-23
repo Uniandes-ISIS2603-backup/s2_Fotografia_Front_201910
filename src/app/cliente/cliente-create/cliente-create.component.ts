@@ -45,13 +45,17 @@ export class ClienteCreateComponent implements OnInit
         this.clienteService.createCliente(this.cliente)
             .subscribe((cli) => {
                 this.cliente = new Cliente(cli.id, cli.login);
-                localStorage.setItem('idCliente', cli.id + "");
                 this.create.emit(this.cliente);
-                this.router.navigate(['/clientes/list']);
+                this.router.navigate(['/clientes/list']);  
                 this.toastrService.success("The client was created", "cliente creation");
             });
 
-        return this.cliente;
+         localStorage.setItem('cliente', JSON.stringify(this.cliente.login));
+         var retrievedObject = localStorage.getItem('cliente');
+
+        console.log('cliente: ', JSON.parse(retrievedObject));
+         
+         return this.cliente;
     }
 
     /**

@@ -1,15 +1,38 @@
+<div *ngIf="!showBuy">
+        <div class='partearriba'>
+            <div class="card-header bg-dark text-light">
+                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                Carrito de compras
+                <a (click)="showBuyCarrito2()" class="btn btn-outline-info btn-sm pull-right">Abrir</a>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+<div *ngIf="showBuy">
+    <div class='partearriba'>
+        <div class="card-header bg-dark text-light">
+            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+            Carrito de compras
+            <a (click)="showBuyCarrito2()" class="btn btn-outline-info btn-sm pull-right">Cerrar</a>
+            <div class="clearfix"></div>
+        </div>
+        <shoppingCart-component></shoppingCart-component>
+    </div>
+</div>
 <div class="pin-layout">
     <div class="thumbnail">
         <br>
-        <div class="row justify-content-center align-self-center">
-            <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn" (click)="showHideCreate()">Subir mi  
+        <div class="row justify-content-center align-self-center" *ngxPermissionsOnly="['FOTOGRAFO']">
+            <button [ngClass]="{ 'btn-primary': !showCreate, 'btn-danger': showCreate }" type="button" class="btn"
+                (click)="showHideCreate()">Subir mi
                 foto
             </button>
         </div>
         <br>
         <div class="col-md-8">
             <div *ngIf="showCreate">
-                <app-photo-create (cancel)="showHideCreate()" (create)="ngOnInit()" *ngIf="showCreate"></app-photo-create>
+                <app-photo-create (cancel)="showHideCreate()" (create)="ngOnInit()" *ngIf="showCreate">
+                </app-photo-create>
             </div>
         </div>
     </div>
@@ -17,7 +40,8 @@
 
 <div class="col-md-8">
     <div *ngIf="showEdit">
-        <app-photo-edit [photo_edit]="photo_edit_id" (cancel)="showHideEdit(photo_edit_id)" (update)="updatePhoto()"></app-photo-edit>
+        <app-photo-edit [photo_edit]="photo_edit_id" (cancel)="showHideEdit(photo_edit_id)" (update)="updatePhoto()">
+        </app-photo-edit>
     </div>
 </div>
 
@@ -29,8 +53,9 @@
         <div class="grid__overlay">
             <button class="viewbutton" routerLink="/photos/{{photo.id}}">View</button>
             <button class="viewbutton" (click)="showHideEdit(photo.id)">Edit</button>
-            <button class="viewbutton" routerLink="/photos/{{photo.id}}">Comprar</button>
+            <div class="">
+                <button class="animacioncarrito" (click)="addToCart(photo);showBuyCarrito()">Al carrito!</button>
+            </div>
         </div>
     </div>
 </section>
-

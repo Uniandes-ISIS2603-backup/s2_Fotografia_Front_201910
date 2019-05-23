@@ -50,7 +50,7 @@ export class InteresFotograficoCreateComponent implements OnInit {
             .subscribe((interesFotografico) => {
                 this.interesFotografico = interesFotografico;
                 this.create.emit();
-                this.toastrService.success("The calificacion was created", "calificacion creation");
+                this.toastrService.success("The interes was created", "interes creation");
 
             });
         return this.interesFotografico;

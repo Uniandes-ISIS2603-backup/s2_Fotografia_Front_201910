@@ -27,6 +27,7 @@ import { FacturaPhotoComponent  } from './factura-photo/factura-photo.component'
     FormsModule
   ],
   declarations: [FacturaListComponent, FacturaDetailComponent, FacturaCreateComponent, FacturaEditComponent, FacturaPhotoComponent],
+  exports: [FacturaListComponent, FacturaCreateComponent, FacturaDetailComponent],
   providers: [FacturaService],
   bootstrap: [FacturaListComponent]
 })

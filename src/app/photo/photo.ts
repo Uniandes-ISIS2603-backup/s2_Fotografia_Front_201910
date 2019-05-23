@@ -36,4 +36,11 @@ export class Photo {
      * Atributo correspondiente a si la ha sido publicada o no.
      */
     published: boolean;
+
+    getPrice(){
+        return this.price;
+    }
+    getQty(){
+        return 1;
+    }
 }

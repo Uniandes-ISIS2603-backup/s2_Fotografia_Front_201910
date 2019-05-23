@@ -14,4 +14,8 @@ export class FormaDePagoDetail extends FormaDePago
 
   cliente_id: number;
 
+  foto: string;
+
+  fechaFormato:string;
+
 }
