@@ -12,7 +12,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FotografoCreateComponent } from './fotografo-create/fotografo-create.component';
 import { FotografoEditComponent } from './fotografo-edit/fotografo-edit.component';
 import { FotografoInteresfotograficoComponent } from './fotografo-interesfotografico/fotografo-interesfotografico.component';
-
+import { PhotoModule } from '../photo/photo.module'
 @NgModule({
     imports: [
         BrowserModule,
@@ -20,7 +20,8 @@ import { FotografoInteresfotograficoComponent } from './fotografo-interesfotogra
             HttpClientModule,
             CommonModule,
             FormsModule, 
-            NgbModule
+            NgbModule,
+            PhotoModule
       ],
       declarations: [FotografoListComponent, FotografoDetailComponent, FotografoCreateComponent, FotografoEditComponent, FotografoInteresfotograficoComponent],
       providers: [FotografoService],

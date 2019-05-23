@@ -39,7 +39,7 @@ export class PhotoCreateComponent implements OnInit {
     * The output which tells the parent component
     * that the user created a new calificacion
     */
-    @Output() create = new EventEmitter();
+    @Output() create = new EventEmitter<Photo>();
 
     /**
     * Creates a Photo
@@ -51,7 +51,7 @@ export class PhotoCreateComponent implements OnInit {
         this.photoService.createPhoto(this.photo)
             .subscribe((photo) => {
                 this.photo = photo;
-                this.create.emit();
+                this.create.emit(this.photo);
                 this.toastrService.success("The photo was created", "Photo creation");
             });
         return this.photo;

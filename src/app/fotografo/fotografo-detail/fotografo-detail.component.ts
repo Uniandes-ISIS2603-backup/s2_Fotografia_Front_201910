@@ -5,7 +5,8 @@ import {FotografoDetail} from '../fotografo-detail';
 import {ModalDialogService, SimpleModalComponent} from 'ngx-modal-dialog';
 import {ToastrService} from 'ngx-toastr';
 import { FotografoInteresfotograficoComponent } from './../fotografo-interesfotografico/fotografo-interesfotografico.component';
-
+import { PhotoService } from '../../photo/photo.service';
+import { Photo } from '../../photo/photo';
 
 @Component({
   selector: 'app-fotografo-detail',
@@ -20,7 +21,8 @@ constructor(private fotografoService: FotografoService,
     private modalDialogService: ModalDialogService,
     private router: Router,
     private viewRef: ViewContainerRef,
-    private toastrService: ToastrService
+    private toastrService: ToastrService,
+    private photoService: PhotoService
 ) {
     //This is added so we can refresh the view when one of the books in
     //the "Other books" list is clicked
@@ -68,6 +70,8 @@ navigationSubscription;
  showEdit: boolean;
 
  showConfig : boolean;
+ 
+ showAddFoto: boolean;
 
 /**
 * El id del fotografo que viene en el path get .../fotografos/fotografoId
@@ -95,7 +99,13 @@ fotografo_id: number;
 
   ngOnInit() {
     this.loader = this.route.params.subscribe((params: Params) => this.onLoad(params));
+    this.showAddFoto = false;
   }
+  
+  showAddPhoto(): void{
+      this.showAddFoto = !this.showAddFoto;
+  }
+  
   showHideEdit(id: number): void {
     if (!this.showEdit || (this.showEdit && id != id)) {
         this.showCreate = false;
@@ -127,6 +137,22 @@ fotografo_id: number;
         this.desplegar = false;
     }
    }
+   
+   addPhoto(foto): void{
+       this.photoService.createPhoto(foto)
+       .subscribe(pFoto =>{
+           
+          this.fotografoService.postPhoto(this.fotografoDetail, pFoto)
+          .subscribe(uFoto =>{
+              let nuevaFoto: Photo = new Photo(uFoto.id, uFoto.nombre, uFoto.rutaFoto,
+              uFoto.date, uFoto.description, uFoto.price, uFoto.winner, uFoto.published);
+              this.fotografoDetail.fotos.push(nuevaFoto);
+              this.toastrService.success("Se añadio la foto", "Adicion de Foto");
+              this.ngOnInit();
+          });
+       });
+   }
+   
 updateFotografo(): void {
     this.showEdit = false;
 }

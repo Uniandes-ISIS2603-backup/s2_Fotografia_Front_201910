@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { Fotografo } from './fotografo';
 import { FotografoDetail } from './fotografo-detail';
 import {InteresFotograficoDetail} from '../interes-fotografico/interes-fotografico-detail';
-
+import { PhotoDetail } from '../photo/photo-detail';
 
  import { environment } from '../../environments/environment';
 import { InteresFotografico } from '../interes-fotografico/interes-fotografico';
@@ -70,5 +70,9 @@ getIntereses(interesId: number): Observable<InteresFotografico> {
  }
  getFotografoInteresesFotograficos(Id:number): Observable<InteresFotograficoDetail[]>{
    return this.http.get<InteresFotograficoDetail[]>(API_URL+ fotografos + '/'+ Id + intereses   );
+ }
+ 
+ postPhoto(fotografo, foto): Observable<PhotoDetail>{
+     return this.http.post<PhotoDetail>(API_URL+ fotografos + '/'+ fotografo.id + '/photos/' + foto.id, null);
  }
 }

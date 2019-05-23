@@ -30,6 +30,7 @@ import {ShoppingCartComponent} from '../shopping-cart/shopping-cart.component';
   ],
   declarations: [ShoppingCartComponent, PhotoListComponent, PhotoDetailComponent, PhotoCreateComponent, PhotoEditComponent, PhotoCalificacionComponent, PhotoAddCalificacionComponent],
   providers: [PhotoService],
-  bootstrap: [PhotoListComponent]
+  bootstrap: [PhotoListComponent],
+  exports:[PhotoCreateComponent]
 })
 export class PhotoModule { }
