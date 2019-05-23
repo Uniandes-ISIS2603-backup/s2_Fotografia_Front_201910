@@ -40,6 +40,8 @@ export class AuthLoginComponent implements OnInit {
     */
     login(): void {
 
+        if(this.role ==='Client')
+        {
         this.getClienteDetailLogin();
         if(this.clienteDetail === null || this.clienteDetail ===undefined)
         {
@@ -48,8 +50,12 @@ export class AuthLoginComponent implements OnInit {
         else{
             this.authService.login(this.role, this.user.nombre);
             this.toastrService.success('Logged in');
-        }
-
+        } 
+      }
+      else{
+        this.authService.login(this.role, null);
+        this.toastrService.success('Logged in');
+      }
         
     }
 
