@@ -116,11 +116,12 @@ export class AuthService {
      * Logs the user in with the desired role
      * @param role The desired role to set to the user
      */
-    login(role): void {
+    login(role, userLogin): void {
         if (role === 'Administrator') {
             this.setAdministratorRole();
         } else if (role === 'Client') {
             this.setClientRole();
+            localStorage.setItem('cliente', JSON.stringify(userLogin));
         } else if (role === 'Fotografo'){
             this.setFotografoRole();
         } else if (role === 'Organizador'){
@@ -129,6 +130,9 @@ export class AuthService {
             this.setJuradoRole();
         }
         this.router.navigateByUrl('/');
+
+
+
     }
     
 
