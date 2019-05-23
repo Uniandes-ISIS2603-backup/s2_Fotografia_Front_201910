@@ -124,7 +124,10 @@ export class ClienteFormaDePagoComponent implements OnInit {
   ngOnInit() {
     if (this.formasDePago == undefined)
       this.formasDePago = [new FormaDePagoDetail()];
+
     this.isCollapsed = true;
+    this.showCreate=false;
+
   }
 
   /**

@@ -1,5 +1,5 @@
-
-<div class="modal" tabindex="-1" role="dialog" id="myModal" aria-labelledby = "deleteModalLabel" aria-hidden="true">
+<div class = "container-fluid">
+<div class="modal modal-backdrop" tabindex="-1" role="dialog" id="myModal" aria-labelledby = "deleteModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
@@ -12,9 +12,10 @@
             <p>¿Esta seguro que desea eliminar la cuenta con login <b>{{clienteDetail.login}}</b> ?</p>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-danger" (click)="deleteCliente(clienteDetail)">Eliminar</button>
+            <button type="button" class="btn btn-danger" (click)="deleteCliente(clienteDetail)" data-dismiss="modal">Eliminar</button>
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
           </div>
         </div>
       </div>
+</div>
 </div>

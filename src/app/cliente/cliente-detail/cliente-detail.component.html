@@ -41,7 +41,7 @@
 
 
                         <li class="nav-item">
-                            <a class="nav-link" href="#favorite" role="tab" data-toggle="tab">
+                            <a class="nav-link" href="#favorite" role="tab" data-toggle="tab" (click)="deleteCliente()" data-toggle="modal" data-target="#myModal">
                                 <i class='fas fa-trash'></i>
                                 Eliminar perfil
                             </a>
@@ -73,7 +73,7 @@
                             </div>
                         </div>
 
-                        <div class="row btn-group">
+                        <div class="row">
                                 <cliente-forma-de-pago class="m-3" [clienteId]="clienteDetail.id" [disabledFdp]= "disabledFdp"></cliente-forma-de-pago>
                                 <app-cliente-factura class="m-3" [clienteId] = "clienteDetail.id" [disabledFac]= "disabledFac"></app-cliente-factura>
                         </div>
@@ -82,7 +82,11 @@
                     <div *ngIf="showEdit">
                             <app-cliente-edit [clienteId]="clienteDetail.id"  (cancel)="showHideEdit(clienteId)"
                                 (update)="updateCliente()" style="align-items: center"></app-cliente-edit>
-                        </div>
+                    </div>
+
+                    <div *ngIf="showDelete">
+                            <app-cliente-delete [clienteDetail]="clienteDetail"></app-cliente-delete>
+                    </div>
                 </div>
                 <div class="tab-content tab-space">
                     <div class="tab-pane active text-center gallery" id="studio">
