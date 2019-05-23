@@ -2,11 +2,19 @@
 
 @import "../node_modules/ngx-toastr/toastr.css";
 
-.modal-backdrop {
+  .modal-backdrop {
     /* bug fix - no overlay */    
-    display: none;    
+    display: none; 
+       
 }
 
 .modal {
     background: rgba(0,0,0,0.5);
+    position: absolute;
+    z-index: 1060;
+  }
+
+  .my-modal-wrapper {
+    position: absolute;
+    z-index: 1060;
   }

@@ -46,7 +46,7 @@ export class ClienteCreateComponent implements OnInit
             .subscribe((cli) => {
                 this.cliente = new Cliente(cli.id, cli.login);
                 this.create.emit(this.cliente);
-                this.router.navigate(['/clientes/list']);  
+                this.router.navigate(['/clientes/{{this.cliente.login}}']);  
                 this.toastrService.success("The client was created", "cliente creation");
             });
 
