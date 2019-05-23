@@ -67,7 +67,7 @@ export class AuthSignUpComponent implements OnInit {
     }
     
     createAdministrador(): void{
-        this.authService.login('Administrador');
+        this.authService.login('Administrador', null);
     }
     /**
     * Sign the user up with the selected role
