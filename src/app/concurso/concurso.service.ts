@@ -26,6 +26,14 @@ export class ConcursoService {
       return this.http.get<ConcursoDetail>(API_URL + concursos + '/' + concursoId);
   }
   
+  getFotografoDetail(concurso, fotografo): Observable<FotografoDetail>{
+      return this.http.get<FotografoDetail>(API_URL + concursos + '/' + concurso.id + '/fotografos/' + fotografo.id);
+  }
+  
+  getFotografos(concurso):Observable<FotografoDetail[]>{
+      return this.http.get<FotografoDetail[]>(API_URL + concursos + '/' + concurso.id + '/fotografos');
+  }
+  
   createConcurso(concurso): Observable<Concurso>{
       return this.http.post<Concurso>(API_URL + concursos, concurso);
   }

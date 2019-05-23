@@ -36,6 +36,15 @@
                     </div>
                 </div>
                 <div class="form-group">
+                    <label for="concursoReglas"><b>Pon las reglas del concurso:</b></label>
+                    <input type="text" name="concursoReglas" class="form-control" id="concursoReglas" [(ngModel)]="reglas"
+                            #concursoReglas="ngModel" ngClass="{ 'is-invalid': f.submitted }" required>
+                    <input type=button (click)="subirRegla()" value="Añadir regla"/>
+                           <div class="invalid-feedback">
+                        <div> Falta poner reglas al concurso</div>
+                    </div>
+                </div>
+                <div class="form-group">
                     <label for="concursoPremioCantidad"><b>Pon la cantidad a ganar: </b></label>
                     <input type="number" name="concursoPremioCantidad" class="form-control" id="concursoPremioCantidad" [(ngModel)]="concurso.premioCantidad"
                             #concursoPremioCantidad="ngModel" ngClass="{ 'is-invalid': f.submitted && concursoPremioCantidad.invalid }" required>
@@ -43,18 +52,6 @@
                         <div> Falta la cantidad del premio</div>
                     </div>
                 </div>
-                
-                <div class="form-group">
-                        <label for="concursoOrganizador"><b>Organizador</b></label>
-                        <select class="custom-select" name="concursoOrganizador" id="concursoOrganizador" [(ngModel)]="concurso.organizador.id"
-                            #concursoOrganizador="ngModel" [ngClass]="{ 'is-invalid': f.submitted && concursoOrganizador.invalid }"
-                            required>
-                            <option [value]="organizador.id" *ngFor="let organizador of organizadors">{{organizador.nombre}}</option>
-                        </select>
-                        <div class="invalid-feedback">
-                            <div>The concurso's organizador is missing</div>
-                        </div>
-                    </div>
                 <div class="row form-inline justify-content-center align-self-center">
                 <button type="submit" class="btn btn-primary">Create</button>
                 <div class="divider"></div>

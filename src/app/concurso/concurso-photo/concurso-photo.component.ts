@@ -1,5 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-
+import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
+import { PhotoDetail } from '../../photo/photo-detail';
+import { Photo } from '../../photo/photo';
+import { Fotografo } from '../../fotografo/fotografo';
+import { FotografoDetail } from '../../fotografo/fotografo-detail';
+import {ToastrService} from 'ngx-toastr';
+import {ConcursoService} from '../concurso.service';
 @Component({
   selector: 'app-concurso-photo',
   templateUrl: './concurso-photo.component.html',
@@ -7,8 +12,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConcursoPhotoComponent implements OnInit {
 
-  constructor() { }
+  constructor(private concursoService: ConcursoService,
+              private toastrService: ToastrService) { }
 
+
+  @Input() fotografo: FotografoDetail;
+
+  @Output() select = new EventEmitter<Photo>();
+  
+  selectFoto(foto: Photo): void{
+      this.select.emit(foto);
+  }
+  
   ngOnInit() {
   }
 

@@ -37,6 +37,10 @@ export class ConcursoCreateComponent implements OnInit {
     @Output() cancel = new EventEmitter();
 
     /**
+     * 
+     */
+    reglas: string;
+    /**
     * The new concurso
     */
     concurso: Concurso;
@@ -57,6 +61,14 @@ export class ConcursoCreateComponent implements OnInit {
                 this.toastrService.error(err, 'Error');
             });
     }
+    
+    subirRegla(): void {
+        if(!this.concurso.restricciones){
+            this.concurso.restricciones = "";
+        }
+        this.concurso.restricciones += ";" + this.reglas;
+        this.reglas = "";
+    }
 
     /**
     * Creates a new concurso
@@ -74,7 +86,7 @@ export class ConcursoCreateComponent implements OnInit {
     * Redirects to the concursos' list page
     */
     cancelCreation(): void {
-        this.toastrService.warning('The concurso wasn\'t created', 'concurso creation');
+        this.toastrService.warning('El concurso no fue creado', 'Creacion del concurso');
         this.router.navigate(['/concursos/list']);
     }
 
@@ -84,8 +96,6 @@ export class ConcursoCreateComponent implements OnInit {
     */
     ngOnInit() {
         this.concurso = new Concurso();
-        this.concurso.organizador = new Organizador();
-        this.getOrganizadors();
     }
 
 }

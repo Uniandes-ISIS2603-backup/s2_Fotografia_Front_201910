@@ -1,3 +1,8 @@
-<p>
-  concurso-photo works!
-</p>
+<div class ="container-fluid scroll" *ngIf="fotografo">
+    <div class="gallery" *ngFor="let foto of fotografo.fotos">
+        <a target="_blank" (click)="selectFoto(foto)">
+            <img src="{{foto.rutaFoto}}" alt="{{foto.nombre}}" width="600" height="400">
+        </a>
+    </div>
+</div>
+

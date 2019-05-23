@@ -1,0 +1,26 @@
+div.gallery {
+  margin: 3px;
+  border: 1px solid #ccc;
+  float: left;
+  width: 180px;
+}
+
+div.gallery:hover {
+  border: 1px solid #777;
+}
+
+div.gallery img {
+  width: 100%;
+  height: auto;
+}
+
+div.desc {
+  padding: 0px;
+  text-align: center;
+}
+
+.scrolls { 
+        overflow-x: scroll;
+        overflow-y: hidden;
+    white-space:nowrap;
+    }

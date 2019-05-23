@@ -1,45 +1,50 @@
 
 <div class="container-fluid">
 
-    <h1> {{concursoDetail.tema}} </h1>
-    <h5> Cantidad del premio: {{concursoDetail.premioCantidad}}</h5>
+    <h1 class="heading"> {{concursoDetail.tema}} </h1>
+    <h5 class="heading2"> Cantidad del premio: {{concursoDetail.premioCantidad}}</h5>
     <!--      -->
-    <h4 routerLink="/organizadors/{{concursoDetail.organizador.id}}" style="cursor: pointer;"> Organizador: {{concursoDetail.organizador.nombre}}</h4>
+    <div *ngIf="concursoDetail.organizador">
+    <h4 class="heading3" routerLink="/organizadors/{{concursoDetail.organizador.id}}" style="cursor: pointer;"> Organizador: {{concursoDetail.organizador.nombre}}</h4>
+    </div>
     <div *ngIf="concursoDetail.ronda">
-        <h4 routerLink="/rondas/{{concursoDetail.ronda.id}}" style="cursor: pointer;"> Ronda: {{concursoDetail.ronda.numRonda}}</h4>
+        <h4 class="heading4" routerLink="/rondas/{{concursoDetail.ronda.id}}" style="cursor: pointer;"> Ronda: {{concursoDetail.ronda.numRonda}}</h4>
     </div>
     <div class="row" style="padding-top:50px">
         <div class="col-xs-9 col-sm-9 col-md-6 col-lg-6 text-center">
             <h4 class="list-group-item"><a href="#" ng-click="show = true" ng-init="show = false">Reglas del concurso</a></h4>
             <div class="wrapper">
-                <ul ng-show="show">
+                <ul >
                     <li>Maximas fotos por fotografo: {{concursoDetail.maxFotos}}</li>
                     <li>Edad Maxima de la foto (en meses): {{concursoDetail.edadDeLaFoto}}</li>
                     <li>Fecha De la premiacion: {{concursoDetail.fechaDelConcurso}}</li>
                 </ul>
             </div>
         </div>
-        <div class="col-xs-2 col-sm-2 col-md-4 col-lg-4 text-center">
+
+        <div class="col-xs-2 col-sm-2 col-md-4 col-lg-4 text-center" *ngxPermissionsOnly="['FOTOGRAFO', 'ADMIN']">
             <button class="btn btn-success" (click)="agregarFotografo()"> Entrar a concurso </button>
+ 
         </div>
-        <div class="col-xs-1 col-sm-1 col-md-2 col-lg-2 text-center">
-            <button class="btn btn-primary" (click)="showPhotos()"> Agregar Foto </button>
+ 
+        <div class="col-xs-1 col-sm-1 col-md-2 col-lg-2 text-center" *ngxPermissionsOnly="['FOTOGRAFO', 'ADMIN']">
+            <button class="btn btn-primary" (click)="showAgregarFoto()"> Agregar Foto </button>
+            <app-concurso-photo *ngIf="show" [fotografo]="fotografo" (select)="agregarFoto($event)"></app-concurso-photo>
         </div>
-        <div *ngIf="show">
-            
-        </div>
+  
     </div>
    
-    <section id="portfolio">
-        <div class="project" *ngFor="let photo of concursoDetail.fotosEnConcurso">
-             <img class="project__image" src='{{photo.rutaFoto}}' src='{{photo.rutaFoto}}' />
-            <p>{{photo.nombre}}</p>
-            <div class="grid__overlay">
-                <br>
-                <button class="viewbutton" routerLink="/photos/{{photo.id}}">View</button>
+    <div class="gallery-image">
+        <div class="img-box" *ngFor="let photo of concursoDetail.fotosEnConcurso">
+          <img src="{{photo.rutaFoto}}" alt="" />
+          <div class="transparent-box">
+            <div class="caption">
+              <p>{{photo.nombre}}</p>
+              <p class="opacity-low">{{photo.description}}</p>
             </div>
+          </div> 
         </div>
-    </section>
+    </div>
 
    
 </div>
