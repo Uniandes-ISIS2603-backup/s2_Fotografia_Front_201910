@@ -19,4 +19,6 @@ tipoDeTarjeta: string;
  * Tipo de tarjeta de credito visa o mastercard
  */
   tipoTarjetaDeCredito: string;
+
+  nombre :string;
 }

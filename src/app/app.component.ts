@@ -25,6 +25,7 @@ export class AppComponent implements OnInit {
     ngOnInit(): void {
         this.title = "Fotografia";
 
+        localStorage.clear;
         if (localStorage == null)
         {
             localStorage.setItem('cliente', JSON.stringify(100));

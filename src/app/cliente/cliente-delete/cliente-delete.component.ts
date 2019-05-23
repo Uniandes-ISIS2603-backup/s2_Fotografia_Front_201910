@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output,EventEmitter } from '@angular/core';
 import { ClienteService } from '../cliente.service';
 import {ClienteDetail} from '../cliente-detail';
 import {ToastrService} from 'ngx-toastr';
@@ -16,6 +16,8 @@ export class ClienteDeleteComponent implements OnInit
    */
   @Input() clienteDetail: ClienteDetail;
 
+  @Output() eventoEliminar = new EventEmitter();
+
 /**
  * Constructor del componente
  * @param clienteService el proveedor de servicios del cliente
@@ -31,8 +33,10 @@ export class ClienteDeleteComponent implements OnInit
   deleteCliente(clienteDetail: ClienteDetail): void {
     console.log(this.clienteDetail);
     this.clienteService.deleteCliente(clienteDetail.id)
-        .subscribe(
-        );
+        .subscribe(c=>{
+          this.eventoEliminar.emit();
+          this.router.navigate(['/clientes/list']);  
+        });
 }
 
 }
