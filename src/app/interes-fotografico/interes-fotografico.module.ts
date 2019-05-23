@@ -11,7 +11,8 @@ import { AppRoutingModule } from '../app-routing/app-routing.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { InteresFotograficoCreateComponent } from './interes-fotografico-create/interes-fotografico-create.component';
 import { InteresFotograficoEditComponent } from './interes-fotografico-edit/interes-fotografico-edit.component';
-
+import { InteresFotograficoFotosComponent } from './interes-fotografico-fotos/interes-fotografico-fotos.component';
+import { PhotoModule } from '../photo/photo.module';
 
 @NgModule({
     imports: [
@@ -20,9 +21,10 @@ import { InteresFotograficoEditComponent } from './interes-fotografico-edit/inte
             HttpClientModule,
             CommonModule,
             FormsModule, 
-            NgbModule
+            NgbModule,
+            PhotoModule
       ],
-      declarations: [InteresFotograficoListComponent, InteresFotograficoDetailComponent, InteresFotograficoCreateComponent, InteresFotograficoEditComponent],
+      declarations: [InteresFotograficoListComponent, InteresFotograficoDetailComponent, InteresFotograficoCreateComponent, InteresFotograficoEditComponent, InteresFotograficoFotosComponent],
       providers: [InteresFotograficoService],
       bootstrap: [InteresFotograficoListComponent]
 })

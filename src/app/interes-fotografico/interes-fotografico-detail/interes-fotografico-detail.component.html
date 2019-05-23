@@ -27,8 +27,12 @@
            
           </div>
           
-          
-          
+        
+  
         </div>
   
+        <div class="row justify-content-center align-self-center">
+          <button [ngClass]="{ 'btn-danger': !verif, 'btn-primary': verif }" type="button" class="btn" routerLink="/interesFotograficos/list" onclick = "return confirm ('¿Estas seguro que desea eliminar este Interes Fotografico?')"   (click) = "delete()" >Eliminar interes fotografico</button>
+        </div>
+
         </div>

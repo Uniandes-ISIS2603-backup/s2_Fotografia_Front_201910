@@ -5,7 +5,7 @@
         <h2 class="text-center">Crear interes fotografico</h2>
         <br>
         <form name="interesFotografico" (ngSubmit)="f.form.valid && createInteresFotografico()" #f="ngForm" novalidate>
-            <div class="form-group">
+            
                 <form name="interesFotografico" (ngSubmit)="f.form.valid && editInteresFotografico()" #f="ngForm" novalidate>
                <div class="form-group">
                 <label for="interesFotograficoInteres"><b>Nombre</b></label>
@@ -17,22 +17,22 @@
               </div>
 
               <div class= "form-group">
-                <label for="foto"><b>Foto</b></label>
-                <input type="text" name="foto" class="form-control" id="foto" [(ngModel)]="interesFotografico.foto"
+                <label for="interesFotograficoFoto"><b>Foto</b></label>
+                <input type="text" name="interesFotograficoFoto" class="form-control" id="interesFotograficoFoto" [(ngModel)]="interesFotografico.foto"
                     #interesFotograficoFoto="ngModel" [ngClass]="{ 'is-invalid': f.submitted &&interesFotograficoFoto.invalid }" required>
                 <div class="invalid-feedback">
                     <div>No se ha puesto la foto</div>
                 </div>
               </div>
               </form>
-    </div>
+    
 
 
            
                    
             <div class="row form-inline justify-content-center align-self-center">
-                <button type="submit" class="btn btn-primary" (click)=createInteresFotografico()  routerLink="/interesFotograficos/list" >Create</button>
-                <div class="divider"></div>
+                <button type="submit" class="btn btn-primary" (click)=createInteresFotografico()  >Create</button>
+               
                 <button type="button" class="btn btn-danger" (click)="cancelCreation()">Cancel</button>
             </div>
             
